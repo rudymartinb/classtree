@@ -44,7 +44,6 @@ class Combinatoria {
         $funcion( $this->array );
         
         $this->swap( 0, 1 );
-//         $this->swap( 0, 2 );
         $funcion( $this->array );
         
         
