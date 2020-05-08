@@ -15,6 +15,7 @@ class Combinatoria {
         $this->array[ $one ] = $this->array[ $two ];
         $this->array[ $two ] = $tmp;
     }
+    
     function ejecutar( ){
         $funcion = $this->funcion;
 
