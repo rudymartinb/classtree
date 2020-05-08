@@ -68,7 +68,10 @@ class Combinatoria {
 
         $this->swap120( $funcion ); // 6 7
         $this->swap120( $funcion ); // 8 9
-        $this->swap120( $funcion ); // 10 11
+//         $this->swap120( $funcion ); // 10 11
+
+//         $this->swap( 0, 3 );
+//         $funcion( $this->array );
         
 //         $funcion( $this->array );
         
