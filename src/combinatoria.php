@@ -20,6 +20,11 @@ class Combinatoria {
         $this->swap( 0, 1 );
         $funcion( $this->array );
     }
+    function swap12( Callable $funcion ) {
+        $this->swap( 1, 2 );
+        $funcion( $this->array );
+    }
+    
     function ejecutar( ){
         $funcion = $this->funcion;
 
@@ -34,18 +39,18 @@ class Combinatoria {
             return;
         }
         
-        $this->swap( 1, 2 );
-        $funcion( $this->array );
-
-        $this->swap( 0, 1 );
-        $funcion( $this->array );
+        $this->swap12( $funcion );
         
 
-        $this->swap( 1, 2 );
-        $funcion( $this->array );
+        $this->swap01( $funcion );
         
-        $this->swap( 0, 1 );
-        $funcion( $this->array );
+        
+
+        $this->swap12( $funcion );
+        
+        
+        $this->swap01( $funcion );
+        
         
     }
 }
