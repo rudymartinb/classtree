@@ -143,6 +143,12 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
                     case 15: //
                         $this->assertEquals( ["A","D", "C","B"], $elemento );
                         break;
+                    case 16: //
+                        $this->assertEquals( ["A","C", "D","B"], $elemento );
+                        break;
+                    case 17: //
+                        $this->assertEquals( ["C","A", "D","B"], $elemento );
+                        break;
                 }
                 $cual++;
             }
