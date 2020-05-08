@@ -41,17 +41,36 @@ class Combinatoria {
             return;
         }
         
+        // 1
         $this->swap01( $funcion ); 
         if( count( $this->array ) == 2 ){
             return;
         }
         
+        // 1 2
         $this->swap120( $funcion );
+        // 3 4
         $this->swap120( $funcion );
         
         if( count( $this->array ) == 3 ){
             return;
         }
+        
+        // 5
+        $this->swap( 0, 3 );
+        $funcion( $this->array );
+        
+         
+        $this->swap120( $funcion ); // 6 7
+        $this->swap120( $funcion ); // 8 9
+        $this->swap120( $funcion ); // 10 11 
+
+        $this->swap( 2, 3 );
+        $funcion( $this->array );
+//         $funcion( $this->array );
+        
+//         $this->swap120( $funcion );
+//         $this->swap120( $funcion );
         
         
     }
