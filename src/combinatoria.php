@@ -16,16 +16,16 @@ class Combinatoria {
         $this->array[ $two ] = $tmp;
     }
     
-    function swap01( Callable $funcion ) {
+    private function swap01( Callable $funcion ) {
         $this->swap( 0, 1 );
         $funcion( $this->array );
     }
-    function swap12( Callable $funcion ) {
+    private function swap12( Callable $funcion ) {
         $this->swap( 1, 2 );
         $funcion( $this->array );
     }
 
-    function swap120( Callable $funcion ) {
+    private function swap120( Callable $funcion ) {
         $this->swap12( $funcion );
         $this->swap01( $funcion );
         
@@ -46,11 +46,7 @@ class Combinatoria {
         }
         
         $this->swap120( $funcion );
-        
-
         $this->swap120( $funcion );
-
-        
         
     }
 }
