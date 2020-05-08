@@ -34,6 +34,7 @@ class Combinatoria {
     function ejecutar( ){
         $funcion = $this->funcion;
 
+        // as is ...
         $funcion( $this->array );
         
         if( count( $this->array ) == 1 ){
@@ -47,6 +48,11 @@ class Combinatoria {
         
         $this->swap120( $funcion );
         $this->swap120( $funcion );
+        
+        if( count( $this->array ) == 3 ){
+            return;
+        }
+        
         
     }
 }
