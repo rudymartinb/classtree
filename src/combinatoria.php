@@ -47,10 +47,8 @@ class Combinatoria {
             return;
         }
         
-        // 1 2
-        $this->swap120( $funcion );
-        // 3 4
-        $this->swap120( $funcion );
+        $this->swap120( $funcion ); // 1 2
+        $this->swap120( $funcion ); // 3 4
         
         if( count( $this->array ) == 3 ){
             return;
@@ -67,6 +65,11 @@ class Combinatoria {
 
         $this->swap( 2, 3 );
         $funcion( $this->array );
+
+        $this->swap120( $funcion ); // 6 7
+        $this->swap120( $funcion ); // 8 9
+        $this->swap120( $funcion ); // 10 11
+        
 //         $funcion( $this->array );
         
 //         $this->swap120( $funcion );
