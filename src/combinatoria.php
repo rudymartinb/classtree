@@ -16,6 +16,10 @@ class Combinatoria {
         $this->array[ $two ] = $tmp;
     }
     
+    function swap01( Callable $funcion ) {
+        $this->swap( 0, 1 );
+        $funcion( $this->array );
+    }
     function ejecutar( ){
         $funcion = $this->funcion;
 
@@ -25,21 +29,18 @@ class Combinatoria {
             return;
         }
         
-        $this->swap( 0, 1 );
-        $funcion( $this->array );
-
+        $this->swap01( $funcion ); 
         if( count( $this->array ) == 2 ){
             return;
         }
         
-//         $this->swap( 0, 1 );
         $this->swap( 1, 2 );
         $funcion( $this->array );
 
         $this->swap( 0, 1 );
         $funcion( $this->array );
         
-//         $this->swap( 0, 1 );
+
         $this->swap( 1, 2 );
         $funcion( $this->array );
         
