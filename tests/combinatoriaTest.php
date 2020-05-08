@@ -68,10 +68,11 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
                         $this->assertEquals( ["C","B","A"], $elemento );
                         break;
                     case 4:
-                        $this->assertEquals( ["A","C","B"], $elemento );
+                        $this->assertEquals( ["C","A","B"], $elemento );
                         break;
                     case 5:
-                        $this->assertEquals( ["C","A","B"], $elemento );
+                        $this->assertEquals( ["A","C","B"], $elemento );
+                        
                         break;
                 }
                 $cual++;
