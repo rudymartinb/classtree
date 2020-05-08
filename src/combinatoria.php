@@ -32,7 +32,7 @@ class Combinatoria {
             return;
         }
         
-        $this->swap( 0, 1 );
+//         $this->swap( 0, 1 );
         $this->swap( 1, 2 );
         $funcion( $this->array );
 
@@ -45,8 +45,6 @@ class Combinatoria {
         
         $this->swap( 0, 1 );
         $funcion( $this->array );
-        
-        
         
     }
 }
