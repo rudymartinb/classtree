@@ -27,6 +27,10 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( $esperado, $actual );
     }
     function test_splice() {
+        $input = array("red", "green", "blue", "yellow");
+        array_splice($input, 2);
+        var_dump($input);
+        
         $arr = [ "A", "B", "C" ];
         $copia = $arr;
         $cabeza = array_splice( $copia, 0 );
