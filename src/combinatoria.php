@@ -51,16 +51,9 @@ class Combinatoria {
         $fact = count( $arr );
         
         $funcion = $this->funcion;
-//         $funcion( $arr );
-//         for( $i = 1; $i < $fact ; $i++ ){
-            
-//         }
-//         if( count( $arr ) == 1 ){
-//             return;
-//         }
 
         for( $i = 0 ; $i < $fact  ; $i++ ){
-            var_dump($arr);
+//             var_dump($arr);
 
             $funcion( $arr );
             $one = $i;
