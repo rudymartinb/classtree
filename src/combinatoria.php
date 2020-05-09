@@ -12,9 +12,8 @@ class Combinatoria {
     }
     
     
-    function ejecutar2( Array $arr, Array $prefijo = [] ){
-        $todo = $arr+$prefijo;
-        $fact = count( $todo );
+    function ejecutar2( Array $arr ){
+        $fact = count( $arr );
         
         $funcion = $this->funcion;
 
