@@ -24,8 +24,9 @@ function comb( Array $arr ) : Array {
 //         Var_dump( $cabeza );
         $copia = $arr;
         
+        unset( $copia[1] );
 
-        $resto = array_slice( $copia, 1  );
+        $resto = $copia;
         
         $esto = comb( $resto );
 //         var_dump( $esto );
