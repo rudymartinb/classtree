@@ -47,10 +47,14 @@ class Combinatoria {
         
     }
     
-    function ejecutar( ){
-        // as is ...
+    function ejecutar2( Array $arr ){
         $funcion = $this->funcion;
         $funcion( $this->array );
+    }
+    function ejecutar( ){
+        // as is ...
+        $this->ejecutar2( $this->array );
+
         
         if( count( $this->array ) == 1 ){
             return;
@@ -72,7 +76,6 @@ class Combinatoria {
         $this->swap( 0, 3, $funcion );
         $this->swap120( $funcion );
         
-        
-        
     }
+    
 }
