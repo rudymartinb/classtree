@@ -10,17 +10,22 @@ function comb( Array $arr ) : Array {
     }
     if( count( $arr ) == 3 ){
         $cabeza = array_slice( $arr, 0, 1 );
-        
         $resto = array_slice( $arr, 1 );
-//         var_dump( $cabeza );
-//         var_dump( $resto );
-//         var_dump( array_merge( $cabeza , $resto ) );
         $resultado = comb( $resto );
-//         var_dump( $resultado );
         
         foreach( $resultado as $key => $value ){
             $resultado[ $key ] = array_merge( $cabeza , $value ) ;
-            var_dump( $resultado[ $key ] );
+        }
+//         $resultado = array_merge( [ $arr ], $resultado );
+//         var_dump($resultado);
+        return $resultado;
+        for( $i = 1 ; $i < count($arr) ; $i++ ){
+            
+
+            
+            $tmp = $arr[ 0 ];
+            $arr[ 0 ] = $arr[ $i ];
+            $arr[ $i ] = $tmp;
         }
         return $resultado ; 
         
