@@ -48,26 +48,28 @@ class Combinatoria {
     }
     
     function ejecutar2( Array $arr, Array $prefijo = [] ){
-        $funcion = $this->funcion;
-        $funcion( $arr );
+        $fact = count( $arr );
         
-        if( count( $arr ) == 1 ){
-            return;
-        }
-//         foreach ($arr as $key => $value ){
-            // separar el resto del array
-            // en nuevo array
+        $funcion = $this->funcion;
+//         $funcion( $arr );
+//         for( $i = 1; $i < $fact ; $i++ ){
             
-//             $arr2 = $arr;
-            $one = 0;
-            $two = 1;
+//         }
+//         if( count( $arr ) == 1 ){
+//             return;
+//         }
+
+        for( $i = 0 ; $i < $fact  ; $i++ ){
+            var_dump($arr);
+
+            $funcion( $arr );
+            $one = $i;
+            $two = $i+1;
             $tmp = $arr[ $one ];
             $arr[ $one ] = $arr[ $two ];
             $arr[ $two ] = $tmp;
+        }
             
-            $funcion( $arr );
-//         }
-        
     }
     function ejecutar( ){
         // as is ...

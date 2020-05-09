@@ -25,10 +25,21 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
         $comb->set_funcion(
             function( $elemento ) use ( & $cual, $expected ){
-                $esperado = arr_to_str( $expected[ $cual ] );
+                // prevent errors on uncompleted $expected elements
+                if( $cual >= count( $expected ) ){
+                    return;
+                }
+    
                 $actual = arr_to_str( $elemento );
-                
+                echo $cual." ".$actual."\n";
+                $esperado = arr_to_str( $expected[ $cual ] );
+
                 $this->assertEquals( $expected[ $cual ], $elemento, "elemento ".$cual. " ->  ".$esperado." = ".$actual );
+
+//                 $esperado = arr_to_str( $expected[ $cual ] );
+//                 $actual = arr_to_str( $elemento );
+                
+//                 $this->assertEquals( $expected[ $cual ], $elemento, "elemento ".$cual. " ->  ".$esperado." = ".$actual );
                 $cual++;
             }
             );
