@@ -18,44 +18,44 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $comb->ejecutar();
     }
     
-    function test_2(){
-        $comb = new Combinatoria();
-        $arr = [ "A", "B" ];
-        $comb->set_array( $arr );
-        $cual = 0;
+//     function test_2(){
+//         $comb = new Combinatoria();
+//         $arr = [ "A", "B" ];
+//         $comb->set_array( $arr );
+//         $cual = 0;
         
-        $cual = 0;
-        $expected = [];
-        $expected[] = [ "A", "B" ]; // given
-        $expected[] = [ "B", "A" ]; // swap 0 to 1
+//         $cual = 0;
+//         $expected = [];
+//         $expected[] = [ "A", "B" ]; // given
+//         $expected[] = [ "B", "A" ]; // swap 0 to 1
               
         
-        $comb->set_funcion(
-            function( $elemento ) use ( & $cual, $expected ){
-                // prevent errors on uncompleted $expected elements
-                if( $cual >= count( $expected ) ){
-                    return;
-                }
+//         $comb->set_funcion(
+//             function( $elemento ) use ( & $cual, $expected ){
+//                 // prevent errors on uncompleted $expected elements
+//                 if( $cual >= count( $expected ) ){
+//                     return;
+//                 }
     
-                $actual = arr_to_str( $elemento );
-                echo $cual." ".$actual."\n";
-                $esperado = arr_to_str( $expected[ $cual ] );
-
-                $this->assertEquals( $expected[ $cual ], $elemento, "elemento ".$cual. " ->  ".$esperado." = ".$actual );
-
-//                 $esperado = arr_to_str( $expected[ $cual ] );
 //                 $actual = arr_to_str( $elemento );
-                
+//                 echo $cual." ".$actual."\n";
+//                 $esperado = arr_to_str( $expected[ $cual ] );
+
 //                 $this->assertEquals( $expected[ $cual ], $elemento, "elemento ".$cual. " ->  ".$esperado." = ".$actual );
-                $cual++;
-            }
-            );
+
+// //                 $esperado = arr_to_str( $expected[ $cual ] );
+// //                 $actual = arr_to_str( $elemento );
+                
+// //                 $this->assertEquals( $expected[ $cual ], $elemento, "elemento ".$cual. " ->  ".$esperado." = ".$actual );
+//                 $cual++;
+//             }
+//             );
         
-        $comb->ejecutar();
+//         $comb->ejecutar();
         
-        $this->assertEquals( 2, $cual );
+//         $this->assertEquals( 2, $cual );
         
-    }
+//     }
     
 //     function test_3(){
 //         $comb = new Combinatoria();
