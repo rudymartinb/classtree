@@ -11,13 +11,20 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
     function test1() {
         $arr = [ "A" ];
         $actual = comb( $arr );
-        $this->assertEquals( $arr, $actual );
+        $esperado = [];
+        $esperado[] = [ "A" ];
+        $this->assertEquals( $esperado, $actual );
     }
 
     function test2() {
+        
         $arr = [ "A", "B" ];
+        $esperado = [];
+        $esperado[] = [ "A", "B" ];
+        $esperado[] = [ "B", "A" ];
+//         var_dump( $esperado );
         $actual = comb( $arr );
-        $this->assertEquals( $arr, $actual );
+        $this->assertEquals( $esperado, $actual );
     }
     
 //     function test_1(){

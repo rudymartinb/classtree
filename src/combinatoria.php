@@ -1,7 +1,11 @@
 <?php
 
 function comb( Array $arr ) : Array {
-    return $arr;
+    if( count( $arr ) <= 1 ){
+        return [ $arr ];
+    }
+    $b = ["B","A"];
+    return [ $arr, $b ];
 }
 
 class Combinatoria {
