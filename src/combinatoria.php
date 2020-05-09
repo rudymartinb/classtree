@@ -4,8 +4,28 @@ function comb( Array $arr ) : Array {
     if( count( $arr ) <= 1 ){
         return [ $arr ];
     }
-    $b = ["B","A"];
-    return [ $arr, $b ];
+    if( count( $arr ) == 2 ){
+        $b = [ $arr[1], $arr[0] ];
+        return [ $arr, $b ];
+    }
+    if( count( $arr ) == 3 ){
+        $cabeza = array_slice( $arr, 0, 1 );
+        
+        $resto = array_slice( $arr, 1 );
+//         var_dump( $cabeza );
+//         var_dump( $resto );
+//         var_dump( array_merge( $cabeza , $resto ) );
+        $resultado = comb( $resto );
+//         var_dump( $resultado );
+        
+        foreach( $resultado as $key => $value ){
+            $resultado[ $key ] = array_merge( $cabeza , $value ) ;
+            var_dump( $resultado[ $key ] );
+        }
+        return $resultado ; 
+        
+        
+    }
 }
 
 class Combinatoria {

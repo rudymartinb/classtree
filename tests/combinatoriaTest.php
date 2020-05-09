@@ -26,7 +26,20 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $actual = comb( $arr );
         $this->assertEquals( $esperado, $actual );
     }
-    
+    function test_3(){
+        $arr = [ "A", "B", "C" ];
+        $esperado = [];
+        $esperado[] = [ "A", "B", "C" ]; // given
+        $esperado[] = [ "A", "C", "B" ]; // swap 0 1
+//         $esperado[] = [ "C", "A", "B" ]; // swap 1 2
+//         $esperado[] = [ "C", "B", "A" ]; // swap 0 1
+//         $esperado[] = [ "B", "A", "C" ]; // swap 0 to 1
+//         $esperado[] = [ "B", "C", "A" ]; // swap 1 2
+        
+        $actual = comb( $arr );
+        $this->assertEquals( $esperado, $actual );
+    }
+
 //     function test_1(){
 //         $comb = new Combinatoria();
 //         $arr = [ "A" ];
