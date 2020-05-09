@@ -19,17 +19,6 @@ function comb( Array $arr ) : Array {
 //         $resultado = array_merge( [ $arr ], $resultado );
 //         var_dump($resultado);
         return $resultado;
-        for( $i = 1 ; $i < count($arr) ; $i++ ){
-            
-
-            
-            $tmp = $arr[ 0 ];
-            $arr[ 0 ] = $arr[ $i ];
-            $arr[ $i ] = $tmp;
-        }
-        return $resultado ; 
-        
-        
     }
 }
 
