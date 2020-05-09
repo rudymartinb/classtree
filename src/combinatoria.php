@@ -47,12 +47,25 @@ class Combinatoria {
         
     }
     
-    function ejecutar2( Array $arr ){
+    function ejecutar2( Array $arr, Array $prefijo = [] ){
         $funcion = $this->funcion;
         $funcion( $arr );
         
         if( count( $arr ) == 1 ){
             return;
+        }
+        foreach ($arr as $key => $value ){
+            // separar el resto del array
+            // en nuevo array
+            
+//             $arr2 = $arr;
+            $one = $key;
+            $two = $key+1;
+            $tmp = $arr[ $one ];
+            $this->array[ $one ] = $arr[ $two ];
+            $this->array[ $two ] = $tmp;
+            
+            $funcion( $this->array );
         }
         
     }
@@ -61,25 +74,25 @@ class Combinatoria {
         $this->ejecutar2( $this->array );
 
         
-        if( count( $this->array ) == 1 ){
-            return;
-        }
+//         if( count( $this->array ) == 1 ){
+//             return;
+//         }
         
-        $this->swap120();
+//         $this->swap120();
         
-        if( count( $this->array ) <= 3 ){
-            return;
-        }
+//         if( count( $this->array ) <= 3 ){
+//             return;
+//         }
         
-        // 5
-        $this->swap( 2, 3);
-        $this->swap120();
+//         // 5
+//         $this->swap( 2, 3);
+//         $this->swap120();
 
-        $this->swap( 2, 3 );
-        $this->swap120();
+//         $this->swap( 2, 3 );
+//         $this->swap120();
 
-        $this->swap( 0, 3);
-        $this->swap120();
+//         $this->swap( 0, 3);
+//         $this->swap120();
         
     }
     
