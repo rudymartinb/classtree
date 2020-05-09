@@ -9,8 +9,13 @@ function arr_to_str( Array $arr ) : string {
 
 class combinatoriaTest extends PHPUnit\Framework\TestCase {
     function test1() {
-        
         $arr = [ "A" ];
+        $actual = comb( $arr );
+        $this->assertEquals( $arr, $actual );
+    }
+
+    function test2() {
+        $arr = [ "A", "B" ];
         $actual = comb( $arr );
         $this->assertEquals( $arr, $actual );
     }
