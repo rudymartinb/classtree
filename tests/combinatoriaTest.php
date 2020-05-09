@@ -26,17 +26,29 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $actual = comb( $arr );
         $this->assertEquals( $esperado, $actual );
     }
+    
+    
     function test_splice() {
         
         $arr = [ "A", "B", "C" ];
         $copia = $arr;
-        $cabeza = array_splice( $copia, 1,1 );
+        $cabeza = array_slice( $copia, 1,1 );
+        
+        // nos aseguramos que el original siga igual que siempre
+        $this->assertEquals( ["A","B","C"], $arr );
+        
         $copia = $arr;
-        unset( $copia[1] );
+        $this->assertEquals( ["B"], $cabeza );
+        
+        // nos aseguramos que el original siga igual que siempre
+        $this->assertEquals( ["A","B","C"], $arr );
+        // unset( $copia[1] );
         $resto = $copia;
-//         $resto = array_slice( $copia, 0 );
-        vaR_dump( $cabeza );
-        vaR_dump( $resto );
+        array_splice( $resto, 1,1 );
+        $this->assertEquals( ["A","C"], $resto, "resto deberia ser AC" );
+        
+        // nos aseguramos que el original siga igual que siempre
+        $this->assertEquals( ["A","B","C"], $arr );
     }
     
 //     function test_3(){
@@ -44,7 +56,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
 //         $esperado = [];
 //         $esperado[] = [ "A", "B", "C" ]; // given
 //         $esperado[] = [ "A", "C", "B" ]; // swap 0 1
-//         $esperado[] = [ "B", "A", "C" ]; // swap 0 to 1
+// //         $esperado[] = [ "B", "A", "C" ]; // swap 0 to 1
 //         //         $esperado[] = [ "B", "C", "A" ]; // swap 1 2
 //         //         $esperado[] = [ "C", "A", "B" ]; // swap 1 2
 //         //         $esperado[] = [ "C", "B", "A" ]; // swap 0 1
