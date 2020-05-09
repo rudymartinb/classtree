@@ -11,22 +11,44 @@ function comb( Array $arr ) : Array {
     if( count( $arr ) == 3 ){
         $total = [];
         
-        for( $i = 0 ; $i <= count( $arr ) ; $i++ ){
-            $copia = $arr;
-            $cabeza = array_slice( $copia, $i, 1 );
-            $resto = array_splice( $copia, $i, 1 );
-            $resultado = comb( $resto );
+        $total[] = [ $arr ];
+        $copia = $arr;
+//         var_dump( $copia );
+        $cabeza = array_splice( $copia, 0, 1 );
+//         var_dump( $copia );
+        var_dump( $cabeza );
+        $resto = array_slice( $copia, 0  );
+//         var_dump( $copia );
+        
+        var_dump( $resto );
+//         var_dump( $copia );
+        
+        $resultado = comb( $resto );
+        
+        var_dump( $resultado );
+//         var_dump( $resultado[0] );
+//         var_dump( $resultado[1] );
+//         $total = array_merge($cabeza,$resultado);
+        
+        
+
+//         for( $i = 0 ; $i <= count( $arr ) ; $i++ ){
+//             $copia = $arr;
+//             $cabeza = array_slice( $copia, $i, 1 );
+//             $resto = array_splice( $copia, $i, 1 );
+//             $resultado = comb( $resto );
             
             foreach( $resultado as $key => $value ){
                 $resultado[ $key ] = array_merge( $cabeza , $value ) ;
             }
-            $total = array_merge( $total, $resultado );
-        }
+//             $total = array_merge( $total, $resultado );
+//             vaR_dump( $total );
+//         }
         
         
 //         $resultado = array_merge( [ $arr ], $resultado );
 //         var_dump($resultado);
-        return $total;
+        return $resultado;
     }
 }
 
