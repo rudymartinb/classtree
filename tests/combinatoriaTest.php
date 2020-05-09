@@ -26,6 +26,14 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $actual = comb( $arr );
         $this->assertEquals( $esperado, $actual );
     }
+    function test_splice() {
+        $copia  = [ "A", "B", "C" ];
+        $cabeza = array_slice( $copia, 0, 1 );
+        $resto = array_splice( $copia, 1, 1 );
+        vaR_dump( $cabeza );
+        vaR_dump( $copia );
+        
+    }
 //     function test_3(){
 //         $arr = [ "A", "B", "C" ];
 //         $esperado = [];
