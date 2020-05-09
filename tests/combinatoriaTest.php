@@ -97,12 +97,13 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $expected[17] = [ "A", "B", "D", "C" ]; // swap 0 1
         
         $expected[18] = [ "C", "B", "D", "A" ]; // swap 0 3
-//         $expected[18] = [ "C", "B", "D", "A" ]; // swap 0 1
+        $expected[19] = [ "B", "C", "D", "A" ]; // swap 0 1
         
         
         
         $comb->set_funcion(
             function( $elemento ) use ( & $cual, $expected ){
+                // prevent errors on uncompleted $expected elements
                 if( $cual >= count( $expected ) ){
                     return;
                 }
