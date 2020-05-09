@@ -34,15 +34,9 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $copia = $arr;
         $cabeza = array_slice( $copia, 1,1 );
         
-        // nos aseguramos que el original siga igual que siempre
-        $this->assertEquals( ["A","B","C"], $arr );
-        
         $copia = $arr;
         $this->assertEquals( ["B"], $cabeza );
         
-        // nos aseguramos que el original siga igual que siempre
-        $this->assertEquals( ["A","B","C"], $arr );
-        // unset( $copia[1] );
         $resto = $copia;
         array_splice( $resto, 1,1 );
         $this->assertEquals( ["A","C"], $resto, "resto deberia ser AC" );
