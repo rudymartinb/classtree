@@ -17,7 +17,9 @@ class Combinatoria {
         $this->funcion = $funcion;
     }
     
-    private function swap( $one, $two, Callable $funcion  ){
+    private function swap( $one, $two  ){
+        $funcion = $this->funcion;
+        
         $tmp = $this->array[ $one ];
         $this->array[ $one ] = $this->array[ $two ];
         $this->array[ $two ] = $tmp;
@@ -46,16 +48,15 @@ class Combinatoria {
     }
     
     function ejecutar( ){
-        $funcion = $this->funcion;
-
         // as is ...
+        $funcion = $this->funcion;
         $funcion( $this->array );
+        
         if( count( $this->array ) == 1 ){
             return;
         }
         
         $this->swap120( $funcion );
-
         
         if( count( $this->array ) <= 3 ){
             return;
