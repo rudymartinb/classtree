@@ -11,17 +11,29 @@ function comb( Array $arr ) : Array {
     if( count( $arr ) == 3 ){
         $copia = $arr;
         $cabeza = array_splice( $copia, 0, 1 );
-//         var_dump( $cabeza );
         $resto = array_slice( $copia, 0  );
-//         var_dump( $resto );
         
         $resultado = comb( $resto );
-//         var_dump( $resultado );
             
         foreach( $resultado as $key => $value ){
             $resultado[ $key ] = array_merge( $cabeza , $value ) ;
         }
 
+        $copia = $arr;
+        $cabeza = array_splice( $copia, 1, 1 );
+//         Var_dump( $cabeza );
+        $copia = $arr;
+        
+
+        $resto = array_slice( $copia, 1  );
+        
+        $esto = comb( $resto );
+//         var_dump( $esto );
+        
+        foreach( $esto as $key => $value ){
+            $resultado[ $key ] = array_merge( $cabeza , $value ) ;
+        }
+        
         return $resultado;
     }
 }
