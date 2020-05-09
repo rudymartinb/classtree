@@ -31,7 +31,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $copia = $arr;
         $cabeza = array_splice( $copia, 1 );
         $copia = $arr;
-        $resto = array_splice( $copia, 1, 1 );
+        $resto = array_splice( $copia, 1 );
         vaR_dump( $cabeza );
         vaR_dump( $resto );
     }
