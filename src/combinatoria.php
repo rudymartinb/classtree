@@ -1,4 +1,11 @@
 <?php
+function arr_to_str( Array $arr ) : string {
+    $str = "";
+    foreach( $arr  as $value ){
+        $str .= $value;
+    }
+    return $str;
+}
 class Combinatoria {
     private $array;
     function set_array( Array & $array ){
@@ -26,6 +33,7 @@ class Combinatoria {
     }
 
     private function swap120( Callable $funcion ) {
+        
         $this->swap12( $funcion );
         $this->swap01( $funcion );
         
@@ -41,27 +49,27 @@ class Combinatoria {
             return;
         }
         
-        // 1
-        $this->swap01( $funcion ); 
+        $this->swap01( $funcion );
         if( count( $this->array ) == 2 ){
             return;
         }
         
         $this->swap120( $funcion ); // 1 2
-        $this->swap120( $funcion ); // 3 4
+        $this->swap120( $funcion ); // 1 2
+//         $this->swap120( $funcion ); // 3 4
         
         if( count( $this->array ) == 3 ){
             return;
         }
         
         // 5
-        $this->swap( 0, 3 );
+        $this->swap( 2, 3 );
         $funcion( $this->array );
         
          
         $this->swap120( $funcion ); // 6 7
-        $this->swap120( $funcion ); // 8 9
-        $this->swap120( $funcion ); // 10 11 
+//         $this->swap120( $funcion ); // 8 9
+//         $this->swap120( $funcion ); // 10 11 
 
         $this->swap( 2, 3 );
         $funcion( $this->array );
