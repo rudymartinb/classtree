@@ -21,8 +21,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $expected = [];
         $expected[] = [ "A", "B" ]; // given
         $expected[] = [ "B", "A" ]; // swap 0 to 1
-        
-        
+              
         
         $comb->set_funcion(
             function( $elemento ) use ( & $cual, $expected ){
