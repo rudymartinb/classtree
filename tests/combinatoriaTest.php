@@ -64,10 +64,12 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $cual = 0;
         $expected = [];
         $expected[] = [ "A", "B", "C" ]; // given
+        $expected[] = [ "C", "A", "B" ]; // swap 1 2
+        $expected[] = [ "C", "B", "A" ]; // swap 0 1
         $expected[] = [ "B", "A", "C" ]; // swap 0 to 1
         $expected[] = [ "B", "C", "A" ]; // swap 1 2
-        $expected[] = [ "C", "B", "A" ]; // swap 0 1
-        $expected[] = [ "C", "A", "B" ]; // swap 1 2
+        
+        
         $expected[] = [ "A", "C", "B" ]; // swap 0 1
         
         $comb->set_funcion(
