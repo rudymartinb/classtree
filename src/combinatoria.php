@@ -44,7 +44,6 @@ class Combinatoria {
 
         // as is ...
         $funcion( $this->array );
-        
         if( count( $this->array ) == 1 ){
             return;
         }
@@ -56,9 +55,13 @@ class Combinatoria {
         
         $this->swap120( $funcion ); // 1 2
         $this->swap120( $funcion ); // 1 2
-//         $this->swap120( $funcion ); // 3 4
         
-        if( count( $this->array ) == 3 ){
+        // so far so good
+        /*
+         * el tema es no poder hacer refactoring por el if metido en el medio ?
+         */
+        
+        if( count( $this->array ) <= 3 ){
             return;
         }
         
