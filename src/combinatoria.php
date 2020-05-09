@@ -33,7 +33,13 @@ class Combinatoria {
     }
 
     private function swap120( Callable $funcion ) {
-        
+        $this->swap01( $funcion );
+        if( count( $this->array ) == 2 ){
+            return;
+        }
+       
+        $this->swap12( $funcion );
+        $this->swap01( $funcion );
         $this->swap12( $funcion );
         $this->swap01( $funcion );
         
@@ -48,13 +54,8 @@ class Combinatoria {
             return;
         }
         
-        $this->swap01( $funcion );
-        if( count( $this->array ) == 2 ){
-            return;
-        }
-        
         $this->swap120( $funcion ); // 1 2
-        $this->swap120( $funcion ); // 1 2
+//         $this->swap120( $funcion ); // 1 2
         
         // so far so good
         /*
