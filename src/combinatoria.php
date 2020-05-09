@@ -17,19 +17,20 @@ class Combinatoria {
         $this->funcion = $funcion;
     }
     
-    private function swap( $one, $two ){
+    private function swap( $one, $two, Callable $funcion  ){
         $tmp = $this->array[ $one ];
         $this->array[ $one ] = $this->array[ $two ];
         $this->array[ $two ] = $tmp;
+        
+        $funcion( $this->array );
     }
     
     private function swap01( Callable $funcion ) {
-        $this->swap( 0, 1 );
-        $funcion( $this->array );
+        $this->swap( 0, 1, $funcion );
+        
     }
     private function swap12( Callable $funcion ) {
-        $this->swap( 1, 2 );
-        $funcion( $this->array );
+        $this->swap( 1, 2, $funcion  );
     }
 
     private function swap120( Callable $funcion ) {
@@ -61,22 +62,20 @@ class Combinatoria {
         }
         
         // 5
-        $this->swap( 2, 3 );
-        $funcion( $this->array );
-        
+        $this->swap( 2, 3, $funcion );
          
-        $this->swap120( $funcion ); // 6 7
-//         $this->swap120( $funcion ); // 8 9
-//         $this->swap120( $funcion ); // 10 11 
+        $this->swap120( $funcion );
 
-        $this->swap( 2, 3 );
-        $funcion( $this->array );
+        $this->swap( 2, 3, $funcion );
 
-        $this->swap120( $funcion ); // 6 7
-//         $this->swap120( $funcion ); // 8 9
-//         $this->swap120( $funcion ); // 10 11
 
-//         $this->swap( 0, 3 );
+        $this->swap120( $funcion );
+
+        $this->swap( 0, 3, $funcion );
+
+        
+        $this->swap120( $funcion );
+        
 //         $funcion( $this->array );
         
 //         $funcion( $this->array );

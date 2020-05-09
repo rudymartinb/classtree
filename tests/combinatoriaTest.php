@@ -103,6 +103,9 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
         $comb->set_funcion(
             function( $elemento ) use ( & $cual, $expected ){
+                if( $cual >= count( $expected ) ){
+                    return;
+                }
                 
                 $actual = arr_to_str( $elemento );
                 echo $cual." ".$actual."\n";
