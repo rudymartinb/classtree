@@ -50,6 +50,11 @@ class Combinatoria {
     function ejecutar2( Array $arr ){
         $funcion = $this->funcion;
         $funcion( $this->array );
+        
+        if( count( $this->array ) == 1 ){
+            return;
+        }
+        
     }
     function ejecutar( ){
         // as is ...
@@ -60,21 +65,21 @@ class Combinatoria {
             return;
         }
         
-        $this->swap120( $funcion );
+        $this->swap120();
         
         if( count( $this->array ) <= 3 ){
             return;
         }
         
         // 5
-        $this->swap( 2, 3, $funcion );
-        $this->swap120( $funcion );
+        $this->swap( 2, 3);
+        $this->swap120();
 
-        $this->swap( 2, 3, $funcion );
-        $this->swap120( $funcion );
+        $this->swap( 2, 3 );
+        $this->swap120();
 
-        $this->swap( 0, 3, $funcion );
-        $this->swap120( $funcion );
+        $this->swap( 0, 3);
+        $this->swap120();
         
     }
     
