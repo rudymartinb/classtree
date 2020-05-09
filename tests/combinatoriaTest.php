@@ -1,5 +1,11 @@
 <?php
-
+function arr_to_str( Array $arr ) : string {
+    $str = "";
+    foreach( $arr  as $value ){
+        $str .= $value;
+    }
+    return $str;
+}
 class combinatoriaTest extends PHPUnit\Framework\TestCase {
     function test_1(){
         $comb = new Combinatoria();
