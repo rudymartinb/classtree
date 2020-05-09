@@ -49,9 +49,9 @@ class Combinatoria {
     
     function ejecutar2( Array $arr ){
         $funcion = $this->funcion;
-        $funcion( $this->array );
+        $funcion( $arr );
         
-        if( count( $this->array ) == 1 ){
+        if( count( $arr ) == 1 ){
             return;
         }
         
