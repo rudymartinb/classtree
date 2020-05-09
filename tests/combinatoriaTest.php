@@ -17,19 +17,22 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $comb->set_array( $arr );
         $cual = 0;
         
-        $comb->set_funcion( 
-            function( $elemento ) use ( & $cual ){
-                switch( $cual ){
-                    case 0:
-                        $this->assertEquals( ["A","B"], $elemento );
-                        break;
-                    case 1:
-                        $this->assertEquals( ["B","A"], $elemento );
-                        break;
-                }
+        $cual = 0;
+        $expected = [];
+        $expected[] = [ "A", "B" ]; // given
+        $expected[] = [ "B", "A" ]; // swap 0 to 1
+        
+        
+        
+        $comb->set_funcion(
+            function( $elemento ) use ( & $cual, $expected ){
+                $esperado = arr_to_str( $expected[ $cual ] );
+                $actual = arr_to_str( $elemento );
+                
+                $this->assertEquals( $expected[ $cual ], $elemento, "elemento ".$cual. " ->  ".$esperado." = ".$actual );
                 $cual++;
             }
-        );
+            );
         
         $comb->ejecutar();
         
