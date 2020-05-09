@@ -1,5 +1,9 @@
 <?php
 
+function comb( Array $arr ) : Array {
+    
+}
+
 class Combinatoria {
     private $array;
     function set_array( Array & $array ){
