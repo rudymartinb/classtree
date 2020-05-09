@@ -72,16 +72,8 @@ class Combinatoria {
         $this->swap120( $funcion );
 
         $this->swap( 0, 3, $funcion );
-
-        
         $this->swap120( $funcion );
         
-//         $funcion( $this->array );
-        
-//         $funcion( $this->array );
-        
-//         $this->swap120( $funcion );
-//         $this->swap120( $funcion );
         
         
     }
