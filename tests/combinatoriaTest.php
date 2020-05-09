@@ -9,12 +9,12 @@ function arr_to_str( Array $arr ) : string {
 
 class combinatoriaTest extends PHPUnit\Framework\TestCase {
     function test1() {
-        $arr = [];
-        $arr[] = [ "A" ];
+        
+        $arr = [ "A" ];
         $actual = comb( $arr );
         $this->assertEquals( $arr, $actual );
-        
     }
+    
 //     function test_1(){
 //         $comb = new Combinatoria();
 //         $arr = [ "A" ];
