@@ -6,6 +6,7 @@ function arr_to_str( Array $arr ) : string {
     }
     return $str;
 }
+
 class combinatoriaTest extends PHPUnit\Framework\TestCase {
     function test_1(){
         $comb = new Combinatoria();
