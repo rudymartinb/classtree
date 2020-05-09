@@ -99,6 +99,10 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $expected[18] = [ "C", "B", "D", "A" ]; // swap 0 3
         $expected[19] = [ "B", "C", "D", "A" ]; // swap 0 1
         $expected[20] = [ "B", "D", "C", "A" ]; // swap 1 2
+        $expected[21] = [ "D", "B", "C", "A" ]; // swap 0 1
+        $expected[22] = [ "D", "C", "B", "A" ]; // swap 1 2
+        $expected[23] = [ "C", "D", "B", "A" ]; // swap 0 1
+        
         
         
         
