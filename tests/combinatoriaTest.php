@@ -27,11 +27,13 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( $esperado, $actual );
     }
     function test_splice() {
-        $copia  = [ "A", "B", "C" ];
+        $arr = [ "A", "B", "C" ];
+        $copia = $arr;
         $cabeza = array_splice( $copia, 0,1 );
-//         $resto = array_splice( $copia, 0, 1 );
+        $copia = $arr;
+        $resto = array_splice( $copia, 0, 1 );
         vaR_dump( $cabeza );
-//         vaR_dump( $copia );
+        vaR_dump( $resto );
     }
     
 //     function test_3(){
