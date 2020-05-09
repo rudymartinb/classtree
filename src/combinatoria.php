@@ -13,20 +13,25 @@ class Combinatoria {
     
     
     function ejecutar2( Array $arr ){
-        $fact = count( $arr );
+        $cant = count( $arr );
         
         $funcion = $this->funcion;
 
-        for( $i = 0 ; $i < $fact  ; $i++ ){
+        for( $i = 0 ; $i < $cant ; $i++ ){
+//             $izq = array_splice($arr, 0, 1);
+//             $der = array_splice($arr, 1 );
+//             if( )
             $funcion( $arr );
-
-            for( $j = $i+1; $j < $fact ; $j ++ ){
+            for( $j = $i+1; $j < $cant ; $j ++ ){
+                
                 $one = $i;
                 $two = $j;
                 $tmp = $arr[ $one ];
                 $arr[ $one ] = $arr[ $two ];
                 $arr[ $two ] = $tmp;
+                $funcion( $arr );
             }
+//             $this->ejecutar( $arr );
                 
         }
             

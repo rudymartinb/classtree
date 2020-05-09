@@ -57,36 +57,38 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
     }
     
-    function test_3(){
-        $comb = new Combinatoria();
-        $arr = [ "A", "B", "C" ];
-        $comb->set_array( $arr );
-        $cual = 0;
-        $expected = [];
-        $expected[] = [ "A", "B", "C" ]; // given
-        $expected[] = [ "C", "A", "B" ]; // swap 1 2
-        $expected[] = [ "C", "B", "A" ]; // swap 0 1
-        $expected[] = [ "B", "A", "C" ]; // swap 0 to 1
-        $expected[] = [ "B", "C", "A" ]; // swap 1 2
+//     function test_3(){
+//         $comb = new Combinatoria();
+//         $arr = [ "A", "B", "C" ];
+//         $comb->set_array( $arr );
+//         $cual = 0;
+//         $expected = [];
         
+//         $expected[] = [ "A", "B", "C" ]; // given
+//         $expected[] = [ "B", "A", "C" ]; // swap 0 to 1
+//         $expected[] = [ "C", "A", "B" ]; // swap 1 2
+//         $expected[] = [ "C", "B", "A" ]; // swap 0 1
+//         $expected[] = [ "B", "C", "A" ]; // swap 1 2
+//         $expected[] = [ "A", "C", "B" ]; // swap 0 1
         
-        $expected[] = [ "A", "C", "B" ]; // swap 0 1
-        
-        $comb->set_funcion(
-            function( $elemento ) use ( & $cual, $expected ){
-                $esperado = arr_to_str( $expected[ $cual ] );
-                $actual = arr_to_str( $elemento );
+//         $comb->set_funcion(
+//             function( $elemento ) use ( & $cual, $expected ){
+//                 $esperado = arr_to_str( $expected[ $cual ] );
                 
-                $this->assertEquals( $expected[ $cual ], $elemento, "elemento ".$cual. " ->  ".$esperado." = ".$actual );
-                $cual++;
-            }
-            );
+//                 $actual = arr_to_str( $elemento );
+//                 echo $cual." ".$actual."\n";
+                
+                
+//                 $this->assertEquals( $expected[ $cual ], $elemento, "elemento ".$cual. " ->  ".$esperado." = ".$actual );
+//                 $cual++;
+//             }
+//             );
         
-        $comb->ejecutar();
+//         $comb->ejecutar();
         
 //         $this->assertEquals( 3*2*1, $cual );
         
-    }
+//     }
 
 //     function test_4(){
 //         $comb = new Combinatoria();
