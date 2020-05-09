@@ -34,7 +34,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $copia = $arr;
         unset( $copia[1] );
         $resto = $copia;
-        $resto = array_slice( $copia, 0 );
+//         $resto = array_slice( $copia, 0 );
         vaR_dump( $cabeza );
         vaR_dump( $resto );
     }
