@@ -9,16 +9,24 @@ function comb( Array $arr ) : Array {
         return [ $arr, $b ];
     }
     if( count( $arr ) == 3 ){
-        $cabeza = array_slice( $arr, 0, 1 );
-        $resto = array_slice( $arr, 1 );
-        $resultado = comb( $resto );
+        $total = [];
         
-        foreach( $resultado as $key => $value ){
-            $resultado[ $key ] = array_merge( $cabeza , $value ) ;
+        for( $i = 0 ; $i <= count( $arr ) ; $i++ ){
+            $copia = $arr;
+            $cabeza = array_slice( $copia, $i, 1 );
+            $resto = array_splice( $copia, $i, 1 );
+            $resultado = comb( $resto );
+            
+            foreach( $resultado as $key => $value ){
+                $resultado[ $key ] = array_merge( $cabeza , $value ) ;
+            }
+            $total = array_merge( $total, $resultado );
         }
+        
+        
 //         $resultado = array_merge( [ $arr ], $resultado );
 //         var_dump($resultado);
-        return $resultado;
+        return $total;
     }
 }
 
