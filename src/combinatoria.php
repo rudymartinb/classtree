@@ -27,23 +27,23 @@ class Combinatoria {
         $funcion( $this->array );
     }
     
-    private function swap01( Callable $funcion ) {
-        $this->swap( 0, 1, $funcion );
+    private function swap01() {
+        $this->swap( 0, 1 );
         
     }
-    private function swap12( Callable $funcion ) {
-        $this->swap( 1, 2, $funcion  );
+    private function swap12() {
+        $this->swap( 1, 2 );
     }
 
-    private function swap120( Callable $funcion ) {
-        $this->swap01( $funcion );
+    private function swap120() {
+        $this->swap01();
         if( count( $this->array ) == 2 ){
             return;
         }
-        $this->swap12( $funcion );
-        $this->swap01( $funcion );
-        $this->swap12( $funcion );
-        $this->swap01( $funcion );
+        $this->swap12();
+        $this->swap01();
+        $this->swap12();
+        $this->swap01();
         
     }
     
