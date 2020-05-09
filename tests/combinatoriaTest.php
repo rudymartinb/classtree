@@ -8,15 +8,21 @@ function arr_to_str( Array $arr ) : string {
 }
 
 class combinatoriaTest extends PHPUnit\Framework\TestCase {
-    function test_1(){
-        $comb = new Combinatoria();
+    function test1() {
         $arr = [ "A" ];
-        $comb->set_array( $arr );
-        $comb->set_funcion( function( $elemento ){
-            $this->assertEquals( "A", $elemento[0] );
-        });
-        $comb->ejecutar();
+        $actual = comb( $arr );
+        $this->assertEquals( $arr, $actual );
+        
     }
+//     function test_1(){
+//         $comb = new Combinatoria();
+//         $arr = [ "A" ];
+//         $comb->set_array( $arr );
+//         $comb->set_funcion( function( $elemento ){
+//             $this->assertEquals( "A", $elemento[0] );
+//         });
+//         $comb->ejecutar();
+//     }
     
 //     function test_2(){
 //         $comb = new Combinatoria();

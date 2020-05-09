@@ -1,7 +1,7 @@
 <?php
 
 function comb( Array $arr ) : Array {
-    
+    return $arr;
 }
 
 class Combinatoria {
