@@ -35,14 +35,13 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $cabeza = array_slice( $copia, 1,1 );
         
         $copia = $arr;
-        $this->assertEquals( ["B"], $cabeza );
+        $this->assertEquals( ["B"], $cabeza, "cabeza = parte que nos interesa de la izquierda" );
         
         $resto = $copia;
         array_splice( $resto, 1,1 );
-        $this->assertEquals( ["A","C"], $resto, "resto deberia ser AC" );
+        $this->assertEquals( ["A","C"], $resto, "resto = parte derecha a permutar" );
         
-        // nos aseguramos que el original siga igual que siempre
-        $this->assertEquals( ["A","B","C"], $arr );
+        $this->assertEquals( ["A","B","C"], $arr, "array original debe estar intacto" );
     }
     
 //     function test_3(){
