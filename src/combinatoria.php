@@ -54,19 +54,19 @@ class Combinatoria {
         if( count( $arr ) == 1 ){
             return;
         }
-        foreach ($arr as $key => $value ){
+//         foreach ($arr as $key => $value ){
             // separar el resto del array
             // en nuevo array
             
 //             $arr2 = $arr;
-            $one = $key;
-            $two = $key+1;
+            $one = 0;
+            $two = 1;
             $tmp = $arr[ $one ];
-            $this->array[ $one ] = $arr[ $two ];
-            $this->array[ $two ] = $tmp;
+            $arr[ $one ] = $arr[ $two ];
+            $arr[ $two ] = $tmp;
             
-            $funcion( $this->array );
-        }
+            $funcion( $arr );
+//         }
         
     }
     function ejecutar( ){
