@@ -16,10 +16,10 @@ function permutate( Array $arr, int $ini ) : Array {
 }
 
 
-function exceute_permutation( Array $arr, Callable $funcion, Array $cabecera = [] ) {
+function exceute_permutation( Array $arr, Callable $function, Array $cabecera = [] ) {
     // edge cases 
     if( count( $arr ) <= 1 ){
-        $funcion( $arr );
+        $function( $arr );
         return;
     }
     
@@ -27,8 +27,8 @@ function exceute_permutation( Array $arr, Callable $funcion, Array $cabecera = [
         /* funcion is called twice 
          * because array has 2 elements
          */
-        $funcion( array_merge( $cabecera, $arr ) );
-        $funcion( array_merge( $cabecera, permutate( $arr, 1 ) ) );
+        $function( array_merge( $cabecera, $arr ) );
+        $function( array_merge( $cabecera, permutate( $arr, 1 ) ) );
         return;
     }
 
@@ -40,7 +40,7 @@ function exceute_permutation( Array $arr, Callable $funcion, Array $cabecera = [
         $cabeza = array_slice( $arr, $index, 1 );
         $resto = $arr;
         array_splice( $resto, $index, 1 );
-        exceute_permutation($resto, $funcion, array_merge( $cabecera, $cabeza ) );
+        exceute_permutation($resto, $function, array_merge( $cabecera, $cabeza ) );
     }
 
     
