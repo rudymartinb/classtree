@@ -44,7 +44,7 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
 
 function ejecutar_permutacion( Array $arr, Callable $funcion, Array $cabecera = [] ) {
     if( count( $arr ) == 0 ){
-        $funcion( null );
+        $funcion( $arr );
         return;
     }
     if( count( $arr ) == 1 ){
