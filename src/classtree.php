@@ -83,7 +83,7 @@ class ClassTree {
             
             $lista[ $newpath ] = "" ; // $entry;
             
-            $matches = $this->get_tipos_del_fuente( $newpath );
+            $matches = $this->get_types_from_source( $newpath );
             $clases = $this->separar_clases( $matches );
             $this->clases = $this->clases + $clases;
             
@@ -102,7 +102,7 @@ class ClassTree {
         
         $lista[ $entry ] = ""; 
         
-        $matches = $this->get_tipos_del_fuente( $entry );
+        $matches = $this->get_types_from_source( $entry );
         $clases = $this->separar_clases( $matches );
         $this->clases = $this->clases + $clases;
             
@@ -112,7 +112,7 @@ class ClassTree {
     
     private $identificadores;
     
-    private function get_tipos_del_fuente( string $filename ): Array {
+    private function get_types_from_source( string $filename ): Array {
         $sourcecode = file_get_contents( $filename );
         
         // (implements (?<implements>[0-9a-zA-Z_]*))*[ {]*
