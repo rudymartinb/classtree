@@ -18,6 +18,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
     function test_get_source_from_file() {
         $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
         $lista = get_source( $filename );
+        var_dump( $lista );
         $this->assertTrue( $lista != ""  );
     }
     
