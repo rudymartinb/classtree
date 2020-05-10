@@ -1,24 +1,5 @@
 <?php
 
-function get_all_files( string $path ) : Array {
-    $dir = dir( $path );
-    $list = [];
-    while (false !== ( $filename = $dir->read() ) ) {
-        if( begins_with_dot($filename) ){
-            continue;
-        }
-        $fullpath = $path."/".$filename;
-        // test if we have a directory
-        if( is_dir( $fullpath ) ){
-            $list = array_merge( $list, get_all_files( $fullpath ) );
-            continue;
-        }
-        
-        $list[] = $fullpath ;
-    }
-    return $list; 
-}
-
 class classtreeTest extends PHPUnit\Framework\TestCase {
     
     function test_get_files() {
