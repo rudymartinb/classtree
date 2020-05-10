@@ -21,7 +21,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         // nombre primera clase
         $this->assertEquals( "father", $clases[0]->get_name() );
 
-        $funciones = $classtree->get_funciones("/home/rudy/projects/classtree/tests/dummy/prueba.php", "father");
+        $funciones = $classtree->get_functions("/home/rudy/projects/classtree/tests/dummy/prueba.php", "father");
         $actual = $funciones["nombretipo"][0];
         
         $this->assertEquals("algo1", $actual);

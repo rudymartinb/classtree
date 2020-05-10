@@ -140,7 +140,7 @@ class ClassTree {
      * deberia tener un atributo que diga si se termino de consultar todo o no
      * 
      */
-    function get_funciones( string $filename, string $class ): Array {
+    function get_functions( string $filename, string $class ): Array {
         $sourcecode = file_get_contents( $filename );
 
         /* extract classes from source
