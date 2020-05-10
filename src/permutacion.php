@@ -16,31 +16,31 @@ function permutacion( Array $arr, int $ini ) : Array {
 }
 
 
-function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Array {
-    if( is_null( $arr ) or count( $arr ) < 2 ){
-        return [ $arr ]; // ??
-    }
+// function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Array {
+//     if( is_null( $arr ) or count( $arr ) < 2 ){
+//         return [ $arr ]; // ??
+//     }
 
-    if( count( $arr ) == 2 ){
-        $resultado = [];
-        $resultado[] = array_merge( $cabecera, $arr );
-        $resultado[] = array_merge( $cabecera, permutacion( $arr, 1 ) );
-        return $resultado ;
-    }
+//     if( count( $arr ) == 2 ){
+//         $resultado = [];
+//         $resultado[] = array_merge( $cabecera, $arr );
+//         $resultado[] = array_merge( $cabecera, permutacion( $arr, 1 ) );
+//         return $resultado ;
+//     }
     
-    $resultado = [];
-    for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
-        $cabeza = array_slice( $arr, $index, 1 );
-        $resto = $arr;
-        array_splice( $resto, $index, 1 );
-        $partes = generar_permutaciones( $resto, array_merge( $cabecera, $cabeza ) );
-        foreach( $partes as $value ){
-            $resultado[] = $value;
-        }
-    }
+//     $resultado = [];
+//     for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
+//         $cabeza = array_slice( $arr, $index, 1 );
+//         $resto = $arr;
+//         array_splice( $resto, $index, 1 );
+//         $partes = generar_permutaciones( $resto, array_merge( $cabecera, $cabeza ) );
+//         foreach( $partes as $value ){
+//             $resultado[] = $value;
+//         }
+//     }
         
-    return $resultado;
-}
+//     return $resultado;
+// }
 
 function ejecutar_permutacion( Array $arr, Callable $funcion, Array $cabecera = [] ) {
     if( count( $arr ) == 0 ){
