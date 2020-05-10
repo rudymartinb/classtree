@@ -11,5 +11,5 @@ function generar_permutaciones( Array $arr = null ) : Array {
     if( is_null( $arr ) or count( $arr ) < 2 ){
         return [ $arr ];
     }
-    return [ [ $arr[0], $arr[1] ], [ $arr[1], $arr[0] ] ];
+    return [ [ $arr[0], $arr[1] ], permutacion( $arr, 1 ) ];
 }
