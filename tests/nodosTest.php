@@ -4,7 +4,7 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     
 
 
-    function crear_parent_child() : tree {
+    function build_parent_child() : tree {
         $tree = new tree();
         
         $nodo1 = new nodo_clase();
