@@ -104,8 +104,16 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
     }
     
-    function test_generar_permutaciones_0() {
+    function test_generar_permutaciones_null() {
         $arr = null;
+        $esperado = [];
+        
+        $resultado= generar_permutaciones( $arr );
+        $this->assertEquals( $esperado, $resultado );
+    }
+
+    function test_generar_permutaciones_0() {
+        $arr = [];
         $esperado = [];
         
         $resultado= generar_permutaciones( $arr );
