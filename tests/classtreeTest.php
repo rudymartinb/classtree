@@ -15,7 +15,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 3, count( $lista ) );
     }
     
-    /* this test uses a fixed file on tests/dummy dir
+    /* this test uses fixed files on tests/dummy dir
      * altering the file will cause this test to fail
      */
     function test_build_from_dir() {
