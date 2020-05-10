@@ -6,21 +6,21 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
     function test_permutacion_0() {
         $arr = [  ];
         $ini = 1; // second element
-        $resultado = permutacion($arr, $ini);
+        $resultado = permutate($arr, $ini);
         $this->assertEquals( [], $resultado, "resultado final" );
     }
 
     function test_permutacion_1() {
         $arr = [ "A"];
         $ini = 1; // second element
-        $resultado = permutacion($arr, $ini);
+        $resultado = permutate($arr, $ini);
         $this->assertEquals( ["A"], $resultado, "resultado final" );
     }
     
     function test_permutacion_2() {
         $arr = [ "A", "B" ];
         $ini = 1; // second element
-        $resultado = permutacion($arr, $ini);
+        $resultado = permutate($arr, $ini);
         $this->assertEquals( ["B","A" ], $resultado, "resultado final" );
     }
     
@@ -29,7 +29,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $arr = [ "A", "B", "C" ];
         
         $ini = 1; // second element
-        $resultado = permutacion($arr, $ini);
+        $resultado = permutate($arr, $ini);
         
         $this->assertEquals( ["B","A","C"], $resultado, "resultado final" );
     }
@@ -38,7 +38,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $arr = [ "A", "B", "C" ];
         
         $ini = 2; // third element
-        $resultado = permutacion( $arr, $ini);
+        $resultado = permutate( $arr, $ini);
         
         $this->assertEquals( ["C","A","B"], $resultado, "resultado final" );
     }
