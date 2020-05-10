@@ -78,19 +78,19 @@ class ClassTree {
     function build_from_dir( string $path, array $lista = [] ) : array {
         $dir = dir( $path );
         
-        while (false !== ($entry = $dir->read())) {
+        while (false !== ( $filename = $dir->read() ) ) {
             // prevent going back on the dir tree
             // and scanning "hidden" directories
-            if( begins_with_dot($entry) ){
+            if( begins_with_dot($filename) ){
                 continue;
             }
             
-            $newpath = $path."/".$entry;
+            $newpath = $path."/".$filename;
             if( is_dir( $newpath ) ){
                 $this->build_from_dir( $newpath );
                 continue;
             }
-            if( ! is_php($entry) ){
+            if( ! is_php($filename) ){
                 continue;
             }
             
