@@ -70,17 +70,21 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
     }
     
     
+    /*
+     * the most basic opeartion we can do
+     * take out one item from the array 
+     * and create a new one ordered
+     */
     function test_splice() {
         
         $arr = [ "A", "B", "C" ];
-        $copia = $arr;
-        $cabeza = array_slice( $copia, 1,1 );
+
+        $resto = $arr;
+        $cabeza = array_splice( $resto, 1,1 );
         
-        $copia = $arr;
         $this->assertEquals( ["B"], $cabeza, "cabeza = parte que nos interesa de la izquierda" );
         
-        $resto = $copia;
-        array_splice( $resto, 1,1 );
+
         $this->assertEquals( ["A","C"], $resto, "resto = parte derecha a permutar" );
         
         $this->assertEquals( ["A","B","C"], $arr, "array original debe estar intacto" );
