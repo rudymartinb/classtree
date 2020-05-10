@@ -72,7 +72,7 @@ class ClassTree {
     function build_from_dir( string $path, array $lista = [] ) : array {
         $this->tree = new tree();
         
-        $dir = dir($path);
+        $dir = dir( $path );
         while (false !== ($entry = $dir->read())) {
             if( $this->begins_with_dot($entry) ){
                 continue;
