@@ -107,8 +107,6 @@ class ClassTree {
     }
     
     function build_from_file( string $filename ) : Array {
-        $this->tree = new tree();
-        
         $lista = [];
         if( begins_with_dot( $filename ) ){
             return $lista;
@@ -121,7 +119,6 @@ class ClassTree {
         $lista[ $filename ] = ""; 
         
         $matches = get_types_from_source( $filename );
-        
         $clases = separar_clases( $matches );
 
         foreach( $clases as $clase ){
