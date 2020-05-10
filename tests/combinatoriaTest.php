@@ -54,7 +54,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
             $pos ++;
         };
         
-        exceute_permutation($arr, $funcion);
+        execute_permutation($arr, $funcion);
         
         $this->assertEquals( 1, $pos);
     }
@@ -71,7 +71,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
             $pos ++;
         };
         
-        exceute_permutation($arr, $funcion);
+        execute_permutation($arr, $funcion);
         
         $this->assertEquals( 1, $pos);
     }
@@ -89,7 +89,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
             $pos ++;
         };
         
-        exceute_permutation($arr, $funcion);
+        execute_permutation($arr, $funcion);
         
         $this->assertEquals( 2, $pos);
     }
@@ -113,7 +113,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
             $pos ++;
         };
         
-        exceute_permutation($arr, $funcion);
+        execute_permutation($arr, $funcion);
     }
 
     function test_ejecutar_permutacion_4(){
@@ -155,7 +155,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
             $pos ++;
         };
         
-        exceute_permutation($arr, $funcion);
+        execute_permutation($arr, $funcion);
         
         $this->assertEquals(24, $pos);
         
