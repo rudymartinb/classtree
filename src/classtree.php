@@ -3,6 +3,28 @@
 use nodes\node_clase;
 use nodes\tree;
 
+function separar_clases( Array $matches ) : Array {
+    $lista = [];
+    $namespace = "";
+    foreach ($matches["tipo"] as $key => $value ) {
+        if( $value == "namespace" ){
+            $namespace = $matches[ "nombretipo" ][ $key ];
+            continue;
+        }
+        if( $value != "class" ){
+            continue;
+        }
+        
+        $clase = new clase( $matches[ "nombretipo"][$key] );
+        $clase->set_extends( $matches["extends"][$key] );
+        $clase->set_implements( $matches["implements"][$key] );
+        $clase->set_namespace( $namespace );
+        
+        $lista[] = $clase;
+    }
+    return $lista;
+}
+
 class ClassTree {
     
     private $nodos = [] ;
@@ -16,27 +38,11 @@ class ClassTree {
     function get_clases() : Array {
         return $this->clases;
     }
-    private function separar_clases( Array $matches ) : Array {
-        $lista = [];
-        $namespace = "";
-        foreach ($matches["tipo"] as $key => $value ) {
-            if( $value == "namespace" ){
-                $namespace = $matches[ "nombretipo" ][ $key ];
-                continue;
-            }
-            if( $value != "class" ){
-                continue;
-            }
-            
-            $clase = new clase( $matches[ "nombretipo"][$key] );
-            $clase->set_extends( $matches["extends"][$key] );
-            $clase->set_implements( $matches["implements"][$key] );
-            $clase->set_namespace( $namespace );
-            
-            $lista[] = $clase;
-        }
-        return $lista;
-    }
+    
+    /*
+     * this generates one class object from the matches found 
+     * during source search by one of the build_from* functions
+     */
     private function separar_nodos( Array $matches ) : Array {
         $lista = [];
         $namespace = "";
@@ -89,7 +95,7 @@ class ClassTree {
             $lista[ $newpath ] = "" ; // $entry;
             
             $matches = $this->get_types_from_source( $newpath );
-            $clases = $this->separar_clases( $matches );
+            $clases = separar_clases( $matches );
             
             foreach( $clases as $clase ){
                 $node = new node_clase( $clase->get_name() );
@@ -117,7 +123,7 @@ class ClassTree {
         
         $matches = $this->get_types_from_source( $filename );
         
-        $clases = $this->separar_clases( $matches );
+        $clases = separar_clases( $matches );
 
         foreach( $clases as $clase ){
             $node = new node_clase( $clase->get_name() );
