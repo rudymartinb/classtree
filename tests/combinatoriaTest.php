@@ -158,6 +158,50 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $esperado[ ] = [ "C", "B", "A" ]; 
         
         $resultado= generar_permutaciones( $arr );
+//         var_dump( $resultado );
+        foreach( $esperado as $key => $value ){
+            $this->assertEquals( $esperado[ $key ], $resultado[ $key ], "procesando elemento ".$key );
+        }
+    }
+    
+    function test_generar_permutaciones_4(){
+        $arr = [ "A", "B", "C", "D" ];
+        $esperado = [];
+        $esperado[] = [ "A", "B", "C", "D" ]; 
+        $esperado[] = [ "A", "B", "D", "C" ]; 
+        $esperado[] = [ "A", "C", "B", "D" ]; 
+        $esperado[] = [ "A", "C", "D", "B" ]; 
+        $esperado[] = [ "A", "D", "B", "C" ]; 
+        $esperado[] = [ "A", "D", "C", "B" ]; 
+        
+//         $esperado[] = [ "B", "A", "C", "D" ]; 
+//         $esperado[] = [ "B", "C", "A", "D" ]; 
+//         $esperado[] = [ "C", "B", "A", "D" ]; 
+//         $esperado[] = [ "C", "A", "B", "D" ]; 
+        
+
+        
+//         $esperado[] = [ "C", "A", "D", "B" ]; 
+//         $esperado[] = [ "C", "D", "A", "B" ]; 
+//         $esperado[] = [ "D", "C", "A", "B" ]; 
+//         $esperado[] = [ "D", "A", "C", "B" ]; 
+        
+
+        
+//         $esperado[] = [ "D", "A", "B", "C" ]; 
+//         $esperado[] = [ "D", "B", "A", "C" ]; 
+//         $esperado[] = [ "B", "D", "A", "C" ]; 
+//         $esperado[] = [ "B", "A", "D", "C" ]; 
+        
+
+//         $esperado[] = [ "C", "B", "D", "A" ]; 
+//         $esperado[] = [ "B", "C", "D", "A" ]; 
+//         $esperado[] = [ "B", "D", "C", "A" ]; 
+//         $esperado[] = [ "D", "B", "C", "A" ]; 
+//         $esperado[] = [ "D", "C", "B", "A" ]; 
+//         $esperado[] = [ "C", "D", "B", "A" ]; 
+
+        $resultado= generar_permutaciones( $arr );
         var_dump( $resultado );
         foreach( $esperado as $key => $value ){
             $this->assertEquals( $esperado[ $key ], $resultado[ $key ], "procesando elemento ".$key );

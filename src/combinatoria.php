@@ -20,7 +20,7 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
         $resultado[] = permutacion( $ultimo, 1 );
         return $resultado ;
     }
-    if( count( $arr ) == 3 ){
+    if( count( $arr ) >= 3 ){
         $resultado = [];
 
         for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
