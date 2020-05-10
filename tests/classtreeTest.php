@@ -6,8 +6,11 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
     
     /* this test uses a fixed file on tests/dummy dir
      * altering the file will cause this test to fail
+     * 
+     * (yeah I know I should use an string to mock it,
+     * may be will do that later)
      */
-    function test_get_clases() {
+    function test_get_classes() {
         $path = "/home/rudy/projects/classtree/tests/dummy/";
 
         $classtree = new ClassTree();
