@@ -14,8 +14,8 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
 
     if( count( $arr ) == 2 ){
         $resultado = [];
-        $resultado[] = $arr;
-        $resultado[] = permutacion( $arr, 1 );
+        $resultado[] = array_merge( $cabecera, $arr );
+        $resultado[] = array_merge( $cabecera, permutacion( $arr, 1 ) );
         return $resultado ;
     }
     if( count( $arr ) >= 3 ){
@@ -25,10 +25,10 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
             $cabeza = array_slice( $arr, $index, 1 );
             $resto = $arr;
             array_splice( $resto, $index, 1 );
-            $partes = generar_permutaciones( $resto, $cabeza );
+            $partes = generar_permutaciones( $resto, array_merge( $cabecera, $cabeza ) );
             
             foreach( $partes as $value ){
-                $resultado[] = array_merge( $cabeza, $value );
+                $resultado[] = $value ; // array_merge( $cabeza, $value );
             }
         }
         
