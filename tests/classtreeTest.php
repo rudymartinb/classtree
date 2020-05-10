@@ -1,6 +1,13 @@
 <?php
 
 class classtreeTest extends PHPUnit\Framework\TestCase {
+
+    /* this test uses a fixed file on tests/dummy dir
+     * altering the file will cause this test to fail
+     *
+     * (yeah I know I should use an string to mock it,
+     * may be will do that later)
+     */
     
     function test_get_files() {
         $path = "/home/rudy/projects/classtree/tests/dummy";
@@ -8,12 +15,8 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 3, count( $lista ) );
     }
     
-    
     /* this test uses a fixed file on tests/dummy dir
      * altering the file will cause this test to fail
-     * 
-     * (yeah I know I should use an string to mock it,
-     * may be will do that later)
      */
     function test_build_from_dir() {
         $path = "/home/rudy/projects/classtree/tests/dummy/";
