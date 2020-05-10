@@ -143,6 +143,23 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 3, $nodo3->get_nivel() );
     }
 
+    /*
+     * now we want to set/check each node level based on the "tree"
+     *
+     * nodo1    nodo41
+     * |        |
+     * nodo2    |
+     * |        |
+     * nodo3    |
+     * |        |
+     * nodo4----|
+     * |
+     * nodo5
+     *
+     * in this example, 5! = 120 permutations are needed
+     * to test if the production code behaves correctly
+     */
+    
     function test_nivel4() {
         $tree = new tree();
         
@@ -175,7 +192,11 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         $nodo5->set_parent($nodo41);
         $tree->add_nodo( $nodo4 );
         
+        $this->assertEquals( 1, $nodo1->get_nivel() );
         $this->assertEquals( 1, $nodo41->get_nivel() );
+        $this->assertEquals( 2, $nodo2->get_nivel() );
+        $this->assertEquals( 3, $nodo3->get_nivel() );
+        $this->assertEquals( 4, $nodo4->get_nivel() );
         $this->assertEquals( 5, $nodo5->get_nivel() );
     }
     
