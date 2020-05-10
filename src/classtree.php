@@ -90,6 +90,7 @@ class ClassTree {
         }
         return $lista;
     }
+    
     function construir_desde_archivo( string $entry ) : array {
         $lista = [];
         if( $this->es_entrada_con_punto( $entry ) ){
