@@ -1,6 +1,6 @@
 <?php
 
-use nodes\nodo_clase;
+use nodes\node_clase;
 
 class ClassTree {
     
@@ -46,7 +46,7 @@ class ClassTree {
                 continue;
             }
             
-            $clase = new nodo_clase( $matches[ "nombretipo"][$key] );
+            $clase = new node_clase( $matches[ "nombretipo"][$key] );
             $clase->set_extends( $matches["extends"][$key] );
             $clase->set_implements( $matches["implements"][$key] );
             $clase->set_namespace( $namespace );

@@ -30,7 +30,7 @@ class tree {
     
 }
 
-class nodo_clase extends node {
+class node_clase extends node {
     
     private $clases = [];
     function set_clase( \clase &$clase ){

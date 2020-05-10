@@ -1,6 +1,6 @@
 <?php
 
-use nodes\nodo_clase;
+use nodes\node_clase;
 use nodes\tree;
 
 class treeTest extends PHPUnit\Framework\TestCase {
@@ -13,7 +13,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
     /* tree builder for these tests
      */
     function build_1node() : tree {
-        $nodo = new nodo_clase();
+        $nodo = new node_clase();
         $nodo->set_clase( new clase("father") );
         
         $tree = new tree();
@@ -22,13 +22,13 @@ class treeTest extends PHPUnit\Framework\TestCase {
     }
     
     function build_2nodes() : tree {
-        $nodo = new nodo_clase();
+        $nodo = new node_clase();
         $nodo->set_clase( new clase("father") );
         
         $tree = new tree();
         $tree->add_node( $nodo );
         
-        $nodo = new nodo_clase();
+        $nodo = new node_clase();
         $nodo->set_clase( new clase("mother") );
         $tree->add_node( $nodo );
         return $tree;

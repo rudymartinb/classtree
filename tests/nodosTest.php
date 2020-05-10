@@ -1,6 +1,6 @@
 <?php
 
-use nodes\nodo_clase;
+use nodes\node_clase;
 use nodes\tree;
 
 class nodosTest extends PHPUnit\Framework\TestCase {
@@ -10,11 +10,11 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function build_parent_child() : tree {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
         
-        $nodo2 = new nodo_clase();
+        $nodo2 = new node_clase();
         $nodo2->set_clase( new clase("son") );
         $tree->add_node( $nodo2 );
         
@@ -28,11 +28,11 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function test_nodo_2clases_2() {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
         
-        $nodo2 = new nodo_clase();
+        $nodo2 = new node_clase();
         $nodo2->set_clase( new clase("son") );
         $tree->add_node( $nodo2 );
         
@@ -50,15 +50,15 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function build_2parents_1child() : tree {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
         
-        $nodo2 = new nodo_clase();
+        $nodo2 = new node_clase();
         $nodo2->set_clase( new clase("mother") );
         $tree->add_node( $nodo2 );
         
-        $nodo3 = new nodo_clase();
+        $nodo3 = new node_clase();
         $nodo3->set_clase( new clase("son") );
         
         $tree->add_node( $nodo3 );
@@ -78,7 +78,7 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function test_tree_orphans_1() {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
         
@@ -88,11 +88,11 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function test_tree_orphans_1_de_2() {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
 
-        $nodo2 = new nodo_clase();
+        $nodo2 = new node_clase();
         $nodo2->set_clase( new clase("son") );
         $nodo2->set_parent($nodo1);
         $tree->add_node( $nodo2 );
@@ -104,7 +104,7 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function test_nivel1() {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
         
@@ -114,11 +114,11 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function test_nivel2() {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
 
-        $nodo2 = new nodo_clase();
+        $nodo2 = new node_clase();
         $nodo2->set_clase( new clase("son") );
         $nodo2->set_parent($nodo1);
         $tree->add_node( $nodo2 );
@@ -129,16 +129,16 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function test_nivel3() {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
         
-        $nodo2 = new nodo_clase();
+        $nodo2 = new node_clase();
         $nodo2->set_clase( new clase("son") );
         $nodo2->set_parent($nodo1);
         $tree->add_node( $nodo2 );
 
-        $nodo3 = new nodo_clase();
+        $nodo3 = new node_clase();
         $nodo3->set_clase( new clase("son") );
         $nodo3->set_parent($nodo2);
         $tree->add_node( $nodo3 );
@@ -166,30 +166,30 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     function test_nivel4() {
         $tree = new tree();
         
-        $nodo1 = new nodo_clase();
+        $nodo1 = new node_clase();
         $nodo1->set_clase( new clase("father") );
         $tree->add_node( $nodo1 );
         
-        $nodo2 = new nodo_clase();
+        $nodo2 = new node_clase();
         $nodo2->set_clase( new clase("son") );
         $nodo2->set_parent($nodo1);
         $tree->add_node( $nodo2 );
         
-        $nodo3 = new nodo_clase();
+        $nodo3 = new node_clase();
         $nodo3->set_clase( new clase("son") );
         $nodo3->set_parent($nodo2);
         $tree->add_node( $nodo3 );
 
-        $nodo4 = new nodo_clase();
+        $nodo4 = new node_clase();
         $nodo4->set_clase( new clase("son") );
         $nodo4->set_parent($nodo3);
         $tree->add_node( $nodo4 );
 
-        $nodo41 = new nodo_clase();
+        $nodo41 = new node_clase();
         $nodo41->set_clase( new clase("son") );
         $tree->add_node( $nodo41 );
         
-        $nodo5 = new nodo_clase();
+        $nodo5 = new node_clase();
         $nodo5->set_clase( new clase("son") );
         $nodo5->set_parent($nodo4);
         $nodo5->set_parent($nodo41);
