@@ -85,16 +85,16 @@ class ClassTree {
                 continue;
             }
             
-            $newpath = $path."/".$filename;
-            if( is_dir( $newpath ) ){
-                $this->build_from_dir( $newpath );
+            $fullnewpath = $path."/".$filename;
+            if( is_dir( $fullnewpath ) ){
+                $this->build_from_dir( $fullnewpath );
                 continue;
             }
             if( ! is_php($filename) ){
                 continue;
             }
             
-            $matches = get_types_from_source( $newpath );
+            $matches = get_types_from_source( $fullnewpath );
             $clases = separar_clases( $matches );
             
             foreach( $clases as $clase ){
