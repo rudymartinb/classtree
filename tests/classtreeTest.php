@@ -2,7 +2,7 @@
 
 class classtreeTest extends PHPUnit\Framework\TestCase {
 
-    /* this test uses a fixed file on tests/dummy dir
+    /* this test uses fixed files on tests/dummy dir
      * adding or removing files will cause this test to fail
      *
      * (yeah I know I should use an string to mock it,
