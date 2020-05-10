@@ -136,6 +136,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( $esperado, $resultado );
     }
 
+    
     function test_generar_permutaciones_2() {
         $arr = [ "A", "B" ];
         $esperado = [];
