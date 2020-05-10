@@ -40,7 +40,7 @@ class nodo_clase extends nodo {
     function set_parent( nodo $parent ){
         $nivelparent = $parent->get_level();
         if( $nivelparent >= $this->nivel ){
-            $this->nivel = $nivelparent + 1; // HACK
+            $this->nivel = $nivelparent + 1; // HACK?
         }
         $this->parents[] = $parent;
         $parent->set_child( $this );
