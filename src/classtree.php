@@ -3,6 +3,10 @@
 use nodes\node_clase;
 use nodes\tree;
 
+/*
+ * this generates one class object from the matches found
+ * during source search by one of the build_from* functions
+ */
 function separar_clases( Array $matches ) : Array {
     $lista = [];
     $namespace = "";
@@ -16,31 +20,6 @@ function separar_clases( Array $matches ) : Array {
         }
         
         $clase = new clase( $matches[ "nombretipo"][$key] );
-        $clase->set_extends( $matches["extends"][$key] );
-        $clase->set_implements( $matches["implements"][$key] );
-        $clase->set_namespace( $namespace );
-        
-        $lista[] = $clase;
-    }
-    return $lista;
-}
-/*
- * this generates one class object from the matches found
- * during source search by one of the build_from* functions
- */
-function separar_nodos( Array $matches ) : Array {
-    $lista = [];
-    $namespace = "";
-    foreach ($matches["tipo"] as $key => $value ) {
-        if( $value == "namespace" ){
-            $namespace = $matches[ "nombretipo" ][ $key ];
-            continue;
-        }
-        if( $value != "class" ){
-            continue;
-        }
-        
-        $clase = new node_clase( $matches[ "nombretipo"][$key] );
         $clase->set_extends( $matches["extends"][$key] );
         $clase->set_implements( $matches["implements"][$key] );
         $clase->set_namespace( $namespace );
