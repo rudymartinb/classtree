@@ -1,8 +1,21 @@
 <?php
 
-
+function get_files( string $path ) : Array {
+    $dir = dir( $path );
+    $list = [];
+    while (false !== ( $filename = $dir->read() ) ) {
+        $list[] = $filename ;
+    }
+    return $list; 
+}
 
 class classtreeTest extends PHPUnit\Framework\TestCase {
+    
+    function test_get_files() {
+        $path = "/home/rudy/projects/classtree/tests/dummy/";
+        $lista = get_files( $path );
+        $this->assertEquals( 4, count( $lista ) );
+    }
     
     /* this test uses a fixed file on tests/dummy dir
      * altering the file will cause this test to fail
