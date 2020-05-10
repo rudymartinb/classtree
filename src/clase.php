@@ -1,5 +1,5 @@
 <?php
-
+// since "class" is a reserverd word ...
 class clase {
     private $nombre;
     
