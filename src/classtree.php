@@ -29,6 +29,12 @@ function separar_clases( Array $matches ) : Array {
     return $lista;
 }
 
+function begins_with_dot( string $entry ) : bool {
+    return substr( $entry, 0,1 ) == ".";
+}
+function is_php( string $entry ) : bool {
+    return substr( $entry, -4 ) == ".php";
+}
 
 
 class ClassTree {
@@ -46,29 +52,22 @@ class ClassTree {
     }
     
     
-    private function begins_with_dot( string $entry ) : bool {
-        return substr( $entry, 0,1 ) == ".";
-    }
-    private function is_php( string $entry ) : bool {
-        return substr( $entry, -4 ) == ".php";
-    }
     
     function build_from_dir( string $path, array $lista = [] ) : array {
         $this->tree = new tree();
         
         $dir = dir( $path );
         while (false !== ($entry = $dir->read())) {
-            if( $this->begins_with_dot($entry) ){
+            if( begins_with_dot($entry) ){
                 continue;
             }
             
             $newpath = $path."/".$entry;
-            
             if( is_dir( $newpath ) ){
                 $nueva = $this->build_from_dir( $newpath );
                 $lista = $lista + $nueva;
             }
-            if( ! $this->is_php($entry) ){
+            if( ! is_php($entry) ){
                 continue;
             }
             
@@ -91,11 +90,11 @@ class ClassTree {
         $this->tree = new tree();
         
         $lista = [];
-        if( $this->begins_with_dot( $filename ) ){
+        if( begins_with_dot( $filename ) ){
             return $lista;
         }
         
-        if( ! $this->is_php($filename) ){
+        if( ! is_php($filename) ){
             return $lista;
         }
         
