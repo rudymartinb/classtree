@@ -1,6 +1,13 @@
 <?php
 
 class treeTest extends PHPUnit\Framework\TestCase {
+    
+    function test_get_num_orphans_0() {
+        $tree = new tree();
+        
+        $this->assertEquals( 0, $tree->get_num_orphans() );
+    }
+    
     /* builder
      */
     function crear_1nodo() : tree {
@@ -34,12 +41,6 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $tree = $this->crear_2nodos();
         
         $this->assertEquals( 2, $tree->get_num_nodes() );
-    }
-    
-    function test_tree_orphans_0() {
-        $tree = new tree();
-        
-        $this->assertEquals( 0, $tree->get_num_orphans() );
     }
     
        
