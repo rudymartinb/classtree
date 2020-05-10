@@ -9,7 +9,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
     
     /* builder
      */
-    function crear_1nodo() : tree {
+    function build_1node() : tree {
         $nodo = new nodo_clase();
         $nodo->set_clase( new clase("father") );
         
@@ -19,7 +19,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
     }
     
     function test_nodo_clase() {
-        $tree = $this->crear_1nodo();
+        $tree = $this->build_1node();
         $this->assertEquals( 1, $tree->get_num_nodes() );
     }
     
