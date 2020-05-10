@@ -35,7 +35,12 @@ function execute_permutation( Array $arr, Callable $function, Array $head = [] )
     for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
         $new_head = array_slice( $arr, $index, 1 );
         $remaining = $arr;
-        array_splice( $remaining, $index, 1 ); // here $remaining is passed by reference
+        
+        /* here $remaining is passed by reference
+         * we don't want to ruin $arr
+         */
+        array_splice( $remaining, $index, 1 );
+        
         execute_permutation( $remaining, $function, array_merge( $head, $new_head ) );
     }
 
