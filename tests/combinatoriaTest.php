@@ -214,25 +214,29 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
     }
     
-    function test_ejecutar_permutacion_null(){
-        $arr = null;
-        $expected = null;
+//     function test_ejecutar_permutacion_null(){
+//         $arr = null;
+//         $expected = null;
         
-        $funcion = function( $actual ) use( $expected ) {
-            $this->assertEquals($expected, $actual);
-        };
+//         $funcion = function( $actual ) use( $expected ) {
+//             $this->assertEquals($expected, $actual);
+//         };
         
-        ejecutar_permutacion($arr, $funcion);
-    }
+//         ejecutar_permutacion($arr, $funcion);
+//     }
 
     function test_ejecutar_permutacion_0(){
         $arr = [];
         $expected = [ ];
-        $funcion = function( Array $actual ) use( $expected ) {
-            $this->assertEquals($expected, $actual);
+        $pos = 0;
+        $funcion = function( $actual ) use( $expected, &$pos ) {
+            $this->assertEquals( $expected, $actual, "evaluando key ".$pos );
+            $pos ++;
         };
         
         ejecutar_permutacion($arr, $funcion);
+        
+        $this->assertEquals( 1, $pos);
     }
 
     function test_ejecutar_permutacion_1(){
