@@ -110,10 +110,12 @@ class ClassTree {
     }
     
     
-//     private $identificadores;
-    
     
     /* perhaps the word "type" is not adecuate here
+     * but identifiers is a bit too long ...
+     * 
+     * TODO: add an array with the list of identifiers
+     * ie: add "trait"
      */
     private function get_types_from_source( string $filename ): Array {
         $sourcecode = file_get_contents( $filename );
