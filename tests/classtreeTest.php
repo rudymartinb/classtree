@@ -7,7 +7,7 @@ function get_all_files( string $path ) : Array {
         if( begins_with_dot($filename) ){
             continue;
         }
-        $fullpath = $path."/".$filename;
+        $fullpath = $path."".$filename;
         // test if we have a directory
         if( is_dir( $fullpath ) ){
             $list = array_merge( $list, get_all_files( $fullpath ) );
