@@ -140,12 +140,12 @@ class ClassTree {
      * deberia tener un atributo que diga si se termino de consultar todo o no
      * 
      */
-    function get_funciones( string $filename, string $clase ): Array {
+    function get_funciones( string $filename, string $class ): Array {
         $lista = file_get_contents( $filename );
 
         /* extract classes from source
          */
-        $classpart = "class ".$clase."";
+        $classpart = "class ".$class."";
         
         $pattern  = "/";
         $pattern .= "(?:(?!".$classpart.").)";
