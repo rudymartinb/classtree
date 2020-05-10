@@ -49,7 +49,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         
         $classtree = new ClassTree();
         
-        $classtree->construir_desde_archivo( $path );
+        $classtree->build_from_file( $path );
         
         $nodos = $classtree->get_nodos();
         

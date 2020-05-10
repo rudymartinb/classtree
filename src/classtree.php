@@ -57,17 +57,17 @@ class ClassTree {
     }
     
     
-    private function es_entrada_con_punto( string $entry ) : bool {
+    private function begins_with_dot( string $entry ) : bool {
         return substr( $entry, 0,1 ) == ".";
     }
-    private function es_php( string $entry ) : bool {
+    private function is_php( string $entry ) : bool {
         return substr( $entry, -4 ) != ".php";
     }
     
     function construir( string $path, array $lista = [] ) : array {
         $dir = dir($path);
         while (false !== ($entry = $dir->read())) {
-            if( $this->es_entrada_con_punto($entry) ){
+            if( $this->begins_with_dot($entry) ){
                 continue;
             }
             
@@ -77,7 +77,7 @@ class ClassTree {
                 $nueva = $this->construir( $newpath );
                 $lista = $lista + $nueva;
             }
-            if( $this->es_php($entry) ){
+            if( $this->is_php($entry) ){
                 continue;
             }
             
@@ -91,19 +91,19 @@ class ClassTree {
         return $lista;
     }
     
-    function construir_desde_archivo( string $entry ) : array {
+    function build_from_file( string $filename ) : array {
         $lista = [];
-        if( $this->es_entrada_con_punto( $entry ) ){
+        if( $this->begins_with_dot( $filename ) ){
             return $lista;
         }
         
-        if( $this->es_php($entry) ){
+        if( $this->is_php($filename) ){
             return $lista;
         }
         
-        $lista[ $entry ] = ""; 
+        $lista[ $filename ] = ""; 
         
-        $matches = $this->get_types_from_source( $entry );
+        $matches = $this->get_types_from_source( $filename );
         $clases = $this->separar_clases( $matches );
         $this->clases = $this->clases + $clases;
             
