@@ -24,6 +24,8 @@ function get_all_files( string $path ) : Array {
 }
 
 function get_source( string $filename ) : string {
+    if( ! file_exists( $filename ) )
+        return "";
     return file_get_contents( $filename );
 }
 
