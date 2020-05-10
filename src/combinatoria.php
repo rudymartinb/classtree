@@ -42,7 +42,7 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
     return $resultado;
 }
 
-function ejecutar_permutacion( Array $arr = null, Callable $funcion ) {
+function ejecutar_permutacion( Array $arr = null, Callable $funcion, Array $cabecera = [] ) {
     
     if( is_null( $arr ) ){
         $funcion( $arr );
@@ -52,9 +52,18 @@ function ejecutar_permutacion( Array $arr = null, Callable $funcion ) {
         $funcion( $arr, 0 );
         return;
     }
-    
-    $funcion( $arr, 0 );
-    $funcion( permutacion($arr, 1), 1 );
+    if( count( $arr ) == 2 ){
+        $funcion( array_merge( $cabecera, $arr ), 0 );
+        $funcion( array_merge( $cabecera, permutacion( $arr, 1 ) ), 1 );
+        return;
+    }
+
+    for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
+        $cabeza = array_slice( $arr, $index, 1 );
+        $resto = $arr;
+        array_splice( $resto, $index, 1 );
+        ejecutar_permutacion($resto, $funcion, array_merge( $cabecera, $cabeza ) );
+    }
 
     
 }
