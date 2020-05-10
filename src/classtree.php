@@ -85,7 +85,7 @@ class ClassTree {
             $newpath = $path."/".$entry;
             if( is_dir( $newpath ) ){
                 $nueva = $this->build_from_dir( $newpath );
-                $lista = $lista + $nueva;
+                $lista = array_merge( $lista, $nueva );
             }
             if( ! is_php($entry) ){
                 continue;
@@ -108,6 +108,7 @@ class ClassTree {
     
     function build_from_file( string $filename ) : Array {
         $lista = [];
+        
         if( begins_with_dot( $filename ) ){
             return $lista;
         }
