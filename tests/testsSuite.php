@@ -1,5 +1,6 @@
 <?php
 require_once 'src/node.php';
+require_once 'src/tree.php';
 require_once 'src/clase.php';
 require_once 'src/classtree.php';
 require_once 'src/permutacion.php';
