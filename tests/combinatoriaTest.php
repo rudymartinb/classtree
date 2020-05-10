@@ -216,9 +216,9 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
     
     function test_ejecutar_permutacion_null(){
         $arr = null;
-        $expected = [ null ];
+        $expected = null;
         
-        $funcion = function( Array $actual ) use( $expected ) {
+        $funcion = function( Array $actual = null ) use( $expected ) {
             $this->assertEquals($expected, $actual);
         };
         
