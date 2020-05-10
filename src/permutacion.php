@@ -3,10 +3,6 @@
 /* extract the second item and place it as first
  * then concatenates the rest of the array
  * 
- * cabeza = head
- * resto = remaining items
- * resultado = result
- * 
  */
 function permutate( Array $arr, int $ini ) : Array {
     $remaining = $arr;
