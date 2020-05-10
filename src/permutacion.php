@@ -37,10 +37,10 @@ function exceute_permutation( Array $arr, Callable $function, Array $head = [] )
      * and make a recursive using all the remaining elements as new array for the next call.
      */
     for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
-        $cabeza = array_slice( $arr, $index, 1 );
-        $resto = $arr;
-        array_splice( $resto, $index, 1 );
-        exceute_permutation($resto, $function, array_merge( $head, $cabeza ) );
+        $new_head = array_slice( $arr, $index, 1 );
+        $remaining = $arr;
+        array_splice( $remaining, $index, 1 );
+        exceute_permutation($remaining, $function, array_merge( $head, $new_head ) );
     }
 
     
