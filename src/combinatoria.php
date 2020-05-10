@@ -25,7 +25,7 @@ function generar_permutaciones( Array $arr = null ) : Array {
             $cabeza = array_slice( $arr, $index, 1 );
             $resto = $arr;
             array_splice( $resto, $index, 1 );
-            $partes = generar_permutaciones( $resto, $cabeza );
+            $partes = generar_permutaciones( $resto );
             
             foreach( $partes as $value ){
                 $resultado[] = array_merge( $cabeza, $value );
