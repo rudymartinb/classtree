@@ -7,7 +7,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 0, $tree->get_num_orphans() );
     }
     
-    /* builder
+    /* tree builder for these tests
      */
     function build_1node() : tree {
         $nodo = new nodo_clase();
