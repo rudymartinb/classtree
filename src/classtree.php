@@ -105,7 +105,7 @@ class ClassTree {
         
         $matches = $this->get_types_from_source( $filename );
         $clases = $this->separar_clases( $matches );
-        $this->clases = $this->clases + $clases;
+        $this->clases = array_merge( $this->clases , $clases );
             
         return $lista;
     }
