@@ -113,7 +113,7 @@ class ClassTree {
     private $identificadores;
     
     private function get_tipos_del_fuente( string $filename ): Array {
-        $lista = file_get_contents( $filename );
+        $sourcecode = file_get_contents( $filename );
         
         // (implements (?<implements>[0-9a-zA-Z_]*))*[ {]*
         $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
@@ -122,7 +122,7 @@ class ClassTree {
         $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
         
         $matches = [];
-        preg_match_all($pattern, $lista, $matches );
+        preg_match_all($pattern, $sourcecode, $matches );
         // var_dump( $matches );
         
         return $matches;
