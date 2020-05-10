@@ -50,27 +50,6 @@
 // }
 
 class combinatoriaTest extends PHPUnit\Framework\TestCase {
-    
-    /*
-     * the most basic opeartion we can do
-     * take out one item from the array 
-     * and create a new one ordered
-     */
-    function test_splice() {
-        
-        $arr = [ "A", "B", "C" ];
-
-        $resto = $arr;
-        $cabeza = array_splice( $resto, 1,1 );
-        
-        $this->assertEquals( ["B"], $cabeza, "cabeza = parte que nos interesa de la izquierda" );
-        $this->assertEquals( ["A","C"], $resto, "resto = parte derecha a permutar" );
-        
-        $this->assertEquals( ["A","B","C"], $arr, "array original debe estar intacto" );
-        
-        $resultado = array_merge( $cabeza , $resto );
-        $this->assertEquals( ["B","A","C"], $resultado, "resultado final" );
-    }
 
     function test_permutacion_0() {
         $arr = [  ];
@@ -113,17 +92,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
     }
     
     
-    /* just to be on the safe side ...
-     */
-    function test_array_merge() {
-        $arr1 = [];
-        $arr2 = ["A","B"];
-        
-        $result = array_merge( $arr1, $arr2 );
-        $this->assertEquals( [ "A","B"], $result );
-        
-    }
-    
+
 
     function test_ejecutar_permutacion_0(){
         $arr = [];
@@ -242,6 +211,9 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
     }
 
+    // uncomment if you want to test any number of permutations
+    // and see how fast php can be
+    
 //     function test_ejecutar_permutacion_10(){
 //         $arr = [ ];
 //         for( $i = 0 ; $i < 10; $i++){
@@ -257,6 +229,40 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
 //         ejecutar_permutacion($arr, $funcion);
 //         $this->assertEquals( 10*9*8*7*6*5*4*3*2, $pos);
 //     }
+
     
+    // a few micro tests
+    
+    /* just to be on the safe side ...
+     */
+    function test_array_merge() {
+        $arr1 = [];
+        $arr2 = ["A","B"];
+        
+        $result = array_merge( $arr1, $arr2 );
+        $this->assertEquals( [ "A","B"], $result );
+        
+    }
+    
+    /*
+     * the most basic opeartion we can do
+     * take out one item from the array
+     * and create a new one ordered
+     */
+     function test_splice() {
+         $arr = [ "A", "B", "C" ];
+         
+         $resto = $arr;
+         $cabeza = array_splice( $resto, 1,1 );
+         
+         $this->assertEquals( ["B"], $cabeza, "cabeza = parte que nos interesa de la izquierda" );
+         $this->assertEquals( ["A","C"], $resto, "resto = parte derecha a permutar" );
+         
+         $this->assertEquals( ["A","B","C"], $arr, "array original debe estar intacto" );
+         
+         $resultado = array_merge( $cabeza , $resto );
+         $this->assertEquals( ["B","A","C"], $resultado, "resultado final" );
+     }
+     
     
 }
