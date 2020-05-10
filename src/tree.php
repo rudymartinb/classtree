@@ -2,7 +2,7 @@
 namespace nodes;
 
 /*
- * my first attempt to develop a binary tree was to not use a container class for all nodes
+ * my very first attempt to develop a binary tree was to not use a container class for all nodes
  * that ended in walking all the tree to get the top element.
  * 
  * in this particular case we might have totally isolated classes from each other
