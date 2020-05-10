@@ -203,7 +203,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         }
     }
     
-    /*just to be on the safe side ...
+    /* just to be on the safe side ...
      */
     function test_array_merge() {
         $arr1 = [];
