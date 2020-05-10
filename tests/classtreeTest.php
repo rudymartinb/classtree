@@ -1,10 +1,20 @@
 <?php
 
-function get_files( string $path ) : Array {
+function get_all_files( string $path ) : Array {
     $dir = dir( $path );
     $list = [];
     while (false !== ( $filename = $dir->read() ) ) {
-        $list[] = $filename ;
+        if( begins_with_dot($filename) ){
+            continue;
+        }
+        $fullpath = $path."/".$filename;
+        // test if we have a directory
+        if( is_dir( $fullpath ) ){
+            $list = array_merge( $list, get_all_files( $fullpath ) );
+            continue;
+        }
+        
+        $list[] = $fullpath ;
     }
     return $list; 
 }
@@ -13,9 +23,10 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
     
     function test_get_files() {
         $path = "/home/rudy/projects/classtree/tests/dummy/";
-        $lista = get_files( $path );
-        $this->assertEquals( 4, count( $lista ) );
+        $lista = get_all_files( $path );
+        $this->assertEquals( 3, count( $lista ) );
     }
+    
     
     /* this test uses a fixed file on tests/dummy dir
      * altering the file will cause this test to fail
