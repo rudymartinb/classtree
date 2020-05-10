@@ -196,7 +196,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $esperado[] = [ "D", "C", "B", "A" ];
         
         $resultado= generar_permutaciones( $arr );
-        var_dump( $resultado );
+//         var_dump( $resultado );
         foreach( $esperado as $key => $value ){
             $this->assertEquals( $esperado[ $key ], $resultado[ $key ], "procesando elemento ".$key );
         }
