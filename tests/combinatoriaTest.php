@@ -237,6 +237,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
 
     function test_ejecutar_permutacion_1(){
         $arr = [ "0" ];
+        $expected = [];
         $expected = [ "0" ];
         $funcion = function( Array $actual ) use( $expected ) {
             $this->assertEquals($expected, $actual);
@@ -244,6 +245,19 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
         ejecutar_permutacion($arr, $funcion);
     }
+    
+//     function test_ejecutar_permutacion_2(){
+//         $arr = [ "0", "1" ];
+//         $expected = [];
+//         $expected[] = [ "0", "1" ];
+//         $expected[] = [ "1", "0" ];
+//         $funcion = function( Array $actual ) use( $expected ) {
+//             $this->assertEquals($expected, $actual);
+//         };
+        
+//         ejecutar_permutacion($arr, $funcion);
+//     }
+    
     
     
 }
