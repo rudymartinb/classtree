@@ -145,11 +145,11 @@ class ClassTree {
 
         /* extract classes from source
          */
-        $parteclase = "class ".$clase."";
+        $classpart = "class ".$clase."";
         
         $pattern  = "/";
-        $pattern .= "(?:(?!".$parteclase.").)";
-        $pattern .= "(?:".$parteclase.")";
+        $pattern .= "(?:(?!".$classpart.").)";
+        $pattern .= "(?:".$classpart.")";
         $pattern .= ".+?";
         $pattern .= "(?:(?=class))";
         $pattern .= "/s";
