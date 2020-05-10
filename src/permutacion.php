@@ -20,7 +20,7 @@ function execute_permutation( Array $arr, Callable $function, Array $head = [] )
     }
     
     if( count( $arr ) == 2 ){
-        /* funcion is called twice 
+        /* function is called twice 
          * because array has 2 elements
          */
         $function( array_merge( $head, $arr ) );
@@ -35,7 +35,7 @@ function execute_permutation( Array $arr, Callable $function, Array $head = [] )
     for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
         $new_head = array_slice( $arr, $index, 1 );
         $remaining = $arr;
-        array_splice( $remaining, $index, 1 );
+        array_splice( $remaining, $index, 1 ); // here $remaining is passed by reference
         execute_permutation( $remaining, $function, array_merge( $head, $new_head ) );
     }
 
