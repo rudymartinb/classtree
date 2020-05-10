@@ -141,7 +141,7 @@ class ClassTree {
      * 
      */
     function get_funciones( string $filename, string $class ): Array {
-        $lista = file_get_contents( $filename );
+        $sourcecode = file_get_contents( $filename );
 
         /* extract classes from source
          */
@@ -155,7 +155,7 @@ class ClassTree {
         $pattern .= "/s";
                 
         $matches = [];
-        preg_match_all($pattern, $lista, $matches );
+        preg_match_all( $pattern, $sourcecode, $matches );
         
         $cuerpo = $matches[0][0];
         if( is_null( $cuerpo ) ){
