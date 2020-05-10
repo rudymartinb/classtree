@@ -157,10 +157,6 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $esperado[ 4] = [ "C", "A", "B" ]; // swap 1 2
         $esperado[ 5] = [ "B", "C", "A" ]; // swap 1 2
         
-        
-        
-        
-
         $resultado= generar_permutaciones( $arr );
         var_dump( $resultado );
         foreach( $esperado as $key => $value ){
