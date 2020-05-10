@@ -27,8 +27,8 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
         $resultado[] = array_merge( $cabecera, permutacion( $arr, 1 ) );
         return $resultado ;
     }
+    
     $resultado = [];
-
     for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
         $cabeza = array_slice( $arr, $index, 1 );
         $resto = $arr;
