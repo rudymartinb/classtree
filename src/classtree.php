@@ -94,7 +94,7 @@ class ClassTree {
             }
             
             // exclude all other files
-            // TODO: see if we must include others later, like .inc ?
+            // TODO: include others extendions, like .inc ?
             if( ! is_php($filename) ){
                 continue;
             }
