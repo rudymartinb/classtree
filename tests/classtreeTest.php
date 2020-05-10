@@ -6,8 +6,6 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $path = "/home/rudy/projects/classtree/tests/dummy";
         $lista = get_all_files( $path );
         $this->assertEquals( 3, count( $lista ) );
-        
-        var_dump( $lista );
     }
     
     
