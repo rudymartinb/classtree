@@ -85,11 +85,16 @@ class ClassTree {
                 continue;
             }
             
+            
             $fullpath = $path."/".$filename;
+            // test if we have a directory
             if( is_dir( $fullpath ) ){
                 $this->build_from_dir( $fullpath );
                 continue;
             }
+            
+            // exclude all other files
+            // TODO: see if we must include others later, like .inc ?
             if( ! is_php($filename) ){
                 continue;
             }
