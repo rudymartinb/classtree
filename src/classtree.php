@@ -110,8 +110,11 @@ class ClassTree {
     }
     
     
-    private $identificadores;
+//     private $identificadores;
     
+    
+    /* perhaps the word "type" is not adecuate here
+     */
     private function get_types_from_source( string $filename ): Array {
         $sourcecode = file_get_contents( $filename );
         
