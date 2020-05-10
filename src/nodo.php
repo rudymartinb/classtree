@@ -8,7 +8,7 @@ abstract class nodo {
 
 class tree {
     private $lista = [];
-    function add_nodo( nodo &$nodo ){
+    function add_node( nodo &$nodo ){
         $this->lista[] = & $nodo;
     }
     

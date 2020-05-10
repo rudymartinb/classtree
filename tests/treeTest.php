@@ -14,7 +14,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $nodo->set_clase( new clase("father") );
         
         $tree = new tree();
-        $tree->add_nodo( $nodo );
+        $tree->add_node( $nodo );
         return $tree;
     }
     
@@ -23,11 +23,11 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $nodo->set_clase( new clase("father") );
         
         $tree = new tree();
-        $tree->add_nodo( $nodo );
+        $tree->add_node( $nodo );
         
         $nodo = new nodo_clase();
         $nodo->set_clase( new clase("mother") );
-        $tree->add_nodo( $nodo );
+        $tree->add_node( $nodo );
         return $tree;
     }
     

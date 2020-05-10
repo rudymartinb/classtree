@@ -9,11 +9,11 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
         
         $nodo2 = new nodo_clase();
         $nodo2->set_clase( new clase("son") );
-        $tree->add_nodo( $nodo2 );
+        $tree->add_node( $nodo2 );
         
         $nodo2->set_parent( $nodo1 );
         
@@ -27,11 +27,11 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
         
         $nodo2 = new nodo_clase();
         $nodo2->set_clase( new clase("son") );
-        $tree->add_nodo( $nodo2 );
+        $tree->add_node( $nodo2 );
         
         $nodo2->set_parent( $nodo1 );
         
@@ -49,16 +49,16 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
         
         $nodo2 = new nodo_clase();
         $nodo2->set_clase( new clase("mother") );
-        $tree->add_nodo( $nodo2 );
+        $tree->add_node( $nodo2 );
         
         $nodo3 = new nodo_clase();
         $nodo3->set_clase( new clase("son") );
         
-        $tree->add_nodo( $nodo3 );
+        $tree->add_node( $nodo3 );
         
         $tree->set_parent( $nodo1, $nodo3 );
         $tree->set_parent( $nodo2, $nodo3 );
@@ -77,7 +77,7 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
         
         $this->assertEquals( 1, $tree->get_num_orphans() );
     }
@@ -87,12 +87,12 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
 
         $nodo2 = new nodo_clase();
         $nodo2->set_clase( new clase("son") );
         $nodo2->set_parent($nodo1);
-        $tree->add_nodo( $nodo2 );
+        $tree->add_node( $nodo2 );
         
         
         $this->assertEquals( 1, $tree->get_num_orphans() );
@@ -103,7 +103,7 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
         
         $this->assertEquals( 1, $nodo1->get_level() );
     }
@@ -113,12 +113,12 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
 
         $nodo2 = new nodo_clase();
         $nodo2->set_clase( new clase("son") );
         $nodo2->set_parent($nodo1);
-        $tree->add_nodo( $nodo2 );
+        $tree->add_node( $nodo2 );
         
         $this->assertEquals( 2, $nodo2->get_level() );
     }
@@ -128,17 +128,17 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
         
         $nodo2 = new nodo_clase();
         $nodo2->set_clase( new clase("son") );
         $nodo2->set_parent($nodo1);
-        $tree->add_nodo( $nodo2 );
+        $tree->add_node( $nodo2 );
 
         $nodo3 = new nodo_clase();
         $nodo3->set_clase( new clase("son") );
         $nodo3->set_parent($nodo2);
-        $tree->add_nodo( $nodo3 );
+        $tree->add_node( $nodo3 );
         
         $this->assertEquals( 3, $nodo3->get_level() );
     }
@@ -165,32 +165,32 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         
         $nodo1 = new nodo_clase();
         $nodo1->set_clase( new clase("father") );
-        $tree->add_nodo( $nodo1 );
+        $tree->add_node( $nodo1 );
         
         $nodo2 = new nodo_clase();
         $nodo2->set_clase( new clase("son") );
         $nodo2->set_parent($nodo1);
-        $tree->add_nodo( $nodo2 );
+        $tree->add_node( $nodo2 );
         
         $nodo3 = new nodo_clase();
         $nodo3->set_clase( new clase("son") );
         $nodo3->set_parent($nodo2);
-        $tree->add_nodo( $nodo3 );
+        $tree->add_node( $nodo3 );
 
         $nodo4 = new nodo_clase();
         $nodo4->set_clase( new clase("son") );
         $nodo4->set_parent($nodo3);
-        $tree->add_nodo( $nodo4 );
+        $tree->add_node( $nodo4 );
 
         $nodo41 = new nodo_clase();
         $nodo41->set_clase( new clase("son") );
-        $tree->add_nodo( $nodo41 );
+        $tree->add_node( $nodo41 );
         
         $nodo5 = new nodo_clase();
         $nodo5->set_clase( new clase("son") );
         $nodo5->set_parent($nodo4);
         $nodo5->set_parent($nodo41);
-        $tree->add_nodo( $nodo4 );
+        $tree->add_node( $nodo4 );
         
         $this->assertEquals( 1, $nodo1->get_level() );
         $this->assertEquals( 1, $nodo41->get_level() );
