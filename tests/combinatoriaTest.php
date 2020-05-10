@@ -341,7 +341,22 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(24, $pos);
         
     }
-    
+
+    function test_ejecutar_permutacion_10(){
+        $arr = [ ];
+        for( $i = 0 ; $i < 10; $i++){
+            $arr[] = $i;
+        }
+        $pos = 0;
+        
+        // this is going to be executed 6 times ...
+        $funcion = function( Array $actual ) use( &$pos ) {
+            $pos ++;
+        };
+        
+        ejecutar_permutacion($arr, $funcion);
+        $this->assertEquals( 10*9*8*7*6*5*4*3*2, $pos);
+    }
     
     
 }
