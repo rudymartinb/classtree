@@ -1,4 +1,5 @@
 <?php
+namespace nodes;
 
 abstract class nodo {
     abstract function set_parent( nodo $nodo );

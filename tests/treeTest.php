@@ -1,5 +1,8 @@
 <?php
 
+use nodes\nodo_clase;
+use nodes\tree;
+
 class treeTest extends PHPUnit\Framework\TestCase {
     
     function test_get_num_orphans_0() {

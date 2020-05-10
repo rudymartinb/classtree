@@ -1,5 +1,8 @@
 <?php
 
+use nodes\nodo_clase;
+use nodes\tree;
+
 class nodosTest extends PHPUnit\Framework\TestCase {
     
 
