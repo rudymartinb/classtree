@@ -9,9 +9,9 @@
  * 
  */
 function permutate( Array $arr, int $ini ) : Array {
-    $resto = $arr;
-    $cabeza = array_splice( $resto, $ini,1 );
-    $resultado = array_merge( $cabeza , $resto );
+    $remaining = $arr;
+    $head = array_splice( $remaining, $ini,1 );
+    $resultado = array_merge( $head , $remaining );
     return $resultado;
 }
 
