@@ -86,6 +86,13 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( ["A"], $resultado, "resultado final" );
     }
     
+    function test_permutacion_2() {
+        $arr = [ "A", "B" ];
+        $ini = 1; // second element
+        $resultado = permutacion($arr, $ini);
+        $this->assertEquals( ["B","A" ], $resultado, "resultado final" );
+    }
+    
     
     function test_permutacion_3() {
         $arr = [ "A", "B", "C" ];
