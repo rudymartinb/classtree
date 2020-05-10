@@ -34,7 +34,7 @@ function execute_permutation( Array $arr, Callable $function, Array $head = [] )
 
     /*
      * from the left to the right we are going to take each element of the passed array
-     * and make a recursive using all the remaining elements as new array for the next call.
+     * and make a recursive call using all the remaining elements as new array for the next call.
      */
     for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
         $new_head = array_slice( $arr, $index, 1 );
