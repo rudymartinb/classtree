@@ -85,7 +85,7 @@ class ClassTree {
             $newpath = $path."/".$entry;
             if( is_dir( $newpath ) ){
                 $nueva = $this->build_from_dir( $newpath );
-                $lista = array_merge( $lista, $nueva );
+//                 $lista = array_merge( $lista, $nueva );
             }
             if( ! is_php($entry) ){
                 continue;
