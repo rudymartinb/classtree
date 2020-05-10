@@ -157,8 +157,8 @@ class ClassTree {
         $matches = [];
         preg_match_all( $pattern, $sourcecode, $matches );
         
-        $cuerpo = $matches[0][0];
-        if( is_null( $cuerpo ) ){
+        $classbody = $matches[0][0];
+        if( is_null( $classbody ) ){
             return [];
         }
 
@@ -174,7 +174,7 @@ class ClassTree {
         $pattern .= "/s";
         
         $matches = [];
-        preg_match_all($pattern, $cuerpo, $matches );
+        preg_match_all($pattern, $classbody, $matches );
                 
         return $matches;
     }
