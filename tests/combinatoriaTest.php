@@ -50,25 +50,6 @@ function arr_to_str( Array $arr ) : string {
 }
 
 class combinatoriaTest extends PHPUnit\Framework\TestCase {
-    function test1() {
-        $arr = [ "A" ];
-        $actual = comb( $arr );
-        $esperado = [];
-        $esperado[] = [ "A" ];
-        $this->assertEquals( $esperado, $actual );
-    }
-
-    function test2() {
-        
-        $arr = [ "A", "B" ];
-        $esperado = [];
-        $esperado[] = [ "A", "B" ];
-        $esperado[] = [ "B", "A" ];
-//         var_dump( $esperado );
-        $actual = comb( $arr );
-        $this->assertEquals( $esperado, $actual );
-    }
-    
     
     /*
      * the most basic opeartion we can do
@@ -89,6 +70,16 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
         $resultado = array_merge( $cabeza , $resto );
         $this->assertEquals( ["B","A","C"], $resultado, "resultado final" );
+    }
+    
+    function test_permutacion() {
+        $arr = [ "A", "B", "C" ];
+        
+        $ini = 1; // second element
+        $resultado = permutacion($arr, $ini);
+        
+        $this->assertEquals( ["B","A","C"], $resultado, "resultado final" );
+        
     }
     
 }
