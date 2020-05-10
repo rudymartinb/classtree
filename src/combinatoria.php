@@ -43,9 +43,12 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
 }
 
 function ejecutar_permutacion( Array $arr, Callable $funcion, Array $cabecera = [] ) {
-    
-    if( count( $arr ) <= 1 ){
-        $funcion( $arr, 0 );
+    if( count( $arr ) == 0 ){
+        $funcion( null );
+        return;
+    }
+    if( count( $arr ) == 1 ){
+        $funcion( $arr );
         return;
     }
     if( count( $arr ) == 2 ){

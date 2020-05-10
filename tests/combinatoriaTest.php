@@ -230,7 +230,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $expected = [ ];
         $pos = 0;
         $funcion = function( $actual ) use( $expected, &$pos ) {
-            $this->assertEquals( $expected, $actual, "evaluando key ".$pos );
+            $this->assertEquals( $expected[ $pos ], $actual, "evaluando key ".$pos );
             $pos ++;
         };
         
