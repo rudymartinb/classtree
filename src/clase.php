@@ -5,8 +5,8 @@
 class clase {
     private $name;
     
-    function __construct( string $nombre ){
-        $this->name = $nombre;
+    function __construct( string $name ){
+        $this->name = $name;
     }
     function get_nombre() : string {
         return $this->name;
