@@ -41,3 +41,4 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
         
     return $resultado;
 }
+
