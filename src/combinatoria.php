@@ -18,7 +18,7 @@ function permutacion( Array $arr, int $ini ) : Array {
 
 function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Array {
     if( is_null( $arr ) or count( $arr ) < 2 ){
-        return [ $arr ];
+        return [ $arr ]; // ??
     }
 
     if( count( $arr ) == 2 ){
