@@ -154,10 +154,10 @@ class ClassTree {
         $pattern .= "(?:(?=class))";
         $pattern .= "/s";
                 
-        $classesmatched = [];
-        preg_match_all( $pattern, $sourcecode, $classesmatched );
+        $matches = [];
+        preg_match_all( $pattern, $sourcecode, $matches );
         
-        $classbody = $classesmatched[0][0];
+        $classbody = $matches[0][0];
         if( is_null( $classbody ) ){
             return [];
         }
@@ -173,10 +173,10 @@ class ClassTree {
         $pattern .= "(?<ret>[ :$0-9a-zA-Z_,]*)";
         $pattern .= "/s";
         
-        $classesmatched = [];
-        preg_match_all( $pattern, $classbody, $classesmatched );
+        $matches = [];
+        preg_match_all( $pattern, $classbody, $matches );
                 
-        return $classesmatched;
+        return $matches;
     }
     
     
