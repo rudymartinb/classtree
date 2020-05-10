@@ -1,11 +1,16 @@
 <?php
 
 use nodes\node_clase;
+use nodes\tree;
 
 class ClassTree {
     
     private $nodos = [] ;
     
+    private $tree;
+    function get_tree() : tree {
+        return $this->tree;
+    }
     function get_nodos() : Array {
         return $this->nodos;
     }
@@ -61,10 +66,12 @@ class ClassTree {
         return substr( $entry, 0,1 ) == ".";
     }
     private function is_php( string $entry ) : bool {
-        return substr( $entry, -4 ) != ".php";
+        return substr( $entry, -4 ) == ".php";
     }
     
     function construir( string $path, array $lista = [] ) : array {
+        $this->tree = new tree();
+        
         $dir = dir($path);
         while (false !== ($entry = $dir->read())) {
             if( $this->begins_with_dot($entry) ){
@@ -77,7 +84,7 @@ class ClassTree {
                 $nueva = $this->construir( $newpath );
                 $lista = $lista + $nueva;
             }
-            if( $this->is_php($entry) ){
+            if( ! $this->is_php($entry) ){
                 continue;
             }
             
@@ -85,13 +92,20 @@ class ClassTree {
             
             $matches = $this->get_types_from_source( $newpath );
             $clases = $this->separar_clases( $matches );
+            
+            foreach( $clases as $clase ){
+                $node = new node_clase( $clase->get_name() );
+                $this->tree->add_node($node);
+            }
             $this->clases = $this->clases + $clases;
             
         }
         return $lista;
     }
     
-    function build_from_file( string $filename ) : array {
+    function build_from_file( string $filename ) : Array {
+        $this->tree = new tree();
+        
         $lista = [];
         if( $this->begins_with_dot( $filename ) ){
             return $lista;
@@ -104,10 +118,17 @@ class ClassTree {
         $lista[ $filename ] = ""; 
         
         $matches = $this->get_types_from_source( $filename );
+        
         $clases = $this->separar_clases( $matches );
+
+        foreach( $clases as $clase ){
+            $node = new node_clase( $clase->get_name() );
+            $this->tree->add_node($node);
+        }
+        
         $this->clases = array_merge( $this->clases , $clases );
             
-        return $lista;
+        return $clases;
     }
     
     

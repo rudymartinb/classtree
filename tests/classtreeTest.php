@@ -47,13 +47,14 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
     function test_lista_nodos_1() {
         $path = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
         
+        
         $classtree = new ClassTree();
         
         $classtree->build_from_file( $path );
         
-        $nodos = $classtree->get_nodos();
-        
-        $this->assertEquals( 0 , count( $nodos ) );
+        $tree = $classtree->get_tree();
+
+        $this->assertEquals( 1 , $tree->get_num_nodes() );
         
         
     }
