@@ -42,6 +42,9 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
     return $resultado;
 }
 
-function ejecutar_permutacion( Array $arr, Callable $funcion ) {
+function ejecutar_permutacion( Array $arr = null, Callable $funcion ) {
+    if( is_null( $arr )  ){
+        return [ $arr ];
+    }
     
 }
