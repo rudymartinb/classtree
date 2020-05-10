@@ -30,11 +30,6 @@ class tree {
 }
 
 class nodo_clase extends nodo {
-//     function __construct(){
-//         global $cant;
-//         $cant += 1;
-//         var_dump($cant);
-//     }
     
     private $clases = [];
     function set_clase( \clase &$clase ){
