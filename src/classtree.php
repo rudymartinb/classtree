@@ -80,7 +80,7 @@ class ClassTree {
         
         while (false !== ( $filename = $dir->read() ) ) {
             // prevent going back on the dir tree
-            // and scanning "hidden" directories
+            // and scanning "hidden" directories and files
             if( begins_with_dot($filename) ){
                 continue;
             }
