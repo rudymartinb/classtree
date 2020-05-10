@@ -8,7 +8,7 @@ class clase {
     function __construct( string $name ){
         $this->name = $name;
     }
-    function get_nombre() : string {
+    function get_name() : string {
         return $this->name;
     }
     
