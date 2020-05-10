@@ -14,6 +14,12 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $lista = get_all_files( $path );
         $this->assertEquals( 3, count( $lista ) );
     }
+
+    function test_get_source_from_file() {
+        $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
+        $lista = get_source( $filename );
+        $this->assertTrue( $lista != ""  );
+    }
     
     /* this test uses fixed files on tests/dummy dir
      * altering the file will cause this test to fail

@@ -23,6 +23,10 @@ function get_all_files( string $path ) : Array {
     return $list;
 }
 
+function get_source( string $filename ) : string {
+    return file_get_contents( $filename );
+}
+
 /*
  * this generates one class object from the matches found
  * during source search by one of the build_from* functions
