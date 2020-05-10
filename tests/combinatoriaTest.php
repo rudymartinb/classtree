@@ -227,7 +227,8 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
 
     function test_ejecutar_permutacion_0(){
         $arr = [];
-        $expected = [ [] ];
+        $expected = [];
+        $expected[] = [];
         $pos = 0;
         $funcion = function( Array $actual ) use( $expected, &$pos ) {
             $this->assertEquals( $expected[ $pos ], $actual, "evaluando key ".$pos );
