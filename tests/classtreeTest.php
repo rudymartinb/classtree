@@ -33,7 +33,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $source = get_source( $filename );
         $classes = get_clases( $source );
         $this->assertEquals( 1, count( $classes ) );
-        var_dump($classes);
+//         var_dump($classes);
     }
     
     
