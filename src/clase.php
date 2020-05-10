@@ -1,13 +1,15 @@
 <?php
-// since "class" is a reserverd word ...
+
+// since "class" is a reserved word in PHP 
+// I have no choice but to use the spanish one
 class clase {
-    private $nombre;
+    private $name;
     
     function __construct( string $nombre ){
-        $this->nombre = $nombre;
+        $this->name = $nombre;
     }
     function get_nombre() : string {
-        return $this->nombre;
+        return $this->name;
     }
     
     private $extends = "";
