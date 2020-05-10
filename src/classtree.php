@@ -120,7 +120,6 @@ class ClassTree {
     private function get_types_from_source( string $filename ): Array {
         $sourcecode = file_get_contents( $filename );
         
-        // (implements (?<implements>[0-9a-zA-Z_]*))*[ {]*
         $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
         $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
@@ -128,7 +127,6 @@ class ClassTree {
         
         $matches = [];
         preg_match_all($pattern, $sourcecode, $matches );
-        // var_dump( $matches );
         
         return $matches;
     }
