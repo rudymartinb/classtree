@@ -1,5 +1,13 @@
 <?php
 
+/* extract the second item and place it as first
+ * then concatenates the rest of the array
+ * cabeza = head
+ * resto = remaining items
+ * resultado = result
+ * 
+ */
+
 function permutacion( Array $arr, int $ini ) : Array {
     $resto = $arr;
     $cabeza = array_splice( $resto, $ini,1 );
