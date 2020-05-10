@@ -16,8 +16,7 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
         $resultado = [];
         $resultado[] = $arr;
         
-        $ultimo = $resultado[ count($resultado)-1 ];
-        $resultado[] = permutacion( $ultimo, 1 );
+        $resultado[] = permutacion( $arr, 1 );
         return $resultado ;
     }
     if( count( $arr ) >= 3 ){
