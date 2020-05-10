@@ -37,6 +37,15 @@ function get_sources( Array $files ) : Array {
     return $sources;
 }
 
+
+function begins_with_dot( string $entry ) : bool {
+    return substr( $entry, 0,1 ) == ".";
+}
+function is_php( string $entry ) : bool {
+    return substr( $entry, -4 ) == ".php";
+}
+
+
 /*
  * this generates one class object from the matches found
  * during source search by one of the build_from* functions
@@ -63,14 +72,6 @@ function separar_clases( Array $matches ) : Array {
     return $lista;
 }
 
-function begins_with_dot( string $entry ) : bool {
-    return substr( $entry, 0,1 ) == ".";
-}
-function is_php( string $entry ) : bool {
-    return substr( $entry, -4 ) == ".php";
-}
-
-
 /* perhaps the word "type" is not adecuate here
  * but identifiers is a bit too long ...
  *
@@ -91,6 +92,19 @@ function get_types_from_source( string $filename ): Array {
     return $matches;
 }
 
+function get_clases( string $source ) : Array {
+    $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
+    $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
+    $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
+    $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
+    
+    $matches = [];
+    preg_match_all($pattern, $source, $matches );
+    
+    $clases = separar_clases($matches);
+    return $clases;
+    
+}
 class ClassTree {
     
     private $nodos = [] ;

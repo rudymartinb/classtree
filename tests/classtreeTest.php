@@ -27,6 +27,14 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $sources = get_sources( $files );
         $this->assertEquals( 3, count( $sources ) );
     }
+
+    function test_get_classes() {
+        $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
+        $source = get_source( $filename );
+        $classes = get_clases( $source );
+        $this->assertEquals( 1, count( $classes ) );
+    }
+    
     
     /* this test uses fixed files on tests/dummy dir
      * altering the file will cause this test to fail
