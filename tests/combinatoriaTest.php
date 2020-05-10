@@ -221,5 +221,13 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $actual = ejecutar_permutacion($arr, $funcion);
         $this->assertEquals($expected, $actual);
     }
-        
+
+    function test_ejecutar_permutacion_0(){
+        $arr = [];
+        $funcion = function() {};
+        $expected = [ ];
+        $actual = ejecutar_permutacion($arr, $funcion);
+        $this->assertEquals($expected, $actual);
+    }
+    
 }

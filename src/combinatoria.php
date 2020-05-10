@@ -46,5 +46,6 @@ function ejecutar_permutacion( Array $arr = null, Callable $funcion ) {
     if( is_null( $arr )  ){
         return [ $arr ];
     }
+    return $arr;
     
 }
