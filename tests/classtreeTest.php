@@ -22,7 +22,7 @@ function get_all_files( string $path ) : Array {
 class classtreeTest extends PHPUnit\Framework\TestCase {
     
     function test_get_files() {
-        $path = "/home/rudy/projects/classtree/tests/dummy/";
+        $path = "/home/rudy/projects/classtree/tests/dummy";
         $lista = get_all_files( $path );
         $this->assertEquals( 3, count( $lista ) );
         
