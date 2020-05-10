@@ -124,16 +124,6 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
     }
     
-//     function test_ejecutar_permutacion_null(){
-//         $arr = null;
-//         $expected = null;
-        
-//         $funcion = function( $actual ) use( $expected ) {
-//             $this->assertEquals($expected, $actual);
-//         };
-        
-//         ejecutar_permutacion($arr, $funcion);
-//     }
 
     function test_ejecutar_permutacion_0(){
         $arr = [];
