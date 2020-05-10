@@ -7,3 +7,6 @@ function permutacion( Array $arr, int $ini ) : Array {
     return $resultado;
     
 }
+function generar_permutaciones( Array $arr = null ) : Array {
+    return [];
+}
