@@ -1,15 +1,15 @@
 <?php
 namespace nodes;
 
-abstract class nodo {
-    abstract function set_parent( nodo $nodo );
-    abstract function set_child( nodo $nodo );
+abstract class node {
+    abstract function set_parent( node $nodo );
+    abstract function set_child( node $nodo );
     abstract function get_level() : int;
 }
 
 class tree {
     private $lista = [];
-    function add_node( nodo &$nodo ){
+    function add_node( node &$nodo ){
         $this->lista[] = & $nodo;
     }
     
@@ -30,7 +30,7 @@ class tree {
     
 }
 
-class nodo_clase extends nodo {
+class nodo_clase extends node {
     
     private $clases = [];
     function set_clase( \clase &$clase ){
@@ -38,7 +38,7 @@ class nodo_clase extends nodo {
     }
     
     private $parents = [];
-    function set_parent( nodo $parent ){
+    function set_parent( node $parent ){
         $nivelparent = $parent->get_level();
         if( $nivelparent >= $this->nivel ){
             $this->nivel = $nivelparent + 1; // HACK?
@@ -49,15 +49,15 @@ class nodo_clase extends nodo {
     function get_num_parents() : int {
         return count( $this->parents );
     }
-    function get_first_parent() : nodo {
+    function get_first_parent() : node {
         return $this->parents[0];
     }
     
     private $childs = [];
-    function set_child( nodo $son ){
+    function set_child( node $son ){
         $this->childs[] = $son;
     }
-    function get_first_child() : nodo {
+    function get_first_child() : node {
         return $this->childs[0];
     }
     

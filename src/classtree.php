@@ -1,5 +1,7 @@
 <?php
 
+use nodes\nodo_clase;
+
 class ClassTree {
     
     private $nodos = [] ;
