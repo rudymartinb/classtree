@@ -40,7 +40,7 @@ function execute_permutation( Array $arr, Callable $function, Array $head = [] )
         $new_head = array_slice( $arr, $index, 1 );
         $remaining = $arr;
         array_splice( $remaining, $index, 1 );
-        execute_permutation($remaining, $function, array_merge( $head, $new_head ) );
+        execute_permutation( $remaining, $function, array_merge( $head, $new_head ) );
     }
 
     
