@@ -281,6 +281,48 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         
         ejecutar_permutacion($arr, $funcion);
     }
+
+    function test_ejecutar_permutacion_4(){
+        $arr = [ "A", "B", "C", "D" ];
+        $expected = [];
+        $expected[] = [ "A", "B", "C", "D" ];
+        $expected[] = [ "A", "B", "D", "C" ];
+        $expected[] = [ "A", "C", "B", "D" ];
+        $expected[] = [ "A", "C", "D", "B" ];
+        $expected[] = [ "A", "D", "B", "C" ];
+        $expected[] = [ "A", "D", "C", "B" ];
+        
+        $expected[] = [ "B", "A", "C", "D" ];
+        $expected[] = [ "B", "A", "D", "C" ];
+        $expected[] = [ "B", "C", "A", "D" ];
+        $expected[] = [ "B", "C", "D", "A" ];
+        $expected[] = [ "B", "D", "A", "C" ];
+        $expected[] = [ "B", "D", "C", "A" ];
+        
+        $expected[] = [ "C", "A", "B", "D" ];
+        $expected[] = [ "C", "A", "D", "B" ];
+        $expected[] = [ "C", "B", "A", "D" ];
+        $expected[] = [ "C", "B", "D", "A" ];
+        $expected[] = [ "C", "D", "A", "B" ];
+        $expected[] = [ "C", "D", "B", "A" ];
+        
+        $expected[] = [ "D", "A", "B", "C" ];
+        $expected[] = [ "D", "A", "C", "B" ];
+        $expected[] = [ "D", "B", "A", "C" ];
+        $expected[] = [ "D", "B", "C", "A" ];
+        $expected[] = [ "D", "C", "A", "B" ];
+        $expected[] = [ "D", "C", "B", "A" ];
+        
+        $pos = 0;
+        
+        // this is going to be executed 6 times ...
+        $funcion = function( Array $actual ) use( $expected, &$pos ) {
+            $this->assertEquals( $expected[ $pos ], $actual, "evaluando key ".$pos );
+            $pos ++;
+        };
+        
+        ejecutar_permutacion($arr, $funcion);
+    }
     
     
     
