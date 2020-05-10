@@ -143,6 +143,8 @@ class ClassTree {
     function get_funciones( string $filename, string $clase ): Array {
         $lista = file_get_contents( $filename );
 
+        /* extract classes from source
+         */
         $parteclase = "class ".$clase."";
         
         $pattern  = "/";
@@ -151,16 +153,7 @@ class ClassTree {
         $pattern .= ".+?";
         $pattern .= "(?:(?=class))";
         $pattern .= "/s";
-        
-//         $pattern .= "(?:(?!{).)";
-//         $pattern .= "(?:(?!function).)";
-//         $pattern .= "((?<tipo>function)[ ]*";
-//         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*)";
-//         $pattern .= "(\((?<params>[0-9a-zA-Z_ ,]*)\)|)[ ]*";
-//         $pattern .= "(\: (?<return>[0-9a-zA-Z_]*)|)*.*";
-//         $pattern .= ".*";
-
-        
+                
         $matches = [];
         preg_match_all($pattern, $lista, $matches );
         
@@ -168,28 +161,21 @@ class ClassTree {
         if( is_null( $cuerpo ) ){
             return [];
         }
-        
-//         var_dump( $cuerpo );
 
+        /* extract functions from class body
+         */
         $pattern  = "/";
-//         $pattern .= "(?:(?!function).)";
         $pattern .= "(?:function) ";
-//         $pattern .= "(?<tipo>function)[ ]*";
         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
         $pattern .= "[(]{1}";
         $pattern .= "(?<params>[ $0-9a-zA-Z_,]*)";
         $pattern .= "[)]{1}";
         $pattern .= "(?<ret>[ :$0-9a-zA-Z_,]*)";
-//         $pattern .= "[ ]*";
         $pattern .= "/s";
         
         $matches = [];
         preg_match_all($pattern, $cuerpo, $matches );
-        
-//         var_dump( $matches );
-
-        
-        
+                
         return $matches;
     }
     
