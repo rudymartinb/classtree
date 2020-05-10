@@ -18,7 +18,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $classtree->build_from_dir( $path );
         
         $clases = $classtree->get_clases();
-        // nombre primera clase
+
         $this->assertEquals( "father", $clases[0]->get_name() );
 
         $funciones = $classtree->get_functions("/home/rudy/projects/classtree/tests/dummy/prueba.php", "father");
@@ -36,14 +36,6 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         
     }
 
-    function test_lista_nodos_vacia() {
-        $classtree = new ClassTree();
-        
-        $nodos = $classtree->get_nodos();
-        
-        $this->assertEquals( 0 , count( $nodos ) );
-    }
-    
     function test_lista_nodos_1() {
         $path = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
         

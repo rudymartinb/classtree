@@ -11,9 +11,7 @@ class ClassTree {
     function get_tree() : tree {
         return $this->tree;
     }
-    function get_nodos() : Array {
-        return $this->nodos;
-    }
+    
     private $clases = [];
     function get_clases() : Array {
         return $this->clases;
