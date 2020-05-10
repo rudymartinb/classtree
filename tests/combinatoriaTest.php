@@ -101,7 +101,15 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $resultado = permutacion($arr, $ini);
         
         $this->assertEquals( ["B","A","C"], $resultado, "resultado final" );
+    }
+
+    function test_permutacion_3_2() {
+        $arr = [ "A", "B", "C" ];
         
+        $ini = 2; // third element
+        $resultado = permutacion( $arr, $ini);
+        
+        $this->assertEquals( ["C","A","B"], $resultado, "resultado final" );
     }
     
     function test_generar_permutaciones_null() {
@@ -142,16 +150,21 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $arr = [ "A", "B", "C" ];
         $esperado = [];
     
-        $esperado[] = [ "A", "B", "C" ]; // given
-        $esperado[] = [ "B", "A", "C" ]; // swap 0 to 1
-        $esperado[] = [ "C", "A", "B" ]; // swap 1 2
-        $esperado[] = [ "C", "B", "A" ]; // swap 0 1
-        $esperado[] = [ "B", "C", "A" ]; // swap 1 2
-        $esperado[] = [ "A", "C", "B" ]; // swap 0 1
+        $esperado[ 0] = [ "A", "B", "C" ]; // given
+        $esperado[ 1] = [ "B", "A", "C" ]; // swap 0 to 1
+        $esperado[ 2] = [ "C", "B", "A" ]; // swap 0 1
+        $esperado[ 3] = [ "A", "C", "B" ]; // swap 0 1
+        $esperado[ 4] = [ "C", "A", "B" ]; // swap 1 2
+        $esperado[ 5] = [ "B", "C", "A" ]; // swap 1 2
+        
+        
+        
+        
 
         $resultado= generar_permutaciones( $arr );
+        var_dump( $resultado );
         foreach( $esperado as $key => $value ){
-            $this->assertEquals( $esperado[ $key ], $value );
+            $this->assertEquals( $esperado[ $key ], $resultado[ $key ], "procesando elemento ".$key );
         }
     }
     
