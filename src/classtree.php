@@ -75,7 +75,7 @@ class ClassTree {
         $this->tree = new tree();
     }
     
-    function build_from_dir( string $path, array $lista = [] ) : array {
+    function build_from_dir( string $path ) {
         $dir = dir( $path );
         
         while (false !== ( $filename = $dir->read() ) ) {
@@ -104,7 +104,7 @@ class ClassTree {
             $this->clases = $this->clases + $clases;
             
         }
-        return $lista;
+        return ;
     }
     
     function build_from_file( string $filename ) : Array {
