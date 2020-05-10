@@ -88,6 +88,7 @@ class ClassTree {
             $newpath = $path."/".$entry;
             if( is_dir( $newpath ) ){
                 $this->build_from_dir( $newpath );
+                continue;
             }
             if( ! is_php($entry) ){
                 continue;
