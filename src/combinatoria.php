@@ -44,11 +44,17 @@ function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Arra
 
 function ejecutar_permutacion( Array $arr = null, Callable $funcion ) {
     
-    if( is_null( $arr )  ){
+    if( is_null( $arr ) ){
         $funcion( [ $arr ] );
         return;
     }
+    if( count($arr) <= 1 ){
+        $funcion( $arr, 0 );
+        return;
+    }
+    
     $funcion( $arr, 0 );
+    $funcion( permutacion($arr, 1), 1 );
 
     
 }

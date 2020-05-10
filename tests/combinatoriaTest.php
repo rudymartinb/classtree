@@ -246,17 +246,19 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         ejecutar_permutacion($arr, $funcion);
     }
     
-//     function test_ejecutar_permutacion_2(){
-//         $arr = [ "0", "1" ];
-//         $expected = [];
-//         $expected[] = [ "0", "1" ];
-//         $expected[] = [ "1", "0" ];
-//         $funcion = function( Array $actual ) use( $expected ) {
-//             $this->assertEquals($expected, $actual);
-//         };
+    function test_ejecutar_permutacion_2(){
+        $arr = [ "0", "1" ];
+        $expected = [];
+        $expected[] = [ "0", "1" ];
+        $expected[] = [ "1", "0" ];
         
-//         ejecutar_permutacion($arr, $funcion);
-//     }
+        // this is going to be executed twice ...
+        $funcion = function( Array $actual, int $key ) use( $expected ) {
+            $this->assertEquals( $expected[ $key ], $actual, "evaluando key ".$key );
+        };
+        
+        ejecutar_permutacion($arr, $funcion);
+    }
     
     
     
