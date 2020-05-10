@@ -97,7 +97,7 @@ class ClassTree {
             return $lista;
         }
         
-        if( $this->is_php($filename) ){
+        if( ! $this->is_php($filename) ){
             return $lista;
         }
         
