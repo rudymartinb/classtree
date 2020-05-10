@@ -15,7 +15,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
 
         $classtree = new ClassTree();
 
-        $classtree->construir( $path );
+        $classtree->build_from_dir( $path );
         
         $clases = $classtree->get_clases();
         // nombre primera clase

@@ -69,7 +69,7 @@ class ClassTree {
         return substr( $entry, -4 ) == ".php";
     }
     
-    function construir( string $path, array $lista = [] ) : array {
+    function build_from_dir( string $path, array $lista = [] ) : array {
         $this->tree = new tree();
         
         $dir = dir($path);
@@ -81,7 +81,7 @@ class ClassTree {
             $newpath = $path."/".$entry;
             
             if( is_dir( $newpath ) ){
-                $nueva = $this->construir( $newpath );
+                $nueva = $this->build_from_dir( $newpath );
                 $lista = $lista + $nueva;
             }
             if( ! $this->is_php($entry) ){
