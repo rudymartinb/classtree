@@ -203,12 +203,15 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         }
     }
     
+    /*just to be on the safe side ...
+     */
     function test_array_merge() {
         $arr1 = [];
         $arr2 = ["A","B"];
         
         $result = array_merge( $arr1, $arr2 );
-        $this->assertEquals(["A","B"], $result);
+        $this->assertEquals( [ "A","B"], $result );
+        
     }
     
 }
