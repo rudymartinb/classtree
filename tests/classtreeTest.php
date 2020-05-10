@@ -26,7 +26,6 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $files = get_all_files( $path );
         $sources = get_sources( $files );
         $this->assertEquals( 3, count( $sources ) );
-        
     }
     
     /* this test uses fixed files on tests/dummy dir
