@@ -106,7 +106,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
     
     function test_generar_permutaciones_null() {
         $arr = null;
-        $esperado = [];
+        $esperado = [ null ];
         
         $resultado= generar_permutaciones( $arr );
         $this->assertEquals( $esperado, $resultado );
@@ -114,7 +114,15 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
 
     function test_generar_permutaciones_0() {
         $arr = [];
-        $esperado = [];
+        $esperado = [ [] ];
+        
+        $resultado= generar_permutaciones( $arr );
+        $this->assertEquals( $esperado, $resultado );
+    }
+
+    function test_generar_permutaciones_1() {
+        $arr = [ "A" ];
+        $esperado = [ ["A"] ];
         
         $resultado= generar_permutaciones( $arr );
         $this->assertEquals( $esperado, $resultado );

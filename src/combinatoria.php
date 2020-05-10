@@ -8,5 +8,5 @@ function permutacion( Array $arr, int $ini ) : Array {
     
 }
 function generar_permutaciones( Array $arr = null ) : Array {
-    return [];
+    return [ $arr ];
 }
