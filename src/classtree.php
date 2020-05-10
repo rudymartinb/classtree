@@ -176,7 +176,7 @@ class ClassTree {
         $func_matches = [];
         preg_match_all( $pattern, $classbody, $func_matches  );
                 
-        return $func_matches ;
+        return $func_matches;
     }
     
     
