@@ -36,7 +36,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         
     }
 
-    function test_lista_nodos_1() {
+    function test_build_from_file_1() {
         $path = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
         
         
