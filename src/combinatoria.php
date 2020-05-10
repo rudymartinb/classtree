@@ -8,5 +8,8 @@ function permutacion( Array $arr, int $ini ) : Array {
     
 }
 function generar_permutaciones( Array $arr = null ) : Array {
-    return [ $arr ];
+    if( is_null( $arr ) or count( $arr ) < 2 ){
+        return [ $arr ];
+    }
+    return [ [ $arr[0], $arr[1] ], [ $arr[1], $arr[0] ] ];
 }

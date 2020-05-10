@@ -127,5 +127,15 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $resultado= generar_permutaciones( $arr );
         $this->assertEquals( $esperado, $resultado );
     }
+
+    function test_generar_permutaciones_2() {
+        $arr = [ "A", "B" ];
+        $esperado = [];
+        $esperado[] = [ "A", "B" ];
+        $esperado[] = [ "B", "A" ];
+        
+        $resultado= generar_permutaciones( $arr );
+        $this->assertEquals( $esperado, $resultado );
+    }
     
 }
