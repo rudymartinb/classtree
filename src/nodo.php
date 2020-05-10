@@ -3,6 +3,7 @@
 abstract class nodo {
     abstract function set_parent( nodo $nodo );
     abstract function set_child( nodo $nodo );
+    abstract function get_level() : int;
 }
 
 class tree {
@@ -42,7 +43,7 @@ class nodo_clase extends nodo {
     
     private $parents = [];
     function set_parent( nodo $parent ){
-        $nivelparent = $parent->get_nivel();
+        $nivelparent = $parent->get_level();
         if( $nivelparent >= $this->nivel ){
             $this->nivel = $nivelparent + 1; // HACK
         }
@@ -66,7 +67,7 @@ class nodo_clase extends nodo {
     
     
     private $nivel = 1;
-    function get_nivel() : int {
+    function get_level() : int {
         return $this->nivel;
     }
     

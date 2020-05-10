@@ -105,7 +105,7 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         $nodo1->set_clase( new clase("father") );
         $tree->add_nodo( $nodo1 );
         
-        $this->assertEquals( 1, $nodo1->get_nivel() );
+        $this->assertEquals( 1, $nodo1->get_level() );
     }
 
     function test_nivel2() {
@@ -120,7 +120,7 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         $nodo2->set_parent($nodo1);
         $tree->add_nodo( $nodo2 );
         
-        $this->assertEquals( 2, $nodo2->get_nivel() );
+        $this->assertEquals( 2, $nodo2->get_level() );
     }
 
     function test_nivel3() {
@@ -140,7 +140,7 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         $nodo3->set_parent($nodo2);
         $tree->add_nodo( $nodo3 );
         
-        $this->assertEquals( 3, $nodo3->get_nivel() );
+        $this->assertEquals( 3, $nodo3->get_level() );
     }
 
     /*
@@ -192,12 +192,12 @@ class nodosTest extends PHPUnit\Framework\TestCase {
         $nodo5->set_parent($nodo41);
         $tree->add_nodo( $nodo4 );
         
-        $this->assertEquals( 1, $nodo1->get_nivel() );
-        $this->assertEquals( 1, $nodo41->get_nivel() );
-        $this->assertEquals( 2, $nodo2->get_nivel() );
-        $this->assertEquals( 3, $nodo3->get_nivel() );
-        $this->assertEquals( 4, $nodo4->get_nivel() );
-        $this->assertEquals( 5, $nodo5->get_nivel() );
+        $this->assertEquals( 1, $nodo1->get_level() );
+        $this->assertEquals( 1, $nodo41->get_level() );
+        $this->assertEquals( 2, $nodo2->get_level() );
+        $this->assertEquals( 3, $nodo3->get_level() );
+        $this->assertEquals( 4, $nodo4->get_level() );
+        $this->assertEquals( 5, $nodo5->get_level() );
     }
     
     /*

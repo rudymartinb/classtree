@@ -44,7 +44,7 @@ class ClassTree {
                 continue;
             }
             
-            $clase = new nodo( $matches[ "nombretipo"][$key] );
+            $clase = new nodo_clase( $matches[ "nombretipo"][$key] );
             $clase->set_extends( $matches["extends"][$key] );
             $clase->set_implements( $matches["implements"][$key] );
             $clase->set_namespace( $namespace );
