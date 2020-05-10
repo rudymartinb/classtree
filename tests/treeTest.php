@@ -36,7 +36,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         return $tree;
     }
     
-    function test_get_num_nodes_2clases() {
+    function test_get_num_nodes_2() {
         $tree = $this->crear_2nodos();
         
         $this->assertEquals( 2, $tree->get_num_nodes() );
