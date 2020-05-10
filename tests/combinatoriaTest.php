@@ -150,12 +150,12 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $arr = [ "A", "B", "C" ];
         $esperado = [];
     
-        $esperado[ 0] = [ "A", "B", "C" ]; 
-        $esperado[ 1] = [ "B", "A", "C" ]; 
-        $esperado[ 2] = [ "C", "B", "A" ]; 
-        $esperado[ 3] = [ "A", "C", "B" ]; 
-        $esperado[ 4] = [ "C", "A", "B" ]; 
-        $esperado[ 5] = [ "B", "C", "A" ]; 
+        $esperado[ ] = [ "A", "B", "C" ];
+        $esperado[ ] = [ "A", "C", "B" ];
+        $esperado[ ] = [ "B", "A", "C" ];
+        $esperado[ ] = [ "B", "C", "A" ];
+        $esperado[ ] = [ "C", "A", "B" ];
+        $esperado[ ] = [ "C", "B", "A" ]; 
         
         $resultado= generar_permutaciones( $arr );
         var_dump( $resultado );
