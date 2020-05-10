@@ -3,9 +3,9 @@
 
 
 class classtreeTest extends PHPUnit\Framework\TestCase {
-    /*
-     * esta prueba no tendria que existir
-     * 
+    
+    /* this test uses a fixed file on tests/dummy dir
+     * altering the file will cause this test to fail
      */
     function test_get_clases() {
         $path = "/home/rudy/projects/classtree/tests/dummy/";
