@@ -48,7 +48,7 @@ function ejecutar_permutacion( Array $arr = null, Callable $funcion ) {
         $funcion( [ $arr ] );
         return;
     }
-    $funcion( $arr );
+    $funcion( $arr, 0 );
 
     
 }
