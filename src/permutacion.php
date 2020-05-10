@@ -32,8 +32,8 @@ function ejecutar_permutacion( Array $arr, Callable $funcion, Array $cabecera = 
     }
 
     /*
-     * from the left to the right we are going to take each element
-     * and make a recursive all using the remaining as new array
+     * from the left to the right we are going to take each element of the passed array
+     * and make a recursive all using the remaining as new array for the next call.
      */
     for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
         $cabeza = array_slice( $arr, $index, 1 );
