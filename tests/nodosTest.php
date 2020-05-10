@@ -180,6 +180,8 @@ class nodosTest extends PHPUnit\Framework\TestCase {
     }
     
     /*
+     * now we want to set/check each node level based on the "tree"
+     * 
      * A   X
      * |   |
      * B   |
@@ -188,9 +190,8 @@ class nodosTest extends PHPUnit\Framework\TestCase {
      * |
      * D
      * 
-     * para este caso que planteo tiene 120 combinaciones.
-     * 
-     * 
+     * in this example, 5! = 120 permutations are needed
+     * to test if the production code behaves correctly
      */
     
     
