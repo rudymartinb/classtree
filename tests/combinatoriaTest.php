@@ -213,5 +213,5 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( [ "A","B"], $result );
         
     }
-    
+        
 }
