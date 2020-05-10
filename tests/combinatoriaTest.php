@@ -218,7 +218,7 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         $arr = null;
         $expected = null;
         
-        $funcion = function( Array $actual = null ) use( $expected ) {
+        $funcion = function( $actual ) use( $expected ) {
             $this->assertEquals($expected, $actual);
         };
         
