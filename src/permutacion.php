@@ -21,12 +21,20 @@ function ejecutar_permutacion( Array $arr, Callable $funcion, Array $cabecera = 
         $funcion( $arr );
         return;
     }
+    
     if( count( $arr ) == 2 ){
+        /* funcion is called twice 
+         * because array has 2 elements
+         */
         $funcion( array_merge( $cabecera, $arr ) );
         $funcion( array_merge( $cabecera, permutacion( $arr, 1 ) ) );
         return;
     }
 
+    /*
+     * from the left to the right we are going to take each element
+     * and make a recursive all using the remaining as new array
+     */
     for( $index = 0 ; $index < count( $arr ) ; $index ++ ){
         $cabeza = array_slice( $arr, $index, 1 );
         $resto = $arr;
