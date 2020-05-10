@@ -71,10 +71,12 @@ class ClassTree {
         return $this->clases;
     }
     
-    
+    function __construct(){
+        $this->tree = new tree();
+    }
     
     function build_from_dir( string $path, array $lista = [] ) : array {
-        $this->tree = new tree();
+        
         
         $dir = dir( $path );
         while (false !== ($entry = $dir->read())) {
