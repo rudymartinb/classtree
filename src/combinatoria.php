@@ -7,7 +7,7 @@ function permutacion( Array $arr, int $ini ) : Array {
     return $resultado;
     
 }
-function generar_permutaciones( Array $arr = null ) : Array {
+function generar_permutaciones( Array $arr = null, Array $cabecera = [] ) : Array {
     if( is_null( $arr ) or count( $arr ) < 2 ){
         return [ $arr ];
     }
@@ -25,7 +25,7 @@ function generar_permutaciones( Array $arr = null ) : Array {
             $cabeza = array_slice( $arr, $index, 1 );
             $resto = $arr;
             array_splice( $resto, $index, 1 );
-            $partes = generar_permutaciones( $resto );
+            $partes = generar_permutaciones( $resto, $cabeza );
             
             foreach( $partes as $value ){
                 $resultado[] = array_merge( $cabeza, $value );
