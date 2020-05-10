@@ -322,6 +322,9 @@ class combinatoriaTest extends PHPUnit\Framework\TestCase {
         };
         
         ejecutar_permutacion($arr, $funcion);
+        
+        $this->assertEquals(24, $pos);
+        
     }
     
     
