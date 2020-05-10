@@ -5,6 +5,7 @@ require_once 'src/classtree.php';
 require_once 'src/permutacion.php';
 require_once 'tests/classtreeTest.php';
 require_once 'tests/nodosTest.php';
+require_once 'tests/treeTest.php';
 require_once 'tests/combinatoriaTest.php';
 
 class testsSuite extends PHPUnit\Framework\TestSuite {
@@ -14,6 +15,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         $this->addTestSuite('classtreeTest');
         $this->addTestSuite('nodosTest');
+        $this->addTestSuite('treeTest');
         $this->addTestSuite('combinatoriaTest');
     }
 

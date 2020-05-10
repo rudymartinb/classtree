@@ -1,6 +1,9 @@
 <?php
 
 class nodosTest extends PHPUnit\Framework\TestCase {
+    
+    /* builder
+     */
     function crear_1nodo() : tree {
         $nodo = new nodo_clase();
         $nodo->set_clase( new clase("father") );
