@@ -37,6 +37,26 @@ function is_php( string $entry ) : bool {
 }
 
 
+/* perhaps the word "type" is not adecuate here
+ * but identifiers is a bit too long ...
+ *
+ * TODO: add an array with the list of identifiers
+ * ie: add "trait" later
+ */
+function get_types_from_source( string $filename ): Array {
+    $sourcecode = file_get_contents( $filename );
+    
+    $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
+    $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
+    $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
+    $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
+    
+    $matches = [];
+    preg_match_all($pattern, $sourcecode, $matches );
+    
+    return $matches;
+}
+
 class ClassTree {
     
     private $nodos = [] ;
@@ -73,7 +93,7 @@ class ClassTree {
             
             $lista[ $newpath ] = "" ; // $entry;
             
-            $matches = $this->get_types_from_source( $newpath );
+            $matches = get_types_from_source( $newpath );
             $clases = separar_clases( $matches );
             
             foreach( $clases as $clase ){
@@ -100,7 +120,7 @@ class ClassTree {
         
         $lista[ $filename ] = ""; 
         
-        $matches = $this->get_types_from_source( $filename );
+        $matches = get_types_from_source( $filename );
         
         $clases = separar_clases( $matches );
 
@@ -116,25 +136,6 @@ class ClassTree {
     
     
     
-    /* perhaps the word "type" is not adecuate here
-     * but identifiers is a bit too long ...
-     * 
-     * TODO: add an array with the list of identifiers
-     * ie: add "trait" later
-     */
-    private function get_types_from_source( string $filename ): Array {
-        $sourcecode = file_get_contents( $filename );
-        
-        $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
-        $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
-        $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
-        $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
-        
-        $matches = [];
-        preg_match_all($pattern, $sourcecode, $matches );
-        
-        return $matches;
-    }
 
     /* no se si la voy a terminar usando
      * por cuanto esto implicaria revisar el codigo interno de cada funcion linea por linea
