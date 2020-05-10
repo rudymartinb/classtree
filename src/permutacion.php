@@ -17,14 +17,13 @@ function permutacion( Array $arr, int $ini ) : Array {
 
 
 function ejecutar_permutacion( Array $arr, Callable $funcion, Array $cabecera = [] ) {
-
     if( count( $arr ) <= 1 ){
         $funcion( $arr );
         return;
     }
     if( count( $arr ) == 2 ){
-        $funcion( array_merge( $cabecera, $arr ), 0 );
-        $funcion( array_merge( $cabecera, permutacion( $arr, 1 ) ), 1 );
+        $funcion( array_merge( $cabecera, $arr ) );
+        $funcion( array_merge( $cabecera, permutacion( $arr, 1 ) ) );
         return;
     }
 
