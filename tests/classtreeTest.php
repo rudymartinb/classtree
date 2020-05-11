@@ -49,7 +49,7 @@ class father {
         $source = $this->get_source_prueba2();
         $classes = get_clases( $source );
         $this->assertEquals( 1, count( $classes ) );
-        $class = $classes[0];
+        $class = $this->get_class( $classes, 0 );
         $this->assertEquals( 1, count( $classes ) );
 
     }
