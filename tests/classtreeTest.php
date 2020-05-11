@@ -37,8 +37,14 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
     }
 
     function test_get_class_1() {
-        $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
-        $source = get_source( $filename );
+        $source = "<?php
+namespace sarasa;
+
+class father {
+    public function algo(): string {
+        
+    }
+}";
         $classes = get_clases( $source );
         var_dump( $classes[0] );
         $this->assertEquals( 1, count( $classes ) );
