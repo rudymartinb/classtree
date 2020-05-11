@@ -41,8 +41,8 @@ class father {
         return $source;
     }
     
-    function get_class() : clases {
-        
+    function get_class( Array $classes, int $index ) : clase {
+        return $classes[ $index ];
     }
     
     function test_get_classes() {
