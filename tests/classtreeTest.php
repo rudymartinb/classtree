@@ -1,6 +1,6 @@
 <?php
-use src\clase;
-use src\ClassDiagram;
+// use src\clase;
+// use src\ClassDiagram;
 
 class classtreeTest extends PHPUnit\Framework\TestCase {
 
