@@ -6,12 +6,10 @@ use src\ClassDiagram;
 class claseTest extends PHPUnit\Framework\TestCase {
     function test_orphan(){
         $class = new clase("parent");
-        
         $this->assertTrue( $class->is_resolved(), "class does not have dependencies");
-        
     }
     
-    function test_parent(){
+    function test_not_resolved(){
         $diagram = new ClassDiagram();
         
         $class = new clase("parent");
