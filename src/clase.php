@@ -41,8 +41,13 @@ class clase implements clase_interface {
         $this->extends = $nombre;
     }
     function get_parent( Array $classes ){
-        $this->parent_resolved = true;
-        $this->resolved = true;
+        foreach ( $classes as $class ){
+            $class = force_class($class);
+            if( $class->get_name() == $this->extends ){
+                $this->parent_resolved = true;
+                return;
+            }
+        }
     }
     
     function get_extends() : string {
