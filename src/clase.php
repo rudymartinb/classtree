@@ -41,7 +41,7 @@ class clase implements clase_interface {
         $this->extends = $nombre;
     }
     private $parent_class;
-    function get_parent( Array & $classes ){
+    function find_parent( Array & $classes ){
         foreach ( $classes as $class ){
             $class = force_class( $class );
             if( $class->get_name() == $this->extends ){
@@ -50,6 +50,9 @@ class clase implements clase_interface {
                 return;
             }
         }
+    }
+    function get_parent() : clase {
+        return $this->parent_class;
     }
     
     function get_extends() : string {
