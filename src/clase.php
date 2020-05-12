@@ -1,4 +1,5 @@
 <?php
+namespace src;
 
 // since "class" is a reserved word in PHP 
 // I have no choice but to use the spanish one
@@ -44,6 +45,12 @@ class clase {
         return $this->funciones;
     }
     
-    
-    
+    function is_null() : bool {
+        return false;
+    }
+}
+class clase_null extends clase {
+    function is_null() : bool {
+        return true;
+    }
 }

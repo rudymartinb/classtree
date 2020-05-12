@@ -1,5 +1,5 @@
 <?php
-
+use src\clase;
 use src\ClassDiagram;
 
 class classtreeTest extends PHPUnit\Framework\TestCase {
@@ -30,33 +30,11 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 3, count( $sources ) );
     }
 
-    function get_class( Array $classes, int $index ) : clase {
-        return $classes[ $index ];
-    }
-    
+
     function generate_1_class() : Array {
         $source = $this->get_source_prueba2();
         $classes = get_clases( $source );
         return $classes;
-    }
-
-    function test_is_dependencies_resolved_false() {
-        $classes = $this->generate_1_class();
-        
-        $diagram = new ClassDiagram();
-        $diagram->addClasses( $classes );
-        
-        $this->assertFalse( $diagram->is_dependencies_resolved(), "si no se invocó resolve_dependencies entonces deberia ser falso" );
-    }
-    
-    function test_resolve_dependencies_1_class() {
-        $classes = $this->generate_1_class();
-        
-        $diagram = new ClassDiagram();
-        $diagram->addClasses( $classes );
-        $diagram->resolve_dependencies();
-        
-        $this->assertTrue( $diagram->is_dependencies_resolved(), "una clase solitaria deberia tener las dependencias resueltas" );
     }
 
     function generate_2_class() : Array {
@@ -71,26 +49,47 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
     }
     
     
-    function test_resolve_dependencies_2_classes() {
-        $classes = $this->generate_2_class();
+//     function test_is_dependencies_resolved_false() {
+//         $classes = $this->generate_1_class();
         
-        $diagram = new ClassDiagram();
-        $diagram->addClasses( $classes );
-        $diagram->resolve_dependencies();
+//         $diagram = new ClassDiagram();
+//         $diagram->addClasses( $classes );
+        
+//         $this->assertFalse( $diagram->is_dependencies_resolved(), "si no se invocó resolve_dependencies entonces deberia ser falso" );
+//     }
     
-        // TODO: more checks here?
-        $this->assertTrue( $diagram->is_dependencies_resolved(), "??" );
-    }
+//     function test_resolve_dependencies_1_class() {
+//         $classes = $this->generate_1_class();
+        
+//         $diagram = new ClassDiagram();
+//         $diagram->addClasses( $classes );
+//         $diagram->resolve_dependencies();
+        
+//         $this->assertTrue( $diagram->is_dependencies_resolved(), "una clase solitaria deberia tener las dependencias resueltas" );
+//     }
 
-    function test_resolve_dependencies_1_separated_classes() {
-        $classes = $this->generate_1_separated_classes();
+    
+    
+//     function test_resolve_dependencies_2_classes() {
+//         $classes = $this->generate_2_class();
         
-        $diagram = new ClassDiagram();
-        $diagram->addClasses( $classes );
-        $diagram->resolve_dependencies();
+//         $diagram = new ClassDiagram();
+//         $diagram->addClasses( $classes );
+//         $diagram->resolve_dependencies();
+    
+//         // TODO: more checks here?
+//         $this->assertTrue( $diagram->is_dependencies_resolved(), "??" );
+//     }
+
+//     function test_resolve_dependencies_1_separated_classes() {
+//         $classes = $this->generate_1_separated_classes();
         
-        $this->assertTrue( $diagram->is_dependencies_resolved(), "??" );
-    }
+//         $diagram = new ClassDiagram();
+//         $diagram->addClasses( $classes );
+//         $diagram->resolve_dependencies();
+        
+//         $this->assertFalse( $diagram->is_dependencies_resolved(), "??" );
+//     }
     
 
     function test_get_class_1() {

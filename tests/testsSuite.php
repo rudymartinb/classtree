@@ -16,9 +16,9 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->setName('testsSuite');
         
         $this->addTestSuite('classtreeTest');
-        $this->addTestSuite('nodosTest');
-        $this->addTestSuite('treeTest');
-        $this->addTestSuite('combinatoriaTest');
+//         $this->addTestSuite('nodosTest');
+//         $this->addTestSuite('treeTest');
+//         $this->addTestSuite('combinatoriaTest');
     }
 
     public static function suite() {

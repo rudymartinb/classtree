@@ -2,6 +2,7 @@
 
 use nodes\node_clase;
 use nodes\tree;
+use src\clase;
 
 
 function get_all_files( string $path ) : Array {
