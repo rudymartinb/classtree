@@ -50,6 +50,11 @@ class clase {
         return false;
     }
 }
+
+/* null object pattern. 
+ * Needed to avoid using the NULL value
+ * which prevent us to set the return type of a function
+ */
 class clase_null extends clase {
     function is_null() : bool {
         return true;
