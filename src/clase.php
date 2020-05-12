@@ -29,8 +29,15 @@ class clase implements clase_interface {
         return $this->name;
     }
     
+    // mark this class as NOT resolved
+    private $resolved;
+    function is_resolved() : bool {
+        return false;
+    }
+    
     private $extends = "";
     function set_extends( string $nombre ){
+        $this->resolved = false;
         $this->extends = $nombre;
     }
     function get_extends() : string {
@@ -39,6 +46,7 @@ class clase implements clase_interface {
     
     private $implements = [];
     function set_implements( string $nombre ){
+        $this->resolved = false;
         $this->implements[] = $nombre;
     }
     function get_implements(){
@@ -65,9 +73,7 @@ class clase implements clase_interface {
         return false;
     }
     
-    function is_resolved() : bool {
-        return false;
-    }
+    
 }
 
 /* null object pattern. 
