@@ -15,7 +15,7 @@ interface clase_interface {
     function set_funcion( string $nombre, Array $parameters, string $return = "" );
     function get_funciones() : Array ;
     function is_null() : bool;
-    function is_resolved() : bool;
+    function is_parent_resolved() : bool;
 }
 
 
@@ -31,7 +31,7 @@ class clase implements clase_interface {
     
     // mark this class as NOT resolved
     private $resolved = true;
-    function is_resolved() : bool {
+    function is_parent_resolved() : bool {
         return $this->resolved;
     }
     
