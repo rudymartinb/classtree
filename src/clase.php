@@ -42,7 +42,7 @@ class clase implements clase_interface {
     }
     function get_parent( Array $classes ){
         foreach ( $classes as $class ){
-            $class = force_class($class);
+            $class = force_class( $class );
             if( $class->get_name() == $this->extends ){
                 $this->parent_resolved = true;
                 return;
