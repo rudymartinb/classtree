@@ -40,11 +40,13 @@ class clase implements clase_interface {
         $this->parent_resolved = false;
         $this->extends = $nombre;
     }
-    function get_parent( Array $classes ){
+    private $parent_class;
+    function get_parent( Array & $classes ){
         foreach ( $classes as $class ){
             $class = force_class( $class );
             if( $class->get_name() == $this->extends ){
                 $this->parent_resolved = true;
+                $this->parent_class = $class;
                 return;
             }
         }
