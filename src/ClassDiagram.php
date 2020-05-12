@@ -10,9 +10,10 @@ class ClassDiagram {
         }
     }
     function resolve_dependencies(){
-        
+        $this->dependencies_resolved = true;
     }
+    private $dependencies_resolved = false;
     function is_dependencies_resolved(){
-        return true;
+        return $this->dependencies_resolved ;
     }
 }

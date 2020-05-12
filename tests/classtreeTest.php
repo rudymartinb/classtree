@@ -39,6 +39,15 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $classes = get_clases( $source );
         return $classes;
     }
+
+    function test_is_dependencies_resolved_false() {
+        $classes = $this->generate_1_class();
+        
+        $diagram = new ClassDiagram();
+        $diagram->addClasses( $classes );
+        
+        $this->assertFalse( $diagram->is_dependencies_resolved(), "si no se invocó resolve_dependencies entonces deberia ser falso" );
+    }
     
     function test_resolve_dependencies_1_class() {
         $classes = $this->generate_1_class();
