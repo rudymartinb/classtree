@@ -1,6 +1,10 @@
 <?php
 namespace src;
 
+function force_class( $mixed ) : clase {
+    return $mixed;
+}
+
 // since "class" is a reserved word in PHP 
 // I have no choice but to use the spanish one
 class clase {
