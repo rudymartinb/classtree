@@ -15,7 +15,7 @@ interface clase_interface {
     function set_funcion( string $nombre, Array $parameters, string $return = "" );
     function get_funciones() : Array ;
     function is_null() : bool;
-    
+    function is_resolved() : bool;
 }
 
 
@@ -62,6 +62,10 @@ class clase implements clase_interface {
     }
     
     function is_null() : bool {
+        return false;
+    }
+    
+    function is_resolved() : bool {
         return false;
     }
 }

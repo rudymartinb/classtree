@@ -9,6 +9,9 @@ class ClassDiagram {
             $this->classes[] = $class;
         }
     }
+    function addClass( clase $class ){
+        $this->classes[] = $class;
+    }
     
 //     function find_parent( string $parent ) : clase {
 //         foreach ($this->classes as $value ){
