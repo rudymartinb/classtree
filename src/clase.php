@@ -1,9 +1,6 @@
 <?php
 namespace src;
 
-function force_class( $mixed ) : clase {
-    return $mixed;
-}
 
 // since "class" is a reserved word in PHP 
 // I have no choice but to use the spanish one
@@ -57,4 +54,9 @@ class clase_null extends clase {
     function is_null() : bool {
         return true;
     }
+}
+
+// fool IDE into use the propper type for autocompletion.
+function force_class( $mixed ) : clase {
+    return $mixed;
 }
