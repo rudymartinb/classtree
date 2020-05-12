@@ -1,5 +1,7 @@
 <?php
 
+use src\ClassDiagram;
+
 class classtreeTest extends PHPUnit\Framework\TestCase {
 
     /* this test uses fixed files on tests/dummy dir
@@ -51,6 +53,14 @@ class father {
         $this->assertEquals( 1, count( $classes ) );
         $class = $this->get_class( $classes, 0 );
         $this->assertEquals( "sarasa", $class->get_namespace() );
+        
+        
+        $diagram = new ClassDiagram();
+        $diagram->addClasses( $classes );
+        $diagram->resolver_dependencias();
+        
+        
+        $this->assertTrue( $diagram->dependencias_resueltas(), "una clase solitaria deberia tener las dependencias resueltas" );
 
     }
 

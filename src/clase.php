@@ -44,4 +44,6 @@ class clase {
         return $this->funciones;
     }
     
+    
+    
 }
