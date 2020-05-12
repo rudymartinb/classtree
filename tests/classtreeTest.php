@@ -57,7 +57,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
     }
     
     function test_resolve_dependencies_2_classes() {
-        $classes = $this->generate_1_class();
+        $classes = $this->generate_2_class();
         
         $diagram = new ClassDiagram();
         $diagram->addClasses( $classes );
