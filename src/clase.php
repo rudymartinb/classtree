@@ -29,16 +29,14 @@ class clase implements clase_interface {
         return $this->name;
     }
     
-    // mark this class as NOT resolved
-    private $resolved = true;
-    function is_parent_resolved() : bool {
-        return $this->resolved;
-    }
+
     
     private $extends = "";
     private $parent_resolved = true;
+    function is_parent_resolved() : bool {
+        return $this->parent_resolved;
+    }
     function set_extends( string $nombre ){
-        $this->resolved = false;
         $this->parent_resolved = false;
         $this->extends = $nombre;
     }
