@@ -21,15 +21,16 @@ class ClassDiagram {
         }
         return new clase_null("");
     }
-    function resolve_dependencies(){
-        $this->dependencies_resolved = false;
-        foreach ($this->classes as $value ){
-            $class = $this->convert2class( $value );
-            $extends = $class->get_extends();
-            $parent = $this->find_parent( $extends );
+//     function resolve_dependencies(){
+//         $this->dependencies_resolved = false;
+//         foreach ($this->classes as $value ){
+//             $class = $this->convert2class( $value );
+//             $extends = $class->get_extends();
+//             $parent = $this->find_parent( $extends );
             
-        }
-    }
+//         }
+//     }
+    
     private $dependencies_resolved = false;
     function is_dependencies_resolved(){
         return $this->dependencies_resolved ;
