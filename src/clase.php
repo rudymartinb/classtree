@@ -30,9 +30,9 @@ class clase implements clase_interface {
     }
     
     // mark this class as NOT resolved
-    private $resolved;
+    private $resolved = true;
     function is_resolved() : bool {
-        return false;
+        return $this->resolved;
     }
     
     private $extends = "";
