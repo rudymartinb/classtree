@@ -28,7 +28,9 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $diagram->addClass( $class2 );
         $class2->set_extends( "parent" );
         
-        $this->assertFalse( $class2->is_resolved(), "subclass is not linked with parent yet");
+        $class2->get_parent( $diagram->get_classes() );
+        
+        $this->assertTrue( $class2->is_resolved(), "subclass is not linked with parent yet");
         
     }
     

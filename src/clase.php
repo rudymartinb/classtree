@@ -36,10 +36,17 @@ class clase implements clase_interface {
     }
     
     private $extends = "";
+    private $parent_resolved = true;
     function set_extends( string $nombre ){
         $this->resolved = false;
+        $this->parent_resolved = false;
         $this->extends = $nombre;
     }
+    function get_parent( Array $classes ){
+        $this->parent_resolved = true;
+        $this->resolved = true;
+    }
+    
     function get_extends() : string {
         return $this->extends;
     }
