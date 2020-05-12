@@ -47,13 +47,16 @@ class father {
         return $classes[ $index ];
     }
     
-    function test_get_classes() {
+    function generate_1_class() : Array {
         $source = $this->get_source_prueba2();
         $classes = get_clases( $source );
         $this->assertEquals( 1, count( $classes ) );
         $class = $this->get_class( $classes, 0 );
-        $this->assertEquals( "sarasa", $class->get_namespace() );
-        
+        return $classes;
+    }
+    
+    function test_get_classes() {
+        $classes = $this->generate_1_class();
         
         $diagram = new ClassDiagram();
         $diagram->addClasses( $classes );
