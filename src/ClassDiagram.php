@@ -12,7 +12,7 @@ class ClassDiagram {
     function resolve_dependencies(){
         
     }
-    function dependencias_resueltas(){
+    function is_dependencies_resolved(){
         return true;
     }
 }
