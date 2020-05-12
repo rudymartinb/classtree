@@ -9,7 +9,7 @@ class ClassDiagram {
             $this->classes[] = $class;
         }
     }
-    function resolver_dependencias(){
+    function resolve_dependencies(){
         
     }
     function dependencias_resueltas(){

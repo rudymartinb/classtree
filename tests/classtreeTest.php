@@ -55,13 +55,12 @@ class father {
         return $classes;
     }
     
-    function test_get_classes() {
+    function test_resolve_dependencies_1_class() {
         $classes = $this->generate_1_class();
         
         $diagram = new ClassDiagram();
         $diagram->addClasses( $classes );
-        $diagram->resolver_dependencias();
-        
+        $diagram->resolve_dependencies();
         
         $this->assertTrue( $diagram->dependencias_resueltas(), "una clase solitaria deberia tener las dependencias resueltas" );
 
