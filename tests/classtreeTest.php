@@ -72,7 +72,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $diagram->addClasses( $classes );
         $diagram->resolve_dependencies();
         
-        $this->assertTrue( $diagram->is_dependencies_resolved(), "una clase solitaria deberia tener las dependencias resueltas" );
+        $this->assertTrue( $diagram->is_dependencies_resolved(), "??" );
     }
     
 
