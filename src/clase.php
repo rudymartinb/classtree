@@ -17,9 +17,11 @@ interface clase_interface {
     function is_null() : bool;
     
 }
+
+
 class clase implements clase_interface {
-    private $name;
     
+    private $name;
     function __construct( string $name ){
         $this->name = $name;
     }

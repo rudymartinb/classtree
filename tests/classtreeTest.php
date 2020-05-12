@@ -36,7 +36,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $classes = get_clases( $source );
         return $classes;
     }
-
+    
     function generate_2_class() : Array {
         $source = $this->get_source_prueba();
         $classes = get_clases( $source );
@@ -47,6 +47,7 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $classes2 = get_clases( $source2 );
         return $classes2;
     }
+    
     
     
 //     function test_is_dependencies_resolved_false() {
