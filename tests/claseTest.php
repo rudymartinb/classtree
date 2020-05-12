@@ -10,6 +10,14 @@ class claseTest extends PHPUnit\Framework\TestCase {
     }
     
     function test_not_resolved(){
+        $class2 = new clase("child");
+        $class2->set_extends( "parent" );
+        
+        $this->assertFalse( $class2->is_resolved(), "subclass is not linked with parent yet");
+        
+    }
+
+    function test_is_resolved(){
         $diagram = new ClassDiagram();
         
         $class = new clase("parent");
