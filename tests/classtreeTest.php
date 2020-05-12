@@ -64,6 +64,18 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $classes = get_clases( $source );
         return $classes;
     }
+    function generate_2_separated_classes() : Array {
+        $source = $this->get_source_prueba();
+        $classes = get_clases( $source );
+        
+        $source2 = $this->get_source_prueba2_2();
+        $classes2 = get_clases( $source2 );
+        
+        $classes = array_merge( $classes, $classes2 );
+        
+        return $classes;
+    }
+    
     
     function test_resolve_dependencies_2_classes() {
         $classes = $this->generate_2_class();
@@ -77,14 +89,13 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
     }
 
     function test_resolve_dependencies_2_separated_classes() {
-        $classes = $this->generate_1_class();
-        $classes2 = $this->generate_1_class();
+        $classes = $this->generate_2_separated_classes();
         
         $diagram = new ClassDiagram();
         $diagram->addClasses( $classes );
-        $diagram->resolve_dependencies();
+//         $diagram->resolve_dependencies();
         
-        $this->assertTrue( $diagram->is_dependencies_resolved(), "??" );
+        $this->assertFalse( $diagram->is_dependencies_resolved(), "??" );
     }
     
 
