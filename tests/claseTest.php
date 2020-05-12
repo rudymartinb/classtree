@@ -4,6 +4,13 @@ use src\clase;
 use src\ClassDiagram;
 
 class claseTest extends PHPUnit\Framework\TestCase {
+    function test_orphan(){
+        $class = new clase("parent");
+        
+        $this->assertTrue( $class->is_resolved(), "class does not have dependencies");
+        
+    }
+    
     function test_parent(){
         $diagram = new ClassDiagram();
         
@@ -17,7 +24,7 @@ class claseTest extends PHPUnit\Framework\TestCase {
         
         $this->assertFalse( $class2->is_resolved(), "subclass is not linked with parent yet");
         
-        
     }
+    
 }
 
