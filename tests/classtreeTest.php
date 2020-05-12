@@ -71,6 +71,18 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
         $diagram = new ClassDiagram();
         $diagram->addClasses( $classes );
         $diagram->resolve_dependencies();
+    
+        // TODO: more checks here?
+        $this->assertTrue( $diagram->is_dependencies_resolved(), "??" );
+    }
+
+    function test_resolve_dependencies_2_separated_classes() {
+        $classes = $this->generate_1_class();
+        $classes2 = $this->generate_1_class();
+        
+        $diagram = new ClassDiagram();
+        $diagram->addClasses( $classes );
+        $diagram->resolve_dependencies();
         
         $this->assertTrue( $diagram->is_dependencies_resolved(), "??" );
     }
@@ -191,6 +203,17 @@ class father {
         return $source;
     }
     
+    function get_source_prueba2_2() : string {
+        $source = "<?php
+namespace sarasa;
+            
+class son extends father {
+    public function algo(): string {
+            
+    }
+}";
+        return $source;
+    }
     
     
 
