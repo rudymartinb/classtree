@@ -4,32 +4,20 @@ namespace src;
 
 // since "class" is a reserved word in PHP 
 // I have no choice but to use the spanish one
-abstract class superclase {
-    abstract function get_name();
-    
-    function set_extends( string $nombre ){
-    }
-    function get_extends() : string {
-    }
-    
-    function set_implements( string $nombre ){
-    }
-    function get_implements(){
-    }
-    
-    function set_namespace( string $nombre ){
-    }
-    function get_namespace() : string {
-    }
-    function set_funcion( string $nombre, Array $parameters, string $return = "" ){
-    }
-    function get_funciones() : Array {
-    }
-    
-    abstract function is_null() : bool;
+interface clase_interface {
+    function get_name();
+    function set_extends( string $nombre );
+    function get_extends() : string;
+    function set_implements( string $nombre );
+    function get_implements();
+    function set_namespace( string $nombre );
+    function get_namespace() : string;
+    function set_funcion( string $nombre, Array $parameters, string $return = "" );
+    function get_funciones() : Array ;
+    function is_null() : bool;
     
 }
-class clase {
+class clase implements clase_interface {
     private $name;
     
     function __construct( string $name ){
