@@ -39,6 +39,7 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $class = new clase("parent");
         $diagram->addClass( $class );
 
+        $isacopy = $class;
         $fake = new clase("parent");
 
         
@@ -50,6 +51,7 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $class2->find_parent( $diagram->get_classes() );
         
         $this->assertTrue( $class2->get_parent() === $class, "subclass is now linked with parent");
+        $this->assertTrue( $class2->get_parent() === $isacopy, "subclass is now linked with parent");
         $this->assertFalse( $class2->get_parent() === $fake, "subclass is now linked with parent");
     }
     
