@@ -1,11 +1,14 @@
 goal is to have a diagram of the class with dependencies:
-extends 
-interfaces 
-functions atributes
-functions return values
 
-we don't care if a class is used in a function (yet)
-1) we might have to dig too deep into the code for that to happen
+statements or segments of code to be analysed:
+	namespaces
+	extends 
+	interfaces 
+	functions atributes
+	functions return values
+
+we don't care if a class is used in a function (yet) because:
+1) we might have to dig too deep into the code for that to happen (what about macros and anonymous functions?)
 2) we could use the "use" statement to get the hints from source
 
 
@@ -22,9 +25,9 @@ anonymous functions to the rescue? this way I could split the filesystem scanner
 6) once I have the previous step, create a "tree" for each group of nodes.
 7) "draw" internally how the diagram should look like.
 	ie: 
-	how many heads
-	how deep will be  
-	how width
+	how many heads (parent classes)
+	how deep will be  (levels of subclasses)
+	how width (maximum number of subclases at the same deep level on a given class tree)
 8) separate "trees" based on each others width. This involves creating some sort of grid.
 9) create the diagram using straight arrows?
 10) color the boxes based on namespace
