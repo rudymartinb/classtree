@@ -1,7 +1,7 @@
 <?php
 
 
-class combinatoriaTest extends PHPUnit\Framework\TestCase {
+class permutationTest extends PHPUnit\Framework\TestCase {
 
     function test_permutacion_0() {
         $arr = [  ];

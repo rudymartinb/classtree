@@ -18,7 +18,7 @@ require_once 'tests/diagramTest.php';
 
 // require_once 'tests/treeTest.php';
 
-require_once 'tests/combinatoriaTest.php';
+require_once 'tests/permutationTest.php';
 
 class testsSuite extends PHPUnit\Framework\TestSuite {
 
