@@ -1,1 +1,33 @@
- 
+goal is to have a diagram of the class with dependencies:
+extends 
+interfaces 
+functions atributes
+functions return values
+
+we don't care if a class is used in a function (yet)
+1) we might have to dig too deep for that to happend
+2) we could use the "use" statement to get the hints from source
+
+
+a list of of GENERAL operations I want to implement:
+
+1) get the list of .php files from a directory (DONE)
+2) get the content from a source (DONE)
+3) read the file to create certain object types call "node" which should contain info on each php statement. (done?)
+4) get a list of all nodes from all sources (should be under a diagram object)
+5) resolve each node's link to others or orphans nodes
+6) once I have the previous step, create a "tree" for each group of nodes.
+7) "draw" internally how the diagram should look like.
+	ie: 
+	how many heads
+	how deep will be  
+	how width
+8) separate "trees" based on each others width. This involves creating some sort of grid.
+9) create the diagram using straight arrows?
+10) color the boxes based on namespace
+
+
+
+
+	
+	
