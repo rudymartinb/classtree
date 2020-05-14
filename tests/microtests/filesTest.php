@@ -49,6 +49,12 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $phpfiles = get_php_files( [] );
         $this->assertEquals( 0, count( $phpfiles ) );
     }
+
+    function test_separate_php_fail_2(){
+        $phpfiles = get_php_files( [ 1 ] );
+        $this->assertEquals( 0, count( $phpfiles ) );
+    }
+    
     
     
 //     function test_separate_php(){
