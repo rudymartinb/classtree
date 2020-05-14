@@ -1,8 +1,12 @@
 <?php
+use function files\get_all_files;
+use function files\get_source;
+use function files\get_sources;
+
 // use src\clase;
 // use src\ClassDiagram;
 
-class classtreeTest extends PHPUnit\Framework\TestCase {
+class diagramTest extends PHPUnit\Framework\TestCase {
 
     /* this test uses fixed files on tests/dummy dir
      * adding or removing files will cause this test to fail
@@ -32,18 +36,18 @@ class classtreeTest extends PHPUnit\Framework\TestCase {
 
 
     function generate_1_class() : Array {
-        $source = $this->get_source_prueba2();
+        $source = get_source_prueba2();
         $classes = get_clases( $source );
         return $classes;
     }
     
     function generate_2_class() : Array {
-        $source = $this->get_source_prueba();
+        $source = get_source_prueba();
         $classes = get_clases( $source );
         return $classes;
     }
     function generate_1_separated_classes() : Array {
-        $source2 = $this->get_source_prueba2_2();
+        $source2 = get_source_prueba2_2();
         $classes2 = get_clases( $source2 );
         return $classes2;
     }
