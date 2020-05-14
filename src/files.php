@@ -35,6 +35,7 @@ function get_all_files( string $path ) : Array {
 }
 
 function get_php_files( Array $list ) : Array {
+    
     return [];
 }
 
