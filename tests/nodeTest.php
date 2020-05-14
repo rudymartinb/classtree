@@ -4,7 +4,7 @@ use nodes\node_clase;
 use nodes\tree;
 use src\clase;
 
-class nodosTest extends PHPUnit\Framework\TestCase {
+class nodeTest extends PHPUnit\Framework\TestCase {
     
 
 

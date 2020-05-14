@@ -12,7 +12,7 @@ require_once 'src/ClassDiagram.php';
 /*
  * TESTS !!!
  */
-require_once 'tests/nodosTest.php';
+require_once 'tests/nodeTest.php';
 require_once 'tests/claseTest.php';
 require_once 'tests/diagramTest.php';
 
@@ -27,7 +27,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         $this->addTestSuite('claseTest');
         $this->addTestSuite('diagramTest');
-//         $this->addTestSuite('nodosTest');
+//         $this->addTestSuite('nodeTest');
 //         $this->addTestSuite('treeTest');
 //         $this->addTestSuite('combinatoriaTest');
     }
