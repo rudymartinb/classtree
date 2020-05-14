@@ -35,8 +35,16 @@ function get_all_files( string $path ) : Array {
 }
 
 function get_php_files( Array $list ) : Array {
-    
-    return [];
+    $phpfiles = []; 
+    foreach( $list as $filename ){
+        if( ! is_string($filename) ){
+            continue;
+        }
+        if( is_php($filename)){
+            $phpfiles[] = $filename;
+        }
+    }
+    return $phpfiles;
 }
 
 function get_source( string $filename ) : string {

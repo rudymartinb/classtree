@@ -55,14 +55,12 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 0, count( $phpfiles ) );
     }
     
-    
-    
-//     function test_separate_php(){
-//         $path = "./tests/dummy";
-//         $lista = get_all_files( $path );
-//         $phpfiles = get_php_files( $lista );
-//         $this->assertEquals( 3, count( $phpfiles ) );
-//     }
+    function test_separate_php(){
+        $path = "./tests/dummy";
+        $lista = get_all_files( $path );
+        $phpfiles = get_php_files( $lista );
+        $this->assertEquals( 3, count( $phpfiles ) );
+    }
     
     function test_get_source_from_file() {
         $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
