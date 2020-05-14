@@ -16,6 +16,8 @@ a list of of GENERAL operations I want to implement:
 3) read the file to create certain object types call "node" which should contain info on each php statement. (done by some cheating with GREP, is it over? as microtest)
 4) get a list of all nodes from all sources (should be under a diagram object or some kind of collector)
 
+anonymous functions to the rescue? this way I could split the filesystem scanner from the propper source reading and nodes collector.
+
 5) resolve each node's link to others or orphans nodes
 6) once I have the previous step, create a "tree" for each group of nodes.
 7) "draw" internally how the diagram should look like.
