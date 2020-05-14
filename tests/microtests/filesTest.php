@@ -12,11 +12,17 @@ class filesTest extends PHPUnit\Framework\TestCase {
      * may be will do that later)
      */
 
-    function test_get_files_FAIL() {
+    function test_get_files_FAIL_1() {
         $path = "/asdfasdf";
         $lista = get_all_files( $path );
         $this->assertEquals( 0, count( $lista ) );
     }
+    function test_get_files_FAIL_2() {
+        $path = "/bin/bash";
+        $lista = get_all_files( $path );
+        $this->assertEquals( 0, count( $lista ) );
+    }
+    
     
     function test_get_files() {
         $path = "/home/rudy/projects/classtree/tests/dummy";
