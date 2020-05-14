@@ -15,6 +15,8 @@ a list of of GENERAL operations I want to implement:
 2) get the content from a source (DONE)
 3) read the file to create certain object types call "node" which should contain info on each php statement. (done?)
 4) get a list of all nodes from all sources (should be under a diagram object)
+
+
 5) resolve each node's link to others or orphans nodes
 6) once I have the previous step, create a "tree" for each group of nodes.
 7) "draw" internally how the diagram should look like.
