@@ -11,9 +11,9 @@ we don't care if a class is used in a function (yet)
 
 a list of of GENERAL operations I want to implement:
 
-1) get the list of .php files from a directory (DONE)
+1) get the list of .php files from a directory (DONE as microtest)
 2) get the content from a source (DONE)
-3) read the file to create certain object types call "node" which should contain info on each php statement. (done by some cheating with GREP, is it over?)
+3) read the file to create certain object types call "node" which should contain info on each php statement. (done by some cheating with GREP, is it over? as microtest)
 4) get a list of all nodes from all sources (should be under a diagram object or some kind of collector)
 
 5) resolve each node's link to others or orphans nodes
