@@ -12,6 +12,7 @@ require_once 'src/ClassDiagram.php';
 /*
  * TESTS !!!
  */
+require_once 'tests/mocks/sources.php';
 require_once 'tests/nodeTest.php';
 require_once 'tests/claseTest.php';
 require_once 'tests/ClassDiagramTest.php';
