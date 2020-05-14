@@ -6,7 +6,7 @@ use function files\get_sources;
 // use src\clase;
 // use src\ClassDiagram;
 
-class diagramTest extends PHPUnit\Framework\TestCase {
+class ClassDiagramTest extends PHPUnit\Framework\TestCase {
 
     /* this test uses fixed files on tests/dummy dir
      * adding or removing files will cause this test to fail
