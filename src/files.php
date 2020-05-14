@@ -4,10 +4,21 @@ namespace files;
 
 use src\clase;
 
+function begins_with_dot( string $entry ) : bool {
+    return substr( $entry, 0,1 ) == ".";
+}
+
+function is_php( string $entry ) : bool {
+    return substr( $entry, -4 ) == ".php";
+}
+
 function get_all_files( string $path ) : Array {
+    if( !is_dir( $path ) ) {
+        return [];
+    }
     $dir = dir( $path );
     $list = [];
-    while (false !== ( $filename = $dir->read() ) ) {
+    while(  ( $filename = $dir->read() ) !== false  ) {
         if( begins_with_dot($filename) ){
             continue;
         }
@@ -38,12 +49,6 @@ function get_sources( Array $files ) : Array {
 }
 
 
-function begins_with_dot( string $entry ) : bool {
-    return substr( $entry, 0,1 ) == ".";
-}
-function is_php( string $entry ) : bool {
-    return substr( $entry, -4 ) == ".php";
-}
 
 
 function get_clases( string $source ) : Array {

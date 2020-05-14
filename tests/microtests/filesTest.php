@@ -16,7 +16,21 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $path = "/home/rudy/projects/classtree/tests/dummy";
         $lista = get_all_files( $path );
         $this->assertEquals( 3, count( $lista ) );
+     
     }
+
+    /*
+     *     function test_get_files() {
+        $path = "/home/rudy/projects/classtree/tests/dummy";
+        $count = 0;
+        $function = function() use( &$count ) {
+            $count ++;
+        };
+        $lista = get_all_files( $path, $function );
+        $this->assertEquals( 3, count( $lista ) );
+        $this->assertEquals( 3, $count );
+    }
+     */
     
     function test_get_source_from_file() {
         $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
