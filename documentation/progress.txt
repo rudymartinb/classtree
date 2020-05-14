@@ -14,7 +14,7 @@ a list of of GENERAL operations I want to implement:
 1) get the list of .php files from a directory (DONE)
 2) get the content from a source (DONE)
 3) read the file to create certain object types call "node" which should contain info on each php statement. (done by some cheating with GREP, is it over?)
-4) get a list of all nodes from all sources (should be under a diagram object)
+4) get a list of all nodes from all sources (should be under a diagram object or some kind of collector)
 
 5) resolve each node's link to others or orphans nodes
 6) once I have the previous step, create a "tree" for each group of nodes.
