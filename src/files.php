@@ -34,6 +34,10 @@ function get_all_files( string $path ) : Array {
     return $list;
 }
 
+/* let's be optimistic. 
+ * let's pretend the files exist on disk 
+ * (anything could happen in the middle but I wont worry yet)
+*/
 function get_php_files( Array $list ) : Array {
     $phpfiles = []; 
     foreach( $list as $filename ){
