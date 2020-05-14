@@ -7,11 +7,15 @@ require_once 'src/clase.php';
 // require_once 'src/classtree.php';
 require_once 'src/ClassDiagram.php';
 
-require_once 'src/permutacion.php';
+// require_once 'src/permutacion.php';
 
+/*
+ * TESTS !!!
+ */
+require_once 'tests/nodosTest.php';
 require_once 'tests/claseTest.php';
 require_once 'tests/diagramTest.php';
-require_once 'tests/nodosTest.php';
+
 // require_once 'tests/treeTest.php';
 
 require_once 'tests/combinatoriaTest.php';
