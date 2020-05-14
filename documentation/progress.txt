@@ -5,7 +5,7 @@ functions atributes
 functions return values
 
 we don't care if a class is used in a function (yet)
-1) we might have to dig too deep for that to happend
+1) we might have to dig too deep into the code for that to happen
 2) we could use the "use" statement to get the hints from source
 
 
