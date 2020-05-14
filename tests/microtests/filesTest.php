@@ -1,5 +1,5 @@
 <?php
-class ClassDiagramTest extends PHPUnit\Framework\TestCase {
+class filesTest extends PHPUnit\Framework\TestCase {
     
     /* this test uses fixed files on tests/dummy dir
      * adding or removing files will cause this test to fail
