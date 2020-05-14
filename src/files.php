@@ -2,6 +2,8 @@
 namespace files;
 
 
+use src\clase;
+
 function get_all_files( string $path ) : Array {
     $dir = dir( $path );
     $list = [];
@@ -43,6 +45,19 @@ function is_php( string $entry ) : bool {
     return substr( $entry, -4 ) == ".php";
 }
 
+
+function get_clases( string $source ) : Array {
+    $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
+    $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
+    $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
+    $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
+    
+    $matches = [];
+    preg_match_all($pattern, $source, $matches );
+    
+    $clases = separar_clases($matches);
+    return $clases;
+}
 
 /*
  * this generates one class object from the matches found
@@ -88,17 +103,4 @@ function get_types_from_source( string $filename ): Array {
     preg_match_all($pattern, $sourcecode, $matches );
     
     return $matches;
-}
-
-function get_clases( string $source ) : Array {
-    $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
-    $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
-    $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
-    $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
-    
-    $matches = [];
-    preg_match_all($pattern, $source, $matches );
-    
-    $clases = separar_clases($matches);
-    return $clases;
 }
