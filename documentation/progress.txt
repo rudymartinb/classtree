@@ -13,9 +13,8 @@ a list of of GENERAL operations I want to implement:
 
 1) get the list of .php files from a directory (DONE)
 2) get the content from a source (DONE)
-3) read the file to create certain object types call "node" which should contain info on each php statement. (done?)
+3) read the file to create certain object types call "node" which should contain info on each php statement. (done by some cheating with GREP, is it over?)
 4) get a list of all nodes from all sources (should be under a diagram object)
-
 
 5) resolve each node's link to others or orphans nodes
 6) once I have the previous step, create a "tree" for each group of nodes.
@@ -27,6 +26,12 @@ a list of of GENERAL operations I want to implement:
 8) separate "trees" based on each others width. This involves creating some sort of grid.
 9) create the diagram using straight arrows?
 10) color the boxes based on namespace
+
+
+20200514 0037 -3GMT 
+what bothers me is the fact I'm taking some big steps and selecting the next test becomes hard. And the resulting code felt funny as if I was cheating. So I decided to go back a bit.
+
+
 
 
 
