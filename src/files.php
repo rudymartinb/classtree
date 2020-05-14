@@ -34,6 +34,10 @@ function get_all_files( string $path ) : Array {
     return $list;
 }
 
+function get_php_files( Array $list ) : Array {
+    return [];
+}
+
 function get_source( string $filename ) : string {
     if( ! file_exists( $filename ) ){
         return "";

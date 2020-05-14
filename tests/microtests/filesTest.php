@@ -2,6 +2,7 @@
 use function files\get_all_files;
 use function files\get_source;
 use function files\get_sources;
+use function files\get_php_files;
 
 class filesTest extends PHPUnit\Framework\TestCase {
     
@@ -43,6 +44,19 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 3, $count );
     }
      */
+
+    function test_separate_php_fail(){
+        $phpfiles = get_php_files( [] );
+        $this->assertEquals( 0, count( $phpfiles ) );
+    }
+    
+    
+//     function test_separate_php(){
+//         $path = "./tests/dummy";
+//         $lista = get_all_files( $path );
+//         $phpfiles = get_php_files( $lista );
+//         $this->assertEquals( 3, count( $phpfiles ) );
+//     }
     
     function test_get_source_from_file() {
         $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
