@@ -1,4 +1,8 @@
 <?php
+use function files\get_all_files;
+use function files\get_source;
+use function files\get_sources;
+
 class filesTest extends PHPUnit\Framework\TestCase {
     
     /* this test uses fixed files on tests/dummy dir
