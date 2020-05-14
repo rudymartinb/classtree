@@ -51,7 +51,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
     }
 
     function test_separate_php_fail_2(){
-        $phpfiles = get_php_files( [ 1 ] );
+        $phpfiles = get_php_files( [ null ] );
         $this->assertEquals( 0, count( $phpfiles ) );
     }
     
