@@ -16,9 +16,20 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
         $class = new class_("parent");
         $diagram->addClass( $class );
         
-        
         $this->assertTrue( $class->is_extends_resolved(), "subclass has no extends");
     }
+
+    function test_class_with_no_extends_2(){
+        $diagram = new ClassDiagram();
+        
+        $class = new class_("parent");
+        $diagram->addClass( $class );
+        
+        $test = $class->get_extends_class();
+        
+        $this->assertTrue( $test->is_null() );
+    }
+    
     
     
     function test_is_extends_resolved(){

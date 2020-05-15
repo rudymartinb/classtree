@@ -2,11 +2,31 @@
 namespace src;
 
 
-class class_ {
+/* null object pattern.
+ * Needed to avoid using the NULL value
+ * which prevent us to set the return type of a function
+ */
+interface class_interface {
+//     function __construct( );
+//     function get_name() : string ;
+//     function is_extends_resolved() : bool ;
+//     function set_extends( string $nombre );
+}
+
+class clase_null implements class_interface {
+    function is_null() : bool {
+        return true;
+    }
+    
+}
+
+
+class class_ implements class_interface  {
     
     private $name;
     function __construct( string $name ){
         $this->name = $name;
+        $this->extends_class = new clase_null();
     }
     function get_name() : string {
         return $this->name;
@@ -33,7 +53,7 @@ class class_ {
             }
         }
     }
-    function get_extends_class() : class_ {
+    function get_extends_class() : class_interface {
         return $this->extends_class;
     }
     
@@ -71,16 +91,6 @@ class class_ {
     }
     
     
-}
-
-/* null object pattern. 
- * Needed to avoid using the NULL value
- * which prevent us to set the return type of a function
- */
-class clase_null extends class_ {
-    function is_null() : bool {
-        return true;
-    }
 }
 
 // fool IDE into use the propper type for autocompletion.
