@@ -15,7 +15,6 @@ class App {
     private $files_names;
     function scan_dir(){
         $this->files_names = get_all_files($this->directory);
-        var_dump($this->files_names);
     }
     
     private $php_sources;
@@ -27,7 +26,6 @@ class App {
     private $classes;
     function generate_classes(){
         $this->classes = get_classes_from_sources($this->php_sources);
-        var_dump($this->classes);
     }
     
     private $interfaces;
