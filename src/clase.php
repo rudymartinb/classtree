@@ -14,7 +14,7 @@ class clase {
     
     private $extends = "";
     private $extends_resolved = true;
-    function is_parent_resolved() : bool {
+    function is_extends_resolved() : bool {
         return $this->extends_resolved;
     }
     function set_extends( string $nombre ){
