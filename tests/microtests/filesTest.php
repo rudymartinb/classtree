@@ -65,41 +65,44 @@ class filesTest extends PHPUnit\Framework\TestCase {
     }
     
     function test_get_source_from_file() {
-        $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
+        $filename = "./tests/dummy/prueba2.php";
         $lista = get_source( $filename );
         $this->assertTrue( $lista != ""  );
     }
     
     function test_get_sources() {
-        $path = "/home/rudy/projects/classtree/tests/dummy";
+        $path = "./tests/dummy";
         $files = get_all_files( $path );
         $sources = get_sources( $files );
         $this->assertEquals( 3, count( $sources ) );
     }
 
     function test_get_class1() {
-        $filename = "/home/rudy/projects/classtree/tests/dummy/prueba.php";
+        $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
         $classes = get_clases( $source );
         $this->assertEquals( 3, count( $classes ) );
     }
     
     function test_get_class2() {
-        $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
+        $filename = "./tests/dummy/prueba2.php";
         $source = get_source( $filename );
         $classes = get_clases( $source );
         $this->assertEquals( 1, count( $classes ) );
     }
     
-//     function test_get_classes() {
-//         $path = "./tests/dummy";
-//         $files = get_all_files( $path );
-//         $sources = get_sources( $files );
-//         // $php_sources = get_sources( $files );
-//         $classes = get_classes_from_sources( $sources );
+    function test_get_classes() {
+        $path = "./tests/dummy";
+        $files = get_all_files( $path );
+        $php_sources = get_php_files( $files );
+        var_dump($php_sources);
+        $sources = get_sources( $php_sources );
+        
+        
+        $classes = get_classes_from_sources( $sources );
 //         var_dump($classes);
-//         $this->assertEquals( 4, count( $classes ) );
-//     }
+        $this->assertEquals( 4, count( $classes ) );
+    }
     
     
     function generate_1_class() : Array {

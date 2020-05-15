@@ -53,6 +53,10 @@ idea2: create an Application object with the main methods like:
 
 and so on
 
+20200515 1849 GMT-3
+decided to go for the App class, it will guide the things need to be completed from now on.
+
+
 
 
 

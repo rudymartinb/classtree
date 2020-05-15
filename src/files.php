@@ -69,7 +69,8 @@ function get_classes_from_sources( Array $sources ){
     $classes = [];
     foreach ($sources as $source ){
         $tmp = get_clases($source);
-        $classes = $classes + $tmp;
+//         var_dump($tmp);C
+        $classes = array_merge( $classes , $tmp );
     }
     return $classes;
 }
