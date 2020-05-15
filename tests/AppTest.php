@@ -4,8 +4,7 @@ use src\App;
 
 class AppTest extends PHPUnit\Framework\TestCase {
     function test_new(){
-        $this->assertTrue( true );
-        return;
+
         $app = new App();
         $app->set_directory( "./dummy" );
         
@@ -19,7 +18,11 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $app->resolve_functions_dependencies();
         
         $app->resolve_levels();
+        $app->calculate_diagram();
+        $app->generate_file( "/tmp/output.jpg" );
         
+        $this->assertTrue( true );
+        return;
         
     }
 }
