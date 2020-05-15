@@ -4,6 +4,7 @@ namespace src;
 use function files\get_all_files;
 use function files\get_php_files;
 use function files\get_sources;
+use function files\get_classes_from_sources;
 
 class App {
     private $directory = "";
@@ -24,9 +25,9 @@ class App {
     
     private $classes;
     function generate_classes(){
-        $this->classes = get_sources($this->php_sources);
-        
+        $this->classes = get_classes_from_sources($this->php_sources);
     }
+    
     function generate_interfaces(){
         
     }
