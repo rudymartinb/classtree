@@ -44,6 +44,14 @@ Trying to apply the KISS rule, refactoring will show me the way later.
 
 20200515 0127 GMT-3
 idea: create a vectorial canvas to allow us to move arround the objects ?
+idea2: create an Application object with the main methods like: 
+	select_dir
+	scan_dir
+	read_sources
+	create_objects
+	resolve_relationships
+
+and so on
 
 
 
