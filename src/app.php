@@ -15,6 +15,7 @@ class App {
     private $files_names;
     function scan_dir(){
         $this->files_names = get_all_files($this->directory);
+        var_dump($this->files_names);
     }
     
     private $php_sources;
