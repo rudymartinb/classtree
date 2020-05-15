@@ -1,8 +1,6 @@
 <?php
 namespace src;
 
-
-
 interface class_interface {
     function is_null() : bool;
 }
@@ -88,7 +86,9 @@ function force_class( $mixed ) : class_ {
 
 /* null object pattern.
  * Needed to avoid using the NULL value
- * which prevent us to set the return type of a function
+ * which could prevent us to set the return type of a function
+ * 
+ * and more importantly, by doing this we avoid nasty exceptions
  */
 class class_null implements class_interface {
     function is_null() : bool {
