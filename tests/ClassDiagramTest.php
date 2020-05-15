@@ -33,11 +33,6 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
         $class = new clase("parent");
         $diagram->addClass( $class );
         
-        $isacopy = $class;
-        $fake = new clase("parent");
-        
-        
-        
         $class2 = new clase("child");
         $diagram->addClass( $class2 );
         $class2->set_extends( "parent" );
