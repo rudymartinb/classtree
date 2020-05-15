@@ -6,7 +6,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
     function test_new(){
 
         $app = new App();
-        $app->set_directory( "./dummy" );
+        $app->set_directory( "./tests/dummy" );
         
         $app->scan_dir();
         $app->read_sources();
