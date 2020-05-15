@@ -1,7 +1,7 @@
 <?php
 
 use src\clase;
-use src\ClassDiagram;
+
 
 class claseTest extends PHPUnit\Framework\TestCase {
     function test_orphan(){
