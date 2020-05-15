@@ -33,7 +33,7 @@ class clase {
             }
         }
     }
-    function get_parent() : clase {
+    function get_extends_class() : clase {
         return $this->extends_class;
     }
     
