@@ -19,4 +19,6 @@ class interface_ {
         return $this->extends;
     }
     
+    // TODO: what about funcions inside an interface ?
+    
 }
