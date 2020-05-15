@@ -65,7 +65,13 @@ function get_sources( Array $files ) : Array {
     return $sources;
 }
 
-
+function get_classes_from_sources( Array $sources ){
+    $classes = [];
+    foreach ($sources as $source ){
+        $classes += get_clases($source);
+    }
+    return $classes;
+}
 
 
 function get_clases( string $source ) : Array {
