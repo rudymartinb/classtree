@@ -68,7 +68,8 @@ function get_sources( Array $files ) : Array {
 function get_classes_from_sources( Array $sources ){
     $classes = [];
     foreach ($sources as $source ){
-        $classes += get_clases($source);
+        $tmp = get_clases($source);
+        $classes = $classes + $tmp;
     }
     return $classes;
 }
