@@ -24,7 +24,7 @@ class App {
     
     private $classes;
     function generate_classes(){
-        
+        $this->classes = get_sources($this->php_sources);
         
     }
     function generate_interfaces(){
