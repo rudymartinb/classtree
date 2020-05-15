@@ -6,6 +6,8 @@ require_once 'src/interface_.php';
 require_once 'src/class_.php';
 require_once 'src/ClassDiagram.php';
 
+require_once 'src/app.php';
+
 // require_once 'src/permutacion.php';
 
 /*
@@ -19,9 +21,9 @@ require_once 'tests/claseTest.php';
 require_once 'tests/interfaceTest.php';
 require_once 'tests/ClassDiagramTest.php';
 
-// require_once 'tests/treeTest.php';
+require_once 'tests/AppTest.php';
 
-require_once 'tests/permutationTest.php';
+// require_once 'tests/permutationTest.php';
 
 class testsSuite extends PHPUnit\Framework\TestSuite {
 
