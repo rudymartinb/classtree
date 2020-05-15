@@ -1,7 +1,7 @@
 <?php
 namespace sarasa;
 
-class father {
+class algo {
     public function algo(): string {
         
     }
