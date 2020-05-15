@@ -2,7 +2,7 @@
 namespace files;
 
 
-use src\clase;
+use src\class_;
 
 function begins_with_dot( string $entry ) : bool {
     return substr( $entry, 0,1 ) == ".";
@@ -97,7 +97,7 @@ function separar_clases( Array $matches ) : Array {
             continue;
         }
         
-        $clase = new clase( $matches[ "nombretipo"][$key] );
+        $clase = new class_( $matches[ "nombretipo"][$key] );
         $clase->set_extends( $matches["extends"][$key] );
         $clase->set_implements( $matches["implements"][$key] );
         $clase->set_namespace( $namespace );

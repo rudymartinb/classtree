@@ -9,7 +9,7 @@ class ClassDiagram {
             $this->classes[] = $class;
         }
     }
-    function addClass( clase $class ){
+    function addClass( class_ $class ){
         $this->classes[] = $class;
     }
     function get_classes() : Array {

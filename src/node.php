@@ -1,7 +1,7 @@
 <?php
 namespace nodes;
 
-use src\clase;
+use src\class_;
 
 abstract class node {
     abstract function set_parent( node $nodo );
@@ -14,7 +14,7 @@ abstract class node {
 class node_clase extends node {
     
     private $clases = [];
-    function set_clase( clase &$clase ){
+    function set_clase( class_ &$clase ){
         $this->clases[] = $clase;
     }
     

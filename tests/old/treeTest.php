@@ -2,7 +2,7 @@
 
 use nodes\node_clase;
 use nodes\tree;
-use src\clase;
+use src\class_;
 
 class treeTest extends PHPUnit\Framework\TestCase {
     function test_get_num_orphans_0() {
@@ -14,7 +14,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
      */
     function build_1node() : tree {
         $nodo = new node_clase();
-        $nodo->set_clase( new clase("father") );
+        $nodo->set_clase( new class_("father") );
         
         $tree = new tree();
         $tree->add_node( $nodo );
@@ -23,13 +23,13 @@ class treeTest extends PHPUnit\Framework\TestCase {
     
     function build_2nodes() : tree {
         $nodo = new node_clase();
-        $nodo->set_clase( new clase("father") );
+        $nodo->set_clase( new class_("father") );
         
         $tree = new tree();
         $tree->add_node( $nodo );
         
         $nodo = new node_clase();
-        $nodo->set_clase( new clase("mother") );
+        $nodo->set_clase( new class_("mother") );
         $tree->add_node( $nodo );
         return $tree;
     }

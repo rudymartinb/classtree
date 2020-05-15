@@ -2,7 +2,7 @@
 namespace src;
 
 
-class clase {
+class class_ {
     
     private $name;
     function __construct( string $name ){
@@ -33,7 +33,7 @@ class clase {
             }
         }
     }
-    function get_extends_class() : clase {
+    function get_extends_class() : class_ {
         return $this->extends_class;
     }
     
@@ -77,13 +77,13 @@ class clase {
  * Needed to avoid using the NULL value
  * which prevent us to set the return type of a function
  */
-class clase_null extends clase {
+class clase_null extends class_ {
     function is_null() : bool {
         return true;
     }
 }
 
 // fool IDE into use the propper type for autocompletion.
-function force_class( $mixed ) : clase {
+function force_class( $mixed ) : class_ {
     return $mixed;
 }
