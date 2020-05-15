@@ -2,23 +2,6 @@
 namespace src;
 
 
-// // since "class" is a reserved word in PHP 
-// // I have no choice but to use the spanish one
-// interface clase_interface {
-//     function get_name();
-//     function set_extends( string $nombre );
-//     function get_extends() : string;
-//     function set_implements( string $nombre );
-//     function get_implements();
-//     function set_namespace( string $nombre );
-//     function get_namespace() : string;
-//     function set_funcion( string $nombre, Array $parameters, string $return = "" );
-//     function get_funciones() : Array ;
-//     function is_null() : bool;
-//     function is_parent_resolved() : bool;
-// }
-
-
 class clase {
     
     private $name;
@@ -29,15 +12,13 @@ class clase {
         return $this->name;
     }
     
-
-    
     private $extends = "";
-    private $parent_resolved = true;
+    private $extends_resolved = true;
     function is_parent_resolved() : bool {
-        return $this->parent_resolved;
+        return $this->extends_resolved;
     }
     function set_extends( string $nombre ){
-        $this->parent_resolved = false;
+        $this->extends_resolved = false;
         $this->extends = $nombre;
     }
     private $parent_class;
@@ -45,7 +26,7 @@ class clase {
         foreach ( $classes as $class ){
             $class = force_class( $class );
             if( $class->get_name() == $this->extends ){
-                $this->parent_resolved = true;
+                $this->extends_resolved = true;
                 $this->parent_class = $class;
                 return;
             }
