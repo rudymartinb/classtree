@@ -21,19 +21,20 @@ class clase {
         $this->extends_resolved = false;
         $this->extends = $nombre;
     }
-    private $parent_class;
+    
+    private $extends_class;
     function find_extends( Array & $classes ){
         foreach ( $classes as $class ){
             $class = force_class( $class );
             if( $class->get_name() == $this->extends ){
                 $this->extends_resolved = true;
-                $this->parent_class = $class;
+                $this->extends_class = $class;
                 return;
             }
         }
     }
     function get_parent() : clase {
-        return $this->parent_class;
+        return $this->extends_class;
     }
     
     function get_extends() : string {
