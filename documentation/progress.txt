@@ -16,13 +16,13 @@ a list of of GENERAL operations I want to implement:
 
 1) get the list of .php files from a directory (DONE as microtest)
 2) get the content from a source (DONE)
-3) read the file to create certain object types call "node" which should contain info on each php statement. (done by some cheating with GREP, is it over? as microtest)
-4) get a list of all nodes from all sources (should be under a diagram object or some kind of collector)
+3) create objects for each type of statement
+4) add those objects into a ClassDiagram object as container
+5) using the container, discover the relationship among them.
+6) locate the appropiate object "level" among classes hierarchy (superclases and parent goes to the top level)
 
-anonymous functions to the rescue? this way I could split the filesystem scanner from the propper source reading and nodes collector.
 
-5) resolve each node's link to others or orphans nodes
-6) once I have the previous step, create a "tree" for each group of nodes.
+6) once I have the previous step, create a "tree" for each group of related nodes.
 7) "draw" internally how the diagram should look like.
 	ie: 
 	how many heads (parent classes)
@@ -41,6 +41,9 @@ what bothers me is the fact I'm taking some big steps and selecting the next tes
 renamed "clase" as "class_"
 created "interface_"
 Trying to apply the KISS rule, refactoring will show me the way later.
+
+20200515 0127 GMT-3
+idea: create a vectorial canvas to allow us to move arround the objects ?
 
 
 
