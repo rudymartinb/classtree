@@ -2,23 +2,11 @@
 namespace src;
 
 
-/* null object pattern.
- * Needed to avoid using the NULL value
- * which prevent us to set the return type of a function
- */
+
 interface class_interface {
-//     function __construct( );
-//     function get_name() : string ;
-//     function is_extends_resolved() : bool ;
-//     function set_extends( string $nombre );
+    function is_null() : bool;
 }
 
-class clase_null implements class_interface {
-    function is_null() : bool {
-        return true;
-    }
-    
-}
 
 
 class class_ implements class_interface  {
@@ -96,4 +84,14 @@ class class_ implements class_interface  {
 // fool IDE into use the propper type for autocompletion.
 function force_class( $mixed ) : class_ {
     return $mixed;
+}
+
+/* null object pattern.
+ * Needed to avoid using the NULL value
+ * which prevent us to set the return type of a function
+ */
+class clase_null implements class_interface {
+    function is_null() : bool {
+        return true;
+    }
 }
