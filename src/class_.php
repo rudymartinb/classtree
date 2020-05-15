@@ -14,7 +14,7 @@ class class_ implements class_interface  {
     private $name;
     function __construct( string $name ){
         $this->name = $name;
-        $this->extends_class = new clase_null();
+        $this->extends_class = new class_null();
     }
     function get_name() : string {
         return $this->name;
@@ -90,7 +90,7 @@ function force_class( $mixed ) : class_ {
  * Needed to avoid using the NULL value
  * which prevent us to set the return type of a function
  */
-class clase_null implements class_interface {
+class class_null implements class_interface {
     function is_null() : bool {
         return true;
     }
