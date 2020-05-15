@@ -33,10 +33,14 @@ anonymous functions to the rescue? this way I could split the filesystem scanner
 10) color the boxes based on namespace
 
 
-20200514 0037 -3GMT 
+20200514 0037 GMT-3 
 what bothers me is the fact I'm taking some big steps and selecting the next test becomes hard. And the resulting code felt funny as if I was cheating. So I decided to go back a bit.
 
 
+20200515 0026 GMT-3
+renamed "clase" as "class_"
+created "interface_"
+Trying to apply the KISS rule, refactoring will show me the way later.
 
 
 
