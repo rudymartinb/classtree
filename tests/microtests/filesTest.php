@@ -97,10 +97,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $php_sources = get_php_files( $files );
         var_dump($php_sources);
         $sources = get_sources( $php_sources );
-        
-        
         $classes = get_classes_from_sources( $sources );
-//         var_dump($classes);
         $this->assertEquals( 4, count( $classes ) );
     }
     
