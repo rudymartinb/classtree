@@ -25,6 +25,7 @@ class App {
     private $classes;
     function generate_classes(){
         
+        
     }
     function generate_interfaces(){
         
