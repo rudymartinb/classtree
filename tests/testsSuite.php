@@ -2,7 +2,7 @@
 require_once 'src/files.php';
 
 require_once 'src/node.php';
-require_once 'src/clase.php';
+require_once 'src/class_.php';
 require_once 'src/ClassDiagram.php';
 
 // require_once 'src/permutacion.php';
