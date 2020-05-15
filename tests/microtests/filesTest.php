@@ -3,6 +3,8 @@ use function files\get_all_files;
 use function files\get_source;
 use function files\get_sources;
 use function files\get_php_files;
+use function files\get_clases;
+use function files\get_classes_from_sources;
 
 class filesTest extends PHPUnit\Framework\TestCase {
     
@@ -72,6 +74,14 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $path = "/home/rudy/projects/classtree/tests/dummy";
         $files = get_all_files( $path );
         $sources = get_sources( $files );
+        $this->assertEquals( 3, count( $sources ) );
+    }
+
+    function test_get_classes() {
+        $path = "/home/rudy/projects/classtree/tests/dummy";
+        $files = get_all_files( $path );
+        $sources = get_sources( $files );
+        $classes = get_classes_from_sources( $files );
         $this->assertEquals( 3, count( $sources ) );
     }
     
