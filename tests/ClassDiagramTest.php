@@ -47,17 +47,13 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
     function test_is_NOT_resolved_2(){
         $diagram = new ClassDiagram();
         
-        //         $class = new clase("parent");
-        //         $diagram->addClass( $class );
-        
-        
         $class2 = new clase("child");
         $diagram->addClass( $class2 );
         $class2->set_extends( "parent" );
         
         $class2->find_extends( $diagram->get_classes() );
         
-        $this->assertFalse( $class2->is_extends_resolved(), "subclass is now linked with parent");
+        $this->assertFalse( $class2->is_extends_resolved(), "subclass not resolved");
     }
     
 
