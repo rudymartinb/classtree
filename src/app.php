@@ -2,8 +2,9 @@
 
 namespace src;
 class App {
+    private $directory = "";
     function set_directory( string $dir ){
-        
+        $this->directory = $dir; 
     }
     function scan_dir(){
         
