@@ -43,7 +43,6 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
 
     }
     
-    
     function test_is_NOT_resolved_2(){
         $diagram = new ClassDiagram();
         
@@ -55,6 +54,7 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
         
         $this->assertFalse( $class2->is_extends_resolved(), "subclass not resolved");
     }
+
     
 
 }
