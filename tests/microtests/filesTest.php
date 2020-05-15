@@ -78,6 +78,13 @@ class filesTest extends PHPUnit\Framework\TestCase {
     }
 
     function test_get_class1() {
+        $filename = "/home/rudy/projects/classtree/tests/dummy/prueba.php";
+        $source = get_source( $filename );
+        $classes = get_clases( $source );
+        $this->assertEquals( 3, count( $classes ) );
+    }
+    
+    function test_get_class2() {
         $filename = "/home/rudy/projects/classtree/tests/dummy/prueba2.php";
         $source = get_source( $filename );
         $classes = get_clases( $source );
