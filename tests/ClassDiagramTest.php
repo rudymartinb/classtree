@@ -22,7 +22,7 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
         $diagram->addClass( $class2 );
         $class2->set_extends( "parent" );
         
-        $class2->find_parent( $diagram->get_classes() );
+        $class2->find_extends( $diagram->get_classes() );
         
         $this->assertTrue( $class2->is_extends_resolved(), "subclass is now linked with parent");
     }
@@ -42,7 +42,7 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
         $diagram->addClass( $class2 );
         $class2->set_extends( "parent" );
         
-        $class2->find_parent( $diagram->get_classes() );
+        $class2->find_extends( $diagram->get_classes() );
         
         $this->assertTrue( $class2->get_parent() === $class, "subclass is now linked with parent");
         $this->assertTrue( $class2->get_parent() === $isacopy, "subclass shoudl be linked with a copy of parent");
@@ -61,7 +61,7 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
         $diagram->addClass( $class2 );
         $class2->set_extends( "parent" );
         
-        $class2->find_parent( $diagram->get_classes() );
+        $class2->find_extends( $diagram->get_classes() );
         
         $this->assertFalse( $class2->is_extends_resolved(), "subclass is now linked with parent");
     }

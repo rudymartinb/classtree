@@ -22,7 +22,7 @@ class clase {
         $this->extends = $nombre;
     }
     private $parent_class;
-    function find_parent( Array & $classes ){
+    function find_extends( Array & $classes ){
         foreach ( $classes as $class ){
             $class = force_class( $class );
             if( $class->get_name() == $this->extends ){
