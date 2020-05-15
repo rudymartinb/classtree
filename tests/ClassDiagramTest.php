@@ -11,7 +11,7 @@ use src\clase;
 class ClassDiagramTest extends PHPUnit\Framework\TestCase {
 
     
-    function test_is_resolved(){
+    function test_is_extends_resolved(){
         $diagram = new ClassDiagram();
         
         $class = new clase("parent");
