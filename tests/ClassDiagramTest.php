@@ -27,7 +27,7 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
         $this->assertTrue( $class2->is_extends_resolved(), "subclass is now linked with parent");
     }
     
-    function test_is_resolved_and_same_obj(){
+    function test_is_extends_resolved_and_same_obj(){
         $diagram = new ClassDiagram();
         
         $class = new clase("parent");
@@ -45,8 +45,7 @@ class ClassDiagramTest extends PHPUnit\Framework\TestCase {
         $class2->find_extends( $diagram->get_classes() );
         
         $this->assertTrue( $class2->get_extends_class() === $class, "subclass is now linked with parent");
-        $this->assertTrue( $class2->get_extends_class() === $isacopy, "subclass shoudl be linked with a copy of parent");
-        $this->assertFalse( $class2->get_extends_class() === $fake, "subclass is now linked with parent");
+
     }
     
     
