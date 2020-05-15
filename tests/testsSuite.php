@@ -2,9 +2,7 @@
 require_once 'src/files.php';
 
 require_once 'src/node.php';
-// require_once 'src/tree.php';
 require_once 'src/clase.php';
-// require_once 'src/classtree.php';
 require_once 'src/ClassDiagram.php';
 
 // require_once 'src/permutacion.php';
@@ -14,8 +12,10 @@ require_once 'src/ClassDiagram.php';
  */
 require_once 'tests/mocks/sources.php';
 require_once 'tests/microtests/filesTest.php';
+
 require_once 'tests/nodeTest.php';
 require_once 'tests/claseTest.php';
+require_once 'tests/interfaceTest.php';
 require_once 'tests/ClassDiagramTest.php';
 
 // require_once 'tests/treeTest.php';
