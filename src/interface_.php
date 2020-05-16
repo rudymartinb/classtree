@@ -27,10 +27,10 @@ class interface_ {
     
     private $extends_list;
     function resolve_extends( Array & $interfaces_list ){
-//         if( count( $this->get_extends() ) === 0 ){
-//             $this->extends_resolved = true;
-//             return ;
-//         }
+        if( count( $this->get_extends() ) === 0 ){
+            $this->extends_resolved = true;
+            return ;
+        }
         $this->extends_list = [];
         $this->extends_resolved = false;
         foreach ($this->extends as $interface ){
