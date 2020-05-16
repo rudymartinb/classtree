@@ -27,16 +27,13 @@ class interface_ {
     
     private $extends_list;
     function resolve_extends( Array & $interfaces_list ){
-        if( count( $this->get_extends() ) === 0 ){
-            $this->extends_resolved = true;
-            return ;
-        }
         $this->extends_list = [];
         $this->extends_resolved = false;
         foreach ($this->extends as $interface ){
             foreach ($interfaces_list as $key => $interface_item ){
                 if( $interface === $interface_item->get_name() ) {
                     $this->extends_list[ $interface ] = $interfaces_list[ $key ];
+                    break;
                 }
             }
         }
