@@ -80,9 +80,9 @@ class App {
     
     private $class_levels = [];
     function resolve_trees(){
-        $this->class_levels[0] = $this->search_parent( $this->parents_classes );
+        $this->class_levels[0] = $this->search_childs( $this->parents_classes );
     }
-    private function search_parent( Array $class_list ) : Array {
+    private function search_childs( Array $class_list ) : Array {
         $list = [];
         foreach ($class_list as $class ){
             $class = force_class($class);
