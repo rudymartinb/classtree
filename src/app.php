@@ -47,6 +47,10 @@ class App {
     function resolve_levels(){
         
     }
+    function resolve_trees(){
+        
+    }
+    
     function calculate_diagram(){
         
     }

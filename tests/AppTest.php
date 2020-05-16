@@ -18,6 +18,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
 //         $app->resolve_functions_dependencies();
         
         $app->resolve_levels();
+        $app->resolve_trees();
         $app->calculate_diagram();
         $app->generate_file( "/tmp/output.jpg" );
         
