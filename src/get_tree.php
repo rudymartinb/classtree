@@ -19,3 +19,7 @@ function get_tree( Array $classes, string $parent = "" ){
     }
     return  $result;
 }
+
+function get_max_width( Array $tree ) : int {
+    return 1;
+}
