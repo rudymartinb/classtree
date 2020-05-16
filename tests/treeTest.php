@@ -108,7 +108,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, count( $actual[0]["childrens"] ) );
     }
 
-    function test_tree_parent_3children(){
+    function test_get_max_width_1(){
         $classes = [];
         $class = new class_("parent");
         $classes[] = $class ;
