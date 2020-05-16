@@ -23,8 +23,10 @@ class AppTest extends PHPUnit\Framework\TestCase {
 //         $app->resolve_functions_dependencies();
         
         $app->search_parent_classes();
-        $parents = $app->get_parent_classes();
+        
+//         $parents = $app->get_parent_classes();
 //         var_dump($parents);
+
         $app->resolve_trees();
         $levels = $app->get_class_levels();
         
@@ -38,7 +40,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
         
         
         
-        $app->resolve_levels();
+//         $app->resolve_levels();
         
         $app->calculate_diagram();
         $app->generate_file( "/tmp/output.jpg" );
