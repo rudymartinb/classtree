@@ -57,7 +57,7 @@ and so on
 decided to go for the App class, it will guide the things need to be completed from now on.
 
 20200616 0109 GMT-3
-so far so good. Made it up to the interfaces hiearchy. Sections of the code are a bit messy yet.
+so far so good. Made it up to the interfaces extends. Sections of the code are a bit messy yet.
 Now I'm considering building trees based on the classes with no parents classes since each class can have no more than one parent. Then I could simply scan each class to see where it belongs and creating the class tree. Probably with a recursive function.
 
 
