@@ -68,9 +68,14 @@ class App {
         return true;
     }
     
-    
+    private $parents_classes = [];
     function search_parent_classes(){
-        
+        foreach( $this->classes as $class ){
+            $class = force_class($class);
+            if( ! $class->get_extends() == "" ){
+                $this->parents_classes[] = $class;
+            }
+        }
     }
     
     function resolve_levels(){
