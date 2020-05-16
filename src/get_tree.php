@@ -37,9 +37,6 @@ function get_tree( Array $classes, string $parent = "" ){
         if( $actual > $max ){
             $max = $actual;
         }
-        if( $max == 0 ){
-            $max = 1; // class has no children
-        }
 
         /* update tree width
          */
