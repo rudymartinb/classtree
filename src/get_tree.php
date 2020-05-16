@@ -8,7 +8,7 @@ use function src\force_class;
  * 
  */
 function get_tree( Array $classes, string $parent = "" ){
-    $result = [];
+    $tree = [];
     foreach( $classes as $class ){
         if( $parent != "" ){
             $class = force_class($class);
@@ -25,13 +25,13 @@ function get_tree( Array $classes, string $parent = "" ){
         /* generate new element to be added to the tree
          */
         $childrens = get_tree( $classes, $class->get_name() );
-        $tree = [ "name" => $class->get_name(), "childrens" => $childrens, "width" => 1 ];
+        $newtree = [ "name" => $class->get_name(), "childrens" => $childrens, "width" => 1 ];
         
         /* calculate tree width
          */
-        $max = $tree[ "width" ];
+        $max = $newtree[ "width" ];
         $actual = 0;
-        foreach( $tree["childrens"] as $child ){
+        foreach( $newtree["childrens"] as $child ){
             $actual += $child["width"];
         }
         if( $actual > $max ){
@@ -40,12 +40,12 @@ function get_tree( Array $classes, string $parent = "" ){
 
         /* update tree width
          */
-        $tree["width"] = $max;
+        $newtree["width"] = $max;
         
         
-        $result[] = $tree ;
+        $tree[] = $newtree ;
     }
-    return  $result;
+    return  $tree;
 }
 
 function get_max_width( Array & $trees ) : int {
