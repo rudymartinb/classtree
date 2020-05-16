@@ -52,7 +52,6 @@ class class_ implements class_interface  {
         return $this->extends_class;
     }
     
-    
     private $implements = [];
     function set_implements( string $nombre ){
         $this->resolved = false;
