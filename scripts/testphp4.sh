@@ -3,7 +3,9 @@
 # run this script from the root dir of the project
 # on a konsole window or xterm
 # like this:
-# $ testphp4.sh tests/testsSuite.php .
+
+# 	$ scripts/testphp4.sh tests/testsSuite.php .
+
 # each time you save the files it will run the tests
  
 clear
@@ -14,7 +16,8 @@ do
 		clear
 		phpunit --color --strict-coverage $1
 		if [ $? == 0 ]; then
-			# remove this coments if you want to make a fork
+			# remove these coments if you want to make a fork
+			
             # git add .
             # git commit -m "autocommit on successful tests run"
 		fi
