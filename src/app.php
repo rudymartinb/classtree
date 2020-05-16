@@ -92,12 +92,12 @@ class App {
     
     private function search_childs( Array $parents ) {
         $list = [];
-        foreach ($parents as $class ){
-            $class = force_class($class);
-            foreach ( $this->classes as $class_item ){
-                $class_item = force_class($class_item);
-                if( $class->get_extends() == $class_item->get_name() ){
-                    $list[] = $class;
+        foreach ($parents as $parent ){
+            $parent = force_class($parent);
+            foreach ( $this->classes as $class ){
+                $class = force_class($class);
+                if( $parent->get_extends() == $class->get_name() ){
+                    $list[] = $parent;
                 }
             }
 
