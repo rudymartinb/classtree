@@ -94,7 +94,7 @@ class App {
         $this->class_levels[ $this->current_level ] = $parents;
         $childs = [];
         foreach ($parents as $parent ){
-            $parent = force_class($parent);
+            $parent = force_class( $parent );
             foreach ( $this->classes as $class ){
                 $class = force_class($class);
                 if( $class->get_extends() == $parent->get_name() ){
@@ -121,8 +121,15 @@ class App {
      * create one tree per parent
      * and add search for subclases on each level until I find none
      */
+    private $trees ;
     function create_trees(){
-        
+        $this->trees = [];
+        foreach( $this->parents_classes as $parent ){
+            $this->trees[] = [ $parent->get_name(), $this->get_children_nodes( $parent->get_name() ) ];
+        }
+    }
+    function get_children_nodes() : Array {
+        return [];
     }
     
     
