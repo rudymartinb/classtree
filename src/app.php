@@ -101,7 +101,9 @@ class App {
         
         $this->current_level++;
         $this->search_childs($list);
-        
+    }
+    function get_class_levels() : Array {
+        return $this->class_levels;
     }
         
     
