@@ -94,12 +94,13 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes = [];
         $class = new class_("parent");
         $classes[] = $class ;
+        
         $class2 = new class_("child");
         $class2->set_extends("parent");
         $classes[] = $class2;
         
         $class3 = new class_("child2");
-        $class3->set_extends("child1");
+        $class3->set_extends("child");
         $classes[] = $class3;
         
         
