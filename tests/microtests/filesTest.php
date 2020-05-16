@@ -97,7 +97,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
         $classes = get_interfaces( $source );
-        var_dump($classes);
+//         var_dump($classes);
         $this->assertEquals( 1, count( $classes ) );
     }
     
