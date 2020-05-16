@@ -101,7 +101,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $actual = get_tree( $classes );
         
-        var_dump($actual);
+//         var_dump($actual);
         
         // theres only one tree in the first element
         $this->assertEquals( 1, count( $actual ) );
