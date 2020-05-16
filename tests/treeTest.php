@@ -65,6 +65,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         // theres only one tree in the first element
         $this->assertEquals( 1, count( $actual ) );
+        $this->assertEquals( 1, count( $actual[0][1] ) );
     }
 
     function test_tree_parent_2children(){
@@ -86,6 +87,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         // theres only one tree in the first element
         $this->assertEquals( 1, count( $actual ) );
+        $this->assertEquals( 2, count( $actual[0][1] ) );
     }
     
     
