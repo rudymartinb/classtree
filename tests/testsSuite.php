@@ -1,5 +1,6 @@
 <?php
 require_once 'src/files.php';
+require_once 'src/get_tree.php';
 
 require_once 'src/node.php';
 require_once 'src/interface_.php';
