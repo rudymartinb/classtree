@@ -16,7 +16,6 @@ function get_tree( Array $classes, string $parent = "" ){
             if( $class->get_extends() == ""){
                 $result[] = [ $class->get_name(), get_tree( $classes, $class->get_name() ) ] ;
             }
-            
         }
     }
     return  $result;
@@ -66,7 +65,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         // theres only one three in the first element
         $this->assertEquals( 1, count( $actual ) );
         
-//         $this->assertEquals( 2, count( $actual[0] ) );
+         $this->assertEquals( 2, count( $actual[0] ) );
 //         $this->assertEquals( 2, count( $actual[1] ) );
     }
     
