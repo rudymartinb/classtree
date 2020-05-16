@@ -60,7 +60,12 @@ decided to go for the App class, it will guide the things need to be completed f
 so far so good. Made it up to the interfaces extends. Sections of the code are a bit messy yet.
 Now I'm considering building trees based on the classes with no parents classes since each class can have no more than one parent. Then I could simply scan each class to see where it belongs and creating the class tree. Probably with a recursive function.
 
+20200516 0239
+made the levels hierarch. What left's me wonder if there's really a need to link objects among them.
 
+I call "level" the horizontal ruler of the future diagram grid. Parents classes should be on level 0. Direct  subclases from the parent on level 1, and so on.
+
+"Tree" would be the vertial aligment of a set of classes. 
 
 
 
