@@ -24,7 +24,6 @@ function get_max_width( Array $trees ) : int {
     $max = count( $trees );
     foreach( $trees as $tree ){
         $tmp = get_max_width( $tree["childrens"] );
-//         $tmp = count( $tree["childrens"] )+1;
         if( $tmp > $max ){
             $max = $tmp;
         }
