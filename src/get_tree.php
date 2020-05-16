@@ -2,6 +2,11 @@
 
 use function src\force_class;
 
+/* todo:
+ * see if we can use a "public" array and remove elements dynamically as they added to the tree 
+ * in order to avoid very large arrays
+ * 
+ */
 function get_tree( Array $classes, string $parent = "" ){
     $result = [];
     foreach( $classes as $class ){
@@ -11,6 +16,7 @@ function get_tree( Array $classes, string $parent = "" ){
                 continue;
             }
         } else {
+            // this is necessary to avoid adding subclases as if they were parent clases
             if( $class->get_extends() != ""){
                 continue;
             }
