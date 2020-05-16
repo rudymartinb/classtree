@@ -90,9 +90,9 @@ class App {
     }
     
     
-    private function search_childs( Array $class_list ) {
+    private function search_childs( Array $parents ) {
         $list = [];
-        foreach ($class_list as $class ){
+        foreach ($parents as $class ){
             $class = force_class($class);
             foreach ( $this->classes as $class_item ){
                 $class_item = force_class($class_item);
