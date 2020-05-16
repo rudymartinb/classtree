@@ -61,12 +61,31 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $actual = get_tree( $classes );
         
-        var_dump($actual);
-        // theres only one three in the first element
-        $this->assertEquals( 1, count( $actual ) );
+//         var_dump($actual);
         
-         $this->assertEquals( 2, count( $actual[0] ) );
-//         $this->assertEquals( 2, count( $actual[1] ) );
+        // theres only one tree in the first element
+        $this->assertEquals( 1, count( $actual ) );
+    }
+
+    function test_tree_parent_2children(){
+        $classes = [];
+        $class = new class_("parent");
+        $classes[] = $class ;
+        $class2 = new class_("child");
+        $class2->set_extends("parent");
+        $classes[] = $class2;
+        
+        $class3 = new class_("child2");
+        $class3->set_extends("parent");
+        $classes[] = $class3;
+        
+        
+        $actual = get_tree( $classes );
+        
+        var_dump($actual);
+        
+        // theres only one tree in the first element
+        $this->assertEquals( 1, count( $actual ) );
     }
     
     
