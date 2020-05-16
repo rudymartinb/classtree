@@ -24,10 +24,10 @@ class AppTest extends PHPUnit\Framework\TestCase {
         
         $app->search_parent_classes();
         $parents = $app->get_parent_classes();
-        var_dump($parents);
+//         var_dump($parents);
         $app->resolve_trees();
         $levels = $app->get_class_levels();
-//         var_dump($levels);
+        var_dump($levels);
         
         
         $app->resolve_levels();
