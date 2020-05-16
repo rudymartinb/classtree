@@ -57,6 +57,17 @@ class App {
             $interface->resolve_extends($this->interfaces);
         }
     }
+
+    function is_interfaces_dependencies_resolved() : bool {
+        foreach( $this->classes as $class ){
+            $class = force_class($class);
+            if( ! $class->is_extends_resolved() ){
+                return false;
+            }
+        }
+        return true;
+    }
+    
     
     function search_parent_classes(){
         

@@ -14,7 +14,10 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $app->generate_interfaces();
 //         $app->generate_class_functions();
         $app->resolve_class_dependencies();
+        $this->assertTrue( $app->is_class_dependencies_resolved() );
+        
         $app->resolve_interfaces_dependencies();
+        $this->assertTrue( $app->is_interfaces_dependencies_resolved() );
 //         $app->resolve_functions_dependencies();
         
         $app->search_parent_classes();
@@ -23,7 +26,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $app->calculate_diagram();
         $app->generate_file( "/tmp/output.jpg" );
         
-        $this->assertTrue( $app->is_class_dependencies_resolved() );
+        
         return;
         
     }
