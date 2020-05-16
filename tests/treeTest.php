@@ -13,7 +13,7 @@ function get_tree( Array $classes, string $parent = "" ){
             }
         }
         if( $class->get_extends() == ""){
-            $result[] = [ $class, get_tree( $classes, $class->get_name() ) ] ;
+            $result[] = [ $class->get_name(), get_tree( $classes, $class->get_name() ) ] ;
         }
     }
     return  $result;
