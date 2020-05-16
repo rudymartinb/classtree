@@ -25,6 +25,9 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $app->search_parent_classes();
         
         $app->resolve_trees();
+        $levels = $app->get_class_levels();
+        var_dump($levels);
+        
         
         $app->resolve_levels();
         
