@@ -40,8 +40,6 @@ class interface_ {
         if( count( $this->extends_list ) === count( $this->extends ) ){
             $this->extends_resolved = true;
         }
-            
-        
     }
     
     // TODO: what about funcions inside an interface ?
