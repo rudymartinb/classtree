@@ -33,9 +33,9 @@ class App {
     function generate_interfaces(){
         $this->interfaces = get_interfaces_from_sources($this->php_sources);
     }
-    function generate_class_functions(){
+//     function generate_class_functions(){
         
-    }
+//     }
     function resolve_class_dependencies(){
         
     }
