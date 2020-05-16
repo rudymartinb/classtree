@@ -79,10 +79,15 @@ class App {
     }
     
     private $class_levels = [];
+    private $current_level ;
     function resolve_trees(){
-        $this->class_levels[0] = $this->search_childs( $this->parents_classes );
+        $this->current_level = 0;
+        
+        $this->search_childs( $this->parents_classes );
     }
-    private function search_childs( Array $class_list ) : Array {
+    
+    
+    private function search_childs( Array $class_list ) {
         $list = [];
         foreach ($class_list as $class ){
             $class = force_class($class);
@@ -90,7 +95,13 @@ class App {
                 $list[] = $class;
             }
         }
-        return $list;
+        $this->class_levels[ $this->current_level ] = $list;
+        if( count( $list ) == 0 )
+            return;
+        
+        $this->current_level++;
+        $this->search_childs($list);
+        
     }
         
     
