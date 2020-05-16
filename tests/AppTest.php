@@ -33,10 +33,11 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 2, count( $levels ) );
         
         
+        $app->resolve_trees();
         
 //         $app->resolve_levels();
         
-        $app->calculate_diagram();
+//         $app->calculate_diagram();
         $app->generate_file( "/tmp/output.jpg" );
         
         

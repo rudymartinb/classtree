@@ -113,7 +113,17 @@ class App {
     function get_class_levels() : Array {
         return $this->class_levels;
     }
+    
+    /*
+     * now I have the appropiate level for each class
+     * building a tree is more easy
+     * I just have to iterate over the parents,
+     * create one tree per parent
+     * and add search for subclases on each level until I find none
+     */
+    function resolve_trees(){
         
+    }
     
     
     function calculate_diagram(){
