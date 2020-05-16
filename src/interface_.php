@@ -25,11 +25,19 @@ class interface_ {
         return $this->extends_resolved; 
     }
     function resolve_extends( Array $interfaces_list ){
-//         foreach ($interfaces_list as $interface ){
-//             $interface = force_interface($interface);
-//             if( $interface->get_name() === )
+        if( count( $this->get_extends() ) === 0 ){
+            $this->extends_resolved = true;
+            return ;
+        }
+        foreach ($interfaces_list as $interface ){
+            $interface = force_interface($interface);
+            $found_key = array_search( $interface->get_name() ,  $interface->get_extends() );
+            if( $found_key === false ){
+                continue;
+            }
             
-//         }
+            
+        }
     }
     
     // TODO: what about funcions inside an interface ?
