@@ -121,7 +121,7 @@ class App {
      * create one tree per parent
      * and add search for subclases on each level until I find none
      */
-    function resolve_trees(){
+    function create_trees(){
         
     }
     

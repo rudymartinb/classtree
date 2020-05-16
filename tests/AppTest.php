@@ -33,7 +33,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 2, count( $levels ) );
         
         
-        $app->resolve_trees();
+        $app->create_trees();
         
 //         $app->resolve_levels();
         
