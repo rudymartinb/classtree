@@ -27,6 +27,8 @@ class AppTest extends PHPUnit\Framework\TestCase {
 //         var_dump($parents);
         $app->resolve_trees();
         $levels = $app->get_class_levels();
+        
+        $this->assertEquals( 2, count( $levels ) );
         foreach( $levels as $key => $level_items ){
             foreach( $level_items as $class ){
                 echo $key." ".($class->get_name());
