@@ -24,7 +24,15 @@ class interface_ {
     function is_extends_resolved() : bool {
         return $this->extends_resolved; 
     }
+    function resolve_extends( Array $extends_list ){
+        foreach ($extends_list as $extends ){
+            
+        }
+    }
     
     // TODO: what about funcions inside an interface ?
     
+}
+function force_interface( $interface ) : interface_ {
+    return $interface;
 }
