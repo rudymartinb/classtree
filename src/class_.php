@@ -19,13 +19,17 @@ class class_ implements class_interface  {
     }
     
     private $extends = "";
-    private $extends_resolved = true;
-    function is_extends_resolved() : bool {
-        return $this->extends_resolved;
+    function get_extends() : string {
+        return $this->extends;
     }
     function set_extends( string $nombre ){
         $this->extends_resolved = false;
         $this->extends = $nombre;
+    }
+    
+    private $extends_resolved = true;
+    function is_extends_resolved() : bool {
+        return $this->extends_resolved;
     }
     
     private $extends_class;
@@ -43,13 +47,11 @@ class class_ implements class_interface  {
             }
         }
     }
+    
     function get_extends_class() : class_interface {
         return $this->extends_class;
     }
     
-    function get_extends() : string {
-        return $this->extends;
-    }
     
     private $implements = [];
     function set_implements( string $nombre ){
