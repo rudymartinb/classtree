@@ -51,8 +51,6 @@ class interface_ {
         }
     }
     
-    // TODO: what about funcions inside an interface ?
-    
 }
 function force_interface( $interface ) : interface_ {
     return $interface;
