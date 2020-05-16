@@ -17,7 +17,9 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $this->assertTrue( $app->is_class_dependencies_resolved() );
         
         $app->resolve_interfaces_dependencies();
+        var_dump($app);
         $this->assertTrue( $app->is_interfaces_dependencies_resolved() );
+        
 //         $app->resolve_functions_dependencies();
         
         $app->search_parent_classes();

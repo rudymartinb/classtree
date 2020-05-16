@@ -34,19 +34,27 @@ class interface_ {
         return $this->extends_resolved; 
     }
     
-    private $extends_list;
+    private $extends_list = [];
     function resolve_extends( Array & $interfaces_list ){
+        if( count( $this->extends ) == 0 ){
+            $this->extends_resolved = true;
+//             $this->extends_list = [];
+            return ;
+        }
         $this->extends_list = [];
         $this->extends_resolved = false;
+        
+        $count = 0;
         foreach ($this->extends as $interface ){
             foreach ($interfaces_list as $key => $interface_item ){
                 if( $interface === $interface_item->get_name() ) {
-                    $this->extends_list[ $interface ] = $interfaces_list[ $key ];
+                    $count ++;
+//                     $this->extends_list[ $interface ] = $interfaces_list[ $key ];
                     break;
                 }
             }
         }
-        if( count( $this->extends_list ) === count( $this->extends ) ){
+        if( $count === count( $this->extends ) ){
             $this->extends_resolved = true;
         }
     }

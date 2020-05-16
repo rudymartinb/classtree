@@ -53,15 +53,15 @@ class App {
     
     function resolve_interfaces_dependencies(){
         foreach ( $this->interfaces as $interface ){
-            $interface = force_interface($interface);
-            $interface->resolve_extends($this->interfaces);
+            $interface = force_interface( $interface );
+            $interface->resolve_extends( $this->interfaces );
         }
     }
 
     function is_interfaces_dependencies_resolved() : bool {
-        foreach( $this->classes as $class ){
-            $class = force_class($class);
-            if( ! $class->is_extends_resolved() ){
+        foreach( $this->interfaces as $interface ){
+            $interface = force_interface($interface);
+            if( ! $interface->is_extends_resolved() ){
                 return false;
             }
         }

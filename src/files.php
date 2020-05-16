@@ -76,12 +76,12 @@ function get_classes_from_sources( Array $sources ){
 }
 
 function get_interfaces_from_sources( Array $sources ){
-    $classes = [];
+    $interfaces = [];
     foreach ($sources as $source ){
         $tmp = get_interfaces($source);
-        $classes = array_merge( $classes , $tmp );
+        $interfaces = array_merge( $interfaces , $tmp );
     }
-    return $classes;
+    return $interfaces;
 }
 
 
@@ -151,8 +151,13 @@ function separar_interfaces( Array $matches ) : Array {
         }
         
         $clase = new interface_( $matches[ "nombretipo"][$key] );
-        $clase->set_extends( $matches["extends"][$key] );
-        $clase->set_namespace( $namespace );
+        if( $matches["extends"][$key] != "" ){
+            $clase->set_extends( $matches["extends"][$key] );
+        }
+        
+        if( $namespace != "" ){
+            $clase->set_namespace( $namespace );
+        }
         
         $lista[] = $clase;
     }
@@ -167,16 +172,16 @@ function separar_interfaces( Array $matches ) : Array {
  * TODO: add an array with the list of identifiers
  * ie: add "trait" later
  */
-function get_types_from_source( string $filename ): Array {
-    $sourcecode = file_get_contents( $filename );
+// function get_types_from_source( string $filename ): Array {
+//     $sourcecode = file_get_contents( $filename );
     
-    $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
-    $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
-    $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
-    $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
+//     $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
+//     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
+//     $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
+//     $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
     
-    $matches = [];
-    preg_match_all($pattern, $sourcecode, $matches );
+//     $matches = [];
+//     preg_match_all($pattern, $sourcecode, $matches );
     
-    return $matches;
-}
+//     return $matches;
+// }
