@@ -120,14 +120,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, count( $interfaces ) );
     }
 
-    function test_create_cree() {
-        $path = "./tests/dummy";
-        $files = get_all_files( $path );
-        $php_filenames = get_php_files( $files );
-        $sources = get_sources( $php_filenames );
-        $classes = get_classes_from_sources( $sources );
-        $this->assertEquals( 4, count( $classes ) );
-    }
+
     
     
     
