@@ -13,7 +13,8 @@ class interface_ {
     
     private $extends = [];
     function add_extends( string $name ){
-        $this->extends[] = $name; 
+        $this->extends[] = $name;
+        $this->extends_resolved = false;
     }
     function get_extends() : Array {
         return $this->extends;
