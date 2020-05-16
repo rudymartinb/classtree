@@ -24,20 +24,26 @@ class interface_ {
     function is_extends_resolved() : bool {
         return $this->extends_resolved; 
     }
-    function resolve_extends( Array $interfaces_list ){
+    
+    private $extends_list;
+    function resolve_extends( Array & $interfaces_list ){
         if( count( $this->get_extends() ) === 0 ){
             $this->extends_resolved = true;
             return ;
         }
-        foreach ($interfaces_list as $interface ){
-            $interface = force_interface($interface);
-            $found_key = array_search( $interface->get_name() ,  $interface->get_extends() );
-            if( $found_key === false ){
-                continue;
+        $this->extends_list = [];
+        $this->extends_resolved = false;
+        foreach ($this->extends as $interface ){
+            $found_key = array_search( $interface,  $interfaces_list );
+            if( $found_key !== false ){
+                $this->extends_list[ $interface ] = $interfaces_list[ $found_key ];
             }
-            
-            
         }
+        if( count( $this->extends_list ) === count( $this->extends ) ){
+            $this->extends_resolved = true;
+        }
+            
+        
     }
     
     // TODO: what about funcions inside an interface ?
