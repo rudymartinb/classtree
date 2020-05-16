@@ -30,6 +30,9 @@ class class_ implements class_interface  {
     
     private $extends_class;
     function find_extends( Array & $classes ){
+        if( $this->extends == "" ){
+            $this->extends_resolved = true;
+        }
         foreach ( $classes as $class ){
             $class = force_class( $class );
             if( $class->get_name() == $this->extends ){
