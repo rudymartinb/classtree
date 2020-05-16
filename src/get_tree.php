@@ -21,8 +21,14 @@ function get_tree( Array $classes, string $parent = "" ){
                 continue;
             }
         }
+        
+        /* generate new element to be added to the tree
+         */
         $childrens = get_tree( $classes, $class->get_name() );
-        $tree = [ "name" => $class->get_name(), "childrens" => $childrens, "width" => count($childrens) ];
+        $tree = [ "name" => $class->get_name(), "childrens" => $childrens, "width" => 1 ];
+        
+        /* calculate tree width
+         */
         $max = $tree[ "width" ];
         $actual = 0;
         foreach( $tree["childrens"] as $child ){
@@ -32,9 +38,11 @@ function get_tree( Array $classes, string $parent = "" ){
             $max = $actual;
         }
         if( $max == 0 ){
-            $max = 1;
+            $max = 1; // class has no children
         }
-            
+
+        /* update tree width
+         */
         $tree["width"] = $max;
         
         
