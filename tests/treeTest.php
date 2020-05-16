@@ -122,7 +122,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes[] = $class ;
     
         $tree = get_tree( $classes );
-//         var_dump($tree);
+        var_dump($tree);
         $actual = get_max_width( $tree );
 
         
@@ -147,7 +147,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         //         $classes[] = $class3;
         
         $tree = get_tree( $classes );
-        var_dump( $tree );
+//         var_dump( $tree );
         $actual = get_max_width( $tree );
         
         $this->assertEquals( 2, $actual );
@@ -202,7 +202,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
 //         $classes[] = $class ;
         
 //         $tree = get_tree( $classes );
-//         var_dump( $tree );
+// //         var_dump( $tree );
 //         $actual = get_max_width( $tree );
         
 //         $this->assertEquals( 6, $actual );

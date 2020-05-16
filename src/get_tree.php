@@ -31,6 +31,10 @@ function get_tree( Array $classes, string $parent = "" ){
         if( $actual > $max ){
             $max = $actual;
         }
+        if( $max == 0 ){
+            $max = 1;
+        }
+            
         $tree["width"] = $max;
         
         
@@ -40,12 +44,9 @@ function get_tree( Array $classes, string $parent = "" ){
 }
 
 function get_max_width( Array & $trees ) : int {
-    $max = count( $trees );
+    $max = 0;
     foreach( $trees as $tree ){
-        $tmp = $tree["width"] ;
-        if( $tmp > $max ){
-            $max = $tmp;
-        }
+        $max += $tree["width"] ;
     }
     return $max;
 }
