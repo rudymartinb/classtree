@@ -19,6 +19,10 @@ require_once 'tests/microtests/filesTest.php';
 require_once 'tests/nodeTest.php';
 require_once 'tests/claseTest.php';
 require_once 'tests/interfaceTest.php';
+
+require_once 'tests/treeTest.php';
+
+// TODO: eliminar?
 require_once 'tests/ClassDiagramTest.php';
 
 require_once 'tests/AppTest.php';
