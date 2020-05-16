@@ -22,7 +22,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $app->calculate_diagram();
         $app->generate_file( "/tmp/output.jpg" );
         
-        $this->assertTrue( true );
+        $this->assertTrue( $app->is_class_dependencies_resolved() );
         return;
         
     }

@@ -40,9 +40,16 @@ class App {
         foreach( $this->classes as $class ){
             $class->find_extends( $this->classes );
         }
-        
-        
     }
+    function is_class_dependencies_resolved() : bool {
+        $isresolved = true;
+        foreach( $this->classes as $class ){
+            $class = force_class($class);
+            $isresolved = $isresolved and $class->is_extends_resolved();
+        }
+        return $isresolved;
+    }
+    
     function resolve_interfaces_dependencies(){
         
     }
