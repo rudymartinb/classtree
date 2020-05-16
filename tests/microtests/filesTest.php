@@ -140,4 +140,18 @@ class filesTest extends PHPUnit\Framework\TestCase {
         return $classes2;
     }
     
+    function test_array_search() {
+        $searchfor = "sarasa";
+        $arr = [];
+        $arr[] = "a";
+        $arr[] = "sara";
+        $arr[] = "asara";
+        $arr[] = "asarasa";
+        $arr[] = "sarasa";
+        
+        $this->assertEquals( 4, array_search($searchfor, $arr));
+        
+        
+    }
+    
 }
