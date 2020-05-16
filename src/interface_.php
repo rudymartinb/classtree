@@ -51,6 +51,7 @@ class interface_ {
         }
     }
     
+    
 }
 function force_interface( $interface ) : interface_ {
     return $interface;
