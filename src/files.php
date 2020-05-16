@@ -74,9 +74,18 @@ function get_classes_from_sources( Array $sources ){
     return $classes;
 }
 
+function get_interfaces_from_sources( Array $sources ){
+    $classes = [];
+    foreach ($sources as $source ){
+        $tmp = get_interfaces($source);
+        $classes = array_merge( $classes , $tmp );
+    }
+    return $classes;
+}
+
 
 function get_clases( string $source ) : Array {
-    $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
+    $pattern  = "/(?<tipo>class|namespace|interface)[ ]*";
     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
     $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
     $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
@@ -85,6 +94,20 @@ function get_clases( string $source ) : Array {
     preg_match_all($pattern, $source, $matches );
     
     $clases = separar_clases($matches);
+    return $clases;
+}
+
+function get_interfaces( string $source ) : Array {
+    $pattern  = "/(?<tipo>class|namespace|interface)[ ]*";
+    $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
+    $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*";
+    $pattern .= "/";
+    
+    $matches = [];
+    preg_match_all($pattern, $source, $matches );
+//     var_dump($matches);
+    $clases = separar_interfaces($matches);
+//     var_dump($clases);
     return $clases;
 }
 
@@ -113,6 +136,29 @@ function separar_clases( Array $matches ) : Array {
     }
     return $lista;
 }
+
+function separar_interfaces( Array $matches ) : Array {
+    $lista = [];
+    $namespace = "";
+    foreach ($matches["tipo"] as $key => $value ) {
+        if( $value == "namespace" ){
+            $namespace = $matches[ "nombretipo" ][ $key ];
+            continue;
+        }
+        if( $value != "interface" ){
+            continue;
+        }
+        
+        $clase = new class_( $matches[ "nombretipo"][$key] );
+        $clase->set_extends( $matches["extends"][$key] );
+        $clase->set_namespace( $namespace );
+        
+        $lista[] = $clase;
+    }
+//     var_dump($lista);
+    return $lista;
+}
+
 
 /* perhaps the word "type" is not adecuate here
  * but identifiers is a bit too long ...

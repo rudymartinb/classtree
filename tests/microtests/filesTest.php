@@ -5,6 +5,8 @@ use function files\get_sources;
 use function files\get_php_files;
 use function files\get_clases;
 use function files\get_classes_from_sources;
+use function files\get_interfaces_from_sources;
+use function files\get_interfaces;
 
 class filesTest extends PHPUnit\Framework\TestCase {
     
@@ -91,6 +93,15 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, count( $classes ) );
     }
     
+    function test_get_interface_1() {
+        $filename = "./tests/dummy/prueba.php";
+        $source = get_source( $filename );
+        $classes = get_interfaces( $source );
+        var_dump($classes);
+        $this->assertEquals( 1, count( $classes ) );
+    }
+    
+    
     function test_get_classes_from_sources() {
         $path = "./tests/dummy";
         $files = get_all_files( $path );
@@ -99,8 +110,19 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $classes = get_classes_from_sources( $sources );
         $this->assertEquals( 4, count( $classes ) );
     }
+
+//     function test_get_interfaces_from_sources() {
+//         $path = "./tests/dummy";
+//         $files = get_all_files( $path );
+//         $php_sources = get_php_files( $files );
+//         $sources = get_sources( $php_sources );
+//         $interfaces = get_interfaces_from_sources( $sources );
+//         $this->assertEquals( 1, count( $interfaces ) );
+//     }
     
     
+    
+    // mocks
     function generate_1_class() : Array {
         $source = get_source_prueba2();
         $classes = get_clases( $source );
