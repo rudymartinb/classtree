@@ -124,12 +124,16 @@ class App {
     private $trees ;
     function create_trees(){
         $this->trees = [];
+        $this->current_level = 0;
         foreach( $this->parents_classes as $parent ){
             $this->trees[] = [ $parent->get_name(), $this->get_children_nodes( $parent->get_name() ) ];
         }
     }
-    function get_children_nodes() : Array {
-        return [];
+    function get_children_nodes( string $name ) : Array {
+        foreach( $this->class_levels as $parent ){
+            $this->trees[] = [ $parent->get_name(), $this->get_children_nodes( $parent->get_name() ) ];
+        }
+        //         foreach
     }
     
     
