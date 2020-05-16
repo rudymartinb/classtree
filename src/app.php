@@ -77,6 +77,9 @@ class App {
             }
         }
     }
+    function get_parent_classes() : Array {
+        return $this->parents_classes;
+    }
     
     private $class_levels = [];
     private $current_level ;
