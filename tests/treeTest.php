@@ -8,15 +8,15 @@ function get_tree( Array $classes, string $parent = "" ){
     foreach( $classes as $class ){
         if( $parent != "" ){
             $class = force_class($class);
-            if( $class->get_extends() == $parent ){
-                $result[] = [ $class->get_name(), get_tree( $classes, $class->get_name() ) ] ;
+            if( $class->get_extends() !== $parent ){
                 continue;
             }
         } else {
-            if( $class->get_extends() == ""){
-                $result[] = [ $class->get_name(), get_tree( $classes, $class->get_name() ) ] ;
+            if( $class->get_extends() != ""){
+                continue;
             }
         }
+        $result[] = [ "name" => $class->get_name(), "childrens" => get_tree( $classes, $class->get_name() ) ] ;
     }
     return  $result;
 }
@@ -65,7 +65,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         // theres only one tree in the first element
         $this->assertEquals( 1, count( $actual ) );
-        $this->assertEquals( 1, count( $actual[0][1] ) );
+        $this->assertEquals( 1, count( $actual[0]["childrens"] ) );
     }
 
     function test_tree_parent_2children(){
@@ -87,7 +87,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         // theres only one tree in the first element
         $this->assertEquals( 1, count( $actual ) );
-        $this->assertEquals( 2, count( $actual[0][1] ) );
+        $this->assertEquals( 2, count( $actual[0]["childrens"] ) );
     }
     
     
