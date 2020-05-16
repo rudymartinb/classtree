@@ -27,7 +27,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
 //         $parents = $app->get_parent_classes();
 //         var_dump($parents);
 
-        $app->resolve_trees();
+        $app->resolve_levels();
         $levels = $app->get_class_levels();
         
         $this->assertEquals( 2, count( $levels ) );

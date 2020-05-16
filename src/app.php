@@ -83,7 +83,7 @@ class App {
     
     private $class_levels = [];
     private $current_level ;
-    function resolve_trees(){
+    function resolve_levels(){
         $this->current_level = 0;
         
         $this->search_childs( $this->parents_classes );
@@ -114,9 +114,6 @@ class App {
     }
         
     
-    function resolve_levels(){
-        
-    }
     
     function calculate_diagram(){
         
