@@ -20,10 +20,11 @@ function get_tree( Array $classes, string $parent = "" ){
     return  $result;
 }
 
-function get_max_width( Array $tree ) : int {
-    $max = 0;
-    foreach( $tree as $branch ){
-        $tmp = count( $branch["childrens"] )+1;
+function get_max_width( Array $trees ) : int {
+    $max = count( $trees );
+    foreach( $trees as $tree ){
+        $tmp = get_max_width( $tree["childrens"] );
+//         $tmp = count( $tree["childrens"] )+1;
         if( $tmp > $max ){
             $max = $tmp;
         }
