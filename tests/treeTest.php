@@ -37,6 +37,18 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 2, count( $actual[0] ) );
     }
 
+    /* if the extends clause points to a non-existant class
+     * it wont be added to the tree
+     */
+    function test_not_resolved_class(){
+        $class = new class_("orphan");
+        $class->set_extends("clueless");
+        $classes = [ $class ];
+        $actual = get_tree( $classes );
+        $this->assertEquals( 0, count( $actual ) );
+    }
+    
+    
     function test_tree_2_orphans(){
         $classes = [];
         $class = new class_("orphan");
