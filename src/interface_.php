@@ -24,10 +24,12 @@ class interface_ {
     function is_extends_resolved() : bool {
         return $this->extends_resolved; 
     }
-    function resolve_extends( Array $extends_list ){
-        foreach ($extends_list as $extends ){
+    function resolve_extends( Array $interfaces_list ){
+//         foreach ($interfaces_list as $interface ){
+//             $interface = force_interface($interface);
+//             if( $interface->get_name() === )
             
-        }
+//         }
     }
     
     // TODO: what about funcions inside an interface ?
