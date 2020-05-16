@@ -108,44 +108,50 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, count( $actual[0]["childrens"] ) );
     }
 
+    function test_get_max_width_0(){
+        $classes = [];
+        $tree = get_tree( $classes );
+        $actual = get_max_width( $tree );
+        
+        $this->assertEquals( 0, $actual );
+    }
+    
     function test_get_max_width_1(){
         $classes = [];
         $class = new class_("parent");
         $classes[] = $class ;
     
         $tree = get_tree( $classes );
-        
+        var_dump($tree);
         $actual = get_max_width( $tree );
-        //         var_dump($actual);
+
         
         $this->assertEquals( 1, $actual );
     }
 
-    function test_get_max_width_1_2_children(){
-        $classes = [];
-        $class = new class_("parent");
-        $classes[] = $class ;
+//     function test_get_max_width_1_2_children(){
+//         $classes = [];
+//         $class = new class_("parent");
+//         $classes[] = $class ;
         
-        $class2 = new class_("child");
-        $class2->set_extends("parent");
-        $classes[] = $class2;
+//         $class2 = new class_("child");
+//         $class2->set_extends("parent");
+//         $classes[] = $class2;
         
-        $class3 = new class_("child2");
-        $class3->set_extends("parent");
-        $classes[] = $class3;
+//         $class3 = new class_("child2");
+//         $class3->set_extends("parent");
+//         $classes[] = $class3;
         
-        //         $class4 = new class_("child3");
-        //         $class4->set_extends("parent");
-        //         $classes[] = $class3;
+//         //         $class4 = new class_("child3");
+//         //         $class4->set_extends("parent");
+//         //         $classes[] = $class3;
         
+//         $tree = get_tree( $classes );
         
-        $tree = get_tree( $classes );
+//         $actual = get_max_width( $tree );
         
-        $actual = get_max_width( $tree );
-        //         var_dump($actual);
-        
-        $this->assertEquals( 1, $actual );
-    }
+//         $this->assertEquals( 2, $actual );
+//     }
     
     
        
