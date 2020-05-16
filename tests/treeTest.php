@@ -8,12 +8,15 @@ function get_tree( Array $classes, string $parent = "" ){
     foreach( $classes as $class ){
         if( $parent != "" ){
             $class = force_class($class);
-            if( $class->get_extends() != $parent ){
+            if( $class->get_extends() == $parent ){
+                $result[] = [ $class->get_name(), get_tree( $classes, $class->get_name() ) ] ;
                 continue;
             }
-        }
-        if( $class->get_extends() == ""){
-            $result[] = [ $class->get_name(), get_tree( $classes, $class->get_name() ) ] ;
+        } else {
+            if( $class->get_extends() == ""){
+                $result[] = [ $class->get_name(), get_tree( $classes, $class->get_name() ) ] ;
+            }
+            
         }
     }
     return  $result;
