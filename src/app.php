@@ -45,6 +45,7 @@ class App {
         $isresolved = true;
         foreach( $this->classes as $class ){
             $class = force_class($class);
+            var_dump( $class );
             $isresolved = $isresolved and $class->is_extends_resolved();
         }
         return $isresolved;
