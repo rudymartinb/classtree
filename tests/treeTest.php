@@ -3,7 +3,12 @@
 use src\class_;
 
 function get_tree( Array $classes ){
-    return $classes;
+    $result = [];
+    foreach( $classes as $class ){
+        $result[] = [ $class, [] ] ;
+    }
+    
+    return  $result;
 }
 
 class treeTest extends PHPUnit\Framework\TestCase {
@@ -18,6 +23,8 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes = [ $class ];
         $actual = get_tree( $classes );
         $this->assertEquals( 1, count( $actual ) );
+        
+        $this->assertEquals( 2, count( $actual[0] ) );
     }
     
        
