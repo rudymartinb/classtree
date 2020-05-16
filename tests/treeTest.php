@@ -208,6 +208,10 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 6, $actual );
     }
     
+    /*
+     * off to the races!
+     * I want 100 parent clases with 10 children each
+     */
     function test_get_max_width_100_classes(){
         $classes = [];
         for( $i=1; $i <= 100; $i++){
