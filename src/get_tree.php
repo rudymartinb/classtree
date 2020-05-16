@@ -21,15 +21,28 @@ function get_tree( Array $classes, string $parent = "" ){
                 continue;
             }
         }
-        $result[] = [ "name" => $class->get_name(), "childrens" => get_tree( $classes, $class->get_name() ) ] ;
+        $childrens = get_tree( $classes, $class->get_name() );
+        $tree = [ "name" => $class->get_name(), "childrens" => $childrens, "width" => count($childrens) ];
+        $max = $tree[ "width" ];
+        $actual = 0;
+        foreach( $tree["childrens"] as $child ){
+            $actual += $child["width"];
+        }
+        if( $actual > $max ){
+            $max = $actual;
+        }
+        $tree["width"] = $max;
+        
+        
+        $result[] = $tree ;
     }
     return  $result;
 }
 
-function get_max_width( Array $trees ) : int {
+function get_max_width( Array & $trees ) : int {
     $max = count( $trees );
     foreach( $trees as $tree ){
-        $tmp = get_max_width( $tree["childrens"] );
+        $tmp = $tree["width"] ;
         if( $tmp > $max ){
             $max = $tmp;
         }
