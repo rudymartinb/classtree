@@ -78,10 +78,11 @@ class App {
         }
     }
     
-    function resolve_levels(){
+    function resolve_trees(){
         
     }
-    function resolve_trees(){
+    
+    function resolve_levels(){
         
     }
     
