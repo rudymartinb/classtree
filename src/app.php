@@ -91,23 +91,23 @@ class App {
     
     
     private function search_childs( Array $parents ) {
-        $list = [];
+        $this->class_levels[ $this->current_level ] = $parents;
+        $childs = [];
         foreach ($parents as $parent ){
             $parent = force_class($parent);
             foreach ( $this->classes as $class ){
                 $class = force_class($class);
-                if( $parent->get_extends() == $class->get_name() ){
-                    $list[] = $parent;
+                if( $class->get_extends() == $parent->get_name() ){
+                    $childs[] = $class;
                 }
             }
 
         }
-        $this->class_levels[ $this->current_level ] = $list;
-        if( count( $list ) == 0 )
+        if( count( $childs ) == 0 ){
             return;
-        
+        }
         $this->current_level++;
-        $this->search_childs($list);
+        $this->search_childs($childs);
     }
     function get_class_levels() : Array {
         return $this->class_levels;
