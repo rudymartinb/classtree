@@ -47,7 +47,6 @@ class interfaceTest extends PHPUnit\Framework\TestCase {
         
         $list =[];
         $list[] = $interface;
-        
         $list[] =  new interface_( "other_interface" );
         $list[] =  new interface_( "another_interface" );
         
