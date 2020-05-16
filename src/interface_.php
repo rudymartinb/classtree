@@ -12,13 +12,22 @@ class interface_ {
     }
     
     private $extends = [];
-    function add_extends( string $name ){
+    function set_extends( string $name ){
         $this->extends[] = $name;
         $this->extends_resolved = false;
     }
     function get_extends() : Array {
         return $this->extends;
     }
+    
+    private $namespace;
+    function set_namespace( string $nombre ){
+        $this->namespace = $nombre;
+    }
+    function get_namespace() : string {
+        return $this->namespace;
+    }
+    
     
     private $extends_resolved = true; 
     function is_extends_resolved() : bool {

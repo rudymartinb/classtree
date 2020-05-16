@@ -52,7 +52,10 @@ class App {
     }
     
     function resolve_interfaces_dependencies(){
-        
+        foreach ( $this->interfaces as $interface ){
+            $interface = force_interface($interface);
+            $interface->resolve_extends($this->interfaces);
+        }
     }
 //     function resolve_functions_dependencies(){
 //     }
