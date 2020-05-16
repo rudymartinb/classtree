@@ -34,17 +34,16 @@ class App {
         $this->interfaces = get_interfaces_from_sources($this->php_sources);
     }
 //     function generate_class_functions(){
-        
 //     }
+
     function resolve_class_dependencies(){
         
     }
     function resolve_interfaces_dependencies(){
         
     }
-    function resolve_functions_dependencies(){
-        
-    }
+//     function resolve_functions_dependencies(){
+//     }
     function resolve_levels(){
         
     }
