@@ -40,21 +40,22 @@ class interfaceTest extends PHPUnit\Framework\TestCase {
     }
     
 
-//     function test_resolve_extends(){
-//         $interface = new interface_( "something_interface" );
-//         $interface->add_extends( "other_interface" );
-//         $interface->add_extends( "another_interface" );
+    function test_resolve_extends(){
+        $interface = new interface_( "something_interface" );
+        $interface->add_extends( "other_interface" );
+        $interface->add_extends( "another_interface" );
         
-//         $list =[];
-//         $list[] = $interface;
+        $list =[];
+        $list[] = $interface;
         
-//         $list[] =  new interface_( "other_interface" );
-//         $list[] =  new interface_( "another_interface" );
+        $list[] =  new interface_( "other_interface" );
+        $list[] =  new interface_( "another_interface" );
         
-//         $interface->get_extends();
+        $interface->resolve_extends($list);
         
-//         $this->assertEquals( 2, count( $list ) );
-//     }
+        $this->assertFalse( $interface->is_extends_resolved() );
+        
+    }
     
     
     
