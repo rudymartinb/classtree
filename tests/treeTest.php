@@ -121,7 +121,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, $actual );
     }
 
-    function test_get_max_width_1_1(){
+    function test_get_max_width_1_2_children(){
         $classes = [];
         $class = new class_("parent");
         $classes[] = $class ;
@@ -130,9 +130,9 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class2->set_extends("parent");
         $classes[] = $class2;
         
-        //         $class3 = new class_("child2");
-        //         $class3->set_extends("parent");
-        //         $classes[] = $class3;
+        $class3 = new class_("child2");
+        $class3->set_extends("parent");
+        $classes[] = $class3;
         
         //         $class4 = new class_("child3");
         //         $class4->set_extends("parent");
