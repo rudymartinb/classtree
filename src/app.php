@@ -83,13 +83,13 @@ class App {
     
     private $class_levels = [];
     private $current_level ;
+    
     function resolve_levels(){
         $this->current_level = 0;
         
         $this->search_childs( $this->parents_classes );
     }
-    
-    
+        
     private function search_childs( Array $parents ) {
         $this->class_levels[ $this->current_level ] = $parents;
         $childs = [];
@@ -109,6 +109,7 @@ class App {
         $this->current_level++;
         $this->search_childs($childs);
     }
+    
     function get_class_levels() : Array {
         return $this->class_levels;
     }
