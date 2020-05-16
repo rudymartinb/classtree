@@ -27,16 +27,17 @@ class interface_ {
     
     private $extends_list;
     function resolve_extends( Array & $interfaces_list ){
-        if( count( $this->get_extends() ) === 0 ){
-            $this->extends_resolved = true;
-            return ;
-        }
+//         if( count( $this->get_extends() ) === 0 ){
+//             $this->extends_resolved = true;
+//             return ;
+//         }
         $this->extends_list = [];
         $this->extends_resolved = false;
         foreach ($this->extends as $interface ){
-            $found_key = array_search( $interface,  $interfaces_list );
-            if( $found_key !== false ){
-                $this->extends_list[ $interface ] = $interfaces_list[ $found_key ];
+            foreach ($interfaces_list as $key => $interface_item ){
+                if( $interface === $interface_item->get_name() ) {
+                    $this->extends_list[ $interface ] = $interfaces_list[ $key ];
+                }
             }
         }
         if( count( $this->extends_list ) === count( $this->extends ) ){

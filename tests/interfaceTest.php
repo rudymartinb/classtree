@@ -31,7 +31,7 @@ class interfaceTest extends PHPUnit\Framework\TestCase {
 
     function test_is_extends_resolved_FALSE(){
         $interface = new interface_( "something_interface" );
-                $interface->add_extends( "other_interface" );
+        $interface->add_extends( "other_interface" );
         //         $interface->add_extends( "another_interface" );
         
         //         $list = $interface->get_extends();
@@ -52,8 +52,8 @@ class interfaceTest extends PHPUnit\Framework\TestCase {
         $list[] =  new interface_( "another_interface" );
         
         $interface->resolve_extends($list);
-        
-        $this->assertFalse( $interface->is_extends_resolved() );
+        var_dump($interface);
+        $this->assertTrue( $interface->is_extends_resolved() );
         
     }
     
