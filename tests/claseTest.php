@@ -8,6 +8,12 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $class = new class_("parent");
         $this->assertTrue( $class->is_extends_resolved(), "class does not have dependencies");
     }
+
+    function test_is_parent(){
+        $class = new class_("parent");
+        $this->assertTrue( $class->is_parent(), "class is parent");
+    }
+    
     
     function test_parent_not_resolved(){
         $class2 = new class_("child");
