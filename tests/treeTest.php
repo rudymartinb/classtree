@@ -19,7 +19,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 2, count( $actual[0] ) );
     }
 
-    /* if the extends clause points to a non-existant class
+    /* if the extends clause points to a non-existant class on the array
      * it wont be added to the tree / yet
      */
     function test_not_resolved_class(){
