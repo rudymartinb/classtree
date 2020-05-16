@@ -92,11 +92,15 @@ class App {
     
     private function search_childs( Array $class_list ) {
         $list = [];
-        foreach ($this->classes as $class ){
+        foreach ($class_list as $class ){
             $class = force_class($class);
-            if( $class->get_extends() == $class ){
-                $list[] = $class;
+            foreach ( $this->classes as $class_item ){
+                $class_item = force_class($class_item);
+                if( $class->get_extends() == $class_item->get_name() ){
+                    $list[] = $class;
+                }
             }
+
         }
         $this->class_levels[ $this->current_level ] = $list;
         if( count( $list ) == 0 )
