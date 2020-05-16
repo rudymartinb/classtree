@@ -111,14 +111,14 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 4, count( $classes ) );
     }
 
-//     function test_get_interfaces_from_sources() {
-//         $path = "./tests/dummy";
-//         $files = get_all_files( $path );
-//         $php_sources = get_php_files( $files );
-//         $sources = get_sources( $php_sources );
-//         $interfaces = get_interfaces_from_sources( $sources );
-//         $this->assertEquals( 1, count( $interfaces ) );
-//     }
+    function test_get_interfaces_from_sources() {
+        $path = "./tests/dummy";
+        $files = get_all_files( $path );
+        $php_sources = get_php_files( $files );
+        $sources = get_sources( $php_sources );
+        $interfaces = get_interfaces_from_sources( $sources );
+        $this->assertEquals( 1, count( $interfaces ) );
+    }
     
     
     
