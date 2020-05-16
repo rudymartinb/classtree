@@ -15,7 +15,7 @@ do
 				phpunit --color --strict-coverage $1 
                 if [ $? == 0 ]; then
                         git add .
-                        git commit -m "autocommit por pruebas sin fallar"
+                        git commit -m "autocommit on successful tests run"
                 fi
         fi
 done 
