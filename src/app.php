@@ -57,8 +57,11 @@ class App {
             $interface->resolve_extends($this->interfaces);
         }
     }
-//     function resolve_functions_dependencies(){
-//     }
+    
+    function search_parent_classes(){
+        
+    }
+    
     function resolve_levels(){
         
     }
