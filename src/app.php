@@ -37,6 +37,10 @@ class App {
 //     }
 
     function resolve_class_dependencies(){
+        foreach( $this->classes as $class ){
+            $class->find_extends( $this->classes );
+        }
+        
         
     }
     function resolve_interfaces_dependencies(){
