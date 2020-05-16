@@ -78,9 +78,21 @@ class App {
         }
     }
     
+    private $class_levels = [];
     function resolve_trees(){
-        
+        $this->class_levels[0] = $this->search_parent( $this->parents_classes );
     }
+    private function search_parent( Array $class_list ) : Array {
+        $list = [];
+        foreach ($class_list as $class ){
+            $class = force_class($class);
+            if( $class->get_extends() == $class ){
+                $list[] = $class;
+            }
+        }
+        return $list;
+    }
+        
     
     function resolve_levels(){
         
