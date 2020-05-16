@@ -150,8 +150,6 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $arr[] = "sarasa";
         
         $this->assertEquals( 4, array_search($searchfor, $arr));
-        
-        
     }
     
 }
