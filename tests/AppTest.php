@@ -23,6 +23,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
 //         $app->resolve_functions_dependencies();
         
         $app->search_parent_classes();
+        
         $app->resolve_trees();
         
         $app->resolve_levels();
