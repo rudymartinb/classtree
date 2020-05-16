@@ -89,7 +89,7 @@ class App {
     
     private function search_childs( Array $class_list ) {
         $list = [];
-        foreach ($class_list as $class ){
+        foreach ($this->classes as $class ){
             $class = force_class($class);
             if( $class->get_extends() == $class ){
                 $list[] = $class;
