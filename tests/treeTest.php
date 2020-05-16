@@ -37,6 +37,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 2, count( $actual ) );
         
         $this->assertEquals( 2, count( $actual[0] ) );
+        $this->assertEquals( 2, count( $actual[1] ) );
     }
     
     
