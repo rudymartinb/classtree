@@ -38,7 +38,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
     }
 
     /* if the extends clause points to a non-existant class
-     * it wont be added to the tree
+     * it wont be added to the tree / yet
      */
     function test_not_resolved_class(){
         $class = new class_("orphan");
