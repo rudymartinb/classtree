@@ -19,6 +19,11 @@ class interface_ {
         return $this->extends;
     }
     
+    private $extends_resolved = true; 
+    function is_extends_resolved() : bool {
+        return $this->extends_resolved; 
+    }
+    
     // TODO: what about funcions inside an interface ?
     
 }
