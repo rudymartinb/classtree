@@ -18,16 +18,18 @@ require_once( $project_dir."/src/includes.php" );
 
 include_project_files( $project_dir."/" );
 
+// var_dump( $argv );
 /* real job is supposed to starts here
 */
 $app = new App();
 $app->set_parameters($argv);
 
-$error = $app->get_error()."\n";
-if( $error != "" ){
-    echo $error;
-    return 1;
-}
+// $error = $app->get_error()."\n";
+// if( $error != "" ){
+//     echo $error;
+//     return 1;
+// }
+
 $app->scan_dir();
 $app->read_sources();
 $app->generate_classes();
@@ -41,7 +43,7 @@ $app->search_parent_classes();
 $app->resolve_levels();
 $app->create_trees();
 $file = "/tmp/output.txt";
-$app->generate_file( $file );
+$app->generate_file( $argv[2] );
 
 echo "All done! \n";
 

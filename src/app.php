@@ -72,83 +72,84 @@ class App {
 //     function generate_class_functions(){
 //     }
 
-    function resolve_class_dependencies(){
-        foreach( $this->classes as $class ){
-            $class->find_extends( $this->classes );
-        }
-    }
-    function is_class_dependencies_resolved() : bool {
-        foreach( $this->classes as $class ){
-            $class = force_class($class);
-            if( ! $class->is_extends_resolved() ){
-                return false;
-            }
-        }
-        return true;
-    }
+//     function resolve_class_dependencies(){
+//         foreach( $this->classes as $class ){
+//             $class->find_extends( $this->classes );
+//         }
+//     }
+//     function is_class_dependencies_resolved() : bool {
+//         foreach( $this->classes as $class ){
+//             $class = force_class($class);
+//             if( ! $class->is_extends_resolved() ){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
     
-    function resolve_interfaces_dependencies(){
-        foreach ( $this->interfaces as $interface ){
-            $interface = force_interface( $interface );
-            $interface->resolve_extends( $this->interfaces );
-        }
-    }
+//     function resolve_interfaces_dependencies(){
+//         foreach ( $this->interfaces as $interface ){
+//             $interface = force_interface( $interface );
+//             $interface->resolve_extends( $this->interfaces );
+//         }
+//     }
 
-    function is_interfaces_dependencies_resolved() : bool {
-        foreach( $this->interfaces as $interface ){
-            $interface = force_interface($interface);
-            if( ! $interface->is_extends_resolved() ){
-                return false;
-            }
-        }
-        return true;
-    }
+//     function is_interfaces_dependencies_resolved() : bool {
+//         foreach( $this->interfaces as $interface ){
+//             $interface = force_interface($interface);
+//             if( ! $interface->is_extends_resolved() ){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
     
-    private $parents_classes = [];
-    function search_parent_classes(){
-        foreach( $this->classes as $class ){
-            $class = force_class($class);
-            if( $class->get_extends() == "" ){
-                $this->parents_classes[] = $class;
-            }
-        }
-    }
-    function get_parent_classes() : Array {
-        return $this->parents_classes;
-    }
+//     private $parents_classes = [];
+//     function search_parent_classes(){
+//         foreach( $this->classes as $class ){
+//             $class = force_class($class);
+//             if( $class->get_extends() == "" ){
+//                 $this->parents_classes[] = $class;
+//             }
+//         }
+//     }
     
-    private $class_levels = [];
-    private $current_level ;
+//     function get_parent_classes() : Array {
+//         return $this->parents_classes;
+//     }
     
-    function resolve_levels(){
-        $this->current_level = 0;
+//     private $class_levels = [];
+//     private $current_level ;
+    
+//     function resolve_levels(){
+//         $this->current_level = 0;
         
-        $this->search_childs( $this->parents_classes );
-    }
+//         $this->search_childs( $this->parents_classes );
+//     }
         
-    private function search_childs( Array $parents ) {
-        $this->class_levels[ $this->current_level ] = $parents;
-        $childs = [];
-        foreach ($parents as $parent ){
-            $parent = force_class( $parent );
-            foreach ( $this->classes as $class ){
-                $class = force_class($class);
-                if( $class->get_extends() == $parent->get_name() ){
-                    $childs[] = $class;
-                }
-            }
+//     private function search_childs( Array $parents ) {
+// //         $this->class_levels[ $this->current_level ] = $parents;
+// //         $childs = [];
+// //         foreach ($parents as $parent ){
+// //             $parent = force_class( $parent );
+// //             foreach ( $this->classes as $class ){
+// //                 $class = force_class($class);
+// //                 if( $class->get_extends() == $parent->get_name() ){
+// //                     $childs[] = $class;
+// //                 }
+// //             }
 
-        }
-        if( count( $childs ) == 0 ){
-            return;
-        }
-        $this->current_level++;
-        $this->search_childs($childs);
-    }
+// //         }
+// //         if( count( $childs ) == 0 ){
+// //             return;
+// //         }
+// //         $this->current_level++;
+// //         $this->search_childs($childs);
+// //     }
     
-    function get_class_levels() : Array {
-        return $this->class_levels;
-    }
+//     function get_class_levels() : Array {
+//         return $this->class_levels;
+//     }
     
     /*
      * now I have the appropiate level for each class
@@ -164,9 +165,9 @@ class App {
     }
     
     
-    function calculate_diagram(){
-        
-    }
+//     function calculate_diagram(){
+//     }
+
     function generate_file( string $output ){
         $text = textoutput($this->trees);
         file_put_contents($output, $text);
