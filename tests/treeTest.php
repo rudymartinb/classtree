@@ -15,8 +15,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes = [ $class ];
         $actual = get_tree( $classes );
         $this->assertEquals( 1, count( $actual ) );
-        
-//         $this->assertEquals( 2, count( $actual[0] ) );
+
     }
 
     /* if the extends clause points 

@@ -1,2 +1,3 @@
 added CLI script as point of entry and new require_once file
 added command line parameters validation to App
+added simple installation and runner scripts
