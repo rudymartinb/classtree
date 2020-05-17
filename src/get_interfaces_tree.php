@@ -16,6 +16,8 @@ use function src\force_interface;
  *    
  * 2) build some nasty nodes relationship which could look like a tree but with several "heads"
  * 
+ * on another note, looking at the big picture it may be most or all tree clases binded togheter by some interfaces
+ * in that perhaps we could simply take into account only the directly related interfaces and ignore the rest.
  */
 function get_interfaces_tree( Array $interfaces, string $parent = "" ) : Array {
     $tree = [];
