@@ -28,34 +28,11 @@ class AppTest extends PHPUnit\Framework\TestCase {
 
         $app = new App();
         $app->set_directory( "./tests/dummy" );
-        
-        $app->scan_dir();
-        $app->read_sources();
-        $app->generate_classes();
-//         $app->generate_interfaces();
-//         $app->generate_class_functions();
-//         $app->resolve_class_dependencies();
-//         $this->assertTrue( $app->is_class_dependencies_resolved() );
-        
-//         $app->resolve_interfaces_dependencies();
-//         $this->assertTrue( $app->is_interfaces_dependencies_resolved() );
-        
-//         $app->resolve_functions_dependencies();
-        
-//         $app->search_parent_classes();
-
-//         $app->resolve_levels();
-//         $levels = $app->get_class_levels();
-//         $this->assertEquals( 2, count( $levels ) );
-        
-        
-        $app->create_trees();
-        
-//         $app->resolve_levels();
-        
-//         $app->calculate_diagram();
         $file = "/tmp/output.txt";
-        $app->generate_file( $file );
+        $app->set_output_file($file);
+
+        $app->build();
+        
         $this->assertFileExists( $file );
         
         return;

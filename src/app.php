@@ -46,7 +46,7 @@ class App {
     
     private $output_file;
     function set_output_file( string $file ){
-        
+        $this->output_file = $file;
     }
     
     private $files_names;
@@ -168,9 +168,19 @@ class App {
 //     function calculate_diagram(){
 //     }
 
-    function generate_file( string $output ){
+    function generate_file( ){
         $text = textoutput($this->trees);
-        file_put_contents($output, $text);
+        file_put_contents($this->output_file, $text);
+        
+    }
+    function build(){
+        $this->scan_dir();
+        $this->read_sources();
+        $this->generate_classes();
+        
+        $this->create_trees();
+        
+        $this->generate_file();
         
     }
     
