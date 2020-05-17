@@ -16,8 +16,8 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $app->set_parameters( $arguments );
         
         $this->assertEquals( "", $app->get_directory() );
-        
     }
+    
     function test_new(){
 
         $app = new App();
