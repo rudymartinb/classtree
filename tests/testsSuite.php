@@ -1,5 +1,6 @@
 <?php
 require_once 'src/includes.php';
+include_project_files("./");
 
 /*
  * TESTS !!!
