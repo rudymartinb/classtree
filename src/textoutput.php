@@ -7,7 +7,6 @@ function textoutput( Array $trees, int $level = 0 ){
     foreach( $trees as $tree ){
         $text .= $tree["name"];
         $text .= "\n";
-        
         if( count($tree["childrens"]) >0 ){
             $subfix = "";
             if( $level = 1 ){
