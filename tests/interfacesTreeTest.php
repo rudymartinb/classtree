@@ -11,14 +11,17 @@ class interfacesTreeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 0, count( $tree ) );
         
     }
-//     function test_1(){
-//         $interfaces = [];
+    
+    function test_1(){
+        $interfaces = [];
         
-//         $interface = new interface_("parent");
-//         $interfaces[] = $interface;
+        $interface = new interface_("parent");
+        $interfaces[] = $interface;
         
+        $tree = get_interfaces_tree( $interfaces );
         
-//     }
-// 
+        $this->assertEquals( 1, count( $tree ) );
+    }
+
 
 }
