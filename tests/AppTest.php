@@ -59,7 +59,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
 //         $app->resolve_levels();
         
 //         $app->calculate_diagram();
-//         $app->generate_file( "/tmp/output.jpg" );
+        $app->generate_file( "/tmp/output.jpg" );
         
         
         return;
