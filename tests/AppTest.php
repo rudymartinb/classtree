@@ -38,5 +38,33 @@ class AppTest extends PHPUnit\Framework\TestCase {
         return;
         
     }
+    
+//     function test_self(){
+        
+//         $app = new App();
+//         $app->set_directory( "./src" );
+//         $file = "/tmp/output.txt";
+        
+//         $app->set_output_file($file);
+        
+// //         $app->build();
+// echo "scanning" ;
+//         $app->scan_dir();
+//         echo "sources" ;
+//         $app->read_sources();
+//         echo "classes" ;
+//         $app->generate_classes();
+//         echo "trees" ;
+//         $app->create_trees();
+//         echo "file" ;
+//         $app->generate_file();
+        
+        
+//         $this->assertFileExists( $file );
+        
+//         return;
+        
+//     }
+    
 }
 

@@ -158,6 +158,7 @@ class App {
      * create one tree per parent
      * and add search for subclases on each level until I find none
      */
+    
     private $trees ;
     function create_trees(){
         $this->trees = get_tree($this->classes);

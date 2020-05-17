@@ -66,7 +66,7 @@ function get_sources( Array $files ) : Array {
     return $sources;
 }
 
-function get_classes_from_sources( Array $sources ){
+function get_classes_from_sources( Array $sources ) : Array {
     $classes = [];
     foreach ($sources as $source ){
         $tmp = get_clases($source);
