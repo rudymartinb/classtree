@@ -6,7 +6,12 @@ use function src\force_interface;
  * multiple extends
  * 
  * there are two ways I could handle this:
- * 1) ignore that and build a tree for each interface on the top 
+ * 1) ignore that and build a tree for each interface on the top. 
+ * worst case scenario I could have the same subinterfaces repeated among trees, 
+ * but diagram should point to only one of them.
+ * and the problem of this solution is how that diagram could look like
+ * and it would be certanly difficult to calculate "tree width"
+ *    
  * 2) build some nasty nodes relationship which could look like a tree but with several "heads"
  * 
  */
