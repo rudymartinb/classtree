@@ -9,17 +9,16 @@
 # each time you save the files it will run the tests
  
 clear
-inotifywait -m --format %w%f -q -r -e close_write $1 $2 --exclude '/\..+|README' | \
+inotifywait -m --format %w%f -q -r -e close_write $1 $2 --exclude '/\..+|README|documentation\*.txt' | \
 while read CUAL 
 do
 	if [ $? == 0 ]; then
 		clear
 		phpunit --color --strict-coverage $1
 		if [ $? == 0 ]; then
-			# remove these coments if you want to make a fork
-			
-            # git add .
-            # git commit -m "autocommit on successful tests run"
+			message=$(echo -n "autocommit: " ; cat documentation/last_commit.txt)
+            git add .
+            git commit -m "$message"
 		fi
 	fi
 done 
