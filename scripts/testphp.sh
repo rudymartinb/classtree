@@ -18,7 +18,7 @@ while read CUAL ; do
 		clear
 		phpunit --color --strict-coverage $1
 		if [ $? == 0 ]; then
-			message=$(echo -n "autocommit: " ; cat documentation/last_commit.txt)
+			message=$(echo -n "autocommit: " ; tail -n 1 documentation/last_commit.txt)
             git add .
             git commit -m "$message"
 		fi

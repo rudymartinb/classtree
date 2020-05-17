@@ -3,6 +3,20 @@
 use src\App;
 
 class AppTest extends PHPUnit\Framework\TestCase {
+    function test_cli_parameters(){
+        $dir = "";
+        $outputfile = "";
+        
+        $argv[0] = "this.php"; 
+        $argv[1] = $dir;
+        $argv[2] = $outputfile;
+        
+        $app = new App();
+        $app->set_parameters( $argv );
+        
+        $this->assertEquals( "", $app->get_directory() );
+        
+    }
     function test_new(){
 
         $app = new App();

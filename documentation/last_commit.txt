@@ -1,1 +1,2 @@
-added CLI script as point of entry and new require_once file 
+added CLI script as point of entry and new require_once file
+added command line parameters validation to App
