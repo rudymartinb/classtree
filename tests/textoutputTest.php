@@ -85,34 +85,34 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "parent\n +child\n   +child2\n" , $actual );
     }
 
-//     function test_tree_parent_2children_2grand(){
-//         $classes = [];
-//         $class = new class_("parent");
-//         $classes[] = $class ;
-//         $class2 = new class_("child1");
-//         $class2->set_extends("parent");
-//         $classes[] = $class2;
+    function test_tree_parent_2children_2grand(){
+        $classes = [];
+        $class = new class_("parent");
+        $classes[] = $class ;
+        $class2 = new class_("child1");
+        $class2->set_extends("parent");
+        $classes[] = $class2;
         
-//         $class3 = new class_("child11");
-//         $class3->set_extends("child1");
-//         $classes[] = $class3;
+        $class3 = new class_("child11");
+        $class3->set_extends("child1");
+        $classes[] = $class3;
         
-//         $class4 = new class_("child2");
-//         $class4->set_extends("parent");
-//         $classes[] = $class4;
+        $class4 = new class_("child2");
+        $class4->set_extends("parent");
+        $classes[] = $class4;
         
         
-//         $tree = get_tree( $classes );
-//         $actual = textoutput( $tree );
-// //         echo "\n". $actual;
-//         $expected = 
-// "parent
-//  +child1
-//  | +child11
-//  +child2\n";
+        $tree = get_tree( $classes );
+        $actual = textoutput( $tree );
+//         echo "\n". $actual;
+        $expected = 
+"parent
+ +child1
+ | +child11
+ +child2\n";
 
-//         $this->assertEquals( $expected , $actual );
-//     }
+        $this->assertEquals( $expected , $actual );
+    }
     
     
     
