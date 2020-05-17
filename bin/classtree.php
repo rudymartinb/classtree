@@ -28,6 +28,20 @@ if( $error != "" ){
     echo $error;
     return 1;
 }
+$app->scan_dir();
+$app->read_sources();
+$app->generate_classes();
+$app->generate_interfaces();
+$app->resolve_class_dependencies();
+
+$app->resolve_interfaces_dependencies();
+
+$app->search_parent_classes();
+
+$app->resolve_levels();
+$app->create_trees();
+$file = "/tmp/output.txt";
+$app->generate_file( $file );
 
 echo "All done! \n";
 
