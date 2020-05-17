@@ -67,6 +67,33 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "parent\n+ child\n+ child2\n" , $actual );
     }
     
+    function test_get_max_width_100_classes(){
+        $classes = [];
+        for( $i=1; $i <= 3; $i++){
+            $class = new class_("parent".$i);
+            $classes[] = $class ;
+            for( $j=1; $j <= 3; $j++){
+                $class = new class_("son".$i."_".$j);
+                $class->set_extends("parent".$i);
+                $classes[] = $class ;
+                for( $k=1; $k <= 3; $k ++){
+                    $class = new class_("grandson".$i."_".$j."_".$k);
+                    $class->set_extends("son".$i."_".$j);
+                    $classes[] = $class ;
+                }
+                
+            }
+        }
+        
+        $tree = get_tree( $classes );
+        $actual = textoutput( $tree );
+        var_dump($actual);
+//         $this->assertEquals( "parent\n+ child\n+ child2\n" , $actual );
+        
+        
+    }
+    
+    
     
     
 }
