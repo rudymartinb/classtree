@@ -8,7 +8,10 @@ function textoutput( Array $trees, int $level = 0, $subfix = "" ){
         $text .= $subfix.$tree["name"];
         $text .= "\n";
         if( count($tree["childrens"]) >0 ){
-            $subfix .="+ ";
+            $subfix .=" +";
+//             $replace = $subfix;
+            
+//             $replace = " | +";
             $text .= textoutput( $tree["childrens"], $level+1, $subfix );
         }
     }
