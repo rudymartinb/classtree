@@ -4,11 +4,17 @@ function textoutput( Array $trees, int $level = 0, $subfix = "" ){
         return "";
     }
     $text = "";
-    foreach( $trees as $tree ){
+    for( $index = 0; $index < count( $trees ) ; $index++ ){
+        $tree = $trees[ $index ];
         $text .= $subfix.$tree["name"];
         $text .= "\n";
         if( count($tree["childrens"]) >0 ){
-            $subfix2 = str_replace("+", " ", $subfix)." +";
+            if( $index >= count($trees)-1){
+                $subfix2 = str_replace("+", " ", $subfix)." +";
+            } else{
+                $subfix2 = str_replace("+", "|", $subfix)." +";
+            }
+            
 //             $replace = $subfix;
             
 //             $replace = " | +";
