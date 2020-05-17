@@ -1,7 +1,14 @@
 <?php
-function textoutput( Array $tree ){
-    if( count( $tree ) == 0 ){
+function textoutput( Array $trees ){
+    if( count( $trees ) == 0 ){
         return "";
     }
-    return $tree[0]["name"];
+    $text = "";
+    foreach( $trees as $tree ){
+        if( $text != "" ){
+            $text .= "\n";
+        }
+        $text .= $tree["name"];
+    }
+    return $text;
 }

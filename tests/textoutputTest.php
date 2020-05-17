@@ -21,5 +21,21 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "orphan" , $actual );
     }
     
+    function test_tree_2_orphans(){
+        $classes = [];
+        $class = new class_("orphan");
+        $classes[] = $class ;
+        $class2 = new class_("orphan2");
+        $classes[] = $class2;
+        
+        $tree = get_tree( $classes );
+        $actual = textoutput( $tree );
+        
+        $this->assertEquals( "orphan
+orphan2" , $actual );
+        
+    }
+    
+    
 }
 
