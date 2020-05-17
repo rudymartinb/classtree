@@ -141,17 +141,38 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class3 = new class_("child2");
         $class3->set_extends("parent");
         $classes[] = $class3;
-        
-        //         $class4 = new class_("child3");
-        //         $class4->set_extends("parent");
-        //         $classes[] = $class3;
-        
+                
         $tree = get_tree( $classes );
 //         var_dump( $tree );
         $actual = get_max_width( $tree );
         
         $this->assertEquals( 2, $actual );
     }
+
+    function test_get_max_width_1_2_children_reversed(){
+        $classes = [];
+        $class2 = new class_("child");
+        $class2->set_extends("parent");
+        $classes[] = $class2;
+        
+        $class3 = new class_("child2");
+        $class3->set_extends("parent");
+        $classes[] = $class3;
+        
+        $class = new class_("parent");
+        $classes[] = $class ;
+        
+        
+        
+        $tree = get_tree( $classes );
+        //         var_dump( $tree );
+        $actual = get_max_width( $tree );
+        
+        $this->assertEquals( 2, $actual );
+    }
+    
+    
+    
 
     function test_get_max_width_1_3_children(){
         $classes = [];
