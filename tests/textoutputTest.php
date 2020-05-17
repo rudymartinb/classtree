@@ -138,7 +138,47 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $actual = textoutput( $tree );
         echo "\n";
         var_dump($actual);
-//         $this->assertEquals( "parent\n+ child\n+ child2\n" , $actual );
+        $expected = "parent1
+ +son1_1
+ | +grandson1_1_1
+ | +grandson1_1_2
+ | +grandson1_1_3
+ +son1_2
+ | +grandson1_2_1
+ | +grandson1_2_2
+ | +grandson1_2_3
+ +son1_3
+   +grandson1_3_1
+   +grandson1_3_2
+   +grandson1_3_3
+parent2
+ +son2_1
+ | +grandson2_1_1
+ | +grandson2_1_2
+ | +grandson2_1_3
+ +son2_2
+ | +grandson2_2_1
+ | +grandson2_2_2
+ | +grandson2_2_3
+ +son2_3
+   +grandson2_3_1
+   +grandson2_3_2
+   +grandson2_3_3
+parent3
+ +son3_1
+ | +grandson3_1_1
+ | +grandson3_1_2
+ | +grandson3_1_3
+ +son3_2
+ | +grandson3_2_1
+ | +grandson3_2_2
+ | +grandson3_2_3
+ +son3_3
+   +grandson3_3_1
+   +grandson3_3_2
+   +grandson3_3_3
+";
+        $this->assertEquals( $expected , $actual );
     }
     
     
