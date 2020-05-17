@@ -5,9 +5,6 @@ use src\App;
 class AppTest extends PHPUnit\Framework\TestCase {
     
     function test_empty_cli_parameters(){
-        $dir = "";
-        $outputfile = "";
-        
         // mock $argv
         $arguments = [];
         
