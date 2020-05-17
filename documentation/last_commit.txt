@@ -1,1 +1,1 @@
-added CLI script as point of entry
+added CLI script as point of entry and new require_once file 
