@@ -1,7 +1,15 @@
 <?php
 
 use function src\force_interface;
-
+/*
+ * interfaces poses a problem that classes have not:
+ * multiple extends
+ * 
+ * there are two ways I could handle this:
+ * 1) ignore that and build a tree for each interface on the top 
+ * 2) build some nasty nodes relationship which could look like a tree but with several "heads"
+ * 
+ */
 function get_interfaces_tree( Array $interfaces, string $parent = "" ) : Array {
     $tree = [];
     foreach ($interfaces as $interface){
