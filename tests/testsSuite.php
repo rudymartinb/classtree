@@ -8,7 +8,7 @@ require_once 'src/files.php';
 require_once 'src/get_tree.php';
 require_once 'src/get_interfaces_tree.php';
 
-// require_once 'src/node.php';
+
 require_once 'src/interface_.php';
 require_once 'src/class_.php';
 require_once 'src/ClassDiagram.php';
@@ -23,7 +23,6 @@ require_once 'src/app.php';
 require_once 'tests/mocks/sources.php';
 require_once 'tests/microtests/filesTest.php';
 
-// require_once 'tests/nodeTest.php';
 require_once 'tests/claseTest.php';
 require_once 'tests/interfaceTest.php';
 
