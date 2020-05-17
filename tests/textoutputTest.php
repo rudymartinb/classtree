@@ -116,7 +116,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
     
     
     
-    function test_get_max_width_100_classes(){
+    function test_too_many_classes(){
         $classes = [];
         for( $i=1; $i <= 3; $i++){
             $class = new class_("parent".$i);
