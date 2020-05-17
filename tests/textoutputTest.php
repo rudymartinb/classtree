@@ -35,6 +35,20 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         
     }
     
+    function test_tree_parent_child(){
+        $classes = [];
+        $class = new class_("parent");
+        $classes[] = $class ;
+        $class2 = new class_("child");
+        $class2->set_extends("parent");
+        $classes[] = $class2;
+        
+        $tree = get_tree( $classes );
+        $actual = textoutput( $tree );
+        var_dump( $actual );
+        $this->assertEquals( "parent\n+ child\n" , $actual );
+    }
+    
     
 }
 
