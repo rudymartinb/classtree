@@ -45,7 +45,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         
         $tree = get_tree( $classes );
         $actual = textoutput( $tree );
-        var_dump( $actual );
+        echo "\n"; var_dump( $actual );
         $this->assertEquals( "parent\n+ child\n" , $actual );
     }
     
