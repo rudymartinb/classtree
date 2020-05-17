@@ -4,3 +4,4 @@ added simple installation and runner scripts
 added textoutput function
 implemeting textoutput to App()
 implemeting remaining methods in main script 
+fixing tree build and doing manual testing on filesystem
