@@ -9,9 +9,11 @@
 # each time you save the files it will run the tests
  
 clear
-inotifywait -m --format %w%f -q -r -e close_write src tests --exclude '/\..+|README|documentation\*.txt' | \
-while read CUAL 
-do
+
+# --exclude '/\..+|README|documentation\*.txt'
+
+inotifywait -m --format %w%f -q -r -e close_write src tests  | \
+while read CUAL ; do
 	if [ $? == 0 ]; then
 		clear
 		phpunit --color --strict-coverage $1
