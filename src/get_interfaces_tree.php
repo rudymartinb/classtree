@@ -11,6 +11,8 @@ use function src\force_interface;
  * but diagram should point to only one of them.
  * and the problem of this solution is how that diagram could look like
  * and it would be certanly difficult to calculate "tree width"
+ * 
+ * still, this could be good just to show the interfaces hierarchy
  *    
  * 2) build some nasty nodes relationship which could look like a tree but with several "heads"
  * 
