@@ -2,10 +2,9 @@
 
 use function src\force_class;
 
-/* TODO: ?
- * see if we can use a "public" array and remove elements dynamically as they added to the tree 
- * in order to avoid very large arrays
- * 
+/* from the array of classes
+ * generate a new array of trees containing the class hierachy for each parent class
+ * also it will calculate the "width" of each tree 
  */
 function get_tree( Array $classes, string $parent = "" ){
     $tree = [];
