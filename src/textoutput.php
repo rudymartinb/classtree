@@ -1,15 +1,15 @@
 <?php
-function textoutput( Array $trees, int $level = 0 ){
+function textoutput( Array $trees, int $level = 0, $subfix = "" ){
     if( count( $trees ) == 0 ){
         return "";
     }
     $text = "";
     foreach( $trees as $tree ){
-        $text .= $tree["name"];
+        $text .= $subfix.$tree["name"];
         $text .= "\n";
         if( count($tree["childrens"]) >0 ){
-            $subfix = str_repeat("+ ", $level+1);
-            $text .= $subfix . textoutput( $tree["childrens"], $level+1 );
+            $subfix .="+ ";
+            $text .= textoutput( $tree["childrens"], $level+1, $subfix );
         }
     }
     
