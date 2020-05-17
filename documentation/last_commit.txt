@@ -1,1 +1,1 @@
-interfaces tree builder
+added CLI script as point of entry
