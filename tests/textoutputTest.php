@@ -104,13 +104,13 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         
         $tree = get_tree( $classes );
         $actual = textoutput( $tree );
-        echo "\n". $actual;
+//         echo "\n". $actual;
         $expected = 
         "parent
  +child1
    +child11
  +child2\n";
-        var_dump( $tree ) ;
+
         $this->assertEquals( $expected , $actual );
     }
     
