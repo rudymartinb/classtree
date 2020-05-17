@@ -54,8 +54,9 @@ class AppTest extends PHPUnit\Framework\TestCase {
 //         $app->resolve_levels();
         
 //         $app->calculate_diagram();
-        $app->generate_file( "/tmp/output.txt" );
-        
+        $file = "/tmp/output.txt";
+        $app->generate_file( $file );
+        $this->assertFileExists( $file );
         
         return;
         
