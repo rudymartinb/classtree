@@ -17,6 +17,8 @@ require_once 'tests/interfacesTreeTest.php';
 
 require_once 'tests/AppTest.php';
 
+require_once 'tests/textoutputTest.php';
+
 
 class testsSuite extends PHPUnit\Framework\TestSuite {
 
@@ -32,6 +34,8 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         $this->addTestSuite('treeTest');
         $this->addTestSuite('interfacesTreeTest');
+        
+        $this->addTestSuite('textoutputTest');
         
     }
 
