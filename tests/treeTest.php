@@ -229,8 +229,6 @@ class treeTest extends PHPUnit\Framework\TestCase {
 
     function test_get_max_width_4_parents_3_children_reversed(){
         $classes = [];
-        $class = new class_("parent");
-        $classes[] = $class ;
         
         $class2 = new class_("child");
         $class2->set_extends("parent");
@@ -250,6 +248,11 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes[] = $class ;
         $class = new class_("parent3");
         $classes[] = $class ;
+        
+        $class = new class_("parent");
+        $classes[] = $class ;
+        
+        
         
         $tree = get_tree( $classes );
         //         var_dump( $tree );
