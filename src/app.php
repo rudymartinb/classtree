@@ -160,6 +160,7 @@ class App {
     private $trees ;
     function create_trees(){
         $this->trees = get_tree($this->classes);
+        var_dump( $this->trees );
     }
     
     
@@ -167,6 +168,7 @@ class App {
         
     }
     function generate_file( string $output ){
+        $text = textoutput($this->trees);
         
     }
     
