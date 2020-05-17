@@ -5,6 +5,8 @@ use function src\force_interface;
  * interfaces poses a problem that classes have not:
  * multiple extends
  * 
+ * (just discovered its possible to create a diamond with 4 interfaces)
+ * 
  * there are two ways I could handle this:
  * 1) ignore that and build a tree for each interface on the top. 
  * worst case scenario I could have the same subinterfaces repeated among trees, 
