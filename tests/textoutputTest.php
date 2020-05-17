@@ -18,7 +18,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $tree = get_tree( $classes );
         
         $actual = textoutput( $tree );
-        $this->assertEquals( "orphan" , $actual );
+        $this->assertEquals( "orphan\n" , $actual );
     }
     
     function test_tree_2_orphans(){
@@ -31,8 +31,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $tree = get_tree( $classes );
         $actual = textoutput( $tree );
         
-        $this->assertEquals( "orphan
-orphan2" , $actual );
+        $this->assertEquals( "orphan\norphan2\n" , $actual );
         
     }
     

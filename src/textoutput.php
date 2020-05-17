@@ -10,5 +10,6 @@ function textoutput( Array $trees ){
         }
         $text .= $tree["name"];
     }
+    $text .= "\n";
     return $text;
 }
