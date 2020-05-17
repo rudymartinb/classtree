@@ -8,9 +8,9 @@ use function files\get_classes_from_sources;
 use function files\get_interfaces_from_sources;
 
 class App {
-    function set_parameters( Array $argv ){
-        $this->set_directory($argv[1]);
-        $this->set_output_file( $argv[2]);
+    function set_parameters( Array $arguments ){
+        $this->set_directory( $arguments[1]);
+        $this->set_output_file( $arguments[2]);
     }
     
     private $directory = "";
