@@ -82,8 +82,13 @@ class interfacesTreeTest extends PHPUnit\Framework\TestCase {
         
         $tree = get_interfaces_tree( $interfaces );
         
+        /* with the option 1 implementation
+         * the result is 3 trees
+         */
         $this->assertEquals( 3, count( $tree ) );
         
+        /* childrens are duplicated among trees: 3 * 2 = 6
+         */
         $this->assertEquals( 6, get_max_width( $tree ) );
     }
     
