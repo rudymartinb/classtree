@@ -1,4 +1,9 @@
 <?php
+
+/* TODO:
+ * separate the src files into another file at the src dir 
+ *   
+ */
 require_once 'src/files.php';
 require_once 'src/get_tree.php';
 
@@ -22,6 +27,7 @@ require_once 'tests/claseTest.php';
 require_once 'tests/interfaceTest.php';
 
 require_once 'tests/treeTest.php';
+require_once 'tests/interfacesTreeTest.php';
 
 // TODO: eliminar?
 require_once 'tests/ClassDiagramTest.php';
