@@ -45,7 +45,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         
         $tree = get_tree( $classes );
         $actual = textoutput( $tree );
-//         var_dump( $actual );
+        var_dump( $actual );
         $this->assertEquals( "parent\n+ child\n" , $actual );
     }
     
@@ -66,6 +66,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
 
         $this->assertEquals( "parent\n+ child\n+ child2\n" , $actual );
     }
+    
     
 //     function test_get_max_width_100_classes(){
 //         $classes = [];
