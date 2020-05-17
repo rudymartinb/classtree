@@ -106,7 +106,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $actual = textoutput( $tree );
 //         echo "\n". $actual;
         $expected = 
-        "parent
+"parent
  +child1
    +child11
  +child2\n";
