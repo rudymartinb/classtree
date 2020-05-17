@@ -9,10 +9,11 @@ use function files\get_interfaces_from_sources;
 
 class App {
     
-    // $file is supposed to contain the fullpath of the initial script like __FILE__
+
     private $project_dir;
-    function resolve_project_dir( string $file ){
-        $bin_dir = realpath(dirname($file));
+    // $file is supposed to contain the fullpath of the initial script like __FILE__
+    function resolve_project_dir( string $main_script ){
+        $bin_dir = realpath(dirname($main_script));
         $this->project_dir = realpath($bin_dir."/..");
     }
     function get_project_dir() : string {
