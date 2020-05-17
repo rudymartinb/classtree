@@ -7,12 +7,13 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $dir = "";
         $outputfile = "";
         
-        $argv[0] = "this.php"; 
-        $argv[1] = $dir;
-        $argv[2] = $outputfile;
+        // mock $argv
+        $arguments[0] = "this.php"; 
+        $arguments[1] = $dir;
+        $arguments[2] = $outputfile;
         
         $app = new App();
-        $app->set_parameters( $argv );
+        $app->set_parameters( $arguments );
         
         $this->assertEquals( "", $app->get_directory() );
         
