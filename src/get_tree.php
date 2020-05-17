@@ -9,7 +9,7 @@ use function src\force_class;
 function get_tree( Array $classes, string $parent = "" ){
     $tree = [];
     foreach( $classes as $class ){
-        if( $parent != "" ){
+        if( $parent !== "" ){
             $class = force_class($class);
             if( $class->get_extends() !== $parent ){
                 continue;
