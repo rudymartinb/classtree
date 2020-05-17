@@ -8,6 +8,17 @@ use function files\get_classes_from_sources;
 use function files\get_interfaces_from_sources;
 
 class App {
+    
+    // $file is supposed to contain the fullpath of the initial script like __FILE__
+    private $project_dir;
+    function resolve_project_dir( string $file ){
+        $bin_dir = realpath(dirname($file));
+        $this->project_dir = realpath($bin_dir."/..");
+    }
+    function get_project_dir() : string {
+        return $this->project_dir;
+        
+    }
     function set_parameters( Array $arguments ){
         $this->set_directory( $arguments[1]);
         $this->set_output_file( $arguments[2]);

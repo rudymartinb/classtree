@@ -3,6 +3,7 @@
 use src\App;
 
 class AppTest extends PHPUnit\Framework\TestCase {
+    
     function test_cli_parameters(){
         $dir = "";
         $outputfile = "";
@@ -17,6 +18,16 @@ class AppTest extends PHPUnit\Framework\TestCase {
         
         $this->assertEquals( "", $app->get_directory() );
     }
+
+    function test_get_project_dir(){
+        $file = "/home/rudy/projects/classtree/bin/classtree.php";
+
+        $app = new App();
+        $app->resolve_project_dir( $file );
+        
+        $this->assertEquals( "/home/rudy/projects/classtree", $app->get_project_dir() );
+    }
+    
     
     function test_new(){
 
