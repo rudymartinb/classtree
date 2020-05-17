@@ -19,7 +19,13 @@ class App {
         return $this->project_dir;
         
     }
+    
+    private $main_script = "classtree.php";
     function set_parameters( Array $arguments ){
+        if( count($arguments) < 3 ){
+            $this->error_msg = "ussage: ".$this->main_script." <source_dir> <output_file>";
+            return ;
+        }
         $this->set_directory( $arguments[1]);
         $this->set_output_file( $arguments[2]);
     }

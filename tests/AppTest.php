@@ -9,9 +9,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $outputfile = "";
         
         // mock $argv
-        $arguments[0] = "this.php"; 
-        $arguments[1] = $dir;
-        $arguments[2] = $outputfile;
+        $arguments = [];
         
         $app = new App();
         $app->set_parameters( $arguments );
