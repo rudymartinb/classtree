@@ -20,6 +20,11 @@ class App {
         
     }
     
+    private $error_msg;
+    function get_error() : string {
+        return $this->error_msg;
+    }
+    
     private $main_script = "classtree.php";
     function set_parameters( Array $arguments ){
         if( count($arguments) < 3 ){

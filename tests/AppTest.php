@@ -14,7 +14,7 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $app = new App();
         $app->set_parameters( $arguments );
         
-        $this->assertEquals( "", $app->get_directory() );
+        $this->assertNotEquals( "", $app->get_error() );
     }
 
     function test_get_project_dir(){
