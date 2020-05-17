@@ -25,7 +25,7 @@ function get_interfaces_tree( Array $interfaces, string $parent = "" ) : Array {
         }
         
         $childrens = get_interfaces_tree($interfaces, $interface->get_name());
-        $newtree = [ "name" => [ $interface->get_name() ] , "childrens" => $childrens, "width" => 1 ];
+        $newtree = [ "name" => $interface->get_name(), "childrens" => $childrens, "width" => 1 ];
         /* calculate tree width
          */
         $max = $newtree[ "width" ];
