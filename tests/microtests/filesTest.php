@@ -180,7 +180,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         preg_match_all($pattern, $source, $matches );
         
         var_dump( $matches[0] );
-        $this->assertTrue( true );
+        $this->assertEquals( "class class_ implements class_interface  {", $matches[0][0] );
         
     }
     
