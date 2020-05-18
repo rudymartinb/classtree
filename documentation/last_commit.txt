@@ -5,4 +5,4 @@ added textoutput function
 implemeting textoutput to App()
 implemeting remaining methods in main script 
 fixing tree build and doing manual testing on filesystem
-fixing preg regular expression to capture cases overlooked. Added microtests.
+fixing preg regular expression to capture overlooked cases. Added microtests.

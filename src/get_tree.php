@@ -25,7 +25,8 @@ function get_tree( Array $classes, string $parent = "" ){
          */
         $childrens = get_tree( $classes, $class->get_name() );
         $name = $class->get_name();
-        $newtree = [ "name" => $name, "childrens" => $childrens, "width" => 1 ];
+        $implements = $class->get_implements();
+        $newtree = [ "name" => $name, "childrens" => $childrens, "width" => 1, "implements" => $implements ];
         
         /* calculate tree width
          */
