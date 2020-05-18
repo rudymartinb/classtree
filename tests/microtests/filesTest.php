@@ -181,13 +181,13 @@ class filesTest extends PHPUnit\Framework\TestCase {
     }
 
     function test_grep_2(){
-        $source = "abstract class class_ implements class_interface  {";
+        $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";
         
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
 //         var_dump( $matches[0] );
-        $this->assertEquals( "abstract class class_ implements class_interface  {", $matches[0][0] );
+        $this->assertEquals( "abstract class Caso00_Builder implements builder_interface, builder_getcaso {", $matches[0][0] );
     }
 
 
