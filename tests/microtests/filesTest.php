@@ -189,6 +189,15 @@ class filesTest extends PHPUnit\Framework\TestCase {
         var_dump( $matches[0] );
         $this->assertEquals( "abstract class class_ implements class_interface  {", $matches[0][0] );
     }
-    
+
+    function test_grep_3(){
+        $source = get_source("/home/rudy/projects/isft130/src/usecases/Caso00_ConexionUsuario.php");
+        
+        $finder = new class_finder();
+        $matches = $finder->matches($source);
+        
+        var_dump( $matches[0] );
+        $this->assertEquals( "abstract class Caso00_ConexionUsuario implements inputport, opciones_menu {", $matches[0][0] );
+    }
     
 }
