@@ -26,7 +26,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $class->set_implements("imp1");
         $classes = [ $class ];
         $tree = get_tree( $classes );
-        var_dump( $tree );
+//         var_dump( $tree );
         
         $actual = textoutput( $tree );
         $this->assertEquals( "orphan (Implements: imp1)\n" , $actual );
