@@ -179,7 +179,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $matches = [];
         preg_match_all($pattern, $source, $matches );
         
-//         var_dump( $matches[0] );
+        var_dump( $matches[0] );
         $this->assertTrue( true );
         
     }
