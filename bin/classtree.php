@@ -16,17 +16,17 @@ $project_dir = resolve_project_dir($main_script);
 
 require_once( $project_dir."/src/includes.php" );
 
+// helper function to include all the source files based on the project directory
 include_project_files( $project_dir."/" );
 
-// var_dump( $argv );
-/* real job is supposed to starts here
+/* real job starts here
 */
 $app = new App();
 $app->set_parameters($argv);
 
-$error = $app->get_error()."\n";
+$error = $app->get_error();
 if( $error != "" ){
-    echo $error;
+    echo $error."\n";
     return 1;
 }
 
