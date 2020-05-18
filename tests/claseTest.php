@@ -1,6 +1,9 @@
 <?php
 
 use src\class_;
+use function files\get_source;
+use function files\get_clases;
+use src\class_finder;
 
 
 class claseTest extends PHPUnit\Framework\TestCase {
@@ -20,9 +23,23 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $class2->set_extends( "parent" );
         
         $this->assertFalse( $class2->is_extends_resolved(), "subclass is not linked with parent yet");
-        
     }
 
+    function test_grep_namespace(){
+        $filename = "./tests/dummy/prueba2.php";
+        $source = get_source( $filename );
+        
+        $finder = new class_finder();
+        $matches = $finder->matches($source);
+        var_dump( $matches[0]);
+        var_dump( $matches);
+        $classes = get_clases( $source );
+//         $finder = new class_finder();
+//         $matches = $finder->matches($source);
+        
+//         var_dump( $classes );
+        $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
+    }
     
     
 }

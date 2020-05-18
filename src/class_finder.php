@@ -5,7 +5,7 @@ class class_finder {
     private $pattern;
     function __construct(){
         $this->pattern  = "/^(?<este>(";
-        $this->pattern .= "[ ]*(?<ns>namespace)[ ]*";
+        $this->pattern .= "[ ]*(?:namespace)[ ]*";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
         $this->pattern .= ")|(";
         $this->pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";

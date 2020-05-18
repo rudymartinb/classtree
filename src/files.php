@@ -117,10 +117,8 @@ function separar_clases( Array $matches ) : Array {
     $lista = [];
     $namespace = "";
     foreach ($matches["tipo"] as $key => $value ) {
-        if( trim( $value ) == "ns" ){
-            if( $matches[ "nsname" ][ $key ] != "" ){
-                $namespace = $matches[ "nsname" ][ $key ];
-            }
+        if( $matches[ "nsname" ][ $key ] != "" ){
+            $namespace = $matches[ "nsname" ][ $key ];
             continue;
         }
         if( trim( $value ) != "class" ){
