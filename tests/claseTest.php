@@ -29,15 +29,7 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba2.php";
         $source = get_source( $filename );
         
-        $finder = new class_finder();
-        $matches = $finder->matches($source);
-        var_dump( $matches[0]);
-        var_dump( $matches);
         $classes = get_clases( $source );
-//         $finder = new class_finder();
-//         $matches = $finder->matches($source);
-        
-//         var_dump( $classes );
         $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
     }
     
