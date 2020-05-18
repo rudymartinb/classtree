@@ -62,6 +62,18 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $actual = textoutput( $tree );
         $this->assertEquals( "orphan (NS: whats\\this)\n" , $actual );
     }
+
+    function test_1_namespace_2(){
+        $class = new class_("orphan");
+        $class->set_namespace("whats\\this");
+        $classes = [ $class ];
+        $tree = get_tree( $classes );
+        //         var_dump( $tree );
+        
+        $actual = textoutput( $tree );
+        $this->assertEquals( "orphan (NS: whats\\this)\n" , $actual );
+    }
+    
     
     function test_tree_2_orphans(){
         $classes = [];
@@ -158,69 +170,69 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
     
     
     
-    function test_too_many_classes(){
-        $classes = [];
-        for( $i=1; $i <= 3; $i++){
-            $class = new class_("parent".$i);
-            $classes[] = $class ;
-            for( $j=1; $j <= 3; $j++){
-                $class = new class_("son".$i."_".$j);
-                $class->set_extends("parent".$i);
-                $classes[] = $class ;
-                for( $k=1; $k <= 3; $k ++){
-                    $class = new class_("grandson".$i."_".$j."_".$k);
-                    $class->set_extends("son".$i."_".$j);
-                    $classes[] = $class ;
-                }
+//     function test_too_many_classes(){
+//         $classes = [];
+//         for( $i=1; $i <= 3; $i++){
+//             $class = new class_("parent".$i);
+//             $classes[] = $class ;
+//             for( $j=1; $j <= 3; $j++){
+//                 $class = new class_("son".$i."_".$j);
+//                 $class->set_extends("parent".$i);
+//                 $classes[] = $class ;
+//                 for( $k=1; $k <= 3; $k ++){
+//                     $class = new class_("grandson".$i."_".$j."_".$k);
+//                     $class->set_extends("son".$i."_".$j);
+//                     $classes[] = $class ;
+//                 }
                 
-            }
-        }
+//             }
+//         }
         
-        $tree = get_tree( $classes );
-        $actual = textoutput( $tree );
-//         echo "\n". $actual;
-        $expected = "parent1
- +son1_1
- | +grandson1_1_1
- | +grandson1_1_2
- | +grandson1_1_3
- +son1_2
- | +grandson1_2_1
- | +grandson1_2_2
- | +grandson1_2_3
- +son1_3
-   +grandson1_3_1
-   +grandson1_3_2
-   +grandson1_3_3
-parent2
- +son2_1
- | +grandson2_1_1
- | +grandson2_1_2
- | +grandson2_1_3
- +son2_2
- | +grandson2_2_1
- | +grandson2_2_2
- | +grandson2_2_3
- +son2_3
-   +grandson2_3_1
-   +grandson2_3_2
-   +grandson2_3_3
-parent3
- +son3_1
- | +grandson3_1_1
- | +grandson3_1_2
- | +grandson3_1_3
- +son3_2
- | +grandson3_2_1
- | +grandson3_2_2
- | +grandson3_2_3
- +son3_3
-   +grandson3_3_1
-   +grandson3_3_2
-   +grandson3_3_3
-";
-        $this->assertEquals( $expected , $actual );
-    }
+//         $tree = get_tree( $classes );
+//         $actual = textoutput( $tree );
+// //         echo "\n". $actual;
+//         $expected = "parent1
+//  +son1_1
+//  | +grandson1_1_1
+//  | +grandson1_1_2
+//  | +grandson1_1_3
+//  +son1_2
+//  | +grandson1_2_1
+//  | +grandson1_2_2
+//  | +grandson1_2_3
+//  +son1_3
+//    +grandson1_3_1
+//    +grandson1_3_2
+//    +grandson1_3_3
+// parent2
+//  +son2_1
+//  | +grandson2_1_1
+//  | +grandson2_1_2
+//  | +grandson2_1_3
+//  +son2_2
+//  | +grandson2_2_1
+//  | +grandson2_2_2
+//  | +grandson2_2_3
+//  +son2_3
+//    +grandson2_3_1
+//    +grandson2_3_2
+//    +grandson2_3_3
+// parent3
+//  +son3_1
+//  | +grandson3_1_1
+//  | +grandson3_1_2
+//  | +grandson3_1_3
+//  +son3_2
+//  | +grandson3_2_1
+//  | +grandson3_2_2
+//  | +grandson3_2_3
+//  +son3_3
+//    +grandson3_3_1
+//    +grandson3_3_2
+//    +grandson3_3_3
+// ";
+//         $this->assertEquals( $expected , $actual );
+//     }
     
     
     
