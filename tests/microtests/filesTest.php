@@ -181,7 +181,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         
         var_dump( $matches[0] );
         $this->assertEquals( "class class_ implements class_interface  {", $matches[0][0] );
-        
     }
+    
     
 }
