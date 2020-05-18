@@ -8,3 +8,4 @@ fixing tree build and doing manual testing on filesystem
 fixing preg regular expression to capture overlooked cases. Added microtests.
 adding implements to the tree description of classes
 adding abstracts and implements to the tree description of classes
+adding *final* keyword to classtree
