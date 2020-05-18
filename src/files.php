@@ -49,6 +49,7 @@ function get_php_files( Array $list ) : Array {
             $phpfiles[] = $filename;
         }
     }
+    
     return $phpfiles;
 }
 

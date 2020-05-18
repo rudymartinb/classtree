@@ -1,8 +1,10 @@
 # ClassTree
 
-Description: tool for php7 code analysis. 
-The goal is to be able to create a class diagram (PNG or JPG) based on source code statements and parameters and return values types from methods and functions.
+Description: tool for php7 code scanning. 
+The final goal is to be able to create a class diagram (PNG or JPG) based on source code statements and parameters and return values types from methods and functions.
 So far it's able to create text files with classes hierarchy ONLY (no interfaces and namespaces ATM).-
+
+STATUS: Alpha. Under development.- Comments are welcome! (see progress.txt under "documentation")
 
 Intended enviroment: bash under Linux.
 
@@ -14,12 +16,6 @@ It will create a ~/bin directory, a symlink to the classtree.sh located at the b
 How to use it:
 
 classtree /path/to/project/sources /tmp/outputfile.txt
-
-
-STATUS: Alpha. Under development.- Comments are welcome! (see progress.txt under "documentation")
-
-
-
 
 
 Note:
