@@ -168,8 +168,8 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $matches = $finder->matches($source);
         
         
-        var_dump( $matches[0] );
-        var_dump( $matches[1][0] );
+//         var_dump( $matches[0] );
+//         var_dump( $matches[1][0] );
         $this->assertEquals( "class class_ implements class_interface  {", $matches[0][1] );
     }
     
