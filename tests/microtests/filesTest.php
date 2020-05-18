@@ -173,6 +173,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "class class_ implements class_interface  {", $matches[0][1] );
     }
     
+    // TODO: eliminar namespace_finder()
 //     function test_grep_namespace(){
 //         $source = get_source("tests/dummy/prueba2.php");
         
@@ -215,13 +216,16 @@ class filesTest extends PHPUnit\Framework\TestCase {
     }
     
     function test_grep_namespace(){
-        $source = "namespace sarasa\\estuvo\\aqui;";
+//         $source = "namespace sarasa\\estuvo\\aqui;";
+        $filename = "./tests/dummy/prueba2.php";
+        $source = get_source( $filename );
+       
         
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
-//         var_dump( $matches );
-        $this->assertEquals( "sarasa\\estuvo\\aqui", $matches["nsname"][0] );
+        var_dump( $matches );
+        $this->assertEquals( "whats\\is\\this", $matches["nsname"][0] );
     }
     
 }

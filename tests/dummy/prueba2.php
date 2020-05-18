@@ -1,5 +1,5 @@
 <?php
-namespace whats\this;
+namespace whats\is\this;
 
 class algo {
     public function algo(): string {

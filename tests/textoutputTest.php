@@ -1,6 +1,8 @@
 <?php
 
 use src\class_;
+use function files\get_source;
+use function files\get_clases;
 
 /**
  * goal is to convert the tree data into a text file
@@ -63,16 +65,17 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "orphan (NS: whats\\this)\n" , $actual );
     }
 
-    function test_1_namespace_2(){
-        $class = new class_("orphan");
-        $class->set_namespace("whats\\this");
-        $classes = [ $class ];
-        $tree = get_tree( $classes );
-        //         var_dump( $tree );
+//     function test_1_namespace_2(){
+//         $filename = "./tests/dummy/prueba2.php";
+//         $source = get_source( $filename );
+//         $classes = get_clases( $source );
         
-        $actual = textoutput( $tree );
-        $this->assertEquals( "orphan (NS: whats\\this)\n" , $actual );
-    }
+//         $tree = get_tree( $classes );
+//                 var_dump( $tree );
+        
+//         $actual = textoutput( $tree );
+//         $this->assertEquals( "orphan (NS: whats\\this)\n" , $actual );
+//     }
     
     
     function test_tree_2_orphans(){
