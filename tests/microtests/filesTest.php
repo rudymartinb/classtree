@@ -1,4 +1,5 @@
 <?php
+
 use function files\get_all_files;
 use function files\get_source;
 use function files\get_sources;
@@ -8,6 +9,7 @@ use function files\get_classes_from_sources;
 use function files\get_interfaces_from_sources;
 use function files\get_interfaces;
 use src\class_finder;
+use src\namespace_finder;
 
 
 class filesTest extends PHPUnit\Framework\TestCase {
@@ -85,16 +87,6 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
         
-//         $pattern  = "/^(?<tipo>class(?: )|interface(?: ))[ ]*";
-//         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-//         $pattern .= "(implements (?<implements>[0-9a-zA-Z_,]*)|)[ ]+";
-//         $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
-//         $pattern .= "/m";
-        
-//         $matches = [];
-//         preg_match_all($pattern, $source, $matches );
-//         var_dump( $matches[0] ); 
-        
         $classes = get_clases( $source );
 
         $this->assertEquals( 3, count( $classes ) );
@@ -126,14 +118,14 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 4, count( $classes ) );
     }
 
-//     function test_get_interfaces_from_sources() {
-//         $path = "./tests/dummy";
-//         $files = get_all_files( $path );
-//         $php_sources = get_php_files( $files );
-//         $sources = get_sources( $php_sources );
-//         $interfaces = get_interfaces_from_sources( $sources );
-//         $this->assertEquals( 1, count( $interfaces ) );
-//     }
+    function test_get_interfaces_from_sources() {
+        $path = "./tests/dummy";
+        $files = get_all_files( $path );
+        $php_sources = get_php_files( $files );
+        $sources = get_sources( $php_sources );
+        $interfaces = get_interfaces_from_sources( $sources );
+        $this->assertEquals( 1, count( $interfaces ) );
+    }
 
 
     
@@ -179,6 +171,17 @@ class filesTest extends PHPUnit\Framework\TestCase {
 //         var_dump( $matches[0] );
         $this->assertEquals( "class class_ implements class_interface  {", $matches[0][0] );
     }
+    
+    function test_grep_namespace(){
+        $source = get_source("tests/dummy/prueba2.php");
+        
+        $finder = new namespace_finder();
+        $matches = $finder->matches($source);
+        
+//         var_dump( $matches[0] );
+        $this->assertEquals( "namespace whats\\this;", $matches[0][0] );
+    }
+    
 
     function test_grep_2(){
         $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";
