@@ -196,7 +196,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
-        var_dump( $matches );
+//         var_dump( $matches );
         $this->assertEquals( "abstract", $matches["abstract"][0] );
     }
 
