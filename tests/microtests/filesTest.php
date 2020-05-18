@@ -95,13 +95,13 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, count( $classes ) );
     }
     
-    function test_get_interface_1() {
-        $filename = "./tests/dummy/prueba.php";
-        $source = get_source( $filename );
-        $classes = get_interfaces( $source );
-//         var_dump($classes);
-        $this->assertEquals( 1, count( $classes ) );
-    }
+//     function test_get_interface_1() {
+//         $filename = "./tests/dummy/prueba.php";
+//         $source = get_source( $filename );
+//         $classes = get_interfaces( $source );
+// //         var_dump($classes);
+//         $this->assertEquals( 1, count( $classes ) );
+//     }
     
     
     function test_get_classes_from_sources() {
@@ -113,14 +113,14 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 4, count( $classes ) );
     }
 
-    function test_get_interfaces_from_sources() {
-        $path = "./tests/dummy";
-        $files = get_all_files( $path );
-        $php_sources = get_php_files( $files );
-        $sources = get_sources( $php_sources );
-        $interfaces = get_interfaces_from_sources( $sources );
-        $this->assertEquals( 1, count( $interfaces ) );
-    }
+//     function test_get_interfaces_from_sources() {
+//         $path = "./tests/dummy";
+//         $files = get_all_files( $path );
+//         $php_sources = get_php_files( $files );
+//         $sources = get_sources( $php_sources );
+//         $interfaces = get_interfaces_from_sources( $sources );
+//         $this->assertEquals( 1, count( $interfaces ) );
+//     }
 
 
     
@@ -154,6 +154,120 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $arr[] = "sarasa";
         
         $this->assertEquals( 4, array_search($searchfor, $arr));
+    }
+    
+    function test_grep(){
+        $source = 'namespace src;
+
+interface class_interface {
+    function is_null() : bool;
+}
+
+
+
+class class_ implements class_interface  {
+    
+    private $name;
+    function __construct( string $name ){
+        $this->name = $name;
+        $this->extends_class = null;
+    }
+    function get_name() : string {
+        return $this->name;
+    }
+    
+    private $extends = "";
+    function get_extends() : string {
+        return $this->extends;
+    }
+    function set_extends( string $nombre ){
+        $this->extends_resolved = false;
+        $this->extends = $nombre;
+    }
+    function is_parent() : bool {
+        return $this->extends === "";
+    }
+    
+    private $extends_resolved = true;
+    function is_extends_resolved() : bool {
+        return $this->extends_resolved;
+    }
+    
+    private $extends_class;
+    function find_extends( Array & $classes ){
+        if( $this->extends == "" ){
+            $this->extends_resolved = true;
+            return;
+        }
+        foreach ( $classes as $class ){
+            $class = force_class( $class );
+            if( $class->get_name() == $this->extends ){
+                $this->extends_resolved = true;
+                $this->extends_class = $class;
+                return;
+            }
+        }
+    }
+    
+    function get_extends_class() : class_interface {
+        return $this->extends_class;
+    }
+    
+    private $implements = [];
+    function set_implements( string $nombre ){
+        $this->resolved = false;
+        $this->implements[] = $nombre;
+    }
+    function get_implements(){
+        return $this->implements;
+    }
+    
+    private $namespace = "";
+    function set_namespace( string $nombre ){
+        $this->namespace = $nombre;
+    }
+    function get_namespace() : string {
+        return $this->namespace;
+    }
+    
+    private $funciones = [];
+    function set_funcion( string $nombre, Array $parameters, string $return = "" ){
+        $this->funciones[] = [ $nombre, $parameters, $return ];
+    }
+    function get_funciones() : Array {
+        return $this->funciones;
+    }
+    
+    function is_null() : bool {
+        return false;
+    }
+    
+    
+}
+
+// fool IDE into use the propper type for autocompletion.
+function force_class( $mixed ) : class_ {
+    return $mixed;
+}
+
+/* null object pattern.
+ * Needed to avoid using the NULL value
+ * which could prevent us from set the return type of a function
+ * 
+ * and more importantly, by doing this we avoid nasty exceptions
+ */';
+        
+        $pattern  = "/[ ]*(?<tipo>class )[ ]*";
+        $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
+        $pattern .= "/";
+        
+        $matches = [];
+        preg_match_all($pattern, $source, $matches );
+        
+        var_dump( $matches[0] );
+        $this->assertTrue( true );
+        
     }
     
 }
