@@ -46,7 +46,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $class->set_final("final");
         $classes = [ $class ];
         $tree = get_tree( $classes );
-        var_dump( $tree );
+//         var_dump( $tree );
         
         $actual = textoutput( $tree );
         $this->assertEquals( "orphan (final)\n" , $actual );
