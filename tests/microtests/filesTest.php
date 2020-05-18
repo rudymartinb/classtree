@@ -84,6 +84,16 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
         
+        $pattern  = "/^(?<tipo>class(?: )|interface(?: ))[ ]*";
+        $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $pattern .= "(implements (?<implements>[0-9a-zA-Z_,]*)|)[ ]+";
+        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
+        $pattern .= "/m";
+        
+        $matches = [];
+        preg_match_all($pattern, $source, $matches );
+        var_dump( $matches[0] ); 
+        
         $classes = get_clases( $source );
 
         $this->assertEquals( 3, count( $classes ) );

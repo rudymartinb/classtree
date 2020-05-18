@@ -4,6 +4,9 @@
  * 
  * una vez terminado NO TOCAR !!!
  */
+
+// class commented_out {
+   
 namespace something;
 
 use DateTime;
