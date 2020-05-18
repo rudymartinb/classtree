@@ -2,7 +2,7 @@
 
 Description: tool for php7 code scanning. 
 The final goal is to be able to create a class diagram (PNG or JPG) based on source code statements and parameters and return values types from methods and functions.
-So far it's able to create text files with classes hierarchy ONLY (no interfaces and namespaces ATM).-
+So far it's able to create text files with classes hierarchy ONLY.-
 
 STATUS: Alpha. Under development.- Comments are welcome! (see progress.txt under "documentation")
 
