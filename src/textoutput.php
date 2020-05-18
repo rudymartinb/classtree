@@ -9,6 +9,7 @@ function textoutput( Array $trees, int $level = 0, $subfix = "" ){
         $text .= $subfix.$tree["name"];
         $final = $tree["final"];
         $abstract = $tree["abstract"];
+        $namespace = $tree["namespace"];
         
         $imp_line = "(Implements: ";
         foreach( $tree[ "implements" ] as $implements ){
@@ -29,7 +30,10 @@ function textoutput( Array $trees, int $level = 0, $subfix = "" ){
         if( $abstract != "" ){
             $abstract = " (".$abstract.")";
         }
-        $text .= $final.$abstract.$imp_line."\n";
+        if( $namespace != "" ){
+            $namespace = " (NS: ".$namespace.")";
+        }
+        $text .= $namespace.$final.$abstract.$imp_line."\n";
         if( count($tree["childrens"]) >0 ){
             if( $index >= count($trees)-1){
                 $subfix2 = str_replace("+", " ", $subfix)." +";
