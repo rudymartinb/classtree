@@ -31,6 +31,16 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $actual = textoutput( $tree );
         $this->assertEquals( "orphan (Implements: imp1)\n" , $actual );
     }
+    function test_1_abstract(){
+        $class = new class_("orphan");
+        $class->set_abstract("abstract");
+        $classes = [ $class ];
+        $tree = get_tree( $classes );
+        //         var_dump( $tree );
+        
+        $actual = textoutput( $tree );
+        $this->assertEquals( "orphan (abstract)\n" , $actual );
+    }
     
     
     function test_tree_2_orphans(){

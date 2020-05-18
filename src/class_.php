@@ -17,6 +17,13 @@ class class_ implements class_interface  {
     function get_name() : string {
         return $this->name;
     }
+    private $abstract = "";
+    function set_abstract( string $abstract ){
+        $this->abstract = $abstract;
+    }
+    function get_abstract() : string{
+        return $this->abstract;
+    }
     
     private $extends = "";
     function get_extends() : string {
