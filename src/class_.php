@@ -98,9 +98,4 @@ function force_class( $mixed ) : class_ {
  * 
  * and more importantly, by doing this we avoid nasty exceptions
  */
-// class class_null implements class_interface {
-//     function is_null() : bool {
-//         return true;
-//     }
-//     // TODO: do I have to implement other functions? lets hope not!
-// }
+

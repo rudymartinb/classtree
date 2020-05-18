@@ -285,16 +285,27 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1000, $actual );
     }
     
-    function test_REAL(){
-        $source = get_source("src/class_.php" );
-        $classes = get_clases($source);
-        var_dump( $classes[0] );
-//         $tree = get_tree( [ $classes[1] ] );
-//         var_export($tree);
-//         $actual = get_max_width( $tree );
+//     function test_REAL(){
+//         $source = get_source("src/class_.php" );
         
-//         $this->assertEquals( 1000, $actual );
-    }
+//         $pattern  = "/(?<tipo>class |namespace |interface )[ ]*";
+//         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
+//         $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
+//         $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
+        
+//         $matches = [];
+//         preg_match_all($pattern, $source, $matches );
+        
+//         var_dump( $matches );
+        
+//         $classes = get_clases($source);
+// //         var_dump( $classes );
+// //         $tree = get_tree( [ $classes[1] ] );
+// //         var_export($tree);
+// //         $actual = get_max_width( $tree );
+        
+//         $this->assertEquals( 1000, 1 );
+//     }
     
         
 }
