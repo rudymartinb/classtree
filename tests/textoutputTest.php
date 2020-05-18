@@ -65,17 +65,17 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "orphan (NS: whats\\this)\n" , $actual );
     }
 
-//     function test_1_namespace_2(){
-//         $filename = "./tests/dummy/prueba2.php";
-//         $source = get_source( $filename );
-//         $classes = get_clases( $source );
-// //         var_dump( $classes );
-//         $tree = get_tree( $classes );
-// //         var_dump( $tree );
+    function test_1_namespace_2(){
+        $filename = "./tests/dummy/prueba2.php";
+        $source = get_source( $filename );
+        $classes = get_clases( $source );
+//         var_dump( $classes );
+        $tree = get_tree( $classes );
+//         var_dump( $tree );
         
-//         $actual = textoutput( $tree );
-//         $this->assertEquals( "orphan (NS: whats\\this)\n" , $actual );
-//     }
+        $actual = textoutput( $tree );
+        $this->assertEquals( "algo (NS: whats\\is\\this)\n" , $actual );
+    }
     
     
     function test_tree_2_orphans(){
