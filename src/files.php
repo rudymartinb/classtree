@@ -132,7 +132,7 @@ function separar_clases( Array $matches ) : Array {
         $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
         $clase->set_extends( $matches["extends"][$key] );
         $clase->set_implements( $matches["implements"][$key] );
-//         $clase->set_namespace( $namespace );
+        $clase->set_namespace( $namespace );
         
         $lista[] = $clase;
     }
