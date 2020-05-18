@@ -24,6 +24,13 @@ class class_ implements class_interface  {
     function get_abstract() : string{
         return $this->abstract;
     }
+    private $final = "";
+    function set_final( string $final ){
+        $this->final = $final;
+    }
+    function get_final() : string {
+        return $this->final;
+    }
     
     private $extends = "";
     function get_extends() : string {
