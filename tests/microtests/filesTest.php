@@ -83,6 +83,16 @@ class filesTest extends PHPUnit\Framework\TestCase {
     function test_get_class1() {
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
+        
+        $pattern  = "/[ ]*(?<tipo>class(?: )|interface(?: ))[ ]*";
+        $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
+        $pattern .= "/";
+        
+        $matches = [];
+        preg_match_all($pattern, $source, $matches );
+        var_dump( $matches );
+        
         $classes = get_clases( $source );
 
         $this->assertEquals( 3, count( $classes ) );
@@ -91,6 +101,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
     function test_get_class2() {
         $filename = "./tests/dummy/prueba2.php";
         $source = get_source( $filename );
+        
         $classes = get_clases( $source );
         $this->assertEquals( 1, count( $classes ) );
     }

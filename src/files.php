@@ -86,8 +86,9 @@ function get_interfaces_from_sources( Array $sources ){
 
 
 function get_clases( string $source ) : Array {
-    $pattern  = "/[ ]*(?<tipo>class )[ ]*";
+    $pattern  = "/[ ]*(?<tipo>class(?: )|interface(?: ))[ ]*";
     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+    $pattern .= "(implements (?<implements>[0-9a-zA-Z_,]*)|)[ ]+";
     $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
     $pattern .= "/";
     
@@ -125,17 +126,17 @@ function separar_clases( Array $matches ) : Array {
     $lista = [];
     $namespace = "";
     foreach ($matches["tipo"] as $key => $value ) {
-        if( $value == "namespace " ){
+        if( trim( $value ) == "namespace" ){
             $namespace = $matches[ "nombretipo" ][ $key ];
             continue;
         }
-        if( $value != "class " ){
+        if( trim( $value ) != "class" ){
             continue;
         }
         
         $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
         $clase->set_extends( $matches["extends"][$key] );
-//         $clase->set_implements( $matches["implements"][$key] );
+        $clase->set_implements( $matches["implements"][$key] );
 //         $clase->set_namespace( $namespace );
         
         $lista[] = $clase;
