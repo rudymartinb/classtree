@@ -168,19 +168,20 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $matches = $finder->matches($source);
         
         
-//         var_dump( $matches[0] );
-        $this->assertEquals( "class class_ implements class_interface  {", $matches[0][0] );
+        var_dump( $matches[0] );
+//         var_dump( $matches[1][0] );
+        $this->assertEquals( "class class_ implements class_interface  {", $matches[0][1] );
     }
     
-    function test_grep_namespace(){
-        $source = get_source("tests/dummy/prueba2.php");
+//     function test_grep_namespace(){
+//         $source = get_source("tests/dummy/prueba2.php");
         
-        $finder = new namespace_finder();
-        $matches = $finder->matches($source);
+//         $finder = new namespace_finder();
+//         $matches = $finder->matches($source);
         
-//         var_dump( $matches[0] );
-        $this->assertEquals( "namespace whats\\this;", $matches[0][0] );
-    }
+// //         var_dump( $matches[0] );
+//         $this->assertEquals( "namespace whats\\this;", $matches[0][0] );
+//     }
     
 
     function test_grep_2(){
@@ -211,6 +212,16 @@ class filesTest extends PHPUnit\Framework\TestCase {
         
         //         var_dump( $matches );
         $this->assertEquals( "final", $matches["final"][0] );
+    }
+    
+    function test_grep_namespace(){
+        $source = "namespace sarasa\\estuvo\\aqui;";
+        
+        $finder = new class_finder();
+        $matches = $finder->matches($source);
+        
+//         var_dump( $matches );
+        $this->assertEquals( "sarasa\\estuvo\\aqui", $matches["nsname"][0] );
     }
     
 }
