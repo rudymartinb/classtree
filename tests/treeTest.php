@@ -288,7 +288,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
     function test_REAL(){
         $source = get_source("src/class_.php" );
         $classes = get_clases($source);
-        var_export( $classes[0] );
+        var_dump( $classes[0] );
 //         $tree = get_tree( [ $classes[1] ] );
 //         var_export($tree);
 //         $actual = get_max_width( $tree );
