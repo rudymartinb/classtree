@@ -100,7 +100,7 @@ function get_clases( string $source ) : Array {
 }
 
 function get_interfaces( string $source ) : Array {
-    $pattern  = "/[ ]*(?<tipo>interface )[ ]*";
+    $pattern  = "/[ ]*(?<tipo>interface(?: ))[ ]*";
     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
     $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
     $pattern .= "/";
