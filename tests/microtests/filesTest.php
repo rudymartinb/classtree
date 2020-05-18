@@ -101,7 +101,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
         
-        $pattern  = "/[ ]*(?<tipo>interface )[ ]*";
+        $pattern  = "/[ ]*(?<tipo>interface(?: ))[ ]*";
         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
         $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
         $pattern .= "/";
