@@ -4,6 +4,7 @@ namespace files;
 
 use src\class_;
 use src\interface_;
+use src\class_finder;
 
 function begins_with_dot( string $entry ) : bool {
     return substr( $entry, 0,1 ) == ".";
@@ -85,25 +86,6 @@ function get_interfaces_from_sources( Array $sources ){
     return $interfaces;
 }
 
-class class_finder {
-    private $pattern;
-    function __construct(){
-        $this->pattern  = "/^(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
-        $this->pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-        $this->pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
-        $this->pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
-        $this->pattern .= "/m";
-    }
-    function set_patter( string $pattern ){
-        $this->pattern = $pattern;
-    }
-    
-    function matches( string $source ) : Array {
-        $matches = [];
-        preg_match_all($this->pattern, $source, $matches );
-        return $matches;
-    }
-}
 
 function get_clases( string $source ) : Array {
     $finder = new class_finder();
