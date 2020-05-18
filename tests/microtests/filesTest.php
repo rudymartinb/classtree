@@ -84,15 +84,6 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
         
-        $pattern  = "/[ ]*(?<tipo>class(?: )|interface(?: ))[ ]*";
-        $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
-        $pattern .= "/";
-        
-        $matches = [];
-        preg_match_all($pattern, $source, $matches );
-        var_dump( $matches );
-        
         $classes = get_clases( $source );
 
         $this->assertEquals( 3, count( $classes ) );
@@ -106,13 +97,23 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, count( $classes ) );
     }
     
-//     function test_get_interface_1() {
-//         $filename = "./tests/dummy/prueba.php";
-//         $source = get_source( $filename );
-//         $classes = get_interfaces( $source );
-// //         var_dump($classes);
-//         $this->assertEquals( 1, count( $classes ) );
-//     }
+    function test_get_interface_1() {
+        $filename = "./tests/dummy/prueba.php";
+        $source = get_source( $filename );
+        
+        $pattern  = "/[ ]*(?<tipo>interface )[ ]*";
+        $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
+        $pattern .= "/";
+        
+        $matches = [];
+        preg_match_all($pattern, $source, $matches );
+        var_dump($matches[0]);
+        
+        $classes = get_interfaces( $source );
+//         var_dump($classes);
+        $this->assertEquals( 1, count( $classes ) );
+    }
     
     
     function test_get_classes_from_sources() {

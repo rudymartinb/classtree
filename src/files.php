@@ -100,15 +100,10 @@ function get_clases( string $source ) : Array {
 }
 
 function get_interfaces( string $source ) : Array {
-    $pattern  = "/[ ]*(?<tipo>class )[ ]*";
+    $pattern  = "/[ ]*(?<tipo>interface )[ ]*";
     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
     $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
     $pattern .= "/";
-    
-//     $pattern  = "/(?<tipo>class|namespace|interface)[ ]*";
-//     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
-//     $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
-//     $pattern .= "/";
     
     $matches = [];
     preg_match_all($pattern, $source, $matches );
@@ -148,11 +143,11 @@ function separar_interfaces( Array $matches ) : Array {
     $lista = [];
     $namespace = "";
     foreach ($matches["tipo"] as $key => $value ) {
-        if( $value == "namespace" ){
+        if( trim( $value ) == "namespace" ){
             $namespace = $matches[ "nombretipo" ][ $key ];
             continue;
         }
-        if( $value != "interface" ){
+        if( trim( $value ) != "interface" ){
             continue;
         }
         
