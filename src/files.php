@@ -84,16 +84,29 @@ function get_interfaces_from_sources( Array $sources ){
     return $interfaces;
 }
 
+class class_finder {
+    private $pattern;
+    function __construct(){
+        $this->pattern  = "/^(?:abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
+        $this->pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $this->pattern .= "(implements (?<implements>[0-9a-zA-Z_,]*)|)[ ]+";
+        $this->pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
+        $this->pattern .= "/m";
+    }
+    function set_patter( string $pattern ){
+        $this->pattern = $pattern;
+    }
+    
+    function matches( string $source ) : Array {
+        $matches = [];
+        preg_match_all($this->pattern, $source, $matches );
+        return $matches;
+    }
+}
 
 function get_clases( string $source ) : Array {
-    $pattern  = "/^(?<tipo>class(?: ))[ ]*";
-    $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-    $pattern .= "(implements (?<implements>[0-9a-zA-Z_,]*)|)[ ]+";
-    $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
-    $pattern .= "/m";
-    
-    $matches = [];
-    preg_match_all($pattern, $source, $matches );
+    $finder = new class_finder();
+    $matches = $finder->matches($source);
     
     $clases = separar_clases($matches);
     return $clases;
