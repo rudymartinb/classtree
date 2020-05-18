@@ -24,11 +24,11 @@ include_project_files( $project_dir."/" );
 $app = new App();
 $app->set_parameters($argv);
 
-// $error = $app->get_error()."\n";
-// if( $error != "" ){
-//     echo $error;
-//     return 1;
-// }
+$error = $app->get_error()."\n";
+if( $error != "" ){
+    echo $error;
+    return 1;
+}
 
 $app->build();
 

@@ -21,7 +21,7 @@ class App {
         
     }
     
-    private $error_msg;
+    private $error_msg = "";
     function get_error() : string {
         return $this->error_msg;
     }
