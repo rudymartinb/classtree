@@ -265,7 +265,7 @@ function force_class( $mixed ) : class_ {
         $matches = [];
         preg_match_all($pattern, $source, $matches );
         
-        var_dump( $matches[0] );
+//         var_dump( $matches[0] );
         $this->assertTrue( true );
         
     }
