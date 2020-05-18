@@ -90,7 +90,7 @@ class class_finder {
     function __construct(){
         $this->pattern  = "/^(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
         $this->pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-        $this->pattern .= "(implements (?<implements>[0-9a-zA-Z_,]*)|)[ ]+";
+        $this->pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
         $this->pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
         $this->pattern .= "/m";
     }
