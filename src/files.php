@@ -88,7 +88,7 @@ function get_interfaces_from_sources( Array $sources ){
 function get_clases( string $source ) : Array {
     $pattern  = "/^(?<tipo>class(?: ))[ ]*";
     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-    $pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
+    $pattern .= "(implements (?<implements>[0-9a-zA-Z_,]*)|)[ ]+";
     $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
     $pattern .= "/m";
     
