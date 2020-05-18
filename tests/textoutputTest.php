@@ -69,9 +69,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba2.php";
         $source = get_source( $filename );
         $classes = get_clases( $source );
-//         var_dump( $classes );
         $tree = get_tree( $classes );
-//         var_dump( $tree );
         
         $actual = textoutput( $tree );
         $this->assertEquals( "algo (NS: whats\\is\\this)\n" , $actual );
