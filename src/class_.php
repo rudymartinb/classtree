@@ -12,7 +12,7 @@ class class_ implements class_interface  {
     private $name;
     function __construct( string $name ){
         $this->name = $name;
-        $this->extends_class = new class_null();
+        $this->extends_class = null;
     }
     function get_name() : string {
         return $this->name;
@@ -98,9 +98,9 @@ function force_class( $mixed ) : class_ {
  * 
  * and more importantly, by doing this we avoid nasty exceptions
  */
-class class_null implements class_interface {
-    function is_null() : bool {
-        return true;
-    }
-    // TODO: do I have to implement other functions? lets hope not!
-}
+// class class_null implements class_interface {
+//     function is_null() : bool {
+//         return true;
+//     }
+//     // TODO: do I have to implement other functions? lets hope not!
+// }

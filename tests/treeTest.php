@@ -2,6 +2,8 @@
 
 use src\class_;
 use function src\force_class;
+use function files\get_source;
+use function files\get_clases;
 
 class treeTest extends PHPUnit\Framework\TestCase {
     function test_tree_empty(){
@@ -282,6 +284,17 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $this->assertEquals( 1000, $actual );
     }
+    
+    function test_REAL(){
+        $source = get_source("src/class_.php" );
+        $classes = get_clases($source);
+        var_export( $classes[0] );
+//         $tree = get_tree( $classes );
+//         $actual = get_max_width( $tree );
+        
+//         $this->assertEquals( 1000, $actual );
+    }
+    
         
 }
 

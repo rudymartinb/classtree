@@ -41,7 +41,7 @@ function get_tree( Array $classes, string $parent = "" ){
          */
         $newtree["width"] = $max;
         
-        echo "adding ".$class->get_name()."\n";
+//         echo "adding ".$class->get_name()."\n";
         $tree[] = $newtree ;
     }
     return  $tree;
