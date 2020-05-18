@@ -186,7 +186,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
-        var_dump( $matches[0] );
+//         var_dump( $matches[0] );
         $this->assertEquals( "abstract class class_ implements class_interface  {", $matches[0][0] );
     }
 
@@ -196,7 +196,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
-        var_dump( $matches[0] );
+//         var_dump( $matches[0] );
         $this->assertEquals( "abstract class Caso00_ConexionUsuario implements inputport, opciones_menu {", $matches[0][0] );
     }
     
