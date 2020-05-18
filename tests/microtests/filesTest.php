@@ -171,11 +171,11 @@ class filesTest extends PHPUnit\Framework\TestCase {
     function test_grep(){
         $source = get_source("src/class_.php"); 
                 
-        $pattern  = "/[ ]*(?<tipo>class )[ ]*";
+        $pattern  = "/^(?<tipo>class(?: ))[ ]*";
         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
-        $pattern .= "/";
-        
+        $pattern .= "(implements (?<implements>[0-9a-zA-Z_,]*)|)[ ]+";
+        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
+        $pattern .= "/m";
         $matches = [];
         preg_match_all($pattern, $source, $matches );
         
