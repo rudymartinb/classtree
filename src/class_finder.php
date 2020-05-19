@@ -41,13 +41,18 @@ class class_finder {
             if( trim( $value ) != "class" ){
                 continue;
             }
-            
-            $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
-            $clase->set_extends( $matches["extends"][$key] );
-            $clase->set_implements( $matches["implements"][$key] );
-            $clase->set_abstract( $matches["abstract"][$key] );
-            $clase->set_namespace( $namespace );
-            
+            if( $matches[ "nsflag" ][ $key ] == "namespace" ){
+                $clase = new class_( trim( $matches[ "interface"][$key] ) );
+                
+            } else {
+                $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
+                $clase->set_type( $matches[ "tipo"][$key] );
+                $clase->set_extends( $matches["extends"][$key] );
+                $clase->set_implements( $matches["implements"][$key] );
+                $clase->set_abstract( $matches["abstract"][$key] );
+                $clase->set_namespace( $namespace );
+            }
+                
             $lista[] = $clase;
         }
         return $lista;
