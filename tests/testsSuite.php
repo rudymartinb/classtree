@@ -14,6 +14,8 @@ require_once 'tests/claseTest.php';
 
 require_once 'tests/treeTest.php';
 
+require_once 'tests/gridTest.php';
+
 require_once 'tests/AppTest.php';
 require_once 'tests/textoutputTest.php';
 
@@ -32,6 +34,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->addTestSuite('AppTest');
         
         $this->addTestSuite('treeTest');
+        $this->addTestSuite('gridTest');
 
         
         $this->addTestSuite('textoutputTest');
