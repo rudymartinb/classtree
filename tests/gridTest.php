@@ -40,9 +40,12 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(1, $grid->get_columns());
     }
     
+    /* a silly microtest to see how php handles keys
+     */
     function test_array(){
         $arr = [ 3 => 1, 2 => 2, 1=> 3];
         var_dump( $arr );
+        $this->assertEquals( 3, array_key_first( $arr ) );
          
     }
 
