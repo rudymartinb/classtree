@@ -34,7 +34,7 @@ class class_finder {
         $lista = [];
         $namespace = "";
         foreach ($matches["tipo"] as $key => $value ) {
-            if( $matches[ "nsaceflag" ][ $key ] != "" ){
+            if( $matches[ "nsaceflag" ][ $key ] == "namespace" ){
                 $namespace = $matches[ "nsname" ][ $key ];
                 continue;
             }
