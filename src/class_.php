@@ -74,9 +74,9 @@ class class_ implements class_interface  {
 //         }
 //     }
     
-    function get_extends_class() : class_interface {
-        return $this->extends_class;
-    }
+//     function get_extends_class() : class_interface {
+//         return $this->extends_class;
+//     }
     
     private $implements = [];
     function set_implements( string $nombre ){
