@@ -166,17 +166,17 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 4, array_search($searchfor, $arr));
     }
     
-    function test_grep(){
-        $source = get_source("src/class_.php"); 
+//     function test_grep(){
+//         $source = get_source("src/class_.php"); 
 
-        $finder = new class_finder();
-        $matches = $finder->matches($source);
+//         $finder = new class_finder();
+//         $matches = $finder->matches($source);
         
         
-//         var_dump( $matches[0] );
-//         var_dump( $matches[1][0] );
-        $this->assertEquals( "class class_ implements class_interface  {", $matches[0][1] );
-    }
+// //         var_dump( $matches[0] );
+// //         var_dump( $matches[1][0] );
+//         $this->assertEquals( "class class_ implements class_interface  {", $matches[0][1] );
+//     }
     
     // TODO: eliminar namespace_finder()
 //     function test_grep_namespace(){

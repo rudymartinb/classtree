@@ -25,7 +25,7 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $this->assertFalse( $class2->is_extends_resolved(), "subclass is not linked with parent yet");
     }
 
-    function test_grep_namespace(){
+    function test_class_namespace(){
         $filename = "./tests/dummy/prueba2.php";
         $source = get_source( $filename );
         
@@ -33,6 +33,20 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $finder->matches($source );
         $classes = $finder->separar_clases();
         $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
+    }
+
+    function test_interface(){
+        $filename = "./tests/dummy/prueba.php";
+        $source = get_source( $filename );
+        
+        $finder = new class_finder();
+        $matches = $finder->matches($source );
+
+//         var_dump( $matches[0] );
+        $this->assertEquals( "interface sarasa_interface {", $matches[0][1] );
+//         $classes = $finder->separar_clases();
+        
+        
     }
     
     
