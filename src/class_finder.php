@@ -5,7 +5,7 @@ class class_finder {
     private $pattern;
     function __construct(){
         $this->pattern  = "/^(?<este>";
-        $this->pattern .= "([ ]*(?<nsaceflag>namespace)[ ]*";
+        $this->pattern .= "([ ]*(?<nsflag>namespace)[ ]*";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
         $this->pattern .= ")|";
         $this->pattern .= "([ ]*(?<ifaceflag>interface)[ ]*";
@@ -34,7 +34,7 @@ class class_finder {
         $lista = [];
         $namespace = "";
         foreach ($matches["tipo"] as $key => $value ) {
-            if( $matches[ "nsaceflag" ][ $key ] == "namespace" ){
+            if( $matches[ "nsflag" ][ $key ] == "namespace" ){
                 $namespace = $matches[ "nsname" ][ $key ];
                 continue;
             }
