@@ -12,7 +12,7 @@ class grid {
         if( $extends == ""){
             $this->matrix[ $name ] = [ $class ];
         } else {
-            $this->matrix[ $extends ][] = [ $class ];
+            $this->matrix[ $extends ][ $name ] = [ $class ];
         }
     }
     function get_rows() : int{
