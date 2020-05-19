@@ -7,19 +7,16 @@ class grid {
 
     private $classes = [];
     function add_element( class_ $class ){
-        // by doing this we are adding a new "column"
         $name = $class->get_name();
         $this->classes[ $name ] = $class;
-        $extends = $class->get_extends();
-        if( $extends == []){
-            $this->matrix[ $name ] = [ $name ];
-        } else {
-            foreach( $extends as $extend ){
-                $this->matrix[ $extend ][ $name ][] = $name ;
-            }
-            
-        }
     }
+    // each "column" will have only 1 parent and its direct childs 
+    // as long as none of those childs
+//     private $columns = [];
+//     function distribute(){
+        
+        
+//     }
     
     function get_num_elements() : int {
         return count( $this->classes );
