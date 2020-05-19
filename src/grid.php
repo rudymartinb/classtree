@@ -16,7 +16,7 @@ class grid {
                 $num_rows =  count( $column ) ;
             }
         }
-        return count( $this->matrix );
+        return $num_rows;
     }
     function get_columns() : int{
         return count( $this->matrix );
