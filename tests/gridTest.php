@@ -15,7 +15,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $this->assertEquals(1, $grid->get_num_elements());
         $this->assertEquals(1, $grid->get_num_columns());
-        $this->assertEquals(1, $grid->get_num_columns());
+        $this->assertEquals(1, $grid->get_num_rows());
     }
 
     function test_2(){
