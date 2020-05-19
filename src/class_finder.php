@@ -41,7 +41,7 @@ class class_finder {
             if( trim( $value ) != "class" ){
                 continue;
             }
-            if( $matches[ "nsflag" ][ $key ] == "namespace" ){
+            if( $matches[ "nsflag" ][ $key ] == "interface" ){
                 $clase = new class_( trim( $matches[ "interface"][$key] ) );
                 $clase->set_type( $matches[ "ifflag"][$key] );
                 $clase->set_extends( $matches["extends"][$key] );
