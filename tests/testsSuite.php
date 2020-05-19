@@ -12,7 +12,7 @@ require_once 'tests/claseTest.php';
 require_once 'tests/interfaceTest.php';
 
 require_once 'tests/treeTest.php';
-require_once 'tests/interfacesTreeTest.php';
+// require_once 'tests/interfacesTreeTest.php';
 
 
 require_once 'tests/AppTest.php';
@@ -23,17 +23,17 @@ require_once 'tests/textoutputTest.php';
 class testsSuite extends PHPUnit\Framework\TestSuite {
 
     public function __construct() {
-        $this->setName('testsSuite');
+//         $this->setName('testsSuite');
         
-        $this->addTestSuite('filesTest');
+//         $this->addTestSuite('filesTest');
         
-        $this->addTestSuite('claseTest');
-        $this->addTestSuite('interfaceTest');
+//         $this->addTestSuite('claseTest');
+//         $this->addTestSuite('interfaceTest');
         
         $this->addTestSuite('AppTest');
         
-        $this->addTestSuite('treeTest');
-        $this->addTestSuite('interfacesTreeTest');
+//         $this->addTestSuite('treeTest');
+//         $this->addTestSuite('interfacesTreeTest');
         
         $this->addTestSuite('textoutputTest');
         
