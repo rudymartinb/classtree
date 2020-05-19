@@ -50,6 +50,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $insert = [ 55 => 66 ];
         $remaining = $arr;
         $head = array_splice( $remaining, 2,1 );
+        var_dump( $head );
         var_dump( $remaining );
         $resultado = array_merge( $head , $insert, $remaining );
 //         var_dump( $resultado );
