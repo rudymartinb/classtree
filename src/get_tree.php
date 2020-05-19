@@ -11,12 +11,20 @@ function get_tree( Array $classes, string $parent = "" ){
     foreach( $classes as $class ){
         if( $parent !== "" ){
             $class = force_class($class);
-            if( $class->get_extends() !== $parent ){
+            $found = false;
+            foreach( $class->get_extends() as $thisparent ){
+                if( $thisparent == $parent ){
+                    $found = true;
+                    break;
+                }
+                continue;
+            }
+            if( ! $found ){
                 continue;
             }
         } else {
             // this is necessary to avoid adding subclases as if they were parent clases
-            if( $class->get_extends() != ""){
+            if( count( $class->get_extends() ) != 0){
                 continue;
             }
         }
