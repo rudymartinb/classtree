@@ -15,7 +15,13 @@ class grid {
     private $columns = [];
 
     function distribute(){
-        
+        foreach ($this->classes as $class ){
+            $class = force_class($class);
+            $name = $class->get_name();
+            if( $class->get_extends() == [] ){
+                $this->columns[] = [ $name ]; 
+            }
+        }
         
     }
     
