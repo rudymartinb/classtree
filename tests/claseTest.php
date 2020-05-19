@@ -34,6 +34,11 @@ class claseTest extends PHPUnit\Framework\TestCase {
     /* interfaces
      * 
      */
+    function test_class_interface_extends_null() {
+        $class = new class_("myinterface");
+        $class->set_interface_extends("");
+        $this->assertEquals( [""], $class->get_interface_extends() );
+    }
     
     function test_class_interface_extends() {
         $class = new class_("myinterface");
