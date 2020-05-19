@@ -15,7 +15,7 @@ class grid {
             $this->matrix[ $name ] = [ $name ];
         } else {
             foreach( $extends as $extend ){
-                $this->matrix[ $extend ][ $name ] = [ $name ];
+                $this->matrix[ $extend ][ $name ][] = $name ;
             }
             
         }
