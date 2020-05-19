@@ -39,12 +39,19 @@ class grid {
         return count( $this->classes );
     }
     
-    function get_num_rows() : int{
-        $num_rows = 1;
-        return $num_rows;
-    }
-    function get_num_columns() : int{
-        return count( $this->columns );
-    }
+//     function get_num_rows() : int{
+//         $num_rows = 0;
+//         foreach( $this->columns as $column ){
+//             $rows = $this->calculate_rows( $column );
+//             if( $rows > $num_rows ){
+//                 $num_rows = $rows;
+//             }
+//         }
+//         return $num_rows;
+//     }
+    
+//     function get_num_columns() : int{
+//         return count( $this->columns );
+//     }
     
 }

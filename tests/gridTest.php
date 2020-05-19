@@ -16,8 +16,8 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         
         $this->assertEquals(1, $grid->get_num_elements());
-        $this->assertEquals(1, $grid->get_num_columns());
-        $this->assertEquals(1, $grid->get_num_rows());
+//         $this->assertEquals(1, $grid->get_num_columns());
+//         $this->assertEquals(1, $grid->get_num_rows());
     }
 
     function test_2(){
@@ -29,28 +29,31 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $grid->add_element( $child );
         
         $grid->distribute();
+//         var_dump($grid->get_columns());
+        
+        $this->assertEquals(2, $grid->get_num_elements());
+//         $this->assertEquals(2, $grid->get_num_columns());
+//         $this->assertEquals(1, $grid->get_num_rows());
+    }
+
+    function test_1_extends_1(){
+        $class1 = new class_("parent");
+        $class2 = new class_("child");
+        $class2->set_extends("parent");
+        
+        $grid = new grid();
+        $grid->add_element( $class1 );
+        $grid->add_element( $class2 );
+        
+        $grid->distribute();
         var_dump($grid->get_columns());
         
         $this->assertEquals(2, $grid->get_num_elements());
-        $this->assertEquals(2, $grid->get_num_columns());
-        $this->assertEquals(1, $grid->get_num_rows());
-    }
-
-//     function test_1_extends_1(){
-//         $class1 = new class_("class1");
-//         $class2 = new class_("class2");
-//         $class2->set_extends("class1");
-        
-//         $grid = new grid();
-//         $grid->add_element( $class1 );
-//         $grid->add_element( $class2 );
-        
-//         $this->assertEquals(2, $grid->get_num_elements());
 //         $this->assertEquals(1, $grid->get_num_columns());
 //         $this->assertEquals(2, $grid->get_num_rows());
         
         
-//     }
+    }
     
     
 
