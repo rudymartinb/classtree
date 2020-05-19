@@ -13,4 +13,5 @@ adding *namespace* keyword to classtree output
 heavy refactoring and adding missing tests
 modfifying class_ to be used also with interfaces
 creating virtual grid
-fixing classes to allow multiple parents 
+fixing classes to allow multiple parents
+creating virtual grid 

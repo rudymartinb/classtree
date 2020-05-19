@@ -32,8 +32,8 @@ class grid {
             }
             $this->classes[ $key ]["placed"] = true;
         }
-        
     }
+
     
     function get_num_elements() : int {
         return count( $this->classes );
