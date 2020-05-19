@@ -190,13 +190,11 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
 //                         $classes[] = $class ;
 //                     }
 //                 }
-                
 //             }
 //         }
 //         $tree = get_tree( $classes );
 //         $actual = textoutput( $tree );
 //         echo "\n". $actual;
-
 //         $this->assertNotEquals( "", $actual );
 //     }
     
