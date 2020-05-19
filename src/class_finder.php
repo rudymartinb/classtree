@@ -8,7 +8,7 @@ class class_finder {
         $this->pattern .= "([ ]*(?:namespace)[ ]*";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
         $this->pattern .= ")|";
-        $this->pattern .= "([ ]*(?:interface)[ ]*";
+        $this->pattern .= "([ ]*(?<ifacekey>interface)[ ]*";
         $this->pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
         $this->pattern .= ")|(";
         $this->pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
