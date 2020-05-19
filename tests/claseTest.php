@@ -39,6 +39,17 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $class->set_interface_extends("");
         $this->assertEquals( [""], $class->get_interface_extends() );
     }
+
+    function test_class_extends_2() {
+        $class1 = new class_("parent1");
+        $class2 = new class_("parent1");
+        $class3 = new class_("child1");
+        $class3->set_extends("parent1");
+        $class3->set_extends("parent2");
+        
+        $this->assertEquals( ["parent1","parent2"], $class3->get_extends() );
+    }
+    
     
     function test_class_interface_extends_2() {
         $class = new class_("myinterface");
