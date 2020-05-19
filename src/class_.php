@@ -42,10 +42,17 @@ class class_ {
         return $this->extends;
     }
     function set_extends( string $nombre ){
-        $this->extends_resolved = false;
         $this->extends = $nombre;
     }
 
+    private $interface_extends;
+    function get_interface_extends() : Array {
+        return $this->interface_extends;
+    }
+    function set_interface_extends( string $extends ){
+        $this->extends = $nombre;
+    }
+    
     
     private $implements = [];
     function set_implements( string $nombre ){
