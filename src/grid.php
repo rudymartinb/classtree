@@ -27,7 +27,7 @@ class grid {
                 $this->columns[ $name ] = [ "name" => $name, "children" => [] ]; 
             } else {
                 foreach( $extends as $parent ){
-                    $this->columns[ $parent ]["children"] = $name; 
+                    $this->columns[ $parent ]["children"][] = $name; 
                 }
             }
             $this->classes[ $key ]["placed"] = true;
