@@ -1,11 +1,16 @@
 <?php
 
+use src\grid;
+use src\class_;
+
 class gridTest extends PHPUnit\Framework\TestCase {
     
     function test_1(){
-        $grid = [];
-        $grid[0][0] = "class1";
-        $grid[0][1] = "class2";
+        $class1 = new class_("class1");
+        $class2 = new class_("class2");
+        
+        $grid = new grid();
+        $grid->add_element( $class1 );
     }
 }
 
