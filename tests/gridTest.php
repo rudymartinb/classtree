@@ -76,7 +76,10 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $grid->add_element( $child1 );
         $grid->add_element( $child2 );
         $grid->add_element( $child3 );
-        var_dump( $grid );
+//         var_dump( $grid );
+
+        $grid->distribute();
+
         
         $this->assertEquals(4, $grid->get_num_elements());
         //         $this->assertEquals(2, $grid->get_columns());

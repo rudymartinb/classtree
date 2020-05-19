@@ -12,11 +12,11 @@ class grid {
     }
     // each "column" will have only 1 parent and its direct childs 
     // as long as none of those childs
-//     private $columns = [];
-//     function distribute(){
+    private $columns = [];
+    function distribute(){
         
         
-//     }
+    }
     
     function get_num_elements() : int {
         return count( $this->classes );
@@ -32,7 +32,7 @@ class grid {
         return $num_rows;
     }
     function get_columns() : int{
-        return count( $this->matrix );
+        return count( $this->columns );
     }
     
 }
