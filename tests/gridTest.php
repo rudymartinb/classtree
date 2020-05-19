@@ -44,12 +44,13 @@ class gridTest extends PHPUnit\Framework\TestCase {
      */
     function test_array(){
         $arr = [ 3 => 1, 4 => 2, 1=> 3];
-        var_dump( $arr );
+//         var_dump( $arr );
         $this->assertEquals( 3, array_key_first( $arr ) );
         
         $insert = [ 55 => 66 ];
         $remaining = $arr;
         $head = array_splice( $remaining, 2,1 );
+        var_dump( $remaining );
         $resultado = array_merge( $head , $insert, $remaining );
         var_dump( $resultado );
         
