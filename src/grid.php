@@ -13,6 +13,7 @@ class grid {
     // each "column" will have only 1 parent and its direct childs 
     // as long as none of those childs
     private $columns = [];
+
     function distribute(){
         
         
@@ -24,7 +25,7 @@ class grid {
     
     function get_rows() : int{
         $num_rows = 0;
-        foreach( $this->matrix as $column ){
+        foreach( $this->columns as $column ){
             if( $num_rows < count( $column ) ){
                 $num_rows =  count( $column ) ;
             }
