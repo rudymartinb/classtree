@@ -29,11 +29,12 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         $this->addTestSuite('claseTest');
 //         $this->addTestSuite('interfaceTest');
-        
+//         $this->addTestSuite('interfacesTreeTest');
+
         $this->addTestSuite('AppTest');
         
         $this->addTestSuite('treeTest');
-//         $this->addTestSuite('interfacesTreeTest');
+
         
         $this->addTestSuite('textoutputTest');
         
