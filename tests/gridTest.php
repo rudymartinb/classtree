@@ -54,9 +54,34 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $grid->add_element( $class1 );
         $grid->add_element( $class2 );
         $grid->add_element( $class3 );
+//         var_dump( $grid );
         
         $this->assertEquals(3, $grid->get_num_elements());
 //         $this->assertEquals(2, $grid->get_columns());
+    }
+
+    function test_diamond(){
+        $parent = new class_("parent1");
+        
+        $child1 = new class_("child1");
+        $child1->set_extends("parent1");
+        
+        $child2 = new class_("child2");
+        $child2->set_extends("parent1");
+        
+        $child3 = new class_("child3");
+        $child3->set_extends("child1");
+        $child3->set_extends("child2");
+        
+        $grid = new grid();
+        $grid->add_element( $parent );
+        $grid->add_element( $child1 );
+        $grid->add_element( $child2 );
+        $grid->add_element( $child3 );
+        var_dump( $grid );
+        
+        $this->assertEquals(4, $grid->get_num_elements());
+        //         $this->assertEquals(2, $grid->get_columns());
     }
     
     
