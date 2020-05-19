@@ -10,16 +10,25 @@ class grid {
         $name = $class->get_name();
         $this->classes[ $name ] = $class;
     }
+    
     // each "column" will have only 1 parent and its direct childs 
     // as long as none of those childs
     private $columns = [];
+    function get_columns() : Array {
+        return $this->columns;
+    }
 
     function distribute(){
         foreach ($this->classes as $class ){
             $class = force_class($class);
             $name = $class->get_name();
-            if( $class->get_extends() == [] ){
-                $this->columns[] = [ $name ]; 
+            $extends = $class->get_extends();
+            if( $extends == [] ){
+                $this->columns[ $name ] = [ "name" => $name, "children" => [] ]; 
+            } else {
+                foreach( $extends as $parent ){
+                    $this->columns[ $parent ]["children"] = $name; 
+                }
             }
         }
         
@@ -31,13 +40,7 @@ class grid {
     
     function get_num_rows() : int{
         $num_rows = 0;
-        foreach( $this->columns as $column ){
-            $count = count( $column );
-            if( $num_rows < $count ){
-                $num_rows =  $count;
-            }
-        }
-        return $num_rows;
+        return count( $this->columns );
     }
     function get_num_columns() : int{
         return count( $this->columns );
