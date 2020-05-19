@@ -36,14 +36,11 @@ function textoutput( Array $trees, int $level = 0, $subfix = "" ){
         $text .= $namespace.$final.$abstract.$imp_line."\n";
         if( count($tree["childrens"]) >0 ){
             if( $index >= count($trees)-1){
-                $subfix2 = str_replace("+", " ", $subfix)." +";
+                $subfix2 = str_replace("+-", "  ", $subfix)."+-";
             } else{
-                $subfix2 = str_replace("+", "|", $subfix)." +";
+                $subfix2 = str_replace("+-", "| ", $subfix)."+-";
             }
             
-//             $replace = $subfix;
-            
-//             $replace = " | +";
             $text .= textoutput( $tree["childrens"], $level+1, $subfix2 );
         }
     }
