@@ -5,10 +5,10 @@ class class_finder {
     private $pattern;
     function __construct(){
         $this->pattern  = "/^(?<este>";
-        $this->pattern .= "([ ]*(?:namespace)[ ]*";
+        $this->pattern .= "([ ]*(?<nsaceflag>namespace)[ ]*";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
         $this->pattern .= ")|";
-        $this->pattern .= "([ ]*(?<ifacekey>interface)[ ]*";
+        $this->pattern .= "([ ]*(?<ifaceflag>interface)[ ]*";
         $this->pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
         $this->pattern .= ")|(";
         $this->pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
