@@ -39,6 +39,12 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(2, $grid->get_rows());
         $this->assertEquals(1, $grid->get_columns());
     }
+    
+    function test_array(){
+        $arr = [ 3 => 1, 2 => 2, 1=> 3];
+        var_dump( $arr );
+         
+    }
 
 //     function test_2_extends_1(){
 //         $class1 = new class_("class1");
