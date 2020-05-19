@@ -184,6 +184,11 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
                     $class = new class_("grandson".$i."_".$j."_".$k);
                     $class->set_extends("son".$i."_".$j);
                     $classes[] = $class ;
+                    for( $l=1; $l <= 3; $l ++){
+                        $class = new class_("grandgrandson".$i."_".$j."_".$k);
+                        $class->set_extends("grandson".$i."_".$j."_".$k);
+                        $classes[] = $class ;
+                    }
                 }
                 
             }
@@ -191,7 +196,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         
         $tree = get_tree( $classes );
         $actual = textoutput( $tree );
-        echo "\n". $actual;
+//         echo "\n". $actual;
         $expected = "parent1
  +son1_1
  | +grandson1_1_1
