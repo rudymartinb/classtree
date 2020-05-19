@@ -4,6 +4,7 @@ use src\class_;
 use function src\force_class;
 use function files\get_source;
 use function files\get_clases;
+use src\class_finder;
 
 class treeTest extends PHPUnit\Framework\TestCase {
     function test_tree_empty(){
@@ -288,7 +289,10 @@ class treeTest extends PHPUnit\Framework\TestCase {
     function test_REAL(){
         $source = get_source("src/class_.php" );
         
-        $classes = get_clases($source);
+        $finder = new class_finder();
+        $finder->matches($source);
+        $classes = $finder->separar_clases();
+        
 //         var_dump( $classes );
         
         $tree = get_tree( $classes );

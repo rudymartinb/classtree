@@ -10,3 +10,4 @@ adding implements to the tree description of classes
 adding abstracts and implements to the tree description of classes
 adding *final* keyword to classtree
 adding *namespace* keyword to classtree output
+heavy refactoring and adding missing tests

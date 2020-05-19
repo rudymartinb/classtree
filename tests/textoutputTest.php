@@ -3,6 +3,7 @@
 use src\class_;
 use function files\get_source;
 use function files\get_clases;
+use src\class_finder;
 
 /**
  * goal is to convert the tree data into a text file
@@ -68,7 +69,10 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
     function test_1_namespace_2(){
         $filename = "./tests/dummy/prueba2.php";
         $source = get_source( $filename );
-        $classes = get_clases( $source );
+        
+        $finder = new class_finder();
+        $finder->matches($source);
+        $classes = $finder->separar_clases();
         $tree = get_tree( $classes );
         
         $actual = textoutput( $tree );

@@ -68,14 +68,17 @@ function get_sources( Array $files ) : Array {
     return $sources;
 }
 
-function get_classes_from_sources( Array $sources ) : Array {
-    $classes = [];
-    foreach ($sources as $source ){
-        $tmp = get_clases($source);
-        $classes = array_merge( $classes , $tmp );
-    }
-    return $classes;
-}
+// function get_classes_from_sources( Array $sources ) : Array {
+//     $classes = [];
+//     foreach ($sources as $source ){
+//         $finder = new class_finder();
+//         $finder->matches($source );
+//         $tmp = $finder->separar_clases();
+        
+//         $classes = array_merge( $classes , $tmp );
+//     }
+//     return $classes;
+// }
 
 function get_interfaces_from_sources( Array $sources ){
     $interfaces = [];
@@ -95,46 +98,46 @@ function get_clases( string $source ) : Array {
     return $clases;
 }
 
-function get_interfaces( string $source ) : Array {
-    $pattern  = "/^[ ]*(?<tipo>interface(?: ))[ ]*";
-    $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-    $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
-    $pattern .= "/m";
+// function get_interfaces( string $source ) : Array {
+//     $pattern  = "/^[ ]*(?<tipo>interface(?: ))[ ]*";
+//     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+//     $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
+//     $pattern .= "/m";
     
-    $matches = [];
-    preg_match_all($pattern, $source, $matches );
-//     var_dump($matches);
-    $clases = separar_interfaces($matches);
-//     var_dump($clases);
-    return $clases;
-}
+//     $matches = [];
+//     preg_match_all($pattern, $source, $matches );
+// //     var_dump($matches);
+//     $clases = separar_interfaces($matches);
+// //     var_dump($clases);
+//     return $clases;
+// }
 
 /*
  * this generates one class object from the matches found
  * during source search by one of the build_from* functions
  */
-function separar_clases( Array $matches ) : Array {
-    $lista = [];
-    $namespace = "";
-    foreach ($matches["tipo"] as $key => $value ) {
-        if( $matches[ "nsname" ][ $key ] != "" ){
-            $namespace = $matches[ "nsname" ][ $key ];
-            continue;
-        }
-        if( trim( $value ) != "class" ){
-            continue;
-        }
+// function separar_clases( Array $matches ) : Array {
+//     $lista = [];
+//     $namespace = "";
+//     foreach ($matches["tipo"] as $key => $value ) {
+//         if( $matches[ "nsname" ][ $key ] != "" ){
+//             $namespace = $matches[ "nsname" ][ $key ];
+//             continue;
+//         }
+//         if( trim( $value ) != "class" ){
+//             continue;
+//         }
         
-        $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
-        $clase->set_extends( $matches["extends"][$key] );
-        $clase->set_implements( $matches["implements"][$key] );
-        $clase->set_abstract( $matches["abstract"][$key] );
-        $clase->set_namespace( $namespace );
+//         $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
+//         $clase->set_extends( $matches["extends"][$key] );
+//         $clase->set_implements( $matches["implements"][$key] );
+//         $clase->set_abstract( $matches["abstract"][$key] );
+//         $clase->set_namespace( $namespace );
         
-        $lista[] = $clase;
-    }
-    return $lista;
-}
+//         $lista[] = $clase;
+//     }
+//     return $lista;
+// }
 
 function separar_interfaces( Array $matches ) : Array {
     $lista = [];

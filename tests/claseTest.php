@@ -29,7 +29,9 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba2.php";
         $source = get_source( $filename );
         
-        $classes = get_clases( $source );
+        $finder = new class_finder();
+        $finder->matches($source );
+        $classes = $finder->separar_clases();
         $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
     }
     

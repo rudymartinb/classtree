@@ -62,7 +62,15 @@ class App {
     
     private $classes;
     function generate_classes(){
-        $this->classes = get_classes_from_sources($this->php_sources);
+        $classes = [];
+        foreach ($this->php_sources as $source ){
+            $finder = new class_finder();
+            $finder->matches($source );
+            $tmp = $finder->separar_clases();
+            
+            $classes = array_merge( $classes , $tmp );
+        }
+        $this->classes = $classes;
     }
     
     private $interfaces;

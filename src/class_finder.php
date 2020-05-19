@@ -18,11 +18,38 @@ class class_finder {
         $this->pattern = $pattern;
     }
     
+    private $matches;
     function matches( string $source ) : Array {
         $matches = [];
         preg_match_all($this->pattern, $source, $matches );
+        $this->matches = $matches;
         return $matches;
     }
+    
+    function separar_clases() : Array {
+        $matches = $this->matches;
+        $lista = [];
+        $namespace = "";
+        foreach ($matches["tipo"] as $key => $value ) {
+            if( $matches[ "nsname" ][ $key ] != "" ){
+                $namespace = $matches[ "nsname" ][ $key ];
+                continue;
+            }
+            if( trim( $value ) != "class" ){
+                continue;
+            }
+            
+            $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
+            $clase->set_extends( $matches["extends"][$key] );
+            $clase->set_implements( $matches["implements"][$key] );
+            $clase->set_abstract( $matches["abstract"][$key] );
+            $clase->set_namespace( $namespace );
+            
+            $lista[] = $clase;
+        }
+        return $lista;
+    }
+    
 }
 
 class namespace_finder {
