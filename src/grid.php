@@ -29,7 +29,7 @@ class grid {
         return count( $this->classes );
     }
     
-    function get_rows() : int{
+    function get_num_rows() : int{
         $num_rows = 0;
         foreach( $this->columns as $column ){
             if( $num_rows < count( $column ) ){
