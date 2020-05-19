@@ -6,8 +6,9 @@ class grid {
     private $matrix = [];
 
     function add_element( class_ $class ){
-        // by doing this we are adding a new "column" 
-        $this->matrix[] = [ $class ];
+        // by doing this we are adding a new "column"
+        $name = $class->get_name();
+        $this->matrix[ $name ] = [ $class ];
     }
     function get_rows() : int{
         $num_rows = 0;
