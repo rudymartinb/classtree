@@ -25,7 +25,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
     public function __construct() {
         $this->setName('testsSuite');
         
-//         $this->addTestSuite('filesTest');
+        $this->addTestSuite('filesTest');
         
         $this->addTestSuite('claseTest');
 
