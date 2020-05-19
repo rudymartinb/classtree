@@ -39,8 +39,8 @@ class grid {
     }
     
     function get_num_rows() : int{
-        $num_rows = 0;
-        return count( $this->columns );
+        $num_rows = 1;
+        return $num_rows;
     }
     function get_num_columns() : int{
         return count( $this->columns );

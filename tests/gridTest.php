@@ -13,25 +13,28 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $grid->distribute();
         
-        var_dump($grid->get_columns());
+        
         
         $this->assertEquals(1, $grid->get_num_elements());
         $this->assertEquals(1, $grid->get_num_columns());
         $this->assertEquals(1, $grid->get_num_rows());
     }
 
-//     function test_2(){
-//         $class1 = new class_("class1");
-//         $class2 = new class_("class2");
+    function test_2(){
+        $parent = new class_("parent");
+        $child = new class_("child");
         
-//         $grid = new grid();
-//         $grid->add_element( $class1 );
-//         $grid->add_element( $class2 );
+        $grid = new grid();
+        $grid->add_element( $parent );
+        $grid->add_element( $child );
         
-//         $this->assertEquals(2, $grid->get_num_elements());
-//         $this->assertEquals(2, $grid->get_num_columns());
-//         $this->assertEquals(1, $grid->get_num_rows());
-//     }
+        $grid->distribute();
+        var_dump($grid->get_columns());
+        
+        $this->assertEquals(2, $grid->get_num_elements());
+        $this->assertEquals(2, $grid->get_num_columns());
+        $this->assertEquals(1, $grid->get_num_rows());
+    }
 
 //     function test_1_extends_1(){
 //         $class1 = new class_("class1");
