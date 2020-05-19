@@ -32,8 +32,9 @@ class grid {
     function get_num_rows() : int{
         $num_rows = 0;
         foreach( $this->columns as $column ){
-            if( $num_rows < count( $column ) ){
-                $num_rows =  count( $column ) ;
+            $count = count( $column );
+            if( $num_rows < $count ){
+                $num_rows =  $count;
             }
         }
         return $num_rows;
