@@ -52,7 +52,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $head = array_splice( $remaining, 2,1 );
         var_dump( $remaining );
         $resultado = array_merge( $head , $insert, $remaining );
-        var_dump( $resultado );
+//         var_dump( $resultado );
         
     }
     
