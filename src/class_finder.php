@@ -8,7 +8,7 @@ class class_finder {
         $this->pattern .= "([ ]*(?<nsflag>namespace)[ ]*";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
         $this->pattern .= ")|";
-        $this->pattern .= "([ ]*(?<ifaceflag>interface)[ ]*";
+        $this->pattern .= "([ ]*(?<ifflag>interface)[ ]*";
         $this->pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
         $this->pattern .= ")|(";
         $this->pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
@@ -43,7 +43,9 @@ class class_finder {
             }
             if( $matches[ "nsflag" ][ $key ] == "namespace" ){
                 $clase = new class_( trim( $matches[ "interface"][$key] ) );
-                
+                $clase->set_type( $matches[ "ifflag"][$key] );
+                $clase->set_extends( $matches["extends"][$key] );
+                $clase->set_namespace( $namespace );
             } else {
                 $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
                 $clase->set_type( $matches[ "tipo"][$key] );
