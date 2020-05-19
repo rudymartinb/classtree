@@ -17,6 +17,15 @@ class class_ implements class_interface  {
     function get_name() : string {
         return $this->name;
     }
+    
+    private $type;
+    function set_type( string $type ){
+        $this->type = $type;
+    }
+    function get_type() : string {
+        return $this->type;
+    }
+    
     private $abstract = "";
     function set_abstract( string $abstract ){
         $this->abstract = $abstract;
@@ -105,11 +114,4 @@ class class_ implements class_interface  {
 function force_class( $mixed ) : class_ {
     return $mixed;
 }
-
-/* null object pattern.
- * Needed to avoid using the NULL value
- * which could prevent us from set the return type of a function
- * 
- * and more importantly, by doing this we avoid nasty exceptions
- */
 
