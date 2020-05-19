@@ -196,47 +196,10 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         
         $tree = get_tree( $classes );
         $actual = textoutput( $tree );
-        echo "\n". $actual;
-        $expected = "parent1
- +son1_1
- | +grandson1_1_1
- | +grandson1_1_2
- | +grandson1_1_3
- +son1_2
- | +grandson1_2_1
- | +grandson1_2_2
- | +grandson1_2_3
- +son1_3
-   +grandson1_3_1
-   +grandson1_3_2
-   +grandson1_3_3
-parent2
- +son2_1
- | +grandson2_1_1
- | +grandson2_1_2
- | +grandson2_1_3
- +son2_2
- | +grandson2_2_1
- | +grandson2_2_2
- | +grandson2_2_3
- +son2_3
-   +grandson2_3_1
-   +grandson2_3_2
-   +grandson2_3_3
-parent3
- +son3_1
- | +grandson3_1_1
- | +grandson3_1_2
- | +grandson3_1_3
- +son3_2
- | +grandson3_2_1
- | +grandson3_2_2
- | +grandson3_2_3
- +son3_3
-   +grandson3_3_1
-   +grandson3_3_2
-   +grandson3_3_3
-";
+        
+        // remove the next comment to see how the text tree would look like
+        // echo "\n". $actual;
+
         $this->assertNotEquals( "", $actual );
     }
     
