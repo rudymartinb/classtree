@@ -45,34 +45,7 @@ class class_ {
         $this->extends_resolved = false;
         $this->extends = $nombre;
     }
-//     function is_parent() : bool {
-//         return $this->extends === "";
-//     }
-    
-//     private $extends_resolved = true;
-//     function is_extends_resolved() : bool {
-//         return $this->extends_resolved;
-//     }
-    
-//     private $extends_class;
-//     function find_extends( Array & $classes ){
-//         if( $this->extends == "" ){
-//             $this->extends_resolved = true;
-//             return;
-//         }
-//         foreach ( $classes as $class ){
-//             $class = force_class( $class );
-//             if( $class->get_name() == $this->extends ){
-//                 $this->extends_resolved = true;
-//                 $this->extends_class = $class;
-//                 return;
-//             }
-//         }
-//     }
-    
-//     function get_extends_class() : class_interface {
-//         return $this->extends_class;
-//     }
+
     
     private $implements = [];
     function set_implements( string $nombre ){
@@ -99,10 +72,7 @@ class class_ {
         return $this->funciones;
     }
     
-//     function is_null() : bool {
-//         return false;
-//     }
-    
+
     
 }
 
