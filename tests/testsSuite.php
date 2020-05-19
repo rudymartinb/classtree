@@ -23,11 +23,11 @@ require_once 'tests/textoutputTest.php';
 class testsSuite extends PHPUnit\Framework\TestSuite {
 
     public function __construct() {
-//         $this->setName('testsSuite');
+        $this->setName('testsSuite');
         
-//         $this->addTestSuite('filesTest');
+        $this->addTestSuite('filesTest');
         
-//         $this->addTestSuite('claseTest');
+        $this->addTestSuite('claseTest');
 //         $this->addTestSuite('interfaceTest');
         
         $this->addTestSuite('AppTest');
