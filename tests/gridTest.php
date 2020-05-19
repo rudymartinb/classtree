@@ -43,9 +43,16 @@ class gridTest extends PHPUnit\Framework\TestCase {
     /* a silly microtest to see how php handles keys
      */
     function test_array(){
-        $arr = [ 3 => 1, 2 => 2, 1=> 3];
+        $arr = [ 3 => 1, 4 => 2, 1=> 3];
         var_dump( $arr );
         $this->assertEquals( 3, array_key_first( $arr ) );
+        
+        $insert = [ 55 => 66 ];
+        $remaining = $arr;
+        $head = array_splice( $remaining, 2,1 );
+        $resultado = array_merge( $head , $insert, $remaining );
+        var_dump( $resultado );
+        
     }
     
 
