@@ -35,7 +35,7 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
     }
 
-    function test_interface(){
+    function test_interface_from_source(){
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
         
@@ -45,7 +45,6 @@ class claseTest extends PHPUnit\Framework\TestCase {
 //         var_dump( $matches );
         $this->assertEquals( "interface sarasa_interface {", $matches[0][1] );
 //         $classes = $finder->separar_clases();
-        
         
     }
     
