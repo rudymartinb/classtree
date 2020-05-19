@@ -8,7 +8,7 @@ class grid {
     private $classes = [];
     function add_element( class_ $class ){
         $name = $class->get_name();
-        $this->classes[ $name ] = $class;
+        $this->classes[ $name ] = [ "class" => $class, "placed" => false ];
     }
     
     // each "column" will have only 1 parent and its direct childs 
@@ -19,8 +19,8 @@ class grid {
     }
 
     function distribute(){
-        foreach ($this->classes as $class ){
-            $class = force_class($class);
+        foreach ($this->classes as $key => $class ){
+            $class = force_class($class["class"]);
             $name = $class->get_name();
             $extends = $class->get_extends();
             if( $extends == [] ){
@@ -30,6 +30,7 @@ class grid {
                     $this->columns[ $parent ]["children"] = $name; 
                 }
             }
+            $this->classes[ $key ]["placed"] = true;
         }
         
     }
