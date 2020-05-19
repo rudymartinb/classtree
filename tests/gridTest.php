@@ -40,39 +40,24 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(1, $grid->get_columns());
     }
     
-    /* a silly microtest to see how php handles keys
-     */
-    function test_array(){
-        $arr = [ 3 => 1, 4 => 2, 1=> 3];
-//         var_dump( $arr );
-        $this->assertEquals( 3, array_key_first( $arr ) );
-        
-        $insert = [ 55 => 66 ];
-        $remaining = $arr;
-        $head = array_splice( $remaining, 2,1 );
-        var_dump( $head );
-        var_dump( $remaining );
-        $resultado = array_merge( $head , $insert, $remaining );
-//         var_dump( $resultado );
-        
-    }
     
 
-//     function test_2_extends_1(){
-//         $class1 = new class_("class1");
-//         $class2 = new class_("class2");
-//         $class2->set_extends("class1");
-//         $class3 = new class_("class3");
-//         $class3->set_extends("class1");
+    function test_2_parent_1_child(){
+        $class1 = new class_("parent1");
+        $class2 = new class_("parent2");
         
-//         $grid = new grid();
-//         $grid->add_element( $class1 );
-//         $grid->add_element( $class2 );
-//         $grid->add_element( $class3 );
+        $class3 = new class_("child");
+        $class3->set_extends("parent1");
+        $class3->set_extends("parent2");
         
-//         $this->assertEquals(2, $grid->get_rows());
+        $grid = new grid();
+        $grid->add_element( $class1 );
+        $grid->add_element( $class2 );
+        $grid->add_element( $class3 );
+        
+        $this->assertEquals(3, $grid->get_num_elements());
 //         $this->assertEquals(2, $grid->get_columns());
-//     }
+    }
     
     
     

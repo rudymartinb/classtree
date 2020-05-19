@@ -37,12 +37,12 @@ class class_ {
         return $this->final;
     }
     
-    private $extends = "";
-    function get_extends() : string {
+    private $extends = [];
+    function get_extends() : Array {
         return $this->extends;
     }
     function set_extends( string $nombre ){
-        $this->extends = $nombre;
+        $this->extends[] = $nombre;
     }
 
     private $interface_extends;
