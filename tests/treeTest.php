@@ -286,21 +286,30 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1000, $actual );
     }
     
-    function test_REAL(){
-        $source = get_source("src/class_.php" );
+//     // this test could fail if the file is modified
+//     function test_REAL(){
+//         $source = get_source("src/class_.php" );
         
-        $finder = new class_finder();
-        $finder->matches($source);
-        $classes = $finder->separar_clases();
+//         $finder = new class_finder();
+//         $finder->matches($source);
+//         $classes = $finder->separar_clases();
         
-//         var_dump( $classes );
+// //         var_dump( $classes );
         
-        $tree = get_tree( $classes );
-//         var_export($tree);
+//         $tree = get_tree( $classes );
+// //         var_export($tree);
 
         
-        $this->assertEquals( 1, count( $tree ) );
-    }
+//         $this->assertEquals( 1, count( $tree ) );
+//     }
+    
+        // TODO: to be done !
+//     function test_class_interface_extends_2() {
+//         $class = new class_("myinterface");
+//         $class = new class_("myclass");
+//         $class->set_interface_extends("myinterface");
+//         $this->assertEquals( ["myinterface"], $class->get_interface_extends() );
+//     }
     
         
 }
