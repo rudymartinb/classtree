@@ -49,9 +49,9 @@ class class_ implements class_interface  {
         $this->extends_resolved = false;
         $this->extends = $nombre;
     }
-    function is_parent() : bool {
-        return $this->extends === "";
-    }
+//     function is_parent() : bool {
+//         return $this->extends === "";
+//     }
     
     private $extends_resolved = true;
     function is_extends_resolved() : bool {
