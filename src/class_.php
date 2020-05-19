@@ -1,13 +1,9 @@
 <?php
 namespace src;
 
-interface class_interface {
-    function is_null() : bool;
-}
 
 
-
-class class_ implements class_interface  {
+class class_ {
     
     private $name;
     function __construct( string $name ){
@@ -103,9 +99,9 @@ class class_ implements class_interface  {
         return $this->funciones;
     }
     
-    function is_null() : bool {
-        return false;
-    }
+//     function is_null() : bool {
+//         return false;
+//     }
     
     
 }
