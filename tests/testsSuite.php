@@ -9,14 +9,12 @@ require_once 'tests/mocks/sources.php';
 require_once 'tests/microtests/filesTest.php';
 
 require_once 'tests/claseTest.php';
-require_once 'tests/interfaceTest.php';
-
-require_once 'tests/treeTest.php';
+// require_once 'tests/interfaceTest.php';
 // require_once 'tests/interfacesTreeTest.php';
 
+require_once 'tests/treeTest.php';
 
 require_once 'tests/AppTest.php';
-
 require_once 'tests/textoutputTest.php';
 
 
