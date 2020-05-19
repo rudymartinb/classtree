@@ -170,38 +170,35 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
     }
     
     
-    
-    function test_too_many_classes(){
-        $classes = [];
-        for( $i=1; $i <= 3; $i++){
-            $class = new class_("parent".$i);
-            $classes[] = $class ;
-            for( $j=1; $j <= 3; $j++){
-                $class = new class_("son".$i."_".$j);
-                $class->set_extends("parent".$i);
-                $classes[] = $class ;
-                for( $k=1; $k <= 3; $k ++){
-                    $class = new class_("grandson".$i."_".$j."_".$k);
-                    $class->set_extends("son".$i."_".$j);
-                    $classes[] = $class ;
-                    for( $l=1; $l <= 3; $l ++){
-                        $class = new class_("grandgrandson".$i."_".$j."_".$k);
-                        $class->set_extends("grandson".$i."_".$j."_".$k);
-                        $classes[] = $class ;
-                    }
-                }
+    // remove the comments to see how the text tree would look like
+//     function test_too_many_classes(){
+//         $classes = [];
+//         for( $i=1; $i <= 3; $i++){
+//             $class = new class_("parent".$i);
+//             $classes[] = $class ;
+//             for( $j=1; $j <= 3; $j++){
+//                 $class = new class_("son".$i."_".$j);
+//                 $class->set_extends("parent".$i);
+//                 $classes[] = $class ;
+//                 for( $k=1; $k <= 3; $k ++){
+//                     $class = new class_("grandson".$i."_".$j."_".$k);
+//                     $class->set_extends("son".$i."_".$j);
+//                     $classes[] = $class ;
+//                     for( $l=1; $l <= 3; $l ++){
+//                         $class = new class_("grandgrandson".$i."_".$j."_".$k);
+//                         $class->set_extends("grandson".$i."_".$j."_".$k);
+//                         $classes[] = $class ;
+//                     }
+//                 }
                 
-            }
-        }
-        
-        $tree = get_tree( $classes );
-        $actual = textoutput( $tree );
-        
-        // remove the next comment to see how the text tree would look like
-        // echo "\n". $actual;
+//             }
+//         }
+//         $tree = get_tree( $classes );
+//         $actual = textoutput( $tree );
+//         echo "\n". $actual;
 
-        $this->assertNotEquals( "", $actual );
-    }
+//         $this->assertNotEquals( "", $actual );
+//     }
     
     
     
