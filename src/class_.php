@@ -50,7 +50,7 @@ class class_ {
         return $this->interface_extends;
     }
     function set_interface_extends( string $extends ){
-        $array = explode( $extends,"," );
+        $array = explode( "," , $extends );
         $this->interface_extends = $array;
     }
     
