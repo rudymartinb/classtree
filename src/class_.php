@@ -53,26 +53,26 @@ class class_ implements class_interface  {
 //         return $this->extends === "";
 //     }
     
-    private $extends_resolved = true;
-    function is_extends_resolved() : bool {
-        return $this->extends_resolved;
-    }
+//     private $extends_resolved = true;
+//     function is_extends_resolved() : bool {
+//         return $this->extends_resolved;
+//     }
     
-    private $extends_class;
-    function find_extends( Array & $classes ){
-        if( $this->extends == "" ){
-            $this->extends_resolved = true;
-            return;
-        }
-        foreach ( $classes as $class ){
-            $class = force_class( $class );
-            if( $class->get_name() == $this->extends ){
-                $this->extends_resolved = true;
-                $this->extends_class = $class;
-                return;
-            }
-        }
-    }
+//     private $extends_class;
+//     function find_extends( Array & $classes ){
+//         if( $this->extends == "" ){
+//             $this->extends_resolved = true;
+//             return;
+//         }
+//         foreach ( $classes as $class ){
+//             $class = force_class( $class );
+//             if( $class->get_name() == $this->extends ){
+//                 $this->extends_resolved = true;
+//                 $this->extends_class = $class;
+//                 return;
+//             }
+//         }
+//     }
     
     function get_extends_class() : class_interface {
         return $this->extends_class;
