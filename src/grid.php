@@ -58,6 +58,9 @@ class grid {
                 }
                 $firstx = $this->classes[$parent]["x"];
                 $firsty = $this->classes[$parent]["y"]+1;
+                while( isset( $this->matrix[$firstx][$firsty] ) ){
+                    $firstx++;
+                }
                 
             } else {
                 if( $parent != ""){
