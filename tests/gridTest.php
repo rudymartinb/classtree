@@ -170,7 +170,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(1, $grid->get_pos_y("parent2"));
     }
 
-    function test_tree(){
+    function test_tree_1(){
         $parent = new class_("parent");
         
         $child1 = new class_("child1");
@@ -189,7 +189,6 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $grid->distribute();
         
-        
         $this->assertEquals(4, $grid->get_num_classes());
         $this->assertEquals( true, $grid->is_placed("parent"));
         $this->assertEquals(1, $grid->get_pos_x("parent"));
@@ -206,6 +205,51 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( true, $grid->is_placed("child3"));
         $this->assertEquals(1, $grid->get_pos_x("child3"));
         $this->assertEquals(3, $grid->get_pos_y("child3"));
+    }
+
+    function test_tree_2(){
+        $parent = new class_("parent");
+        
+        $child1 = new class_("child1");
+        $child2 = new class_("child2");
+        $child3 = new class_("child3");
+        $child4 = new class_("child4");
+        
+        $child1->set_extends("parent");
+        $child2->set_extends("parent");
+        $child3->set_extends("child1");
+        $child4->set_extends("child1");
+        
+        $grid = new grid();
+        $grid->add_element( $parent );
+        $grid->add_element( $child1 );
+        $grid->add_element( $child2 );
+        $grid->add_element( $child3 );
+        $grid->add_element( $child4 );
+        
+        $grid->distribute();
+        
+        $this->assertEquals(5, $grid->get_num_classes());
+        $this->assertEquals( true, $grid->is_placed("parent"));
+        $this->assertEquals(1, $grid->get_pos_x("parent"));
+        $this->assertEquals(1, $grid->get_pos_y("parent"));
+        
+        $this->assertEquals( true, $grid->is_placed("child1"));
+        $this->assertEquals(1, $grid->get_pos_x("child1"));
+        $this->assertEquals(2, $grid->get_pos_y("child1"));
+        
+        $this->assertEquals( true, $grid->is_placed("child2"));
+        $this->assertEquals(2, $grid->get_pos_x("child2"));
+        $this->assertEquals(2, $grid->get_pos_y("child2"));
+        
+        $this->assertEquals( true, $grid->is_placed("child3"));
+        $this->assertEquals(1, $grid->get_pos_x("child3"));
+        $this->assertEquals(3, $grid->get_pos_y("child3"));
+
+        $this->assertEquals( true, $grid->is_placed("child4"));
+        $this->assertEquals(2, $grid->get_pos_x("child4"));
+        $this->assertEquals(3, $grid->get_pos_y("child4"));
+        
     }
     
     
