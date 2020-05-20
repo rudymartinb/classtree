@@ -22,6 +22,11 @@ class grid {
     }
 
     function draw(){
+        $testGD = get_extension_funcs("gd"); // Grab function list
+        if (!$testGD){
+            echo "GD not even installed.";
+            return;
+        }
         
         //example
         $img = imagecreatetruecolor(300, 200);
@@ -33,7 +38,7 @@ class grid {
 //         header("Content-type: image/png");
         
         
-        imagejpge($img,"/tmp/salida.jpg");
+        \imagepng($img,"/tmp/salida.png");
         imagedestroy($img);
         
     }
