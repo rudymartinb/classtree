@@ -2,8 +2,6 @@
 namespace src;
 
 class grid {
-    
-    private $matrix = [];
 
     private $classes = [];
     function add_element( class_ $class ){
@@ -19,16 +17,19 @@ class grid {
         return $this->classes[$classname]["placed"];
     }
 
+    private $matrix = [];
     function distribute(){
         $firstx = 1;
         $firsty = 1;
         foreach ($this->classes as $key => $class ){
             $class = force_class($class["class"]);
             $name = $class->get_name();
-            $this->classes[ $name ]["x"] = $firstx;
-            $this->classes[ $name ]["y"] = $firsty;
+            $x = $firstx;
+            $y = $firsty;
+            $this->classes[ $name ]["x"] = $x;
+            $this->classes[ $name ]["y"] = $y;
             $this->classes[ $name ]["placed"] = true;
-            
+            $this->matrix[$x][$y] = $name; 
         }
     }
     function get_pos_x( string $classname ): int {
