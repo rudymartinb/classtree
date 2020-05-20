@@ -31,6 +31,15 @@ class grid {
             $x = $firstx;
             $y = $firsty;
             
+            if( ! array_key_exists( $x, $this->matrix ) ){
+                $this->matrix[$x] = [];
+            }
+            
+            
+            while( array_key_exists( $y, $this->matrix[$x] ) ){
+                $y ++;    
+            }
+            
             $this->classes[ $name ]["x"] = $x;
             $this->classes[ $name ]["y"] = $y;
             $this->classes[ $name ]["placed"] = true;
