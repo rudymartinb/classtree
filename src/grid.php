@@ -26,6 +26,8 @@ class grid {
             $name = $class->get_name();
             if( $class->get_extends() == [] ){
                 $firstx ++;    
+            } else {
+                $firsty ++;
             }
             $x = $firstx;
             $y = $firsty;
