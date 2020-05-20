@@ -19,13 +19,17 @@ class grid {
 
     private $matrix = [];
     function distribute(){
-        $firstx = 1;
+        $firstx = 0;
         $firsty = 1;
         foreach ($this->classes as $key => $class ){
             $class = force_class($class["class"]);
             $name = $class->get_name();
+            if( $class->get_extends() == [] ){
+                $firstx ++;    
+            }
             $x = $firstx;
             $y = $firsty;
+            
             $this->classes[ $name ]["x"] = $x;
             $this->classes[ $name ]["y"] = $y;
             $this->classes[ $name ]["placed"] = true;
