@@ -24,7 +24,7 @@ class grid {
     private $matrix = [];
     function distribute( string $parent = "" ){
         if( $parent == "" ){
-            $firstx = 0;
+            $firstx = 1;
             $firsty = 1;
         } 
         
@@ -66,7 +66,12 @@ class grid {
                 if( $parent != ""){
                     continue;
                 }
-                $firstx ++;
+//                 var_dump( isset( $this->matrix[$firstx] ) );
+                while( isset( $this->matrix[$firstx] ) ){
+                    $firstx++;
+                }
+                
+//                 $firstx ++;
             }
             
             $x = $firstx;
