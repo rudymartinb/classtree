@@ -9,6 +9,10 @@ class grid {
         $this->classes[ $name ] = [ "class" => $class, "placed" => false, "x" => 0, "y" => 0 ];
         // $this->classes[ $name ] = [ "class" => $class, "placed" => false ];
     }
+    function get_classes() : Array {
+        return $this->classes ;
+    }
+    
     function get_num_classes() : int {
         return count( $this->classes );
     }
@@ -19,13 +23,10 @@ class grid {
 
     private $matrix = [];
     function distribute( string $parent = "" ){
-        if( $parent == ""){
+        if( $parent == "" ){
             $firstx = 0;
             $firsty = 1;
-        } else {
-            $firstx = $this->classes[$parent]["x"];
-            $firsty = $this->classes[$parent]["y"]+1;
-        }
+        } 
         
         foreach ($this->classes as $name => $class ){
             if( $this->classes[ $name ]["placed"] ){
@@ -39,8 +40,8 @@ class grid {
              * we need to know which one
              */
             if( $extends != [] ){
-                var_dump( $extends );
-                var_dump( $parent );
+//                 var_dump( $extends );
+//                 var_dump( $parent );
                 if( $parent == ""){
                     continue;
                 }
@@ -55,20 +56,19 @@ class grid {
                 if( !$found ){
                     continue;
                 }
-                   
+                $firstx = $this->classes[$parent]["x"];
+                $firsty = $this->classes[$parent]["y"]+1;
+                
             } else {
+                if( $parent != ""){
+                    continue;
+                }
                 $firstx ++;
             }
             
             $x = $firstx;
             $y = $firsty;
             
-//             if( ! array_key_exists( $x, $this->matrix ) ){
-//                 $this->matrix[$x] = [];
-//             }
-//             while( array_key_exists( $y, $this->matrix[$x] ) ){
-//                 $y ++;    
-//             }
             
             $this->classes[ $name ]["x"] = $x;
             $this->classes[ $name ]["y"] = $y;
