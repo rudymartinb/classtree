@@ -21,9 +21,9 @@ class grid {
     function distribute(){
         $firstx = 0;
         $firsty = 1;
-        foreach ($this->classes as $key => $class ){
+        foreach ($this->classes as $name => $class ){
             $class = force_class($class["class"]);
-            $name = $class->get_name();
+//             $name = $class->get_name();
             if( $class->get_extends() == [] ){
                 $firstx ++;    
             } else {
