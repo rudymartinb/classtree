@@ -28,7 +28,6 @@ class grid {
             return;
         }
         
-        //example
         $img = imagecreatetruecolor(300, 200);
         $white = imagecolorallocate($img, 255,   255,  255);
         imagefilledrectangle($img, 0,0,299,299, $white);
