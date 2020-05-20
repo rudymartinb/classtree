@@ -37,15 +37,14 @@ class grid {
             $extends = $class->get_extends();
             
             /* if theres any parent class
-             * we need to know which one
+             * we need to know if theres one we are looking for
              */
             if( $extends != [] ){
-//                 var_dump( $extends );
-//                 var_dump( $parent );
                 if( $parent == ""){
                     continue;
                 }
-                
+
+                // TODO: see if array_search meets the ends
                 $found = false;
                 foreach( $extends as $extend ){
                     if( $parent == $extend ){
@@ -66,12 +65,12 @@ class grid {
                 if( $parent != ""){
                     continue;
                 }
-//                 var_dump( isset( $this->matrix[$firstx] ) );
+                
+                /* if the "column" exist, means some other class is using it
+                 */
                 while( isset( $this->matrix[$firstx] ) ){
                     $firstx++;
                 }
-                
-//                 $firstx ++;
             }
             
             $x = $firstx;
