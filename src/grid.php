@@ -18,32 +18,64 @@ class grid {
     }
 
     private $matrix = [];
-    function distribute(){
-        $firstx = 0;
-        $firsty = 1;
+    function distribute( string $parent = "" ){
+        if( $parent == ""){
+            $firstx = 0;
+            $firsty = 1;
+        } else {
+            $firstx = $this->classes[$parent]["x"];
+            $firsty = $this->classes[$parent]["y"]+1;
+        }
+        
         foreach ($this->classes as $name => $class ){
-            $class = force_class( $class["class"] );
-            if( $class->get_extends() == [] ){
-                $firstx ++;    
-            } else {
-                $firsty ++;
+            if( $this->classes[ $name ]["placed"] ){
+                continue;
             }
+            
+            $class = force_class( $class["class"] );
+            $extends = $class->get_extends();
+            
+            /* if theres any parent class
+             * we need to know which one
+             */
+            if( $extends != [] ){
+                var_dump( $extends );
+                var_dump( $parent );
+                if( $parent == ""){
+                    continue;
+                }
+                
+                $found = false;
+                foreach( $extends as $extend ){
+                    if( $parent == $extend ){
+                        $found = true;
+                        break;
+                    }
+                }
+                if( !$found ){
+                    continue;
+                }
+                   
+            } else {
+                $firstx ++;
+            }
+            
             $x = $firstx;
             $y = $firsty;
             
-            if( ! array_key_exists( $x, $this->matrix ) ){
-                $this->matrix[$x] = [];
-            }
-            
-            
-            while( array_key_exists( $y, $this->matrix[$x] ) ){
-                $y ++;    
-            }
+//             if( ! array_key_exists( $x, $this->matrix ) ){
+//                 $this->matrix[$x] = [];
+//             }
+//             while( array_key_exists( $y, $this->matrix[$x] ) ){
+//                 $y ++;    
+//             }
             
             $this->classes[ $name ]["x"] = $x;
             $this->classes[ $name ]["y"] = $y;
             $this->classes[ $name ]["placed"] = true;
-            $this->matrix[$x][$y] = $name; 
+            $this->matrix[$x][$y] = $name;
+            
+            $this->distribute($name);
         }
     }
     function get_pos_x( string $classname ): int {
