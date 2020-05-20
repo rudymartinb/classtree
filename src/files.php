@@ -1,8 +1,6 @@
 <?php
 namespace files;
 
-
-use src\class_;
 use src\interface_;
 use src\class_finder;
 
