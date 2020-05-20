@@ -4,7 +4,7 @@ use src\class_;
 use function src\force_class;
 use function files\get_source;
 use function files\get_clases;
-use src\class_finder;
+
 
 class treeTest extends PHPUnit\Framework\TestCase {
     function test_tree_empty(){
