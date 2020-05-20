@@ -38,7 +38,7 @@ class grid {
 //         header("Content-type: image/png");
         
         
-        \imagepng($img,"/tmp/salida.png");
+        \imagepng($img,"/var/www/htdocs/salida.png");
         imagedestroy($img);
         
     }
