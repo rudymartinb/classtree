@@ -31,10 +31,10 @@ class grid {
             
         }
     }
-    function get_posx( string $classname ): int {
+    function get_pos_x( string $classname ): int {
         return $this->classes[ $classname ]["x"];
     }
-    function get_posy( string $classname ): int {
+    function get_pos_y( string $classname ): int {
         return $this->classes[ $classname ]["y"];
     }
     

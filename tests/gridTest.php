@@ -29,8 +29,8 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $this->assertEquals(1, $grid->get_num_classes());
         $this->assertEquals( true, $grid->is_placed("class1"));
-        $this->assertEquals(1, $grid->get_posx("class1"));
-        $this->assertEquals(1, $grid->get_posy("class1"));
+        $this->assertEquals(1, $grid->get_pos_x("class1"));
+        $this->assertEquals(1, $grid->get_pos_y("class1"));
         
     }
 
