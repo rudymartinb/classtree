@@ -4,6 +4,20 @@ use src\grid;
 use src\class_;
 
 class gridTest extends PHPUnit\Framework\TestCase {
+
+//     function test_arr(){
+//         $arr = [];
+//         $x = 10;
+//         $y = 10;
+//         $arr[$x][$y] = 1;
+
+//         $x = 3;
+//         $y = 3;
+//         $arr[$x][$y] = 1;
+        
+//         var_dump($arr);
+//         $this->asserTrue( false );
+//     }
     
     function test_1(){
         $class1 = new class_("class1");
@@ -13,47 +27,47 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $grid->distribute();
         
+        $this->assertEquals(1, $grid->get_num_classes());
+        $this->assertEquals( true, $grid->is_placed("class1"));
+        $this->assertEquals(1, $grid->get_posx("class1"));
+        $this->assertEquals(1, $grid->get_posy("class1"));
         
-        
-        $this->assertEquals(1, $grid->get_num_elements());
-//         $this->assertEquals(1, $grid->get_num_columns());
-//         $this->assertEquals(1, $grid->get_num_rows());
     }
 
-    function test_2(){
-        $parent = new class_("parent");
-        $child = new class_("child");
+//     function test_2(){
+//         $parent = new class_("parent");
+//         $child = new class_("child");
         
-        $grid = new grid();
-        $grid->add_element( $parent );
-        $grid->add_element( $child );
+//         $grid = new grid();
+//         $grid->add_element( $parent );
+//         $grid->add_element( $child );
         
-        $grid->distribute();
+//         $grid->distribute();
+// //         var_dump($grid->get_columns());
+        
+//         $this->assertEquals(2, $grid->get_num_elements());
+// //         $this->assertEquals(2, $grid->get_num_columns());
+// //         $this->assertEquals(1, $grid->get_num_rows());
+//     }
+
+//     function test_1_extends_1(){
+//         $class1 = new class_("parent");
+//         $class2 = new class_("child");
+//         $class2->set_extends("parent");
+        
+//         $grid = new grid();
+//         $grid->add_element( $class1 );
+//         $grid->add_element( $class2 );
+        
+//         $grid->distribute();
 //         var_dump($grid->get_columns());
         
-        $this->assertEquals(2, $grid->get_num_elements());
-//         $this->assertEquals(2, $grid->get_num_columns());
-//         $this->assertEquals(1, $grid->get_num_rows());
-    }
-
-    function test_1_extends_1(){
-        $class1 = new class_("parent");
-        $class2 = new class_("child");
-        $class2->set_extends("parent");
-        
-        $grid = new grid();
-        $grid->add_element( $class1 );
-        $grid->add_element( $class2 );
-        
-        $grid->distribute();
-        var_dump($grid->get_columns());
-        
-        $this->assertEquals(2, $grid->get_num_elements());
-//         $this->assertEquals(1, $grid->get_num_columns());
-//         $this->assertEquals(2, $grid->get_num_rows());
+//         $this->assertEquals(2, $grid->get_num_elements());
+// //         $this->assertEquals(1, $grid->get_num_columns());
+// //         $this->assertEquals(2, $grid->get_num_rows());
         
         
-    }
+//     }
     
     
 

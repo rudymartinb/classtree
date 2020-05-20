@@ -8,36 +8,36 @@ class grid {
     private $classes = [];
     function add_element( class_ $class ){
         $name = $class->get_name();
-        $this->classes[ $name ] = [ "class" => $class, "placed" => false ];
+        $this->classes[ $name ] = [ "class" => $class, "placed" => false, "x" => 0, "y" => 0 ];
+        // $this->classes[ $name ] = [ "class" => $class, "placed" => false ];
     }
-    
-    // each "column" will have only 1 parent and its direct childs 
-    // as long as none of those childs
-    private $columns = [];
-    function get_columns() : Array {
-        return $this->columns;
+    function get_num_classes() : int {
+        return count( $this->classes );
+    }
+
+    function is_placed( string $classname ){
+        return $this->classes[$classname]["placed"];
     }
 
     function distribute(){
+        $firstx = 1;
+        $firsty = 1;
         foreach ($this->classes as $key => $class ){
             $class = force_class($class["class"]);
             $name = $class->get_name();
-            $extends = $class->get_extends();
-            if( $extends == [] ){
-                $this->columns[ $name ] = [ "name" => $name, "children" => [] ]; 
-            } else {
-                foreach( $extends as $parent ){
-                    $this->columns[ $parent ]["children"][] = $name; 
-                }
-            }
-            $this->classes[ $key ]["placed"] = true;
+            $this->classes[ $name ]["x"] = $firstx;
+            $this->classes[ $name ]["y"] = $firsty;
+            $this->classes[ $name ]["placed"] = true;
+            
         }
     }
-
-    
-    function get_num_elements() : int {
-        return count( $this->classes );
+    function get_posx( string $classname ): int {
+        return $this->classes[ $classname ]["x"];
     }
+    function get_posy( string $classname ): int {
+        return $this->classes[ $classname ]["y"];
+    }
+    
     
 //     function get_num_rows() : int{
 //         $num_rows = 0;
