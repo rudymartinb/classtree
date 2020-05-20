@@ -131,9 +131,8 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
     }
     
-    
 
-    function test_diamond(){
+    function test_2parents2children(){
         $parent = new class_("parent");
         $parent2 = new class_("parent2");
         $child1 = new class_("child1");
