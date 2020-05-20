@@ -22,8 +22,7 @@ class grid {
         $firstx = 0;
         $firsty = 1;
         foreach ($this->classes as $name => $class ){
-            $class = force_class($class["class"]);
-//             $name = $class->get_name();
+            $class = force_class( $class["class"] );
             if( $class->get_extends() == [] ){
                 $firstx ++;    
             } else {
