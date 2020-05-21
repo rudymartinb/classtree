@@ -68,9 +68,9 @@ class grid {
         /* canvas
          */
         imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
+
         
-        
-       $this->draw_grid($this->img, 0,0,15,20,20,10,$this->color["gray"]);
+        $this->draw_grid($this->img, 0,0,15,20,20,10,$this->color["gray"]);
         
         foreach ($this->classes as $name => $class ){
             if( ! $this->classes[ $name ]["placed"] ){
@@ -92,6 +92,8 @@ class grid {
         imagedestroy($this->img);
     }
     
+    /* TODO: calculate heigh based on the number of functions
+     */
     private function draw_class( string $name, Array $class ){
         $x = ( ( $class["x"] -1 ) *100 )+50;
         $y = ( ( $class["y"] -1 ) *100 )+50;
@@ -105,7 +107,8 @@ class grid {
         \imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $name);
     }
     
-    
+    /* this was copy/pasted from php.net
+     */
     function draw_grid(&$img, $x0, $y0, $width, $height, $cols, $rows, $color) {
         //draw outer border
         imagerectangle($img, $x0, $y0, $x0+$width*$cols, $y0+$height*$rows, $color);
@@ -128,6 +131,7 @@ class grid {
     }
     
     private $matrix = [];
+    
     function distribute( string $parent = "" ){
         if( $parent == "" ){
             $firstx = 1;
