@@ -24,7 +24,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $grid->distribute();
         
-        $grid->draw();
+        
         
     }
 
@@ -50,6 +50,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(2, $grid->max_x() );
         $this->assertEquals(1, $grid->max_y() );
         
+        $grid->draw();
         
     }
 
