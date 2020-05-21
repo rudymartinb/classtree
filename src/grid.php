@@ -159,7 +159,7 @@ class grid {
             
             imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
             
-//             imageline ( $this->img , $x2 , $y2 , $xx1 , $yy1 , $this->color["black"] );
+            imageline ( $this->img , $x2 , $y2 , $xx1 , $yy1 , $this->color["black"] );
             imageline ( $this->img , $x2 , $y2 , $xx2 , $yy2 , $this->color["black"] );
         }
 
