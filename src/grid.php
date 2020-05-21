@@ -63,9 +63,13 @@ class grid {
         $gray   = imagecolorallocate($img, 224,   224,  224);
 //         $this->draw_grid($img, 0,0,15,20,20,10,$gray);
         
-        foreach( $this->classes as $class  ){
-            if( ! $class["placed"])
+        foreach ($this->classes as $name => $class ){
+            if( ! $this->classes[ $name ]["placed"] ){
                 continue;
+            }
+            $class["class"] = force_class( $class["class"] );
+
+            
             $x = ( ( $class["x"] -1 ) *100 )+50;
             $y = ( ( $class["y"] -1 ) *100 )+50;
             $width = 100;
@@ -76,7 +80,7 @@ class grid {
             $text = 'Testing...';
             $font = '/usr/share/fonts/TTF/DejaVuSans.ttf';
             
-            \imagettftext($img, 10,0.0, $x+5, $y+15, $black, $font, $text);
+            \imagettftext($img, 10,0.0, $x+5, $y+15, $black, $font, $name);
         }
         
         

@@ -85,7 +85,7 @@ class class_ {
 }
 
 // fool IDE into use the propper type for autocompletion.
-function force_class( $mixed ) : class_ {
-    return $mixed;
+function force_class( $class ) : class_ {
+    return $class;
 }
 
