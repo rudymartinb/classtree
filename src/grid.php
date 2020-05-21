@@ -79,9 +79,22 @@ class grid {
             $class["class"] = force_class( $class["class"] );
 
             $this->draw_class($name, $class);
-
         }
-
+        
+        foreach ($this->classes as $name => $class ){
+            if( ! $this->classes[ $name ]["placed"] ){
+                continue;
+            }
+            $class["class"] = force_class( $class["class"] );
+            
+            if( count( $class["children"] ) == 0 ){
+                continue;
+            }
+            
+            $this->draw_parent_child_arrows( $class );
+        }
+        
+        
         /* canvas border
          * we do this as last step in case we need to grow the area
          */
@@ -95,16 +108,44 @@ class grid {
     /* TODO: calculate heigh based on the number of functions
      */
     private function draw_class( string $name, Array $class ){
-        $x = ( ( $class["x"] -1 ) *150 )+50;
-        $y = ( ( $class["y"] -1 ) *100 )+50;
+        $x = $this->calc_real_x( $class["x"] );
+        $y = $this->calc_real_y( $class["y"] );
         $width = 100;
         $height = 50;
         imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
         imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
         
         putenv('GDFONTPATH=' . realPath('fonts'));
-        $font = '/usr/share/fonts/TTF/DejaVuSans.ttf';
+        $font = './fonts/courier.ttf';
+        $font = realpath($font) ;
         \imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $name);
+    }
+    private function calc_real_x( int $x ) : int {
+        return ( ( $x -1 ) *150 )+50;
+    }
+    private function calc_real_y( int $y ) : int {
+        return ( ( $y -1 ) *100 )+50;
+    }
+    
+    private function draw_parent_child_arrows( Array $class ){
+        $children = $class[ "children" ];
+        
+        $count = count( $children );
+        /*
+         * lets do this simple, 
+         * just a line from upper left corner of each class to each child
+         */
+        for( $index = 0 ; $index < $count ; $index ++ ){
+            // calculate top point
+            $x1 = $this->calc_real_x( $class["x"] );
+            $y1 = $this->calc_real_y( $class["y"] + (ceil(100/($count+1))) );
+            $childname = $class["children"][$index];
+            $child = $this->classes[ $childname ];
+            $x2 = $this->calc_real_x( $child["x"] );
+            $y2 = $this->calc_real_x( $child["y"] );
+            imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
+        }
+
     }
     
     /* this was copy/pasted from php.net
@@ -164,6 +205,7 @@ class grid {
                 if( !$found ){
                     continue;
                 }
+                $this->classes[$parent]["children"][] = $name;
                 $firstx = $this->classes[$parent]["x"];
                 $firsty = $this->classes[$parent]["y"]+1;
                 while( isset( $this->matrix[$firstx][$firsty] ) ){
@@ -189,6 +231,7 @@ class grid {
             $this->classes[ $name ]["x"] = $x;
             $this->classes[ $name ]["y"] = $y;
             $this->classes[ $name ]["placed"] = true;
+            $this->classes[ $name ]["children"] = [];
             $this->matrix[$x][$y] = $name;
             
             $this->distribute($name);
