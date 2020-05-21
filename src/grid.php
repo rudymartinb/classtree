@@ -145,7 +145,7 @@ class grid {
             $x2 = $this->calc_real_x( $child["x"] ) + (ceil(100/($count+1))) ;
             $y2 = $this->calc_real_y( $child["y"] );
             
-            $delta_x = ($x1 - $x2);
+            $delta_x = $x2 - $x1;
             $delta_y = $y2 - $y1;
             $theta_radians = atan2( $delta_y, $delta_x);
 
