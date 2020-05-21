@@ -155,12 +155,12 @@ class grid {
             $xx1 = $x2 + (10 * cos($alpha1));
             $yy1 = $y2 + (10 * sin($alpha1));
             $xx2 = $x2 + (10 * cos($alpha2));
-            $yy2 = $y2 + (10 * sin($alpha2));
+            $yy2 = $y2 - (10 * sin($alpha2));
             
             imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
             
             imageline ( $this->img , $x2 , $y2 , $xx1 , $yy1 , $this->color["black"] );
-//             imageline ( $this->img , $x2 , $y2 , $xx2 , $yy2 , $this->color["black"] );
+            imageline ( $this->img , $x2 , $y2 , $xx2 , $yy2 , $this->color["black"] );
         }
 
     }
