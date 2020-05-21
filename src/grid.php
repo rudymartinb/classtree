@@ -34,7 +34,6 @@ class grid {
         
         $gray   = imagecolorallocate($img, 224,   224,  224);
         $this->draw_grid($img, 0,0,15,20,20,10,$gray);
-//         header("Content-type: image/png");
         
         
         \imagepng($img,"/var/www/htdocs/salida.png");
