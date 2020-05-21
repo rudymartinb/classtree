@@ -53,6 +53,11 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         
     }
+    
+    function test_radians_to_degree(){
+        $grid = new grid();
+        $this->assertEquals( 360, floor( $grid->to_degrees( 6.28319 ) ) );
+    }
 
     function test_1_extends_1(){
         $parent = new class_("parent");
