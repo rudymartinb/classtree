@@ -138,11 +138,11 @@ class grid {
          */
         for( $index = 0 ; $index < $count ; $index ++ ){
             // calculate top point
-            $x1 = $this->calc_real_x( $class["x"] ) + (ceil(100/($count+1) )*$count) ;
+            $x1 = $this->calc_real_x( $class["x"] ) + (ceil(100/($count+1) )*$index) ;
             $y1 = $this->calc_real_y( $class["y"] ) + 50;
             $childname = $class["children"][$index];
             $child = $this->classes[ $childname ];
-            $x2 = $this->calc_real_x( $child["x"] ) + (ceil(100/($count+1))*$count) ;
+            $x2 = $this->calc_real_x( $child["x"] ) + (ceil(100/($count+1))*$index) ;
             $y2 = $this->calc_real_y( $child["y"] );
             
             $delta_x = $x2 - $x1;
