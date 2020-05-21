@@ -51,11 +51,18 @@ class grid {
         $this->maxheight = $this->max_y() * 200;
         
         $this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
+        
+        /* background color
+         */
         $white = imagecolorallocate($this->img, 255,   255,  255);
+        
+        /* boxes
+         */
         $black = imagecolorallocate($this->img, 0,   0,  0);
         
+        /* canvas
+         */
         imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $white);
-        imagerectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $black);
         
         $gray   = imagecolorallocate($this->img, 224,   224,  224);
 //         $this->draw_grid($img, 0,0,15,20,20,10,$gray);
@@ -77,11 +84,17 @@ class grid {
             $font = '/usr/share/fonts/TTF/DejaVuSans.ttf';
             \imagettftext($this->img, 10,0.0, $x+5, $y+15, $black, $font, $name);
         }
+
+        /* canvas border
+         * we do this as last step in case we need to grow the area
+         */
+        imagerectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $black);
         
         \imagepng($this->img,"/var/www/htdocs/salida.png");
         
         imagedestroy($this->img);
     }
+    
     function draw_grid(&$img, $x0, $y0, $width, $height, $cols, $rows, $color) {
         //draw outer border
         imagerectangle($img, $x0, $y0, $x0+$width*$cols, $y0+$height*$rows, $color);
