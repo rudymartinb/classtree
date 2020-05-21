@@ -62,12 +62,15 @@ class grid {
          */
         $this->color["black"] = imagecolorallocate($this->img, 0,   0,  0);
         
+        $this->color["gray"]   = imagecolorallocate($this->img, 224,   224,  224);
+        
+        
         /* canvas
          */
         imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
         
-        $gray   = imagecolorallocate($this->img, 224,   224,  224);
-//         $this->draw_grid($img, 0,0,15,20,20,10,$gray);
+        
+       $this->draw_grid($this->img, 0,0,15,20,20,10,$this->color["gray"]);
         
         foreach ($this->classes as $name => $class ){
             if( ! $this->classes[ $name ]["placed"] ){
@@ -88,6 +91,7 @@ class grid {
         
         imagedestroy($this->img);
     }
+    
     private function draw_class( string $name, Array $class ){
         $x = ( ( $class["x"] -1 ) *100 )+50;
         $y = ( ( $class["y"] -1 ) *100 )+50;
