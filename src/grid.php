@@ -153,9 +153,9 @@ class grid {
             $alpha2 = $this->to_radians( $this->to_degrees($theta_radians)-15 );
             
             $xx1 = $x2 + (10 * cos($alpha1));
-            $yy1 = $y2 + (10 * sin($alpha1));
+            $yy1 = $y2 - (10 * sin($alpha1));
             $xx2 = $x2 + (10 * cos($alpha2));
-            $yy2 = $y2 + (10 * sin($alpha2));
+            $yy2 = $y2 - (10 * sin($alpha2));
             
             imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
             
