@@ -95,7 +95,7 @@ class grid {
     /* TODO: calculate heigh based on the number of functions
      */
     private function draw_class( string $name, Array $class ){
-        $x = ( ( $class["x"] -1 ) *100 )+50;
+        $x = ( ( $class["x"] -1 ) *150 )+50;
         $y = ( ( $class["y"] -1 ) *100 )+50;
         $width = 100;
         $height = 50;
