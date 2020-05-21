@@ -62,7 +62,7 @@ class grid {
          */
         $this->color["black"] = imagecolorallocate($this->img, 0,   0,  0);
         
-        $this->color["gray"]   = imagecolorallocate($this->img, 224,   224,  224);
+        $this->color["gray"]   = imagecolorallocate($this->img, 240,   240,  240);
         
         
         /* canvas
