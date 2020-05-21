@@ -50,12 +50,33 @@ class grid {
 //         }
 //         $maxy = count( $this->matrix[] );
         
-        $img = imagecreatetruecolor(300, 200);
+        $maxwidth = $this->max_x() * 200;
+        $maxheight = $this->max_y() * 200;
+        
+        $img = imagecreatetruecolor( $maxwidth, $maxheight);
         $white = imagecolorallocate($img, 255,   255,  255);
+        $black = imagecolorallocate($img, 0,   0,  0);
         imagefilledrectangle($img, 0,0,299,299, $white);
         
         $gray   = imagecolorallocate($img, 224,   224,  224);
-        $this->draw_grid($img, 0,0,15,20,20,10,$gray);
+//         $this->draw_grid($img, 0,0,15,20,20,10,$gray);
+        
+        foreach( $this->classes as $class  ){
+            if( ! $class["placed"])
+                continue;
+            $x = ( ( $class["x"] -1 ) *100 )+50;
+            $y = ( ( $class["y"] -1 ) *100 )+50;
+            $width = 100;
+            $height = 50;
+            imagerectangle($img, $x, $y, $x+$width, $y+$height, $gray);
+            
+            putenv('GDFONTPATH=' . realPath('fonts'));
+            $text = 'Testing...';
+            $font = '/usr/share/fonts/TTF/Vemana.ttf';
+            
+            // Add some shadow to the text
+            \imagettftext($img, 10,0.0, $x+5, $y+5, $black, $font, $text);
+        }
         
         
         \imagepng($img,"/var/www/htdocs/salida.png");
