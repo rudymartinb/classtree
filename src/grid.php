@@ -142,7 +142,7 @@ class grid {
             $y1 = $this->calc_real_y( $class["y"] ) + 50;
             $childname = $class["children"][$index];
             $child = $this->classes[ $childname ];
-            $x2 = $this->calc_real_x( $child["x"] );
+            $x2 = $this->calc_real_x( $child["x"] ) + (ceil(100/($count+1))) ;
             $y2 = $this->calc_real_y( $child["y"] );
             imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
         }
