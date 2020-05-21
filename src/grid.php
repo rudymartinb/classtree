@@ -70,7 +70,7 @@ class grid {
         imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
 
         
-        $this->draw_grid($this->img, 0,0,15,20,20,10,$this->color["gray"]);
+//         $this->draw_grid($this->img, 0,0,15,20,20,10,$this->color["gray"]);
         
         foreach ($this->classes as $name => $class ){
             if( ! $this->classes[ $name ]["placed"] ){
