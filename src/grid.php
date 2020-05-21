@@ -21,7 +21,7 @@ class grid {
         return $this->classes[$classname]["placed"];
     }
 
-    private function max_x() : int{
+    function max_x() : int{
         return count( $this->matrix );
     }
     function draw(){
