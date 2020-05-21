@@ -159,6 +159,7 @@ class grid {
             
             imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
             $points = array( $x2, $y2 , $xx1, $yy1 , $xx2, $yy2 );
+            
             imagefilledpolygon($this->img, $points, 3, $this->color["while"]);
             imagepolygon($this->img, $points, 3, $this->color["black"]);
             
