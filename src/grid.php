@@ -38,8 +38,10 @@ class grid {
     }
 
     private $img;
+    private $color;
     private $maxwidth;
     private $maxheight;
+    
     function draw(){
         $testGD = get_extension_funcs("gd"); // Grab function list
         if (!$testGD){
@@ -54,15 +56,15 @@ class grid {
         
         /* background color
          */
-        $white = imagecolorallocate($this->img, 255,   255,  255);
+        $this->color["white"] = imagecolorallocate($this->img, 255,   255,  255);
         
         /* boxes
          */
-        $black = imagecolorallocate($this->img, 0,   0,  0);
+        $this->color["black"] = imagecolorallocate($this->img, 0,   0,  0);
         
         /* canvas
          */
-        imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $white);
+        imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
         
         $gray   = imagecolorallocate($this->img, 224,   224,  224);
 //         $this->draw_grid($img, 0,0,15,20,20,10,$gray);
@@ -74,26 +76,30 @@ class grid {
             $class["class"] = force_class( $class["class"] );
 
             
-            $x = ( ( $class["x"] -1 ) *100 )+50;
-            $y = ( ( $class["y"] -1 ) *100 )+50;
-            $width = 100;
-            $height = 50;
-            imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $gray);
-            
-            putenv('GDFONTPATH=' . realPath('fonts'));
-            $font = '/usr/share/fonts/TTF/DejaVuSans.ttf';
-            \imagettftext($this->img, 10,0.0, $x+5, $y+15, $black, $font, $name);
+
         }
 
         /* canvas border
          * we do this as last step in case we need to grow the area
          */
-        imagerectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $black);
+        imagerectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["black"]);
         
         \imagepng($this->img,"/var/www/htdocs/salida.png");
         
         imagedestroy($this->img);
     }
+    private function draw_class( string $name, class_ $class ){
+        $x = ( ( $class["x"] -1 ) *100 )+50;
+        $y = ( ( $class["y"] -1 ) *100 )+50;
+        $width = 100;
+        $height = 50;
+        imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
+        
+        putenv('GDFONTPATH=' . realPath('fonts'));
+        $font = '/usr/share/fonts/TTF/DejaVuSans.ttf';
+        \imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $name);
+    }
+    
     
     function draw_grid(&$img, $x0, $y0, $width, $height, $cols, $rows, $color) {
         //draw outer border
