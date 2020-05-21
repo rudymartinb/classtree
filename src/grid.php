@@ -161,7 +161,7 @@ class grid {
             $points = array( $x1, $y1 , $xx1, $yy1 , $xx2, $yy2 );
             
             imagefilledpolygon($this->img, $points, 3, $this->color["while"]);
-            imagepolygon($this->img, $points, 3, $this->color["black"]);
+//             imagepolygon($this->img, $points, 3, $this->color["black"]);
             
             
 //             imagepolygon($this->img, $points, 3, $this->color["black"]);
