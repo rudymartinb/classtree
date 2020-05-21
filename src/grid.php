@@ -75,7 +75,7 @@ class grid {
             }
             $class["class"] = force_class( $class["class"] );
 
-            
+            $this->draw_class($name, $class);
 
         }
 
@@ -88,7 +88,7 @@ class grid {
         
         imagedestroy($this->img);
     }
-    private function draw_class( string $name, class_ $class ){
+    private function draw_class( string $name, Array $class ){
         $x = ( ( $class["x"] -1 ) *100 )+50;
         $y = ( ( $class["y"] -1 ) *100 )+50;
         $width = 100;
