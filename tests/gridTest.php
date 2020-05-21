@@ -154,7 +154,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(3, $grid->get_pos_x("parent2"));
         $this->assertEquals(1, $grid->get_pos_y("parent2"));
         
-        $grid->draw();
+        
         
     }
     
@@ -195,6 +195,8 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( true, $grid->is_placed("parent2"));
         $this->assertEquals(3, $grid->get_pos_x("parent2"));
         $this->assertEquals(1, $grid->get_pos_y("parent2"));
+        
+        $grid->draw();
     }
 
     function test_tree_1(){
