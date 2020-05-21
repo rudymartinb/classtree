@@ -142,7 +142,8 @@ class grid {
             $y1 = $this->calc_real_y( $class["y"] ) + 50;
             $childname = $class["children"][$index];
             $child = $this->classes[ $childname ];
-            $x2 = $this->calc_real_x( $child["x"] ) + (ceil(100/($count+1))*($index+1)) ;
+            // (ceil(100/($count+1))*($index+1)
+            $x2 = $this->calc_real_x( $child["x"] ) + 50 ;
             $y2 = $this->calc_real_y( $child["y"] );
             
             $delta_x = $x2 - $x1;
