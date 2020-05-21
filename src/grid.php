@@ -24,6 +24,18 @@ class grid {
     function max_x() : int{
         return count( $this->matrix );
     }
+
+    function max_y() : int{
+        $max_y = 0;
+        foreach( $this->matrix as $column ){
+            $count = count($column);
+            if( $max_y < $count ){
+                $max_y = $count;
+            }
+        }
+        return $max_y;
+    }
+    
     function draw(){
         $testGD = get_extension_funcs("gd"); // Grab function list
         if (!$testGD){

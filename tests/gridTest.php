@@ -20,6 +20,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(1, $grid->get_pos_y("class1"));
         
         $this->assertEquals(1, $grid->max_x() );
+        $this->assertEquals(1, $grid->max_y() );
         
         $grid->draw();
         
