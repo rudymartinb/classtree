@@ -97,7 +97,7 @@ class grid {
         $y = ( ( $class["y"] -1 ) *100 )+50;
         $width = 100;
         $height = 50;
-        imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
+        imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
         
         putenv('GDFONTPATH=' . realPath('fonts'));
         $font = '/usr/share/fonts/TTF/DejaVuSans.ttf';
