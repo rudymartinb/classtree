@@ -38,7 +38,7 @@ class grid {
     }
 
     private $img;
-    private $color;
+    private $color = [];
     private $maxwidth;
     private $maxheight;
     
