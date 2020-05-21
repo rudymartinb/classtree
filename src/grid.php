@@ -22,6 +22,7 @@ class grid {
     }
 
     function max_x() : int{
+
         return count( $this->matrix );
     }
 

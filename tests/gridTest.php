@@ -45,6 +45,10 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(2, $grid->get_pos_x("father"));
         $this->assertEquals(1, $grid->get_pos_y("father"));
         
+        $this->assertEquals(2, $grid->max_x() );
+        $this->assertEquals(1, $grid->max_y() );
+        
+        
     }
 
     function test_1_extends_1(){
