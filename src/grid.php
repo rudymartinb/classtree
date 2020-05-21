@@ -27,6 +27,12 @@ class grid {
             echo "GD not even installed.";
             return;
         }
+//         $maxx = count( $this->matrix );
+//         foreach( $this->matrix as $row ){
+//             $count = count( $row );
+            
+//         }
+//         $maxy = count( $this->matrix[] );
         
         $img = imagecreatetruecolor(300, 200);
         $white = imagecolorallocate($img, 255,   255,  255);
