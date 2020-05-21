@@ -152,17 +152,17 @@ class grid {
             $alpha1 = $this->to_radians( $this->to_degrees($theta_radians)+15 );
             $alpha2 = $this->to_radians( $this->to_degrees($theta_radians)-15 );
             
-            $xx1 = $x2 + (10 * cos($alpha1));
-            $yy1 = $y2 - (10 * sin($alpha1));
-            $xx2 = $x2 + (10 * cos($alpha2));
-            $yy2 = $y2 - (10 * sin($alpha2));
+            $xx1 = $x1 + (10 * cos($alpha1));
+            $yy1 = $y1 + (10 * sin($alpha1));
+            $xx2 = $x1 + (10 * cos($alpha2));
+            $yy2 = $y1 + (10 * sin($alpha2));
             
             imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
             $points = array( $x2, $y2 , $xx1, $yy1 , $xx2, $yy2 );
             
-            
-            imagepolygon($this->img, $points, 3, $this->color["black"]);
             imagefilledpolygon($this->img, $points, 3, $this->color["while"]);
+            imagepolygon($this->img, $points, 3, $this->color["black"]);
+            
             
 //             imagepolygon($this->img, $points, 3, $this->color["black"]);
 //             imageline ( $this->img , $x2 , $y2 , $xx1 , $yy1 , $this->color["black"] );
