@@ -56,6 +56,7 @@ class grid {
         $img = imagecreatetruecolor( $maxwidth, $maxheight);
         $white = imagecolorallocate($img, 255,   255,  255);
         $black = imagecolorallocate($img, 0,   0,  0);
+        imagerectangle($img, 0,0,299,299, $black);
         imagefilledrectangle($img, 0,0,299,299, $white);
         
         $gray   = imagecolorallocate($img, 224,   224,  224);
