@@ -167,6 +167,10 @@ class grid {
     function to_degrees( float $radians ) : float {
         return $radians * 180 / pi();
     }
+    function to_radias( float $degrees ) : float {
+        return $degrees / 180 * pi();
+    }
+    
     
     /* this was copy/pasted from php.net
      */
