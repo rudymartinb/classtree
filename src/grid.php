@@ -36,31 +36,28 @@ class grid {
         }
         return $max_y;
     }
-    
+
+    private $img;
+    private $maxwidth;
+    private $maxheight;
     function draw(){
         $testGD = get_extension_funcs("gd"); // Grab function list
         if (!$testGD){
             echo "GD not even installed.";
             return;
         }
-//         $maxx = count( $this->matrix );
-//         foreach( $this->matrix as $row ){
-//             $count = count( $row );
-            
-//         }
-//         $maxy = count( $this->matrix[] );
         
-        $maxwidth = $this->max_x() * 200;
-        $maxheight = $this->max_y() * 200;
+        $this->maxwidth = $this->max_x() * 200;
+        $this->maxheight = $this->max_y() * 200;
         
-        $img = imagecreatetruecolor( $maxwidth, $maxheight);
-        $white = imagecolorallocate($img, 255,   255,  255);
-        $black = imagecolorallocate($img, 0,   0,  0);
+        $this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
+        $white = imagecolorallocate($this->img, 255,   255,  255);
+        $black = imagecolorallocate($this->img, 0,   0,  0);
         
-        imagefilledrectangle($img, 0,0,$maxwidth-1, $maxheight-1, $white);
-        imagerectangle($img, 0,0,$maxwidth-1, $maxheight-1, $black);
+        imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $white);
+        imagerectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $black);
         
-        $gray   = imagecolorallocate($img, 224,   224,  224);
+        $gray   = imagecolorallocate($this->img, 224,   224,  224);
 //         $this->draw_grid($img, 0,0,15,20,20,10,$gray);
         
         foreach ($this->classes as $name => $class ){
@@ -74,19 +71,16 @@ class grid {
             $y = ( ( $class["y"] -1 ) *100 )+50;
             $width = 100;
             $height = 50;
-            imagerectangle($img, $x, $y, $x+$width, $y+$height, $gray);
+            imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $gray);
             
             putenv('GDFONTPATH=' . realPath('fonts'));
-            $text = 'Testing...';
             $font = '/usr/share/fonts/TTF/DejaVuSans.ttf';
-            
-            \imagettftext($img, 10,0.0, $x+5, $y+15, $black, $font, $name);
+            \imagettftext($this->img, 10,0.0, $x+5, $y+15, $black, $font, $name);
         }
         
+        \imagepng($this->img,"/var/www/htdocs/salida.png");
         
-        \imagepng($img,"/var/www/htdocs/salida.png");
-        imagedestroy($img);
-        
+        imagedestroy($this->img);
     }
     function draw_grid(&$img, $x0, $y0, $width, $height, $cols, $rows, $color) {
         //draw outer border
