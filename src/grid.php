@@ -118,7 +118,8 @@ class grid {
         putenv('GDFONTPATH=' . realPath('fonts'));
         $font = './fonts/courier.ttf';
         $font = realpath($font) ;
-        \imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $name);
+        $text = $name ." ". $class["x"]." ".$class["y"];
+        \imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $text);
     }
     private function calc_real_x( int $x ) : int {
         return ( ( $x -1 ) *150 )+50;
