@@ -149,13 +149,13 @@ class grid {
             $delta_y = $y1 - $y1;
             $theta_radians = atan2( $delta_y, $delta_x);
 
-            $alpha1 = $this->to_degrees($theta_radians)+5;
-            $alpha2 = $this->to_degrees($theta_radians)-5;
+            $alpha1 = $this->to_radias( $this->to_degrees($theta_radians)+5 );
+            $alpha2 = $this->to_radias( $this->to_degrees($theta_radians)-5 );
             
-            $xx1 = $x2 + $this->to_radias( (10 * cos($alpha1)));
-            $yy1 = $y2 + $this->to_radias( (10 * sin($alpha1)));
-            $xx2 = $x2 + $this->to_radias( (10 * cos($alpha2)));
-            $yy2 = $y2 - $this->to_radias( (10 * sin($alpha2)));
+            $xx1 = $x2 + (10 * cos($alpha1));
+            $yy1 = $y2 + (10 * sin($alpha1));
+            $xx2 = $x2 + (10 * cos($alpha2));
+            $yy2 = $y2 - (10 * sin($alpha2));
             
             imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
             
