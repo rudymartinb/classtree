@@ -149,8 +149,8 @@ class grid {
             $delta_y = $y1 - $y1;
             $theta_radians = atan2( $delta_y, $delta_x);
 
-            $alpha1 = $this->to_radias( $this->to_degrees($theta_radians)+5 );
-            $alpha2 = $this->to_radias( $this->to_degrees($theta_radians)-5 );
+            $alpha1 = $this->to_radians( $this->to_degrees($theta_radians)+5 );
+            $alpha2 = $this->to_radians( $this->to_degrees($theta_radians)-5 );
             
             $xx1 = $x2 + (10 * cos($alpha1));
             $yy1 = $y2 + (10 * sin($alpha1));
@@ -167,7 +167,7 @@ class grid {
     function to_degrees( float $radians ) : float {
         return $radians * 180 / pi();
     }
-    function to_radias( float $degrees ) : float {
+    function to_radians( float $degrees ) : float {
         return $degrees / 180 * pi();
     }
     
