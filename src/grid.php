@@ -72,7 +72,7 @@ class grid {
             
             putenv('GDFONTPATH=' . realPath('fonts'));
             $text = 'Testing...';
-            $font = '/usr/share/fonts/TTF/Vemana.ttf';
+            $font = '/usr/share/fonts/TTF/DejaVuSans.ttf';
             
             // Add some shadow to the text
             \imagettftext($img, 10,0.0, $x+5, $y+5, $black, $font, $text);
