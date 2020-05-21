@@ -57,8 +57,8 @@ class grid {
         $white = imagecolorallocate($img, 255,   255,  255);
         $black = imagecolorallocate($img, 0,   0,  0);
         
-        imagefilledrectangle($img, 0,0,$maxwidth, $maxheight, $white);
-        imagerectangle($img, 0,0,$maxwidth, $maxheight, $black);
+        imagefilledrectangle($img, 0,0,$maxwidth-1, $maxheight-1, $white);
+        imagerectangle($img, 0,0,$maxwidth-1, $maxheight-1, $black);
         
         $gray   = imagecolorallocate($img, 224,   224,  224);
 //         $this->draw_grid($img, 0,0,15,20,20,10,$gray);
