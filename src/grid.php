@@ -53,6 +53,7 @@ class grid {
         $this->maxheight = $this->max_y() * 200;
         
         $this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
+        imageantialias ( $this->img, true );
         
         /* background color
          */
