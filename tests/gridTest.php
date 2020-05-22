@@ -371,10 +371,11 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $grid->add_element( $child4 );
         
         $grid->distribute();
+        $grid->center_parents();
         
         $this->assertEquals(5, $grid->get_num_classes());
         $this->assertEquals( true, $grid->is_placed("parent"));
-        $this->assertEquals(1, $grid->get_pos_x("parent"));
+        $this->assertEquals(2, $grid->get_pos_x("parent"));
         $this->assertEquals(1, $grid->get_pos_y("parent"));
         
         $this->assertEquals( true, $grid->is_placed("child1"));
