@@ -51,7 +51,6 @@ class class_ {
     }
 
     private $implements = [];
-
     function get_implements(){
         return $this->implements;
     }
