@@ -33,7 +33,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         $this->addTestSuite('treeTest');
         
-//         $this->addTestSuite('gridTest');
+        $this->addTestSuite('gridTest');
 
         
 //         $this->addTestSuite('AppTest');
