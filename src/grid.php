@@ -289,11 +289,14 @@ class grid {
                     $firstx++;
                 }
 
-                $offset = floor( $this->get_num_children($name) / 2 );
-                $firstx += ( $offset  ); //
-//                 if( floor( $this->get_num_children($name) % 2 ) == 1 ){
-//                     $firstx --;
-//                 }
+                $num_children = $this->get_num_children($name);
+                if( $num_children > 2 ){
+                    $offset = floor( $num_children / 2 );
+                    $firstx += ( $offset  ); //
+                    if( floor( $this->get_num_children($name) % 2 ) == 0 ){
+                        $firstx --;
+                    }
+                }
                 
             }
             
