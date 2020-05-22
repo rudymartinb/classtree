@@ -372,11 +372,9 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         for( $i=1; $i <= 3; $i++){
             $class = new class_("xparent".$i);
-            $classes[] = $class ;
             for( $j=1; $j <= 3; $j++){
                 $class = new class_("xson".$i."_".$j);
                 $class->set_extends("xparent".$i);
-                $classes[] = $class ;
                 $grid->add_element( $class );
             }
 
