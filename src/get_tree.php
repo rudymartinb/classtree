@@ -17,6 +17,13 @@ function is_child_of( class_ $class, string $parent ) : bool {
         }
         continue;
     }
+    foreach( $class->get_interface_extends() as $thisparent ){
+        if( $thisparent == $parent ){
+            return true;
+        }
+        continue;
+    }
+    
     return false;
 }
 function get_tree( Array $classes, string $parent = "" ){

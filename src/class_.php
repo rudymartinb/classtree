@@ -50,7 +50,7 @@ class class_ {
         $this->extends[] = $nombre;
     }
 
-    private $interface_extends;
+    private $interface_extends = [];
     function get_interface_extends() : Array {
         return $this->interface_extends;
     }
