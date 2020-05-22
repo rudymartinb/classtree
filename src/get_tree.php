@@ -9,6 +9,9 @@ use src\class_;
  * 
  *  
  */
+class Tree {
+    
+}
 
 function is_child_of( class_ $class, string $parent ) : bool {
     foreach( $class->get_extends() as $thisparent ){
