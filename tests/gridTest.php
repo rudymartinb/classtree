@@ -193,7 +193,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $grid->distribute();
         $grid->center_parents();
         
-        $grid->draw();
+//         $grid->draw();
 //                 var_dump($grid->get_classes());
         
         $this->assertEquals(4, $grid->get_num_classes());
@@ -344,7 +344,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(2, $grid->get_pos_x("child4"));
         $this->assertEquals(3, $grid->get_pos_y("child4"));
         
-        $grid->draw();
+//         $grid->draw();
         
 //         $grid->draw();
         
@@ -386,10 +386,38 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(2, $grid->get_pos_x("child2"));
         $this->assertEquals(2, $grid->get_pos_y("child2"));
                 
-        $grid->draw();
+//         $grid->draw();
         
     }
     
+//     function test100() {
+//         $grid = new grid();
+        
+        
+//         $classes = [];
+//         for( $i=1; $i <= 10; $i++){
+//             $class = new class_("parent".$i);
+//             $classes[] = $class ;
+//             for( $j=1; $j <= 10; $j++){
+//                 $class = new class_("son".$i."_".$j);
+//                 $class->set_extends("parent".$i);
+//                 $classes[] = $class ;
+//                 $grid->add_element( $class );
+//             }
+            
+//         }
+        
+//         $grid->distribute();
+//         $grid->center_parents();
+//         var_dump( $grid );
+// //         var_dump( $grid->max_y() );
+        
+//         $grid->draw();
+        
+        
+//         $this->assertEquals(100, $grid->get_num_classes());
+        
+//     }
     
     
 }

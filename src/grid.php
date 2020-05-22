@@ -42,6 +42,7 @@ class grid {
     private $maxwidth;
     private $maxheight;
     
+    
     function draw(){
         $testGD = get_extension_funcs("gd"); // Grab function list
         if (!$testGD){
