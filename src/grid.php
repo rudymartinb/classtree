@@ -238,6 +238,10 @@ class grid {
         }
     }
     
+    /* this variable's values
+     * is used only as a reference from where it should start rendering the image
+     * but the real final location might be moved 
+     */
     private $matrix = [];
     
     function distribute( string $parent = "" ){
@@ -310,9 +314,9 @@ class grid {
          * TODO: how do we update matrix keys?
          */
         foreach( $this->classes as $name => $class ){
-            if( $class["class"]->get_extends() != [] ){
-                continue;
-            }
+//             if( $class["class"]->get_extends() != [] ){
+//                 continue;
+//             }
             
             $count = $this->get_num_children($name);
             if( $count < 3 ){
