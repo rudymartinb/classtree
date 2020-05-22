@@ -22,6 +22,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes = [ $class ];
         $tree = new Tree( $classes );
         $tree->process();
+        
         $this->assertEquals( 1, $tree->count() );
 
     }
@@ -42,19 +43,20 @@ class treeTest extends PHPUnit\Framework\TestCase {
     }
     
     
-//     function test_tree_2_orphans(){
-//         $classes = [];
-//         $class = new class_("orphan");
-//         $classes[] = $class ;
-//         $class2 = new class_("orphan2");
-//         $classes[] = $class2;
+    function test_tree_2_orphans(){
+        $classes = [];
+        $class = new class_("orphan");
+        $classes[] = $class ;
+        $class2 = new class_("orphan2");
+        $classes[] = $class2;
         
-//         $actual = get_tree( $classes );
-//         $this->assertEquals( 2, count( $actual ) );
+        $tree = new Tree( $classes );
         
-// //         $this->assertEquals( 2, count( $actual[0] ) );
-// //         $this->assertEquals( 2, count( $actual[1] ) );
-//     }
+        $tree->process();
+        
+        $this->assertEquals( 2, $tree->count() );
+        
+    }
 
 //     function test_parent_child(){
 //         $classes = [];
