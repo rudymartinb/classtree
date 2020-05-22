@@ -83,3 +83,16 @@ so, the grid should have two types of items:
 2) arrows (dependencies/implementations)
 
 
+20200522
+to the last comment I must add:
+1) once the trees are created, its important to calculate the width and height of each of them
+the sum of all of them will give me the size of the diagram needed.
+
+I'm also considering creating separated images for each tree and just one for orphan elements.
+
+2) the problem with overlapping nodes and moving nodes around as needed. seems important to evaluate the width of each node (I think I already did that). By doing that I could reserve space among elements.
+
+Another element to keep in mind, horizal space needed by a node.
+
+So, if I have a tree o
+

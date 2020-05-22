@@ -386,7 +386,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(2, $grid->get_pos_x("child2"));
         $this->assertEquals(2, $grid->get_pos_y("child2"));
                 
-//         $grid->draw();
+        $grid->draw();
         
     }
     
