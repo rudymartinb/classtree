@@ -11,21 +11,22 @@ use src\class_;
  */
 
 function is_child_of( class_ $class, string $parent ) : bool {
-    
+    $found = false;
+    foreach( $class->get_extends() as $thisparent ){
+        if( $thisparent == $parent ){
+            $found = true;
+            break;
+        }
+        continue;
+    }
+    return $found;
 }
 function get_tree( Array $classes, string $parent = "" ){
     $tree = [];
     foreach( $classes as $class ){
         if( $parent !== "" ){
             $class = force_class($class);
-            $found = false;
-            foreach( $class->get_extends() as $thisparent ){
-                if( $thisparent == $parent ){
-                    $found = true;
-                    break;
-                }
-                continue;
-            }
+            
 //             foreach( $class->get_extends() as $thisparent ){
 //                 if( $thisparent == $parent ){
 //                     $found = true;
@@ -34,7 +35,7 @@ function get_tree( Array $classes, string $parent = "" ){
 //                 continue;
 //             }
             
-            if( ! $found ){
+            if( ! is_child_of($class, $parent) ){
                 continue;
             }
         } else {
