@@ -58,22 +58,21 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
     }
 
-//     function test_parent_child(){
-//         $classes = [];
-//         $class = new class_("parent");
-//         $classes[] = $class ;
-//         $class2 = new class_("child");
-//         $class2->set_extends("parent");
-//         $classes[] = $class2;
+    function test_parent_child(){
+        $classes = [];
+        $class = new class_("parent");
+        $classes[] = $class ;
+        $class2 = new class_("child");
+        $class2->set_extends("parent");
+        $classes[] = $class2;
         
-//         $actual = get_tree( $classes );
+        $tree = new Tree( $classes );
         
-// //         var_dump($actual);
+        $tree->process();
         
-//         // theres only one tree in the first element
-//         $this->assertEquals( 1, count( $actual ) );
-//         $this->assertEquals( 1, count( $actual[0]["childrens"] ) );
-//     }
+        // only one parent at top of the tree
+        $this->assertEquals( 1, $tree->count() );
+    }
 
 //     function test_tree_parent_2children(){
 //         $classes = [];
