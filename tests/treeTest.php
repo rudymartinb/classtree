@@ -312,7 +312,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         }
 
         $tree = get_tree( $classes );
-        var_dump( $tree );
+//         var_dump( $tree );
         $actual = get_max_width( $tree );
         
         $this->assertEquals( 27, $actual );
