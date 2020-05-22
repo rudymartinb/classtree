@@ -159,31 +159,35 @@ class grid {
     }
     
     private function white_arrow( int $x1, int $y1, int $x2, int $y2 ) {
-        /*
-         *
+        /* calculate angle of the line
          */
         $delta_x = $x2 - $x1;
         $delta_y = $y2 - $y1;
         $theta_radians = atan2( $delta_y, $delta_x);
-        
+
+        /* create two new angles for the arrow head
+         */
         $alpha1 = $theta_radians + 0.261799;
         $alpha2 = $theta_radians - 0.261799;
-        //             $alpha1 = $this->to_radians( $this->to_degrees($theta_radians)+15 );
-        //             $alpha2 = $this->to_radians( $this->to_degrees($theta_radians)-15 );
+
+        /* calculate new points for the arrow head
+         */
+        $distance = 15;
+        $xx1 = $x1 + ( $distance * cos($alpha1) );
+        $yy1 = $y1 + ( $distance * sin($alpha1) );
+        $xx2 = $x1 + ( $distance * cos($alpha2) );
+        $yy2 = $y1 + ( $distance * sin($alpha2) );
         
-        
-        $xx1 = $x1 + (15 * cos($alpha1));
-        $yy1 = $y1 + (15 * sin($alpha1));
-        $xx2 = $x1 + (15 * cos($alpha2));
-        $yy2 = $y1 + (15 * sin($alpha2));
-        
+        // draw the line
         imageline ( $this->img , $x1 , $y1+1 , $x2 , $y2 , $this->color["black"] );
         $points = array( $x1, $y1+1 , $xx1, $yy1 , $xx2, $yy2 );
         
+        // draw the head, first filled, then border
         imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
         imagepolygon($this->img, $points, 3, $this->color["black"]);
-        
     }
+    
+    
     function to_degrees( float $radians ) : float {
         return $radians * 180 / pi();
     }
