@@ -419,7 +419,8 @@ class treeTest extends PHPUnit\Framework\TestCase {
     }
 
     /*
-     * 3 interfaces
+     * 1 interface at the top
+     * 2 interfaces extending the first
      * 1 class at the bottom
      *
      * drawing should look like a diamond
