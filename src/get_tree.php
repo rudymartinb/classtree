@@ -50,11 +50,12 @@ function get_tree( Array $classes, string $parent = "" ){
          */
         $childrens = get_tree( $classes, $class->get_name() );
         $name = $class->get_name();
+        $extends = $class->get_extends();
         $implements = $class->get_implements();
         $abstract = $class->get_abstract();
         $final = $class->get_final();
         $namespace = $class->get_namespace();
-        $newtree = [ "name" => $name, "childrens" => $childrens, "width" => 1, "implements" => $implements, "abstract" => $abstract, "final" => $final, "namespace" => $namespace ];
+        $newtree = [ "name" => $name, "extends" => $extends , "childrens" => $childrens, "width" => 1, "implements" => $implements, "abstract" => $abstract, "final" => $final, "namespace" => $namespace ];
         
         /* calculate tree width
          */
