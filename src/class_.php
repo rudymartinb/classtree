@@ -46,8 +46,8 @@ class class_ {
     function get_extends() : Array {
         return $this->extends;
     }
-    function set_extends( string $nombre ){
-        $this->extends[] = $nombre;
+    function set_extends( string $parent ){
+        $this->extends[] = $parent;
     }
 
     private $interface_extends = [];
