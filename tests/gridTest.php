@@ -388,7 +388,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         
         
-        //         $grid->draw();
+                $grid->draw();
         
     }
     
