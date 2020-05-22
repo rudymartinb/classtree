@@ -1,11 +1,18 @@
 <?php
 
 use function src\force_class;
+use src\class_;
 
 /* from the array of classes
  * generate a new array of trees containing the class hierachy for each parent class
- * also it will calculate the "width" of each tree 
+ * also it will calculate the "width" of each tree
+ * 
+ *  
  */
+
+function is_child_of( class_ $class, string $parent ) : bool {
+    
+}
 function get_tree( Array $classes, string $parent = "" ){
     $tree = [];
     foreach( $classes as $class ){
@@ -19,6 +26,14 @@ function get_tree( Array $classes, string $parent = "" ){
                 }
                 continue;
             }
+//             foreach( $class->get_extends() as $thisparent ){
+//                 if( $thisparent == $parent ){
+//                     $found = true;
+//                     break;
+//                 }
+//                 continue;
+//             }
+            
             if( ! $found ){
                 continue;
             }

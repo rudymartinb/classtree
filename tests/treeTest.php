@@ -345,12 +345,22 @@ class treeTest extends PHPUnit\Framework\TestCase {
     
     
         // TODO: to be done !
-    function test_class_interface_extends_2() {
-        $class = new class_("myinterface");
-        $class = new class_("myclass");
-        $class->set_interface_extends("myinterface");
-        $this->assertEquals( ["myinterface"], $class->get_interface_extends() );
-    }
+//     function test_class_interface_extends_2() {
+//         $classes = [];
+//         $class = new class_("myinterface");
+//         $classes[] = $class; 
+//         $class = new class_("myclass");
+//         $classes[] = $class;
+//         $class->set_interface_extends("myinterface");
+        
+//         $this->assertEquals( ["myinterface"], $class->get_interface_extends() );
+//         $tree = get_tree( $classes );
+//         $actual = get_max_width( $tree );
+        
+//         $this->assertEquals( 1, $actual );
+        
+        
+//     }
     
     
     //     // this test could fail if the file is modified
