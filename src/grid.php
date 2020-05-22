@@ -197,13 +197,12 @@ class grid {
         imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
         imagepolygon($this->img, $points, 3, $this->color["black"]);
     }
+    
     private function calculate_point( int $x1, int $y1, int $x2, int $y2, int $distance, float $radians ) : Array {
-
         $point = [];
         $point["x"] = $x1 + ( $distance * cos($radians) );
         $point["y"] = $y1 + ( $distance * sin($radians) );
         return $point; 
-        
     }
     
     
