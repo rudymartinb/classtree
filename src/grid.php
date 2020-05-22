@@ -306,19 +306,22 @@ class grid {
         /* now lets center classes with more than 2 children
          * TODO: how do we update matrix keys?
          */
-        foreach( $this->classes as $name => $class ){
-            if( $class["class"]->get_extends() != [] ){
-                continue;
-            }
-            
-            $count = $this->get_num_children($name);
-            if( $count < 3 ){
-                continue;
-            }
-            $this->classes[ $name ]["x"] += $this->offset( $count );
-        }
+//         foreach( $this->classes as $name => $class ){
+//             if( $class["class"]->get_extends() != [] ){
+//                 continue;
+//             }
+
+//             var_dump($class );
+//             $count = count( $class["children"]);
+//             if( $count < 3 ){
+//                 continue;
+//             }
+//             $this->classes[ $name ]["x"] += $this->offset( $count );
+//         }
         
     }
+    
+    
     /*
      * 0 = 0
      * 1 = 0
