@@ -147,12 +147,15 @@ class grid {
             $x2 = $this->calc_real_x( $child["x"] ) + 50 ;
             $y2 = $this->calc_real_y( $child["y"] );
             
+            /*
+             */
             $delta_x = $x2 - $x1;
             $delta_y = $y2 - $y1;
             $theta_radians = atan2( $delta_y, $delta_x);
 
-            $alpha1 = $this->to_radians( $this->to_degrees($theta_radians)+15 );
-            $alpha2 = $this->to_radians( $this->to_degrees($theta_radians)-15 );
+            $alpha1 = $theta_radians + 0.261799;
+            $alpha2 = $theta_radians + 0.261799;
+            
             
             $xx1 = $x1 + (10 * cos($alpha1));
             $yy1 = $y1 + (10 * sin($alpha1));
