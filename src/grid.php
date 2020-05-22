@@ -170,6 +170,11 @@ class grid {
         $alpha1 = $theta_radians + 0.261799;
         $alpha2 = $theta_radians - 0.261799;
 
+        $distance = 10;
+        $point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha1 );
+        $x1 = $point1["x"];
+        $y1 = $point1["y"];
+        
         /* calculate new points for the arrow head
          */
         $distance = 15;
@@ -180,6 +185,8 @@ class grid {
         $point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha2 );
         $xx2 = $point1["x"];
         $yy2 = $point1["y"];
+        
+        
         
         
         // draw the line
