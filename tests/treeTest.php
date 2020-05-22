@@ -383,6 +383,13 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 2, $actual );
     }
 
+    /*
+     * 2 interfaces
+     * 1 parent
+     * 1 child
+     * 
+     * drawing should look like a "Y"
+     */
     function test_class_extended_extends_2_interfaces() {
         $classes = [];
         $class = new class_("myinterface");
@@ -405,7 +412,43 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertTrue( is_child_of($class, "myclass") );
         
         $tree = get_tree( $classes );
-        var_dump($tree);
+//         var_dump($tree);
+        $actual = get_max_width( $tree );
+        
+        $this->assertEquals( 2, $actual );
+    }
+
+    /*
+     * 3 interfaces
+     * 1 parent
+     *
+     * drawing should look like a diamond
+     */
+    function test_3interfaces_1class_diamond() {
+        $classes = [];
+        $class = new class_("myinterface0");
+        $classes[] = $class;
+        
+        $class = new class_("myinterface1");
+        $classes[] = $class;
+        $class->set_interface_extends("myinterface0");
+
+        $class = new class_("myinterface2");
+        $classes[] = $class;
+        $class->set_interface_extends("myinterface0");
+        
+        $class = new class_("myclass");
+        $classes[] = $class;
+        
+        $class->set_interface_extends(" myinterface1 , myinterface2 ");
+        
+        // white spaces added on purpose
+        
+        
+        $this->assertTrue( is_child_of($class, "myinterface1") );
+        
+        $tree = get_tree( $classes );
+//         var_dump($tree);
         $actual = get_max_width( $tree );
         
         $this->assertEquals( 2, $actual );
