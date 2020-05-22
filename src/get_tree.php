@@ -26,6 +26,10 @@ function is_child_of( class_ $class, string $parent ) : bool {
     
     return false;
 }
+function is_child( class_ $class ) : bool {
+    return count( $class->get_extends() ) != 0 or count( $class->get_interface_extends() ) != 0;
+}
+
 function get_tree( Array $classes, string $parent = "" ){
     $tree = [];
     foreach( $classes as $class ){
@@ -37,7 +41,7 @@ function get_tree( Array $classes, string $parent = "" ){
             }
         } else {
             // this is necessary to avoid adding subclases as if they were parent clases
-            if( count( $class->get_extends() ) != 0 or count( $class->get_interface_extends() ) != 0 ){
+            if( is_child($class) ){
                 continue;
             }
         }
