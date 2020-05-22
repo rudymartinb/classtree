@@ -350,7 +350,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes[] = $class; 
         $class = new class_("myclass");
         $classes[] = $class;
-        $class->set_interface_extends("myinterface");
+        $class->set_implements("myinterface");
         
         $this->assertTrue( is_child_of($class, "myinterface") );
 
@@ -371,7 +371,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes[] = $class;
         
         // white spaces added on purpose
-        $class->set_interface_extends(" myinterface , myinterface2 ");
+        $class->set_implements(" myinterface , myinterface2 ");
         
         $this->assertTrue( is_child_of($class, "myinterface") );
         $this->assertTrue( is_child_of($class, "myinterface2") );
@@ -400,7 +400,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class = new class_("myclass");
         $classes[] = $class;
 
-        $class->set_interface_extends(" myinterface , myinterface2 ");
+        $class->set_implements(" myinterface , myinterface2 ");
         
         $class = new class_("myextendedclass");
         $class->set_extends("myclass");
@@ -432,16 +432,16 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $class = new class_("myinterface1");
         $classes[] = $class;
-        $class->set_interface_extends("myinterface0");
+        $class->set_implements("myinterface0");
 
         $class = new class_("myinterface2");
         $classes[] = $class;
-        $class->set_interface_extends("myinterface0");
+        $class->set_implements("myinterface0");
         
         $class = new class_("myclass");
         $classes[] = $class;
         
-        $class->set_interface_extends(" myinterface1 , myinterface2 ");
+        $class->set_implements(" myinterface1 , myinterface2 ");
         
         // white spaces added on purpose
         

@@ -37,8 +37,8 @@ class claseTest extends PHPUnit\Framework\TestCase {
      */
     function test_class_interface_extends_null() {
         $class = new class_("myinterface");
-        $class->set_interface_extends("");
-        $this->assertEquals( [""], $class->get_interface_extends() );
+        $class->set_implements("");
+        $this->assertEquals( [""], $class->get_implements() );
     }
 
     function test_class_extends_2() {
@@ -54,8 +54,8 @@ class claseTest extends PHPUnit\Framework\TestCase {
     
     function test_class_interface_extends_2() {
         $class = new class_("myinterface");
-        $class->set_interface_extends("iface1,iface2");
-        $this->assertEquals( ["iface1","iface2"], $class->get_interface_extends() );
+        $class->set_implements("iface1,iface2");
+        $this->assertEquals( ["iface1","iface2"], $class->get_implements() );
     }
     
     

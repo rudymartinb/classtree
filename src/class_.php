@@ -50,27 +50,23 @@ class class_ {
         $this->extends[] = $parent;
     }
 
-    private $interface_extends = [];
-    function get_interface_extends() : Array {
-        return $this->interface_extends;
-    }
-    function set_interface_extends( string $extends ){
-        $array = explode( "," , $extends );
-        foreach( $array as $key => $extend ){
-            $array[ $key ] = trim( $extend );
-        }
-        $this->interface_extends = $array;
-    }
-    
-    
     private $implements = [];
-    function set_implements( string $nombre ){
-        $this->resolved = false;
-        $this->implements[] = $nombre;
+    function get_interface_extends(){
+        
     }
     function get_implements(){
         return $this->implements;
     }
+    function set_implements( string $extends ){
+        $array = explode( "," , $extends );
+        foreach( $array as $key => $extend ){
+            $array[ $key ] = trim( $extend );
+        }
+        $this->implements = $array;
+    }
+    
+    
+
     
     private $namespace = "";
     function set_namespace( string $nombre ){
