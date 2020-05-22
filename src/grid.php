@@ -53,7 +53,7 @@ class grid {
         $this->maxheight = $this->max_y() * 200;
         
         $this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
-        imageantialias ( $this->img, false );
+        imageantialias ( $this->img, true );
         
         /* background color
          */
@@ -159,8 +159,8 @@ class grid {
             $xx2 = $x1 + (10 * cos($alpha2));
             $yy2 = $y1 + (10 * sin($alpha2));
             
-            imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
-            $points = array( $x1, $y1 , $xx1, $yy1 , $xx2, $yy2 );
+            imageline ( $this->img , $x1 , $y1+1 , $x2 , $y2 , $this->color["black"] );
+            $points = array( $x1, $y1+1 , $xx1, $yy1 , $xx2, $yy2 );
             
             imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
             imagepolygon($this->img, $points, 3, $this->color["black"]);
