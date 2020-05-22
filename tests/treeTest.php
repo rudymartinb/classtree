@@ -4,13 +4,16 @@ use src\class_;
 use function src\force_class;
 use function files\get_source;
 use function files\get_clases;
+use src\Tree;
 
 
 class treeTest extends PHPUnit\Framework\TestCase {
     function test_tree_empty(){
         $classes = [];
-        $actual = get_tree( $classes );
-        $this->assertEquals( 0, count( $actual ) );
+        $tree = new Tree( $classes );
+        
+//         $actual = get_tree( $classes );
+        $this->assertEquals( 0, $tree->count() );
     }
 
 //     function test_tree_1(){

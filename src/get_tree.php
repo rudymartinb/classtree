@@ -1,4 +1,5 @@
 <?php
+namespace src; 
 
 use function src\force_class;
 use src\class_;
@@ -10,6 +11,13 @@ use src\class_;
  *  
  */
 class Tree {
+    private $classes;
+    function __construct( Array $classes ){
+        $this->classes = $classes;
+    }
+    function count() : int {
+        return count( $this->classes );
+    }
     
 }
 
