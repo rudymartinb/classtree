@@ -15,8 +15,6 @@ modfifying class_ to be used also with interfaces
 creating virtual grid
 fixing classes to allow multiple parents
 creating virtual grid
-
+refactoring get_tree() function to allow multiple interface implementations as parents
  TODO: replacing grid() class's methods to use the data provided by get_tree() instead of the clases
 converting get_tree() into a class
-
-refactoring get_tree() function to allow multiple interface implementations as parents 
