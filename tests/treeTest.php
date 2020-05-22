@@ -290,6 +290,8 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $this->assertEquals( 6, $actual );
     }
+    
+    
     function test_3x3x3() {
         $classes = [];
         for( $i=1; $i <= 3; $i++){
@@ -310,7 +312,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         }
 
         $tree = get_tree( $classes );
-        //         var_dump( $tree );
+        var_dump( $tree );
         $actual = get_max_width( $tree );
         
         $this->assertEquals( 27, $actual );
