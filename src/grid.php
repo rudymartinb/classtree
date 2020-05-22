@@ -170,7 +170,7 @@ class grid {
         $alpha1 = $theta_radians + 0.261799;
         $alpha2 = $theta_radians - 0.261799;
 
-        $distance = 5;
+        $distance = 3;
         $point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha1 );
         $x1 = $point1["x"];
         $y1 = $point1["y"];
