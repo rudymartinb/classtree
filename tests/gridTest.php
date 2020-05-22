@@ -372,6 +372,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         for( $i=1; $i <= 3; $i++){
             $class = new class_("xparent".$i);
+            $grid->add_element( $class );
             for( $j=1; $j <= 3; $j++){
                 $class = new class_("xson".$i."_".$j);
                 $class->set_extends("xparent".$i);
@@ -386,7 +387,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $grid->draw();
         
-        $this->assertEquals(14, $grid->get_num_classes());
+        $this->assertEquals(17, $grid->get_num_classes());
         $this->assertEquals( true, $grid->is_placed("parent"));
         $this->assertEquals(2, $grid->get_pos_x("parent"));
         $this->assertEquals(1, $grid->get_pos_y("parent"));
