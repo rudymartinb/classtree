@@ -24,8 +24,6 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $grid->distribute();
         
-        
-        
     }
 
     function test_2(){
@@ -39,6 +37,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $grid->distribute();
         
         $this->assertEquals(2, $grid->get_num_classes());
+        
         $this->assertEquals( true, $grid->is_placed("mother"));
         $this->assertEquals(1, $grid->get_pos_x("mother"));
         $this->assertEquals(1, $grid->get_pos_y("mother"));
@@ -59,10 +58,6 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 360, floor( $grid->to_degrees( 6.28319 ) ) );
     }
 
-//     function test_degrees_to_radians(){
-//         $grid = new grid();
-//         $this->assertEquals( 6.28319, ( $grid->to_radias(360) ) );
-//     }
     
     function test_1_extends_1(){
         $parent = new class_("parent");
@@ -82,252 +77,289 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( true, $grid->is_placed("child"));
         $this->assertEquals(1, $grid->get_pos_x("child"));
         $this->assertEquals(2, $grid->get_pos_y("child"));
-        
-        
-        
     }
     
 
-    function test_1parent2children(){
-        $parent = new class_("parent");
-        $child1 = new class_("child1");
-        $child2 = new class_("child2");
-        $child1->set_extends("parent");
-        $child2->set_extends("parent");
+//     function test_1parent2children(){
+//         $parent = new class_("parent");
+//         $child1 = new class_("child1");
+//         $child2 = new class_("child2");
+//         $child1->set_extends("parent");
+//         $child2->set_extends("parent");
         
-        $grid = new grid();
-        $grid->add_element( $parent );
-        $grid->add_element( $child1 );
-        $grid->add_element( $child2 );
+//         $grid = new grid();
+//         $grid->add_element( $parent );
+//         $grid->add_element( $child1 );
+//         $grid->add_element( $child2 );
         
-        $grid->distribute();
+//         $grid->distribute();
         
-        $this->assertEquals(3, $grid->get_num_classes());
-        $this->assertEquals( true, $grid->is_placed("parent"));
-        $this->assertEquals(1, $grid->get_pos_x("parent"));
-        $this->assertEquals(1, $grid->get_pos_y("parent"));
+//         $this->assertEquals(3, $grid->get_num_classes());
+//         $this->assertEquals( true, $grid->is_placed("parent"));
+//         $this->assertEquals(1, $grid->get_pos_x("parent"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent"));
         
-        $this->assertEquals( true, $grid->is_placed("child1"));
-        $this->assertEquals(1, $grid->get_pos_x("child1"));
-        $this->assertEquals(2, $grid->get_pos_y("child1"));
+//         $this->assertEquals( true, $grid->is_placed("child1"));
+//         $this->assertEquals(1, $grid->get_pos_x("child1"));
+//         $this->assertEquals(2, $grid->get_pos_y("child1"));
         
-        $this->assertEquals( true, $grid->is_placed("child2"));
-        $this->assertEquals(2, $grid->get_pos_x("child2"));
-        $this->assertEquals(2, $grid->get_pos_y("child2"));
+//         $this->assertEquals( true, $grid->is_placed("child2"));
+//         $this->assertEquals(2, $grid->get_pos_x("child2"));
+//         $this->assertEquals(2, $grid->get_pos_y("child2"));
         
-        $grid->draw();
-    }
+//         $grid->draw();
+//     }
 
-    function test_1parent2children1orphan(){
-        $parent = new class_("parent");
-        $child1 = new class_("child1");
-        $child2 = new class_("child2");
-        $child1->set_extends("parent");
-        $child2->set_extends("parent");
+//     function test_1parent2children1orphan(){
+//         $parent = new class_("parent");
+//         $child1 = new class_("child1");
+//         $child2 = new class_("child2");
+//         $child1->set_extends("parent");
+//         $child2->set_extends("parent");
         
-        $parent2 = new class_("parent2");
+//         $parent2 = new class_("parent2");
         
-        $grid = new grid();
-        $grid->add_element( $parent );
-        $grid->add_element( $child1 );
-        $grid->add_element( $child2 );
-        $grid->add_element( $parent2 );
+//         $grid = new grid();
+//         $grid->add_element( $parent );
+//         $grid->add_element( $child1 );
+//         $grid->add_element( $child2 );
+//         $grid->add_element( $parent2 );
         
-        $grid->distribute();
+//         $grid->distribute();
 
-//         var_dump($grid->get_classes());
+// //         var_dump($grid->get_classes());
         
-        $this->assertEquals(4, $grid->get_num_classes());
-        $this->assertEquals( true, $grid->is_placed("parent"));
-        $this->assertEquals(1, $grid->get_pos_x("parent"));
-        $this->assertEquals(1, $grid->get_pos_y("parent"));
+//         $this->assertEquals(4, $grid->get_num_classes());
+//         $this->assertEquals( true, $grid->is_placed("parent"));
+//         $this->assertEquals(1, $grid->get_pos_x("parent"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent"));
         
-        $this->assertEquals( true, $grid->is_placed("child1"));
-        $this->assertEquals(1, $grid->get_pos_x("child1"));
-        $this->assertEquals(2, $grid->get_pos_y("child1"));
+//         $this->assertEquals( true, $grid->is_placed("child1"));
+//         $this->assertEquals(1, $grid->get_pos_x("child1"));
+//         $this->assertEquals(2, $grid->get_pos_y("child1"));
         
-        $this->assertEquals( true, $grid->is_placed("child2"));
-        $this->assertEquals(2, $grid->get_pos_x("child2"));
-        $this->assertEquals(2, $grid->get_pos_y("child2"));
+//         $this->assertEquals( true, $grid->is_placed("child2"));
+//         $this->assertEquals(2, $grid->get_pos_x("child2"));
+//         $this->assertEquals(2, $grid->get_pos_y("child2"));
 
-        $this->assertEquals( true, $grid->is_placed("parent2"));
-        $this->assertEquals(3, $grid->get_pos_x("parent2"));
-        $this->assertEquals(1, $grid->get_pos_y("parent2"));
+//         $this->assertEquals( true, $grid->is_placed("parent2"));
+//         $this->assertEquals(3, $grid->get_pos_x("parent2"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent2"));
+//     }
+
+//     function test_1parent3_parent_centered(){
+//         $parent = new class_("parent");
+//         $child1 = new class_("child1");
+//         $child2 = new class_("child2");
+//         $child3 = new class_("child3");
         
+//         $child1->set_extends("parent");
+//         $child2->set_extends("parent");
+//         $child3->set_extends("parent");
         
+
         
-    }
+//         $grid = new grid();
+//         $grid->add_element( $parent );
+//         $grid->add_element( $child1 );
+//         $grid->add_element( $child2 );
+//         $grid->add_element( $child3 );
+
+        
+//         $grid->distribute();
+        
+//         //         var_dump($grid->get_classes());
+        
+//         $this->assertEquals(4, $grid->get_num_classes());
+//         $this->assertEquals( true, $grid->is_placed("parent"));
+//         $this->assertEquals(2, $grid->get_pos_x("parent"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent"));
+        
+//         $this->assertEquals( true, $grid->is_placed("child1"));
+//         $this->assertEquals(1, $grid->get_pos_x("child1"));
+//         $this->assertEquals(2, $grid->get_pos_y("child1"));
+        
+//         $this->assertEquals( true, $grid->is_placed("child2"));
+//         $this->assertEquals(2, $grid->get_pos_x("child2"));
+//         $this->assertEquals(2, $grid->get_pos_y("child2"));
+        
+//         $this->assertEquals( true, $grid->is_placed("child3"));
+//         $this->assertEquals(3, $grid->get_pos_x("child3"));
+//         $this->assertEquals(1, $grid->get_pos_y("child3"));
+        
+//         $grid->draw();
+//     }
     
 
-    function test_2parents2children(){
-        $parent = new class_("parent");
-        $parent2 = new class_("parent2");
-        $child1 = new class_("child1");
-        $child2 = new class_("child2");
-        $child1->set_extends("parent");
-        $child1->set_extends("parent2");
-        $child2->set_extends("parent");
-        $child2->set_extends("parent2");
+//     function test_2parents2children(){
+//         $parent = new class_("parent");
+//         $parent2 = new class_("parent2");
+//         $child1 = new class_("child1");
+//         $child2 = new class_("child2");
+//         $child1->set_extends("parent");
+//         $child1->set_extends("parent2");
+//         $child2->set_extends("parent");
+//         $child2->set_extends("parent2");
         
-        $grid = new grid();
-        $grid->add_element( $parent );
-        $grid->add_element( $child1 );
-        $grid->add_element( $child2 );
-        $grid->add_element( $parent2 );
+//         $grid = new grid();
+//         $grid->add_element( $parent );
+//         $grid->add_element( $child1 );
+//         $grid->add_element( $child2 );
+//         $grid->add_element( $parent2 );
         
-        $grid->distribute();
+//         $grid->distribute();
         
-        //         var_dump($grid->get_classes());
+//         //         var_dump($grid->get_classes());
         
-        $this->assertEquals(4, $grid->get_num_classes());
-        $this->assertEquals( true, $grid->is_placed("parent"));
-        $this->assertEquals(1, $grid->get_pos_x("parent"));
-        $this->assertEquals(1, $grid->get_pos_y("parent"));
+//         $this->assertEquals(4, $grid->get_num_classes());
+//         $this->assertEquals( true, $grid->is_placed("parent"));
+//         $this->assertEquals(1, $grid->get_pos_x("parent"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent"));
         
-        $this->assertEquals( true, $grid->is_placed("child1"));
-        $this->assertEquals(1, $grid->get_pos_x("child1"));
-        $this->assertEquals(2, $grid->get_pos_y("child1"));
+//         $this->assertEquals( true, $grid->is_placed("child1"));
+//         $this->assertEquals(1, $grid->get_pos_x("child1"));
+//         $this->assertEquals(2, $grid->get_pos_y("child1"));
         
-        $this->assertEquals( true, $grid->is_placed("child2"));
-        $this->assertEquals(2, $grid->get_pos_x("child2"));
-        $this->assertEquals(2, $grid->get_pos_y("child2"));
+//         $this->assertEquals( true, $grid->is_placed("child2"));
+//         $this->assertEquals(2, $grid->get_pos_x("child2"));
+//         $this->assertEquals(2, $grid->get_pos_y("child2"));
         
-        $this->assertEquals( true, $grid->is_placed("parent2"));
-        $this->assertEquals(3, $grid->get_pos_x("parent2"));
-        $this->assertEquals(1, $grid->get_pos_y("parent2"));
+//         $this->assertEquals( true, $grid->is_placed("parent2"));
+//         $this->assertEquals(3, $grid->get_pos_x("parent2"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent2"));
         
         
-    }
+//     }
 
-    function test_tree_1(){
-        $parent = new class_("parent");
+//     function test_tree_1(){
+//         $parent = new class_("parent");
         
-        $child1 = new class_("child1");
-        $child2 = new class_("child2");
-        $child3 = new class_("child3");
+//         $child1 = new class_("child1");
+//         $child2 = new class_("child2");
+//         $child3 = new class_("child3");
         
-        $child1->set_extends("parent");
-        $child2->set_extends("parent");
-        $child3->set_extends("child1");
+//         $child1->set_extends("parent");
+//         $child2->set_extends("parent");
+//         $child3->set_extends("child1");
         
-        $grid = new grid();
-        $grid->add_element( $parent );
-        $grid->add_element( $child1 );
-        $grid->add_element( $child2 );
-        $grid->add_element( $child3 );
+//         $grid = new grid();
+//         $grid->add_element( $parent );
+//         $grid->add_element( $child1 );
+//         $grid->add_element( $child2 );
+//         $grid->add_element( $child3 );
         
-        $grid->distribute();
+//         $grid->distribute();
         
-        $this->assertEquals(4, $grid->get_num_classes());
-        $this->assertEquals( true, $grid->is_placed("parent"));
-        $this->assertEquals(1, $grid->get_pos_x("parent"));
-        $this->assertEquals(1, $grid->get_pos_y("parent"));
+//         $this->assertEquals(4, $grid->get_num_classes());
+//         $this->assertEquals( true, $grid->is_placed("parent"));
+//         $this->assertEquals(1, $grid->get_pos_x("parent"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent"));
         
-        $this->assertEquals( true, $grid->is_placed("child1"));
-        $this->assertEquals(1, $grid->get_pos_x("child1"));
-        $this->assertEquals(2, $grid->get_pos_y("child1"));
+//         $this->assertEquals( true, $grid->is_placed("child1"));
+//         $this->assertEquals(1, $grid->get_pos_x("child1"));
+//         $this->assertEquals(2, $grid->get_pos_y("child1"));
         
-        $this->assertEquals( true, $grid->is_placed("child2"));
-        $this->assertEquals(2, $grid->get_pos_x("child2"));
-        $this->assertEquals(2, $grid->get_pos_y("child2"));
+//         $this->assertEquals( true, $grid->is_placed("child2"));
+//         $this->assertEquals(2, $grid->get_pos_x("child2"));
+//         $this->assertEquals(2, $grid->get_pos_y("child2"));
         
-        $this->assertEquals( true, $grid->is_placed("child3"));
-        $this->assertEquals(1, $grid->get_pos_x("child3"));
-        $this->assertEquals(3, $grid->get_pos_y("child3"));
+//         $this->assertEquals( true, $grid->is_placed("child3"));
+//         $this->assertEquals(1, $grid->get_pos_x("child3"));
+//         $this->assertEquals(3, $grid->get_pos_y("child3"));
         
         
-    }
+//     }
 
-    function test_tree_2(){
-        $parent = new class_("parent");
+//     function test_tree_2(){
+//         $parent = new class_("parent");
         
-        $child1 = new class_("child1");
-        $child2 = new class_("child2");
-        $child3 = new class_("child3");
-        $child4 = new class_("child4");
+//         $child1 = new class_("child1");
+//         $child2 = new class_("child2");
+//         $child3 = new class_("child3");
+//         $child4 = new class_("child4");
         
-        $child1->set_extends("parent");
-        $child2->set_extends("parent");
-        $child3->set_extends("child1");
-        $child4->set_extends("child1");
+//         $child1->set_extends("parent");
+//         $child2->set_extends("parent");
+//         $child3->set_extends("child1");
+//         $child4->set_extends("child1");
         
-        $grid = new grid();
-        $grid->add_element( $parent );
-        $grid->add_element( $child1 );
-        $grid->add_element( $child2 );
-        $grid->add_element( $child3 );
-        $grid->add_element( $child4 );
+//         $grid = new grid();
+//         $grid->add_element( $parent );
+//         $grid->add_element( $child1 );
+//         $grid->add_element( $child2 );
+//         $grid->add_element( $child3 );
+//         $grid->add_element( $child4 );
         
-        $grid->distribute();
+//         $grid->distribute();
         
-        $this->assertEquals(5, $grid->get_num_classes());
-        $this->assertEquals( true, $grid->is_placed("parent"));
-        $this->assertEquals(1, $grid->get_pos_x("parent"));
-        $this->assertEquals(1, $grid->get_pos_y("parent"));
+//         $this->assertEquals(5, $grid->get_num_classes());
+//         $this->assertEquals( true, $grid->is_placed("parent"));
+//         $this->assertEquals(1, $grid->get_pos_x("parent"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent"));
         
-        $this->assertEquals( true, $grid->is_placed("child1"));
-        $this->assertEquals(1, $grid->get_pos_x("child1"));
-        $this->assertEquals(2, $grid->get_pos_y("child1"));
+//         $this->assertEquals( true, $grid->is_placed("child1"));
+//         $this->assertEquals(1, $grid->get_pos_x("child1"));
+//         $this->assertEquals(2, $grid->get_pos_y("child1"));
         
-        $this->assertEquals( true, $grid->is_placed("child2"));
-        $this->assertEquals(2, $grid->get_pos_x("child2"));
-        $this->assertEquals(2, $grid->get_pos_y("child2"));
+//         $this->assertEquals( true, $grid->is_placed("child2"));
+//         $this->assertEquals(2, $grid->get_pos_x("child2"));
+//         $this->assertEquals(2, $grid->get_pos_y("child2"));
         
-        $this->assertEquals( true, $grid->is_placed("child3"));
-        $this->assertEquals(1, $grid->get_pos_x("child3"));
-        $this->assertEquals(3, $grid->get_pos_y("child3"));
+//         $this->assertEquals( true, $grid->is_placed("child3"));
+//         $this->assertEquals(1, $grid->get_pos_x("child3"));
+//         $this->assertEquals(3, $grid->get_pos_y("child3"));
 
-        $this->assertEquals( true, $grid->is_placed("child4"));
-        $this->assertEquals(2, $grid->get_pos_x("child4"));
-        $this->assertEquals(3, $grid->get_pos_y("child4"));
-        
-        $grid->draw();
+//         $this->assertEquals( true, $grid->is_placed("child4"));
+//         $this->assertEquals(2, $grid->get_pos_x("child4"));
+//         $this->assertEquals(3, $grid->get_pos_y("child4"));
         
 //         $grid->draw();
         
-    }
+// //         $grid->draw();
+        
+//     }
 
-    function test_1_parent_4_children(){
-        $parent = new class_("parent");
+//     function test_1_parent_4_children(){
+//         $parent = new class_("parent");
         
-        $child1 = new class_("child1");
-        $child2 = new class_("child2");
-        $child3 = new class_("child3");
-        $child4 = new class_("child4");
+//         $child1 = new class_("child1");
+//         $child2 = new class_("child2");
+//         $child3 = new class_("child3");
+//         $child4 = new class_("child4");
         
-        $child1->set_extends("parent");
-        $child2->set_extends("parent");
-        $child3->set_extends("parent");
-        $child4->set_extends("parent");
+//         $child1->set_extends("parent");
+//         $child2->set_extends("parent");
+//         $child3->set_extends("parent");
+//         $child4->set_extends("parent");
         
-        $grid = new grid();
-        $grid->add_element( $parent );
-        $grid->add_element( $child1 );
-        $grid->add_element( $child2 );
-        $grid->add_element( $child3 );
-        $grid->add_element( $child4 );
+//         $grid = new grid();
+//         $grid->add_element( $parent );
+//         $grid->add_element( $child1 );
+//         $grid->add_element( $child2 );
+//         $grid->add_element( $child3 );
+//         $grid->add_element( $child4 );
         
-        $grid->distribute();
+//         $grid->distribute();
         
-        $this->assertEquals(5, $grid->get_num_classes());
-        $this->assertEquals( true, $grid->is_placed("parent"));
-        $this->assertEquals(1, $grid->get_pos_x("parent"));
-        $this->assertEquals(1, $grid->get_pos_y("parent"));
+//         $this->assertEquals(5, $grid->get_num_classes());
+//         $this->assertEquals( true, $grid->is_placed("parent"));
+//         $this->assertEquals(1, $grid->get_pos_x("parent"));
+//         $this->assertEquals(1, $grid->get_pos_y("parent"));
         
-        $this->assertEquals( true, $grid->is_placed("child1"));
-        $this->assertEquals(1, $grid->get_pos_x("child1"));
-        $this->assertEquals(2, $grid->get_pos_y("child1"));
+//         $this->assertEquals( true, $grid->is_placed("child1"));
+//         $this->assertEquals(1, $grid->get_pos_x("child1"));
+//         $this->assertEquals(2, $grid->get_pos_y("child1"));
         
-        $this->assertEquals( true, $grid->is_placed("child2"));
-        $this->assertEquals(2, $grid->get_pos_x("child2"));
-        $this->assertEquals(2, $grid->get_pos_y("child2"));
+//         $this->assertEquals( true, $grid->is_placed("child2"));
+//         $this->assertEquals(2, $grid->get_pos_x("child2"));
+//         $this->assertEquals(2, $grid->get_pos_y("child2"));
         
         
-        $grid->draw();
         
-        //         $grid->draw();
         
-    }
+//         //         $grid->draw();
+        
+//     }
     
     
     

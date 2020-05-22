@@ -288,6 +288,13 @@ class grid {
                 while( isset( $this->matrix[$firstx] ) ){
                     $firstx++;
                 }
+
+                $offset = floor( $this->get_num_children($name) / 2 );
+                $firstx += ( $offset  ); //
+//                 if( floor( $this->get_num_children($name) % 2 ) == 1 ){
+//                     $firstx --;
+//                 }
+                
             }
             
             $x = $firstx;
@@ -303,6 +310,20 @@ class grid {
             $this->distribute($name);
         }
     }
+    
+    private function get_num_children( string $name ) : int {
+        $count = 0;
+        foreach( $this->classes as $class ){
+            $class = force_class($class["class"]);
+            foreach( $class->get_extends() as $parentname ){
+                if( $parentname === $name ){
+                    $count ++;
+                }
+            }
+        }
+        return $count;
+    }
+    
     function get_pos_x( string $classname ): int {
         return $this->classes[ $classname ]["x"];
     }
