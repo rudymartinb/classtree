@@ -37,7 +37,7 @@ function get_tree( Array $classes, string $parent = "" ){
             }
         } else {
             // this is necessary to avoid adding subclases as if they were parent clases
-            if( count( $class->get_extends() ) != 0){
+            if( count( $class->get_extends() ) != 0 or count( $class->get_interface_extends() ) != 0 ){
                 continue;
             }
         }
