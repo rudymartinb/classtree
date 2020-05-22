@@ -315,7 +315,7 @@ class grid {
             if( $count < 3 ){
                 continue;
             }
-            $this->classes[ $name ]["x"] += floor( $count / 2 );
+            $this->classes[ $name ]["x"] += $this->offset( $count );
         }
         
     }
