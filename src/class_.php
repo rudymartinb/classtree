@@ -51,9 +51,7 @@ class class_ {
     }
 
     private $implements = [];
-    function get_interface_extends(){
-        
-    }
+
     function get_implements(){
         return $this->implements;
     }
