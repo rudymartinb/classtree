@@ -36,6 +36,8 @@ class gridTest extends PHPUnit\Framework\TestCase {
         
         $grid->distribute();
         
+        var_dump($grid->get_classes());
+        
         $this->assertEquals(2, $grid->get_num_classes());
         
         $this->assertEquals( true, $grid->is_placed("mother"));
