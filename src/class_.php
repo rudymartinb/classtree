@@ -1,7 +1,12 @@
 <?php
 namespace src;
 
-
+/*
+ * purpose:
+ * 
+ * hold the information on each class and interfaces nodes 
+ * 
+ */
 
 class class_ {
     
@@ -72,12 +77,12 @@ class class_ {
         return $this->namespace;
     }
     
-    private $funciones = [];
+    private $functions = [];
     function set_funcion( string $nombre, Array $parameters, string $return = "" ){
-        $this->funciones[] = [ $nombre, $parameters, $return ];
+        $this->functions[] = [ $nombre, $parameters, $return ];
     }
     function get_funciones() : Array {
-        return $this->funciones;
+        return $this->functions;
     }
     
 

@@ -16,6 +16,7 @@ class claseTest extends PHPUnit\Framework\TestCase {
         $finder->matches($source );
         $classes = $finder->separar_clases();
         $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
+
     }
 
     function test_interface_from_source(){
