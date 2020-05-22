@@ -235,7 +235,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(1, $grid->get_pos_x("child3"));
         $this->assertEquals(3, $grid->get_pos_y("child3"));
         
-        $grid->draw();
+        
     }
 
     function test_tree_2(){
@@ -281,6 +281,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(2, $grid->get_pos_x("child4"));
         $this->assertEquals(3, $grid->get_pos_y("child4"));
         
+        $grid->draw();
 //         $grid->draw();
         
     }
