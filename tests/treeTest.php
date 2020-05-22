@@ -290,6 +290,33 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $this->assertEquals( 6, $actual );
     }
+    function test_3x3x3() {
+        $classes = [];
+        for( $i=1; $i <= 3; $i++){
+            $class = new class_("xparent".$i);
+            $classes[] = $class ;
+            for( $j=1; $j <= 3; $j++){
+                $class = new class_("xson".$i."_".$j);
+                $class->set_extends("xparent".$i);
+                $classes[] = $class ;
+                for( $k=1; $k <= 3; $k++){
+                    $class = new class_("xgson".$i."_".$j."_".$k);
+                    $class->set_extends("xson".$i."_".$j);
+                    $classes[] = $class ;
+                }
+                
+            }
+            
+        }
+
+        $tree = get_tree( $classes );
+        //         var_dump( $tree );
+        $actual = get_max_width( $tree );
+        
+        $this->assertEquals( 27, $actual );
+        
+        
+    }
     
     /*
      * off to the races!
