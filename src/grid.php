@@ -288,16 +288,6 @@ class grid {
                 while( isset( $this->matrix[$firstx] ) ){
                     $firstx++;
                 }
-
-                $num_children = $this->get_num_children($name);
-                if( $num_children > 2 ){
-                    $offset = floor( $num_children / 2 );
-                    $firstx += ( $offset  ); //
-                    if( floor( $this->get_num_children($name) % 2 ) == 0 ){
-                        $firstx --;
-                    }
-                }
-                
             }
             
             $x = $firstx;
@@ -312,9 +302,42 @@ class grid {
             
             $this->distribute($name);
         }
+        
+        /* now lets center classes with more than 2 children
+         * TODO: how do we update matrix keys?
+         */
+        foreach( $this->classes as $name => $class ){
+            if( $class["class"]->get_extends() != [] ){
+                continue;
+            }
+            
+            $count = $this->get_num_children($name);
+            if( $count < 3 ){
+                continue;
+            }
+            $this->classes[ $name ]["x"] += floor( $count / 2 );
+        }
+        
+    }
+    /*
+     * 0 = 0
+     * 1 = 0
+     * 2 = 0
+     * 3 = 1
+     * 4 = 1
+     * 5 = 2
+     * 6 = 2
+     * 7 = 3
+     * 8 = 3
+     * 9 = 4
+     */
+    function offset( int $value ) : int {
+        if( $value < 3 )
+            return 0;
+        return floor( $value / 2 ) - ( ( $value +1) % 2 );
     }
     
-    private function get_num_children( string $name ) : int {
+    function get_num_children( string $name ) : int {
         $count = 0;
         foreach( $this->classes as $class ){
             $class = force_class($class["class"]);
@@ -326,6 +349,10 @@ class grid {
         }
         return $count;
     }
+    
+//     private function get_num_children( string $name ) : int {
+//         return count( $this->classes[ $name ][ "children" ] ) ;
+//     }
     
     function get_pos_x( string $classname ): int {
         return $this->classes[ $classname ]["x"];

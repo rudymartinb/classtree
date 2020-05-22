@@ -107,7 +107,7 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(2, $grid->get_pos_x("child2"));
         $this->assertEquals(2, $grid->get_pos_y("child2"));
         
-        $grid->draw();
+//         $grid->draw();
     }
 
     function test_1parent2children1orphan(){
@@ -147,6 +147,34 @@ class gridTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals(1, $grid->get_pos_y("parent2"));
     }
 
+    function test_offset (){
+        /*
+         * 0 = 0
+         * 1 = 0
+         * 2 = 0
+         * 3 = 1
+         * 4 = 1
+         * 5 = 2
+         * 6 = 2
+         * 7 = 3
+         * 8 = 3
+         * 9 = 4
+         */
+        $grid = new grid();
+        $this->assertEquals(0, $grid->offset(0 ));
+        $this->assertEquals(0, $grid->offset(1 ));
+        $this->assertEquals(0, $grid->offset(2 ));
+        $this->assertEquals(1, $grid->offset(3 ));
+        $this->assertEquals(1, $grid->offset(4 ));
+        $this->assertEquals(2, $grid->offset(5 ));
+        $this->assertEquals(2, $grid->offset(6 ));
+        $this->assertEquals(3, $grid->offset(7 ));
+        $this->assertEquals(3, $grid->offset(8 ));
+        $this->assertEquals(4, $grid->offset(9 ));
+        $this->assertEquals(4, $grid->offset(10 ));
+        
+    }
+    
 //     function test_1parent3_parent_centered(){
 //         $parent = new class_("parent");
 //         $child1 = new class_("child1");
@@ -171,6 +199,9 @@ class gridTest extends PHPUnit\Framework\TestCase {
 //         //         var_dump($grid->get_classes());
         
 //         $this->assertEquals(4, $grid->get_num_classes());
+        
+//         $this->assertEquals(3, $grid->get_num_children("parent"));
+        
 //         $this->assertEquals( true, $grid->is_placed("parent"));
 //         $this->assertEquals(2, $grid->get_pos_x("parent"));
 //         $this->assertEquals(1, $grid->get_pos_y("parent"));
