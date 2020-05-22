@@ -12,6 +12,8 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes = [];
         $tree = new Tree( $classes );
         
+        
+        
         $this->assertEquals( 0, $tree->count() );
     }
 
@@ -19,22 +21,25 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class = new class_("orphan");
         $classes = [ $class ];
         $tree = new Tree( $classes );
-        
+        $tree->process();
         $this->assertEquals( 1, $tree->count() );
 
     }
 
-//     /* if the extends clause points 
-//      * to a non-existant class on the array
-//      * it wont be added to the tree / yet
-//      */
-//     function test_not_resolved_class(){
-//         $class = new class_("orphan");
-//         $class->set_extends("clueless");
-//         $classes = [ $class ];
-//         $actual = get_tree( $classes );
-//         $this->assertEquals( 0, count( $actual ) );
-//     }
+    /* if the extends clause points 
+     * to a non-existant class on the array
+     * it wont be added to the tree / yet
+     */
+    function test_not_resolved_class(){
+        $class = new class_("orphan");
+        $class->set_extends("clueless");
+        $classes = [ $class ];
+        $tree = new Tree( $classes );
+        
+        $tree->process();
+        
+        $this->assertEquals( 0, $tree->count() );
+    }
     
     
 //     function test_tree_2_orphans(){

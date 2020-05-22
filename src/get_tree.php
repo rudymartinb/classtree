@@ -15,9 +15,64 @@ class Tree {
     function __construct( Array $classes ){
         $this->classes = $classes;
     }
+    
+    private $tree = [];
     function count() : int {
-        return count( $this->classes );
+        return count( $this->tree );
     }
+    
+    function process() {
+        $this->tree = $this->get_tree( $this->classes );    
+    }
+    
+    private function get_tree( Array $classes, string $parent = "" ){
+        $tree = [];
+        foreach( $classes as $class ){
+            if( $parent !== "" ){
+                $class = force_class($class);
+                
+                if( ! is_child_of($class, $parent) ){
+                    continue;
+                }
+            } else {
+                // this is necessary to avoid adding subclases as if they were parent clases
+                if( is_child($class) ){
+                    continue;
+                }
+            }
+            
+            /* generate new element to be added to the tree
+             */
+            $childrens = get_tree( $classes, $class->get_name() );
+            $name = $class->get_name();
+            $extends = $class->get_extends();
+            $implements = $class->get_implements();
+            $abstract = $class->get_abstract();
+            $final = $class->get_final();
+            $namespace = $class->get_namespace();
+            $newtree = [ "name" => $name, "extends" => $extends , "childrens" => $childrens, "width" => 1, "implements" => $implements, "abstract" => $abstract, "final" => $final, "namespace" => $namespace ];
+            
+            /* calculate total tree width for this element
+             */
+            $max = $newtree[ "width" ];
+            $actual = 0;
+            foreach( $newtree["childrens"] as $child ){
+                $actual += $child["width"];
+            }
+            if( $actual > $max ){
+                $max = $actual;
+            }
+            
+            /* update tree width
+             */
+            $newtree["width"] = $max;
+            
+            //         echo "adding ".$class->get_name()."\n";
+            $tree[] = $newtree ;
+        }
+        return  $tree;
+    }
+    
     
 }
 
