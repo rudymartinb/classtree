@@ -344,8 +344,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
     }
     
     
-        // TODO: to be done !
-    function test_class_interface_extends_2() {
+    function test_class_interface_extends_1() {
         $classes = [];
         $class = new class_("myinterface");
         $classes[] = $class; 
@@ -354,13 +353,35 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class->set_interface_extends("myinterface");
         
         $this->assertTrue( is_child_of($class, "myinterface") );
-        
-        $this->assertEquals( ["myinterface"], $class->get_interface_extends() );
+
         $tree = get_tree( $classes );
         $actual = get_max_width( $tree );
         
         $this->assertEquals( 1, $actual );
     }
+
+    function test_class_interface_extends_2_interfaces() {
+        $classes = [];
+        $class = new class_("myinterface");
+        $classes[] = $class;
+        $class = new class_("myinterface2");
+        $classes[] = $class;
+        
+        $class = new class_("myclass");
+        $classes[] = $class;
+        $class->set_interface_extends("myinterface,myinterface2");
+        
+        $this->assertTrue( is_child_of($class, "myinterface") );
+        $this->assertTrue( is_child_of($class, "myinterface2") );
+        $this->assertFalse( is_child_of($class, "somethingelse") );
+        
+        $tree = get_tree( $classes );
+        $actual = get_max_width( $tree );
+        
+        $this->assertEquals( 2, $actual );
+    }
+    
+    
     
     
     //     // this test could fail if the file is modified
