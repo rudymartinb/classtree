@@ -369,7 +369,10 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $class = new class_("myclass");
         $classes[] = $class;
-        $class->set_interface_extends("myinterface,myinterface2");
+        
+        // white spaces added on purpose
+        $class->set_interface_extends(" myinterface , myinterface2 ");
+        var_dump( $class->get_interface_extends());
         
         $this->assertTrue( is_child_of($class, "myinterface") );
         $this->assertTrue( is_child_of($class, "myinterface2") );
