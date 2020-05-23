@@ -2,7 +2,7 @@
 namespace src; 
 
 use function src\force_class;
-use src\class_;
+// use src\class_;
 
 /* from the array of classes
  * generate a new array of trees containing the class hierachy for each parent class
