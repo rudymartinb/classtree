@@ -27,8 +27,9 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source );
 
-//         var_dump( $matches );
+        var_dump( $matches );
         $this->assertEquals( "interface sarasa_interface {", $matches[0][1] );
+//         $this->assertEquals( "", $matches[0][1]->get_type() );
 //         $classes = $finder->separar_clases();
         
     }
