@@ -14,6 +14,8 @@ class Tree {
     private $classes;
     function __construct( Array $classes ){
         $this->classes = $classes;
+        $this->tree = $this->get_tree( $this->classes );
+        
     }
     
     private $tree = [];
@@ -48,7 +50,6 @@ class Tree {
      * from all the sources by now.
      */
     function process() {
-        $this->tree = $this->get_tree( $this->classes );    
     }
     
     private function get_tree( Array $classes, string $parent = "" ){
