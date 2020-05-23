@@ -66,26 +66,6 @@ function get_sources( Array $files ) : Array {
     return $sources;
 }
 
-// function get_classes_from_sources( Array $sources ) : Array {
-//     $classes = [];
-//     foreach ($sources as $source ){
-//         $finder = new class_finder();
-//         $finder->matches($source );
-//         $tmp = $finder->separar_clases();
-        
-//         $classes = array_merge( $classes , $tmp );
-//     }
-//     return $classes;
-// }
-
-function get_interfaces_from_sources( Array $sources ){
-    $interfaces = [];
-    foreach ($sources as $source ){
-        $tmp = get_interfaces($source);
-        $interfaces = array_merge( $interfaces , $tmp );
-    }
-    return $interfaces;
-}
 
 
 function get_clases( string $source ) : Array {
