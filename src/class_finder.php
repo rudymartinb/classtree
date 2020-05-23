@@ -45,6 +45,11 @@ class class_finder {
                 $clase->set_implements( $matches["implements"][$key] );
                 $clase->set_abstract( $matches["abstract"][$key] );
                 $clase->set_namespace( $namespace );
+                
+                /* before that
+                 * we need to scan the class body for functions
+                 */
+                
                 $lista[] = $clase;
                 continue;
             }
