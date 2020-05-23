@@ -10,7 +10,6 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
-        //         var_dump( $matches );
         $this->assertEquals( "abstract class Caso00_Builder implements builder_interface, builder_getcaso {", $matches[0][0] );
     }
     
@@ -20,7 +19,6 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
-        //         var_dump( $matches );
         $this->assertEquals( "abstract", $matches["abstract"][0] );
     }
     
@@ -30,7 +28,6 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
-        //                 var_dump( $matches );
         $this->assertEquals( "final", $matches["final"][0] );
     }
     
@@ -38,11 +35,9 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         $filename = "./tests/dummy/prueba2.php";
         $source = get_source( $filename );
         
-        
         $finder = new class_finder();
         $matches = $finder->matches($source);
         
-        //         var_dump( $matches );
         $this->assertEquals( "whats\\is\\this", $matches["nsname"][0] );
     }
     
