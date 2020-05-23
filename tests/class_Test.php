@@ -15,7 +15,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         
         $matches = $finder->matches($source );
-        var_dump( $matches );
+//         var_dump( $matches );
         $classes = $finder->separar_clases();
         $this->assertEquals( "class", $classes[0]->get_type() );
         $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );

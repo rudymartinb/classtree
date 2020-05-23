@@ -14,6 +14,7 @@ class class_ {
     function __construct( string $name ){
         $this->name = $name;
         $this->extends_class = null;
+        $this->type = "class";
     }
     function get_name() : string {
         return $this->name;

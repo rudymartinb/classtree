@@ -26,19 +26,19 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "orphan\n" , $actual );
     }
     
-    function test_1_implements_1(){
-        $class = new class_("imp1");
-        $classes = [ $class ];
+//     function test_1_implements_1(){
+//         $class = new class_("imp1");
+//         $classes = [ $class ];
         
-        $class = new class_("orphan");
-        $class->set_implements("imp1");
-        $classes[] = $class ;
-        $tree = get_tree( $classes );
-        var_dump( $tree );
+//         $class = new class_("orphan");
+//         $class->set_implements("imp1");
+//         $classes[] = $class ;
+//         $tree = get_tree( $classes );
+// //         var_dump( $tree );
         
-        $actual = textoutput( $tree );
-        $this->assertEquals( "orphan (Implements: imp1)\n" , $actual );
-    }
+//         $actual = textoutput( $tree );
+//         $this->assertEquals( "orphan (Implements: imp1)\n" , $actual );
+//     }
 //     function test_1_abstract(){
 //         $class = new class_("orphan");
 //         $class->set_abstract("abstract");
