@@ -13,6 +13,10 @@ function get_mod( string $source ){
     
 }
 
+function get_var( string $source ){
+    return "";
+}
+
 class function_Test extends PHPUnit\Framework\TestCase {
     function test_get_mod1(){
         $mod = get_mod( "" );
@@ -27,6 +31,11 @@ class function_Test extends PHPUnit\Framework\TestCase {
         $string1 = 'int $uno';
         $mod = get_mod( $string1  );
         $this->assertEquals( "int", $mod );
+    }
+
+    function test_get_var1(){
+        $mod = get_var( "" );
+        $this->assertEquals( "", $mod );
     }
     
     
