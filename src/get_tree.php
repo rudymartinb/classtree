@@ -79,19 +79,17 @@ class Tree {
             $final = $class->get_final();
             $namespace = $class->get_namespace();
             
-            $newtree = [ 
-                "name" => $name, 
-                "extends" => $extends, 
-                "childrens" => $children, 
+            $tree[] = [
+                "name" => $name,
+                "extends" => $extends,
+                "childrens" => $children,
                 "width" => max( $this->max_width( $children ), 1 ),
-                "height" => $this->max_height( $children )+1, 
-                "implements" => $implements, 
-                "abstract" => $abstract, 
-                "final" => $final, 
-                "namespace" => $namespace 
+                "height" => $this->max_height( $children )+1,
+                "implements" => $implements,
+                "abstract" => $abstract,
+                "final" => $final,
+                "namespace" => $namespace
             ];
-            
-            $tree[] = $newtree ;
         }
         return  $tree;
     }
