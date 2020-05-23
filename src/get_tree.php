@@ -100,10 +100,10 @@ class Tree {
         return  $tree;
     }
     
-    private function max_width( Array $tree ) : int {
+    private function max_width( Array $trees ) : int {
         $maxwidth = 1;
         $actual = 0;
-        foreach( $tree as $child ){
+        foreach( $trees as $child ){
             $actual += $child["width"];
         }
         if( $actual > $maxwidth ){
@@ -112,10 +112,10 @@ class Tree {
         return $maxwidth;
     }
     
-    private function max_height( Array $children ) : int {
+    private function max_height( Array $trees ) : int {
         $actual = 0;
         $maxheight = 0;
-        foreach( $children  as $child ){
+        foreach( $trees  as $child ){
             $actual = $child["height"];
             if( $actual > $maxheight ){
                 $maxheight = $actual;
