@@ -23,7 +23,8 @@ function extract_functions( string $source ) : Array {
     $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
     $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
     $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
-    $pattern .= ")/m";
+    $pattern .= ")";
+    $pattern .= "/m";
     
     $finder = new class_finder();
     $finder->set_pattern($pattern);
@@ -103,35 +104,29 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
         $pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
         $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|)[ ]*";
-//         $pattern .= "(?<classbody>.*})";
+        
+        $pattern .= "(";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fnmod>(static|private|public|))";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fntag>function)";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
+        $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
+        $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
+        $pattern .= ")";
+        
         $pattern .= "))/m";
 
         $finder = new class_finder();
         $finder->set_pattern($pattern);
         $matches = $finder->matches($source );
         
-//         var_dump($matches["ifbody"]);
-//         var_dump($matches["classbody"]);
 
         $class1 = $matches[0][2];
         $class2 = $matches[0][3];
         
-        $strpos1 = strpos($source, $class1 )+strlen($class1);
-        $strpos2 = strpos($source, $class2 );
-//         var_dump( substr($source, $strpos1, $strpos2-$strpos1 )) ;
-//         var_dump( substr($source, $strpos2, strlen($class2) )) ;
-        
-        
-//         $before = preg_quote( $matches[0][2], "\\" );
-//         var_dump( $before );
-//         $after  = preg_quote( $matches[0][3], "\\" );
-//         var_dump( $after );
-        
-//         preg_match("/$before(.*?)$after/m", $source, $match);
-//         var_dump( $match );
-        
-        
-//         $this->assertTrue( $strpos > 0 );
+
         $this->assertTrue( true );
     }
 
