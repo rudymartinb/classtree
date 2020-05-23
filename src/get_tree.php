@@ -76,6 +76,9 @@ class Tree {
             $final = $class->get_final();
             $namespace = $class->get_namespace();
             $newtree = [ "name" => $name, "extends" => $extends , "childrens" => $childrens, "width" => 1, "height" => 1, "implements" => $implements, "abstract" => $abstract, "final" => $final, "namespace" => $namespace ];
+
+            /* calculate total tree width for this element
+             */
             $maxwidth = $newtree[ "width" ];
             $actual = $this->max_width($childrens);
             if( $actual > $maxwidth ){
@@ -101,8 +104,6 @@ class Tree {
         return  $tree;
     }
     private function max_width( Array $children ) : int {
-        /* calculate total tree width for this element
-         */
         $actual = 0;
         foreach( $children as $child ){
             $actual += $child["width"];
