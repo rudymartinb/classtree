@@ -50,7 +50,8 @@ class class_ {
         $this->extends[] = $parent;
     }
     
-    
+
+    // TODO:L
     function is_child_of( string $parent ) : bool {
         foreach( $this->get_extends() as $thisparent ){
             if( $thisparent == $parent ){
@@ -64,7 +65,6 @@ class class_ {
             }
             continue;
         }
-        
         return false;
     }
 
