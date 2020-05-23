@@ -16,7 +16,7 @@ function extract_functions( string $source ) : Array {
     $pattern  = "/^";
     $pattern .= "(";
     $pattern .= "(?:[ ]*)";
-    $pattern .= "(?<fnmod>(static|private|public|))";
+    $pattern .= "(?<fnmod>(static|private|public|final|))";
     $pattern .= "(?:[ ]*)";
     $pattern .= "(?<fntag>function)";
     $pattern .= "(?:[ ]*)";
@@ -60,6 +60,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         var_dump( $matches[0] );
         
         $this->assertEquals( 'function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
+        $this->assertEquals( 4, trim( count( $matches[0] ) ) );
         
     }
 
