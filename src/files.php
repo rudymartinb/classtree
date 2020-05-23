@@ -58,6 +58,7 @@ function get_source( string $filename ) : string {
     }
     return file_get_contents( $filename );
 }
+
 function get_sources( Array $files ) : Array {
     $sources = [];
     foreach ($files as $filename ){
