@@ -32,10 +32,10 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $pattern  = "/^[ {\n]*";
         $pattern .= "((?<fntag>function)[ ]*";
         $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(;";
-//         $pattern .= "(?<fnparams>[0-9a-zA-Z_ ,\\\\]+)[ ]*\)";
-//         $pattern .= "(?<fnret>[0-9a-zA-Z_:\\\\]+)[ ]*\{";
-//         $pattern .= "((?<functag>function\()[ ]*";
-        $pattern .= ".*\}*)/m";
+        $pattern .= "(?<fnparams>[0-9a-zA-Z_ ,\\\\]+)[ ]*\)";
+        $pattern .= "(?<fnret>[0-9a-zA-Z_:\\\\]+)[ ]*\{";
+        $pattern .= "((?<functag>function\()[ ]*";
+        $pattern .= ".*\}|(?R)))/m";
         
         $finder = new class_finder();
         $finder->set_patter($pattern);
