@@ -35,14 +35,18 @@ class Tree {
     /* the maximum height of all parent tree
      */
     function total_height() : int {
-        $max = 0;
-        foreach( $this->tree as $tree ){
+        return $this->max_height($this->tree);
+    }
+    
+    private function max_height( Array $trees ) : int {
+        $maxheight = 0;
+        foreach( $trees  as $tree ){
             $actual = $tree["height"];
-            if( $actual > $max ){
-                $max = $actual;
+            if( $actual > $maxheight ){
+                $maxheight = $actual;
             }
         }
-        return $max;
+        return $maxheight;
     }
     
     
@@ -105,17 +109,6 @@ class Tree {
             $maxwidth = $actual;
         }
         return $maxwidth;
-    }
-    
-    private function max_height( Array $trees ) : int {
-        $maxheight = 0;
-        foreach( $trees  as $tree ){
-            $actual = $tree["height"];
-            if( $actual > $maxheight ){
-                $maxheight = $actual;
-            }
-        }
-        return $maxheight;
     }
     
     
