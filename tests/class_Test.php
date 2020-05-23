@@ -43,7 +43,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         var_dump( $after );
         
         preg_match("/.*$before(.*?)$after/", $source, $match);
-        var_dump( $match[0] );
+        var_dump( $match );
         
         
         $this->assertTrue( $strpos > 0 );
