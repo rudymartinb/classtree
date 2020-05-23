@@ -34,7 +34,9 @@ class class_Test extends PHPUnit\Framework\TestCase {
         var_dump($matches["ifbody"]);
 //         var_dump($matches["classbody"]);
 
-        $strpos = strpos($source, $matches[0][2] ); 
+        $class = $matches[0][2];
+        $strpos = strpos($source, $class );
+        var_dump( substr($source, $start+strlen($class) )) ;
         $this->assertTrue( $strpos > 0 );
 //         $this->assertTrue( true );
     }
