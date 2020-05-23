@@ -66,101 +66,11 @@ function get_sources( Array $files ) : Array {
     return $sources;
 }
 
-
-
-// function get_clases( string $source ) : Array {
-//     $finder = new class_finder();
-//     $matches = $finder->matches($source);
+function get_clases( string $source ) : Array {
+    $finder = new class_finder();
+    $matches = $finder->matches($source);
     
-//     $clases = separar_clases($matches);
-//     return $clases;
-// }
-
-// function get_interfaces( string $source ) : Array {
-//     $pattern  = "/^[ ]*(?<tipo>interface(?: ))[ ]*";
-//     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-//     $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]+";
-//     $pattern .= "/m";
-    
-//     $matches = [];
-//     preg_match_all($pattern, $source, $matches );
-// //     var_dump($matches);
-//     $clases = separar_interfaces($matches);
-// //     var_dump($clases);
-//     return $clases;
-// }
-
-/*
- * this generates one class object from the matches found
- * during source search by one of the build_from* functions
- */
-// function separar_clases( Array $matches ) : Array {
-//     $lista = [];
-//     $namespace = "";
-//     foreach ($matches["tipo"] as $key => $value ) {
-//         if( $matches[ "nsname" ][ $key ] != "" ){
-//             $namespace = $matches[ "nsname" ][ $key ];
-//             continue;
-//         }
-//         if( trim( $value ) != "class" ){
-//             continue;
-//         }
-        
-//         $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
-//         $clase->set_extends( $matches["extends"][$key] );
-//         $clase->set_implements( $matches["implements"][$key] );
-//         $clase->set_abstract( $matches["abstract"][$key] );
-//         $clase->set_namespace( $namespace );
-        
-//         $lista[] = $clase;
-//     }
-//     return $lista;
-// }
-
-function separar_interfaces( Array $matches ) : Array {
-    $lista = [];
-    $namespace = "";
-    foreach ($matches["tipo"] as $key => $value ) {
-        if( trim( $value ) == "namespace" ){
-            $namespace = $matches[ "nombretipo" ][ $key ];
-            continue;
-        }
-        if( trim( $value ) != "interface" ){
-            continue;
-        }
-        
-        $clase = new interface_( $matches[ "nombretipo"][$key] );
-        if( $matches["extends"][$key] != "" ){
-            $clase->set_extends( $matches["extends"][$key] );
-        }
-        
-        if( $namespace != "" ){
-            $clase->set_namespace( $namespace );
-        }
-        
-        $lista[] = $clase;
-    }
-//     var_dump($lista);
-    return $lista;
+    $clases = separar_clases($matches);
+    return $clases;
 }
 
-
-/* perhaps the word "type" is not adecuate here
- * but identifiers is a bit too long ...
- *
- * TODO: add an array with the list of identifiers
- * ie: add "trait" later
- */
-// function get_types_from_source( string $filename ): Array {
-//     $sourcecode = file_get_contents( $filename );
-    
-//     $pattern  = "/(?<tipo>class|interface|namespace)[ ]*";
-//     $pattern .= "(?<nombretipo>[0-9a-zA-Z_]*)[ ]*";
-//     $pattern .= "(extends (?<extends>[0-9a-zA-Z_]*)|)[ ]*";
-//     $pattern .= "(implements (?<implements>[0-9a-zA-Z_]*)|)*[ {]*/";
-    
-//     $matches = [];
-//     preg_match_all($pattern, $sourcecode, $matches );
-    
-//     return $matches;
-// }
