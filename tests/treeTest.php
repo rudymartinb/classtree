@@ -12,7 +12,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes = [];
         $tree = new Tree( $classes );
         
-        $this->assertEquals( 0, $tree->count() );
+        $this->assertEquals( 0, $tree->count_parents() );
         $this->assertEquals( 0, $tree->total_width() );
     }
 
@@ -22,7 +22,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $tree = new Tree( $classes );
         $tree->process();
         
-        $this->assertEquals( 1, $tree->count() );
+        $this->assertEquals( 1, $tree->count_parents() );
 
     }
 
@@ -38,7 +38,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $tree->process();
         
-        $this->assertEquals( 0, $tree->count() );
+        $this->assertEquals( 0, $tree->count_parents() );
     }
     
     
@@ -53,7 +53,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $tree->process();
         
-        $this->assertEquals( 2, $tree->count() );
+        $this->assertEquals( 2, $tree->count_parents() );
         
     }
 
@@ -70,7 +70,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $tree->process();
         
         // only one parent at top of the tree
-        $this->assertEquals( 1, $tree->count() );
+        $this->assertEquals( 1, $tree->count_parents() );
     }
 
     function test_tree_parent_2children(){
@@ -91,7 +91,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $tree->process();
         
         // only one parent at top of the tree
-        $this->assertEquals( 1, $tree->count() );
+        $this->assertEquals( 1, $tree->count_parents() );
     }
 
     /* TODO:  what to do with this?

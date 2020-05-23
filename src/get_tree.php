@@ -17,7 +17,7 @@ class Tree {
     }
     
     private $tree = [];
-    function count() : int {
+    function count_parents() : int {
         return count( $this->tree );
     }
     function total_width() : int {
