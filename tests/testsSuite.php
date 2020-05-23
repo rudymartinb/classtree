@@ -9,8 +9,6 @@ require_once 'tests/mocks/sources.php';
 require_once 'tests/microtests/filesTest.php';
 
 require_once 'tests/class_Test.php';
-// require_once 'tests/interfaceTest.php';
-// require_once 'tests/interfacesTreeTest.php';
 
 require_once 'tests/treeTest.php';
 
@@ -37,11 +35,6 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
 
         
         $this->addTestSuite('AppTest');
-        
-//         $this->addTestSuite('textoutputTest');
-
-        //         $this->addTestSuite('interfaceTest');
-        //         $this->addTestSuite('interfacesTreeTest');
         
     }
 
