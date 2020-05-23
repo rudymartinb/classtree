@@ -51,14 +51,16 @@ class Tree {
     private function get_tree( Array $classes, string $parent = "" ){
         $tree = [];
         foreach( $classes as $class ){
+            $class = force_class($class);
+            
             if( $parent !== "" ){
-                $class = force_class($class);
-                
+                // not the child we are looking for?
                 if( ! $class->is_child_of( $parent ) ){
                     continue;
                 }
             } else {
-                // this is necessary to avoid adding subclases as if they were parent clases
+                // this is necessary to avoid adding subclases to the top 
+                // as if they were parent clases
                 if( $class->is_child() ){
                     continue;
                 }
