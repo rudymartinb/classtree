@@ -15,7 +15,7 @@ require_once 'tests/treeTest.php';
 require_once 'tests/gridTest.php';
 
 require_once 'tests/AppTest.php';
-require_once 'tests/textoutputTest.php';
+
 
 
 class testsSuite extends PHPUnit\Framework\TestSuite {

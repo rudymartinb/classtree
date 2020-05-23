@@ -9,7 +9,5 @@ function include_project_files( string $path ){
     
     require_once $path.'src/app.php';
     
-    require_once $path.'src/textoutput.php';
-
 }
 ?>

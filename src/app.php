@@ -169,17 +169,12 @@ class App {
     
     private $trees ;
     function create_trees(){
-        $this->trees = get_tree($this->classes);
-//         var_dump( $this->trees );
+        $trees = new Tree( $this->classes );
+        
+        $this->trees = $trees->get_trees();
     }
-    
-    
-//     function calculate_diagram(){
-//     }
 
     function generate_file( ){
-        $text = textoutput($this->trees);
-        file_put_contents($this->output_file, $text);
         
     }
     function build(){
