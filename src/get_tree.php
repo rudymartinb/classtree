@@ -114,7 +114,6 @@ class Tree {
     }
     
     private function max_height( Array $trees ) : int {
-        $actual = 0;
         $maxheight = 0;
         foreach( $trees  as $tree ){
             $actual = $tree["height"];
@@ -122,7 +121,6 @@ class Tree {
                 $maxheight = $actual;
             }
         }
-        $maxheight = $actual ;
         return $maxheight;
     }
     
