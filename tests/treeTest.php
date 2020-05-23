@@ -21,7 +21,6 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class = new class_("orphan");
         $classes = [ $class ];
         $tree = new Tree( $classes );
-        $tree->process();
         
         $this->assertEquals( 1, $tree->count_parents() );
         $this->assertEquals( 1, $tree->total_width() );
@@ -39,8 +38,6 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes = [ $class ];
         $tree = new Tree( $classes );
         
-        $tree->process();
-        
         $this->assertEquals( 0, $tree->count_parents() );
         $this->assertEquals( 0, $tree->total_width() );
         $this->assertEquals( 0, $tree->total_height() );
@@ -55,8 +52,6 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes[] = $class2;
         
         $tree = new Tree( $classes );
-        
-        $tree->process();
         
         $this->assertEquals( 2, $tree->count_parents() );
         $this->assertEquals( 2, $tree->total_width() );
@@ -73,8 +68,6 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes[] = $class2;
         
         $tree = new Tree( $classes );
-        
-        $tree->process();
         
         // only one parent at top of the tree
         $this->assertEquals( 1, $tree->count_parents() );
@@ -97,10 +90,11 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $tree = new Tree( $classes );
         
-        $tree->process();
-        
         // only one parent at top of the tree
         $this->assertEquals( 1, $tree->count_parents() );
+        $this->assertEquals( 2, $tree->total_width() );
+        $this->assertEquals( 2, $tree->total_height() );
+        
     }
 
     /* TODO:  what to do with this?

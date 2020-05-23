@@ -15,7 +15,6 @@ class Tree {
     function __construct( Array $classes ){
         $this->classes = $classes;
         $this->tree = $this->get_tree( $this->classes );
-        
     }
     
     private $tree = [];
@@ -46,11 +45,6 @@ class Tree {
         return $max;
     }
     
-    /* $this->classes should containg all the classes 
-     * from all the sources by now.
-     */
-    function process() {
-    }
     
     private function get_tree( Array $classes, string $parent = "" ){
         $tree = [];
