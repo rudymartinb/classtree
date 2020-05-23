@@ -95,7 +95,7 @@ class Tree {
             
             /* calculate total tree height for this element
              */
-            $newtree["height"] = $this->max_height($newtree);
+            $newtree["height"] = $this->max_height($childrens);
             
             $tree[] = $newtree ;
         }
@@ -114,8 +114,7 @@ class Tree {
         }
         return $maxwidth;
     }
-    private function max_height( Array $newtree ) : int {
-        $children = $newtree["childrens"];
+    private function max_height( Array $children ) : int {
         $actual = 0;
         $maxheight = 0;
         foreach( $children  as $child ){
