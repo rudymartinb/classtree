@@ -9,7 +9,7 @@ function get_mod( string $source ){
     if( $pos == 0 ){
         return "";    
     }
-    return $source;
+    return substr($source,0, $pos-1);
     
 }
 
@@ -22,6 +22,11 @@ class function_Test extends PHPUnit\Framework\TestCase {
         $string1 = '$uno';
         $mod = get_mod( $string1  );
         $this->assertEquals( "", $mod );
+    }
+    function test_get_mod3(){
+        $string1 = 'int $uno';
+        $mod = get_mod( $string1  );
+        $this->assertEquals( "int", $mod );
     }
     
     
