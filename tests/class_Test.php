@@ -31,12 +31,19 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $finder->set_patter($pattern);
         $matches = $finder->matches($source );
         
-        var_dump($matches["ifbody"]);
+//         var_dump($matches["ifbody"]);
 //         var_dump($matches["classbody"]);
 
         $class = $matches[0][2];
         $strpos = strpos($source, $class );
-        var_dump( substr($source, $strpos+strlen($class) )) ;
+//         var_dump( substr($source, $strpos+strlen($class) )) ;
+        $before = $matches[0][2];
+        $after  = $matches[0][3];
+        if (preg_match("/$before-(.*?)-$after/", $source, $match) == 1) {
+            echo $match[1];
+        }
+        
+        
         $this->assertTrue( $strpos > 0 );
 //         $this->assertTrue( true );
     }
