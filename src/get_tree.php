@@ -77,7 +77,16 @@ class Tree {
             $abstract = $class->get_abstract();
             $final = $class->get_final();
             $namespace = $class->get_namespace();
-            $newtree = [ "name" => $name, "extends" => $extends , "childrens" => $childrens, "width" => 1, "height" => 1, "implements" => $implements, "abstract" => $abstract, "final" => $final, "namespace" => $namespace ];
+            $newtree = [ 
+                "name" => $name, 
+                "extends" => $extends, 
+                "childrens" => $childrens, 
+                "width" => 1, "height" => 1, 
+                "implements" => $implements, 
+                "abstract" => $abstract, 
+                "final" => $final, 
+                "namespace" => $namespace 
+            ];
 
             /* calculate total tree width for this element
              */
