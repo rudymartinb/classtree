@@ -83,7 +83,7 @@ class Tree {
                 "name" => $name, 
                 "extends" => $extends, 
                 "childrens" => $children, 
-                "width" => $this->max_width( $children ),
+                "width" => max( $this->max_width( $children ), 1 ),
                 "height" => $this->max_height( $children )+1, 
                 "implements" => $implements, 
                 "abstract" => $abstract, 
@@ -98,7 +98,7 @@ class Tree {
     
 
     private function max_width( Array $trees ) : int {
-        $maxwidth = 1;
+        $maxwidth = 0;
         $actual = 0;
         foreach( $trees as $tree ){
             $actual += $tree["width"];
