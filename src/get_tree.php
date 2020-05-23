@@ -9,10 +9,9 @@ use function src\force_class;
  *  
  */
 class Tree {
-    private $classes;
+
     function __construct( Array $classes ){
-        $this->classes = $classes;
-        $this->trees = $this->get_tree( $this->classes );
+        $this->trees = $this->get_tree( $classes );
     }
     
     private $trees = [];    
@@ -76,9 +75,10 @@ class Tree {
             
             /* generate new element to be added to the tree
              * by doing a recursive call, 
-             * we ensure the bottom order is analized first
+             * we ensure the bottom order is then analized to the top
              */
             $name = $class->get_name();
+            $type = $class->get_type();
             
             $children = $this->get_tree( $classes, $name );
             
@@ -90,6 +90,7 @@ class Tree {
             
             $tree[] = [
                 "name" => $name,
+                "type" => $type,
                 "extends" => $extends,
                 "childrens" => $children,
                 "width" => max( $this->max_width( $children ), 1 ),

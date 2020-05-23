@@ -8,7 +8,7 @@ include_project_files("./");
 require_once 'tests/mocks/sources.php';
 require_once 'tests/microtests/filesTest.php';
 
-require_once 'tests/claseTest.php';
+require_once 'tests/class_Test.php';
 // require_once 'tests/interfaceTest.php';
 // require_once 'tests/interfacesTreeTest.php';
 
@@ -27,7 +27,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         $this->addTestSuite('filesTest');
         
-        $this->addTestSuite('claseTest');
+        $this->addTestSuite('class_Test');
 
 
         

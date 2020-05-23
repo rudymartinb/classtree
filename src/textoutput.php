@@ -1,4 +1,6 @@
 <?php
+namespace src;
+
 function textoutput( Array $trees, int $level = 0, $subfix = "" ){
     if( count( $trees ) == 0 ){
         return "";
@@ -6,6 +8,9 @@ function textoutput( Array $trees, int $level = 0, $subfix = "" ){
     $text = "";
     for( $index = 0; $index < count( $trees ) ; $index++ ){
         $tree = $trees[ $index ];
+        if( $tree["type"] != "class" ){
+            continue;
+        }
         $text .= $subfix.$tree["name"];
         $final = $tree["final"];
         $abstract = $tree["abstract"];

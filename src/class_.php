@@ -19,7 +19,7 @@ class class_ {
         return $this->name;
     }
     
-    private $type;
+    private $type = "";
     function set_type( string $type ){
         $this->type = $type;
     }

@@ -48,7 +48,7 @@ class class_finder {
                 $clase->set_namespace( $namespace );
             } else {
                 $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
-                $clase->set_type( $matches[ "tipo"][$key] );
+                $clase->set_type( "class" );
                 $clase->set_extends( $matches["extends"][$key] );
                 $clase->set_implements( $matches["implements"][$key] );
                 $clase->set_abstract( $matches["abstract"][$key] );

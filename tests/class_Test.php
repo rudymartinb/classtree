@@ -6,7 +6,7 @@ use function files\get_clases;
 use src\class_finder;
 
 
-class claseTest extends PHPUnit\Framework\TestCase {
+class class_Test extends PHPUnit\Framework\TestCase {
 
     function test_class_namespace(){
         $filename = "./tests/dummy/prueba2.php";
