@@ -10,6 +10,7 @@ class class_finder {
         $this->id_pattern .= ")|";
         $this->id_pattern .= "([ ]*(?<ifflag>interface)[ ]*";
         $this->id_pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
+
         $this->id_pattern .= ")|(";
         $this->id_pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
         $this->id_pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
