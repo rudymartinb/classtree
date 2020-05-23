@@ -34,7 +34,6 @@ class Tree {
             if( $actual > $max ){
                 $max = $actual;
             }
-            
         }
         return $max;
     }
