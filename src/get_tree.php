@@ -83,21 +83,13 @@ class Tree {
             
             /* calculate total tree height for this element
              */
-            $actual = 0;
-            $maxheight = 0; 
-            foreach( $childrens as $child ){
-                $actual = $child["height"];
-                if( $actual > $maxheight ){
-                    $maxheight = $actual;
-                }
-            }
-            $maxheight = $actual + 1;
-            $newtree["height"] = $maxheight;
+            $newtree["height"] = $this->max_height($newtree);
             
             $tree[] = $newtree ;
         }
         return  $tree;
     }
+    
     private function max_width( Array $newtree ) : int {
         $children = $newtree["childrens"];
         $maxwidth = $newtree[ "width" ];
@@ -108,10 +100,22 @@ class Tree {
         if( $actual > $maxwidth ){
             $maxwidth = $actual;
         }
-        
         return $maxwidth;
-
     }
+    private function max_height( Array $newtree ) : int {
+        $children = $newtree["childrens"];
+        $actual = 0;
+        $maxheight = 0;
+        foreach( $children  as $child ){
+            $actual = $child["height"];
+            if( $actual > $maxheight ){
+                $maxheight = $actual;
+            }
+        }
+        $maxheight = $actual + 1;
+        return $maxheight;
+    }
+        
     
     
 }
