@@ -35,8 +35,8 @@ class filesTest extends PHPUnit\Framework\TestCase {
     
     function test_get_files() {
         $path = "./tests/dummy";
-        $lista = get_all_files( $path );
-        $this->assertEquals( 3, count( $lista ) );
+        $source = get_all_files( $path );
+        $this->assertEquals( 3, count( $source ) );
     }
 
 
@@ -52,15 +52,15 @@ class filesTest extends PHPUnit\Framework\TestCase {
     
     function test_separate_php(){
         $path = "./tests/dummy";
-        $lista = get_all_files( $path );
-        $phpfiles = get_php_files( $lista );
+        $source = get_all_files( $path );
+        $phpfiles = get_php_files( $source );
         $this->assertEquals( 3, count( $phpfiles ) );
     }
     
     function test_get_source_from_file() {
         $filename = "./tests/dummy/prueba2.php";
-        $lista = get_source( $filename );
-        $this->assertTrue( $lista != ""  );
+        $source = get_source( $filename );
+        $this->assertTrue( $source != ""  );
     }
     
     function test_get_sources() {
