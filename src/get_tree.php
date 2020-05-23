@@ -25,11 +25,7 @@ class Tree {
     /* just the total width of each parent tree
      */
     function total_width() : int {
-        $max = 0;
-        foreach( $this->tree as $tree ){
-            $max += $tree["width"];
-        }
-        return $max;
+        return $this->max_width($this->tree);
     }
     private function max_width( Array $trees ) : int {
         $actual = 0;
