@@ -3,18 +3,28 @@
 use src\function_;
 
 function get_mod( string $source ){
-    return $source;
     $pos = strpos($source, "$");
     
+    // dollar sign must be present 
+    if( $pos == 0 ){
+        return "";    
+    }
+    return $source;
     
 }
+
 class function_Test extends PHPUnit\Framework\TestCase {
     function test_get_mod1(){
-        $string1 = 'int $uno';
         $mod = get_mod( "" );
         $this->assertEquals( "", $mod );
     }
-
+    function test_get_mod2(){
+        $string1 = '$uno';
+        $mod = get_mod( $string1  );
+        $this->assertEquals( "", $mod );
+    }
+    
+    
 //     function test_get_mod1(){
 //         $string1 = 'int $uno';
 //         $arr = explode( "$", $string1 );
