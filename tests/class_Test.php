@@ -30,7 +30,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $finder->set_patter($pattern);
         $matches = $finder->matches($source );
         
-        var_dump($matches[0]);
+        var_dump($matches["ifbody"]);
     }
 
     function test_from_source(){
