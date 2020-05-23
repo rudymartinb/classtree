@@ -44,12 +44,16 @@ class Tree {
         return $max;
     }
     
+    /* $this->classes should containg all the classes 
+     * from all the sources by now.
+     */
     function process() {
         $this->tree = $this->get_tree( $this->classes );    
     }
     
     private function get_tree( Array $classes, string $parent = "" ){
         $tree = [];
+        
         foreach( $classes as $class ){
             $class = force_class( $class );
             
