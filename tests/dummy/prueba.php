@@ -13,8 +13,8 @@ use DateTime;
 
 interface sarasa_interface {
     function algo() : string;
-    function algo1() : string;
-    function algo2() : string;
+    function algo1( string $something ) : string;
+    function algo2( father $father ) : string;
 }
 class father {
     function algo1( int $uno, string $dos ): string {
