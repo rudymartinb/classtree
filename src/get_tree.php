@@ -14,18 +14,18 @@ class Tree {
     private $classes;
     function __construct( Array $classes ){
         $this->classes = $classes;
-        $this->tree = $this->get_tree( $this->classes );
+        $this->trees = $this->get_tree( $this->classes );
     }
     
-    private $tree = [];
+    private $trees = [];
     function count_parents() : int {
-        return count( $this->tree );
+        return count( $this->trees );
     }
     
     /* just the total width of each parent tree
      */
     function total_width() : int {
-        return $this->max_width($this->tree);
+        return $this->max_width($this->trees);
     }
     private function max_width( Array $trees ) : int {
         $actual = 0;
@@ -39,7 +39,7 @@ class Tree {
     /* the maximum height of all parent tree
      */
     function total_height() : int {
-        return $this->max_height($this->tree);
+        return $this->max_height($this->trees);
     }
     
     private function max_height( Array $trees ) : int {
@@ -102,7 +102,7 @@ class Tree {
         return  $tree;
     }
     function get_trees() : Array {
-        return $this->tree;
+        return $this->trees;
     }
     
 }
