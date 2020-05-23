@@ -59,6 +59,8 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $tree->process();
         
         $this->assertEquals( 2, $tree->count_parents() );
+        $this->assertEquals( 2, $tree->total_width() );
+        $this->assertEquals( 1, $tree->total_height() );
         
     }
 

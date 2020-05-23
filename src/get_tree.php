@@ -21,10 +21,22 @@ class Tree {
         return count( $this->tree );
     }
     function total_width() : int {
-        return count( $this->tree );
+        $max = 0;
+        foreach( $this->tree as $tree ){
+            $max += $tree["width"];
+        }
+        return $max;
     }
     function total_height() : int {
-        return count( $this->tree );
+        $max = 0;
+        foreach( $this->tree as $tree ){
+            $actual = $tree["height"];
+            if( $actual > $max ){
+                $max = $actual;
+            }
+            
+        }
+        return $max;
     }
     
     function process() {
@@ -48,15 +60,17 @@ class Tree {
             }
             
             /* generate new element to be added to the tree
+             * by doing a recursive call, 
+             * we ensure the bottom order is analized first
              */
-            $childrens = get_tree( $classes, $class->get_name() );
+            $childrens = $this->get_tree( $classes, $class->get_name() );
             $name = $class->get_name();
             $extends = $class->get_extends();
             $implements = $class->get_implements();
             $abstract = $class->get_abstract();
             $final = $class->get_final();
             $namespace = $class->get_namespace();
-            $newtree = [ "name" => $name, "extends" => $extends , "childrens" => $childrens, "width" => 1, "implements" => $implements, "abstract" => $abstract, "final" => $final, "namespace" => $namespace ];
+            $newtree = [ "name" => $name, "extends" => $extends , "childrens" => $childrens, "width" => 1, "height" => 1, "implements" => $implements, "abstract" => $abstract, "final" => $final, "namespace" => $namespace ];
             
             /* calculate total tree width for this element
              */
@@ -72,6 +86,19 @@ class Tree {
             /* update tree width
              */
             $newtree["width"] = $max;
+            
+            /* calculate total tree height for this element
+             */
+            $max = $newtree[ "height" ];
+            $actual = 0;
+            foreach( $newtree["childrens"] as $child ){
+                $actual += $child["height"];
+            }
+            if( $actual > $max ){
+                $max = $actual;
+            }
+            $newtree["height"] = $max;
+            
             
             //         echo "adding ".$class->get_name()."\n";
             $tree[] = $newtree ;
