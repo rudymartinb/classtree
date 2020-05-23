@@ -26,7 +26,7 @@ class parameter_ {
         if( $pos === FALSE or $pos == 0){
             return "";
         }
-        return substr($source,0, $pos-1);
+        return trim( substr($source,0, $pos-1) );
         
     }
     
@@ -37,7 +37,7 @@ class parameter_ {
         if( $pos === FALSE ){
             return "";
         }
-        return substr($source,$pos);
+        return trim( substr($source,$pos) );
     }
     
 }
