@@ -51,8 +51,10 @@ class class_ {
     }
     
 
-    // TODO:L
+    // TODO: test array_search
     function is_child_of( string $parent ) : bool {
+        return array_search( $parent, $this->extends, true ) !== FALSE or
+        array_search( $parent, $this->extends, true ) !== FALSE;
         foreach( $this->get_extends() as $thisparent ){
             if( $thisparent == $parent ){
                 return true;
