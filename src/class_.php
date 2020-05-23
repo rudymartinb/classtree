@@ -50,24 +50,10 @@ class class_ {
         $this->extends[] = $parent;
     }
     
-
-    // TODO: test array_search
     function is_child_of( string $parent ) : bool {
-        return array_search( $parent, $this->extends, true ) !== FALSE or
+        return 
+        array_search( $parent, $this->extends, true ) !== FALSE or
         array_search( $parent, $this->extends, true ) !== FALSE;
-        foreach( $this->get_extends() as $thisparent ){
-            if( $thisparent == $parent ){
-                return true;
-            }
-            continue;
-        }
-        foreach( $this->get_implements() as $thisparent ){
-            if( $thisparent == $parent ){
-                return true;
-            }
-            continue;
-        }
-        return false;
     }
 
     private $implements = [];
