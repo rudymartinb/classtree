@@ -21,7 +21,7 @@ class function_ {
     }
     
     private $params;
-    function set_params( string $name ){
+    function set_params( string $params ){
         $this->params = $params;
     }
     function get_params() : Array {
