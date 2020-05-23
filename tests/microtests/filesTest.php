@@ -95,17 +95,6 @@ class filesTest extends PHPUnit\Framework\TestCase {
     
     
     
-//     function generate_2_class() : Array {
-//         $source = get_source_prueba();
-//         $classes = get_clases( $source );
-//         return $classes;
-//     }
-//     function generate_1_separated_classes() : Array {
-//         $source2 = get_source_prueba2_2();
-//         $classes2 = get_clases( $source2 );
-//         return $classes2;
-//     }
-    
     function test_array_search() {
         $searchfor = "sarasa";
         $arr = [];
@@ -118,49 +107,6 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 4, array_search($searchfor, $arr));
     }
     
-
-
-    function test_grep_2(){
-        $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";
-        
-        $finder = new class_finder();
-        $matches = $finder->matches($source);
-        
-//         var_dump( $matches );
-        $this->assertEquals( "abstract class Caso00_Builder implements builder_interface, builder_getcaso {", $matches[0][0] );
-    }
-
-    function test_grep_abstract(){
-        $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";
-        
-        $finder = new class_finder();
-        $matches = $finder->matches($source);
-        
-//         var_dump( $matches );
-        $this->assertEquals( "abstract", $matches["abstract"][0] );
-    }
-
-    function test_grep_final(){
-        $source = "final class Caso00_Builder implements builder_interface, builder_getcaso {";
-        
-        $finder = new class_finder();
-        $matches = $finder->matches($source);
-        
-//                 var_dump( $matches );
-        $this->assertEquals( "final", $matches["final"][0] );
-    }
-    
-    function test_grep_namespace(){
-        $filename = "./tests/dummy/prueba2.php";
-        $source = get_source( $filename );
-       
-        
-        $finder = new class_finder();
-        $matches = $finder->matches($source);
-        
-//         var_dump( $matches );
-        $this->assertEquals( "whats\\is\\this", $matches["nsname"][0] );
-    }
     
 
 }
