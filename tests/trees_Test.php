@@ -7,7 +7,7 @@ use function files\get_clases;
 use src\Trees;
 
 
-class treeTest extends PHPUnit\Framework\TestCase {
+class trees_Test extends PHPUnit\Framework\TestCase {
     function test_tree_empty(){
         $classes = [];
         $tree = new Trees( $classes );

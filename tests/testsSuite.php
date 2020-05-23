@@ -10,7 +10,7 @@ require_once 'tests/microtests/filesTest.php';
 require_once 'tests/class_Test.php';
 require_once 'tests/class_finder_Test.php';
 
-require_once 'tests/treeTest.php';
+require_once 'tests/trees_Test.php';
 
 require_once 'tests/gridTest.php';
 
@@ -29,7 +29,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
 
 
         
-        $this->addTestSuite('treeTest');
+        $this->addTestSuite('trees_Test');
         
 //         $this->addTestSuite('gridTest');
 
