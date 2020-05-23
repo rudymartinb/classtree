@@ -32,6 +32,8 @@ class class_Test extends PHPUnit\Framework\TestCase {
         
         var_dump($matches["ifbody"]);
         var_dump($matches["interface"]);
+        
+        $this->assertTrue( true );
     }
 
     function test_from_source(){
