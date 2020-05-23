@@ -56,6 +56,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
     }
 }
 ';
+        
         $matches = extract_functions($source);
         var_dump( $matches[0] );
         
