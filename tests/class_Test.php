@@ -41,7 +41,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
     function test_class_body_grep(){
         $source = '{
     function algo1( int $uno, string $dos ): string 
-{
+    {
         
     }
     // comment to be removed
@@ -50,9 +50,9 @@ class class_Test extends PHPUnit\Framework\TestCase {
     /* another comment
      *
     */
-    function algo3( ) : bool {
+    public function algo3( ) : bool {
     }
-    function algo4( ) {
+    final function algo4( ) {
     }
 }
 ';
