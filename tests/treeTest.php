@@ -24,7 +24,9 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $tree->process();
         
         $this->assertEquals( 1, $tree->count_parents() );
-
+        $this->assertEquals( 1, $tree->total_width() );
+        $this->assertEquals( 1, $tree->total_height() );
+        
     }
 
     /* if the extends clause points 

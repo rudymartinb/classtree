@@ -21,10 +21,10 @@ class Tree {
         return count( $this->tree );
     }
     function total_width() : int {
-        return 0;
+        return count( $this->tree );
     }
     function total_height() : int {
-        return 0;
+        return count( $this->tree );
     }
     
     function process() {
