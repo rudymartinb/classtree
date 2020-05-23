@@ -38,24 +38,27 @@ class class_finder {
                 $namespace = $matches[ "nsname" ][ $key ];
                 continue;
             }
-            if( trim( $value ) != "class" ){
-                continue;
-            }
-            if( $matches[ "nsflag" ][ $key ] == "interface" ){
-                $clase = new class_( trim( $matches[ "interface"][$key] ) );
-                $clase->set_type( "interface" );
-                $clase->set_extends( $matches["extends"][$key] );
-                $clase->set_namespace( $namespace );
-            } else {
+            if( $value == "class "){
                 $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
                 $clase->set_type( "class" );
                 $clase->set_extends( $matches["extends"][$key] );
                 $clase->set_implements( $matches["implements"][$key] );
                 $clase->set_abstract( $matches["abstract"][$key] );
                 $clase->set_namespace( $namespace );
+                $lista[] = $clase;
+                continue;
             }
+            if( $matches[ "ifflag" ][ $key ] == "interface" ){
+                $clase = new class_( trim( $matches[ "interface"][$key] ) );
+                $clase->set_type( "interface" );
+                $clase->set_extends( $matches["extends"][$key] );
+                $clase->set_namespace( $namespace );
+                $lista[] = $clase;
+                continue;
+            } 
+
                 
-            $lista[] = $clase;
+            
         }
         return $lista;
     }

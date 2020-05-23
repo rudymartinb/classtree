@@ -88,10 +88,16 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $source = get_source( $filename );
         
         $finder = new class_finder();
-        $finder->matches($source );
+        $matches = $finder->matches($source );
+        var_dump( $matches );
+        var_dump( $matches["namespace"][0] );
+        var_dump( $matches["interface"][1] );
+        var_dump( $matches["nombre"][2] );
+        var_dump( $matches["nombre"][3] );
+        var_dump( $matches["nombre"][4] );
         $classes = $finder->separar_clases();
 
-        $this->assertEquals( 3, count( $classes ) );
+        $this->assertEquals( 4, count( $classes ) );
     }
     
     function test_get_class2() {

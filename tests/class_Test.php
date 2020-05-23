@@ -13,10 +13,13 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $source = get_source( $filename );
         
         $finder = new class_finder();
-        $finder->matches($source );
+        
+        $matches = $finder->matches($source );
+        var_dump( $matches );
         $classes = $finder->separar_clases();
-        $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
         $this->assertEquals( "class", $classes[0]->get_type() );
+        $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
+        
 
     }
 
@@ -27,9 +30,13 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source );
 
-        var_dump( $matches );
+        $classes = $finder->separar_clases();
+        
+//         var_dump( $classes );
+        
         $this->assertEquals( "interface sarasa_interface {", $matches[0][1] );
-//         $this->assertEquals( "", $matches[0][1]->get_type() );
+        $this->assertEquals( 4, count( $classes ) );
+        $this->assertEquals( "interface", $classes[0]->get_type() );
 //         $classes = $finder->separar_clases();
         
     }
