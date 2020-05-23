@@ -53,7 +53,7 @@ class class_ {
     function is_child_of( string $parent ) : bool {
         return 
         array_search( $parent, $this->extends, true ) !== FALSE or
-        array_search( $parent, $this->extends, true ) !== FALSE;
+        array_search( $parent, $this->implements, true ) !== FALSE;
     }
 
     private $implements = [];
