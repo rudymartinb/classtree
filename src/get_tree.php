@@ -5,7 +5,7 @@ use function src\force_class;
 
 /* from the array of classes
  * generate a new array of trees containing the class hierachy for each parent class
- * also it will calculate the "width" and height of each tree
+ * also it will calculate the width and height of each tree
  *  
  */
 class Tree {
