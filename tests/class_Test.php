@@ -40,6 +40,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $before = preg_quote( $matches[0][2], "\\" );
         var_dump( $before );
         $after  = preg_quote( $matches[0][3], "\\" );
+        var_dump( $after );
         
         preg_match("/$before-(.*?)-$after/", $source, $match);
         var_dump( $match[0] );
