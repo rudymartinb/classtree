@@ -26,39 +26,41 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "orphan\n" , $actual );
     }
     
-//     function test_1_implements_1(){
-//         $class = new class_("imp1");
-//         $classes = [ $class ];
+    function test_1_implements_1(){
+        $class = new class_("imp1");
+        $class->set_type("interface");
+        $classes = [ $class ];
         
-//         $class = new class_("orphan");
-//         $class->set_implements("imp1");
-//         $classes[] = $class ;
-//         $tree = get_tree( $classes );
-// //         var_dump( $tree );
+        $class = new class_("orphan");
+        $class->set_implements("imp1");
+        $classes[] = $class ;
         
-//         $actual = textoutput( $tree );
-//         $this->assertEquals( "orphan (Implements: imp1)\n" , $actual );
-//     }
-//     function test_1_abstract(){
-//         $class = new class_("orphan");
-//         $class->set_abstract("abstract");
-//         $classes = [ $class ];
-//         $tree = get_tree( $classes );
-// //                 var_dump( $tree );
+        $tree = get_tree( $classes );
+        var_dump( $tree );
         
-//         $actual = textoutput( $tree );
-//         $this->assertEquals( "orphan (abstract)\n" , $actual );
-//     }
-//     function test_1_final(){
-//         $class = new class_("orphan");
-//         $class->set_final("final");
-//         $classes = [ $class ];
-//         $tree = get_tree( $classes );
-// //         var_dump( $tree );
+        $actual = textoutput( $tree );
+        $this->assertEquals( "orphan (Implements: imp1)\n" , $actual );
+    }
+    function test_1_abstract(){
+        $class = new class_("orphan");
+        $class->set_abstract("abstract");
+        $classes = [ $class ];
+        $tree = get_tree( $classes );
+//                 var_dump( $tree );
         
-//         $actual = textoutput( $tree );
-//         $this->assertEquals( "orphan (final)\n" , $actual );
-//     }
+        $actual = textoutput( $tree );
+        $this->assertEquals( "orphan (abstract)\n" , $actual );
+    }
+    function test_1_final(){
+        $class = new class_("orphan");
+        $class->set_final("final");
+        $classes = [ $class ];
+        $tree = get_tree( $classes );
+//         var_dump( $tree );
+        
+        $actual = textoutput( $tree );
+        $this->assertEquals( "orphan (final)\n" , $actual );
+    }
 
 //     function test_1_namespace(){
 //         $class = new class_("orphan");
