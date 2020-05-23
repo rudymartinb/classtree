@@ -37,7 +37,10 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $source = "ABCD 123456789 DEFG";
         $this->assertEquals(" 123456789 ", get_between_strings($source, "ABCD", "DEFG"));
     }
-    
+
+    function test_class_1(){
+        
+    }
     function test_class_body_grep(){
         $source = '{
     function algo1( int $uno, string $dos ): string 
