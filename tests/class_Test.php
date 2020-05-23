@@ -7,7 +7,7 @@ use src\class_finder;
 
 
 function get_between_strings( string $source, string $string1, string $string2 ) : string {
-    $strpos1 = strpos($source, $string1 )+strlen($class1);
+    $strpos1 = strpos($source, $string1 )+strlen($string1);
     $strpos2 = strpos($source, $string2 );
     return substr($source, $strpos1, $strpos2-$strpos1 );
 }
