@@ -14,7 +14,14 @@ function get_mod( string $source ){
 }
 
 function get_var( string $source ){
-    return "";
+    $pos = strpos($source, "$");
+    
+    // dollar sign must be present
+    if( $pos === FALSE ){
+        return "";
+    }
+    
+    return substr($source,$pos);
 }
 
 class function_Test extends PHPUnit\Framework\TestCase {
@@ -41,6 +48,11 @@ class function_Test extends PHPUnit\Framework\TestCase {
     function test_get_var2(){
         $mod = get_var( "asdfasdf" );
         $this->assertEquals( "", $mod );
+    }
+
+    function test_get_var3(){
+        $mod = get_var( '$asdfasdf' );
+        $this->assertEquals( '$asdfasdf', $mod );
     }
     
     
