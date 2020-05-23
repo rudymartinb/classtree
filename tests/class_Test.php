@@ -6,6 +6,12 @@ use function files\get_clases;
 use src\class_finder;
 
 
+function get_between_strings( string $source, string $string1, string $string2 ) : string {
+    $strpos1 = strpos($source, $string1 )+strlen($class1);
+    $strpos2 = strpos($source, $string2 );
+    return substr($source, $strpos1, $strpos2-$strpos1 );
+}
+
 class class_Test extends PHPUnit\Framework\TestCase {
 
     function test_interface_body(){
@@ -34,20 +40,26 @@ class class_Test extends PHPUnit\Framework\TestCase {
 //         var_dump($matches["ifbody"]);
 //         var_dump($matches["classbody"]);
 
-        $class = $matches[0][2];
-        $strpos = strpos($source, $class );
-//         var_dump( substr($source, $strpos+strlen($class) )) ;
-        $before = preg_quote( $matches[0][2], "\\" );
-        var_dump( $before );
-        $after  = preg_quote( $matches[0][3], "\\" );
-        var_dump( $after );
+        $class1 = $matches[0][2];
+        $class2 = $matches[0][3];
         
-        preg_match("/$before(.*?)$after/m", $source, $match);
-        var_dump( $match );
+        $strpos1 = strpos($source, $class1 )+strlen($class1);
+        $strpos2 = strpos($source, $class2 );
+//         var_dump( substr($source, $strpos1, $strpos2-$strpos1 )) ;
+//         var_dump( substr($source, $strpos2, strlen($class2) )) ;
         
         
-        $this->assertTrue( $strpos > 0 );
-//         $this->assertTrue( true );
+//         $before = preg_quote( $matches[0][2], "\\" );
+//         var_dump( $before );
+//         $after  = preg_quote( $matches[0][3], "\\" );
+//         var_dump( $after );
+        
+//         preg_match("/$before(.*?)$after/m", $source, $match);
+//         var_dump( $match );
+        
+        
+//         $this->assertTrue( $strpos > 0 );
+        $this->assertTrue( true );
     }
 
     function test_from_source(){
