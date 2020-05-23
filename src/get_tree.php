@@ -59,7 +59,7 @@ class Tree {
                 }
             } else {
                 // this is necessary to avoid adding subclases as if they were parent clases
-                if( is_child($class) ){
+                if( $class->is_child() ){
                     continue;
                 }
             }
@@ -122,9 +122,6 @@ class Tree {
     
 }
 
-function is_child( class_ $class ) : bool {
-    return count( $class->get_extends() ) != 0 or count( $class->get_implements() ) != 0;
-}
 
 function get_tree( Array $classes, string $parent = "" ){
     $tree = [];

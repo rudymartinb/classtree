@@ -55,6 +55,9 @@ class class_ {
         array_search( $parent, $this->extends, true ) !== FALSE or
         array_search( $parent, $this->implements, true ) !== FALSE;
     }
+    function is_child() : bool {
+        return count( $this->extends ) != 0 or count( $this->implements ) != 0;
+    }
 
     private $implements = [];
     function get_implements(){
