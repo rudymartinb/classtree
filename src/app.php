@@ -28,7 +28,7 @@ class App {
     
     private $main_script = "classtree.php";
     function set_parameters( Array $arguments ){
-        if( count($arguments) < 3 ){
+        if( count($arguments) != 3 ){
             $this->error_msg = "ussage: ".$this->main_script." <source_dir> <output_file>";
             return ;
         }
