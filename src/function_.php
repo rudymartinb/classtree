@@ -31,11 +31,14 @@ class function_ {
     
     private $params;
     function set_params( string $params ){
-        $arr = explode(",", $params);
-        foreach( $arr as $key => $value ){
-            $arr[ $key ] = trim( $arr[ $key ] );
+        $arrParams = explode(",", $params);
+        foreach( $arrParams as $key => $value ){
+            /* dolar sign indicates where the variable part starts
+             */
+            $param = explode("$", $value);
+            $arrParams[ $key ] = trim( $param[ $key ] );
         }
-        $this->params = $arr;
+        $this->params = $arrParams;
     }
     function get_params() : Array {
         return $this->params;
