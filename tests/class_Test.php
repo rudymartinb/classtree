@@ -24,7 +24,7 @@ function extract_functions( string $source ) : Array {
     $pattern .= ")/m";
     
     $finder = new class_finder();
-    $finder->set_patter($pattern);
+    $finder->set_pattern($pattern);
     $matches = $finder->matches( $source );
     return $matches;
 }
@@ -73,7 +73,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $pattern .= "))/m";
 
         $finder = new class_finder();
-        $finder->set_patter($pattern);
+        $finder->set_pattern($pattern);
         $matches = $finder->matches($source );
         
 //         var_dump($matches["ifbody"]);

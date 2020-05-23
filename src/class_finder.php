@@ -17,7 +17,7 @@ class class_finder {
         $this->id_pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
         $this->id_pattern .= "))/m";
     }
-    function set_patter( string $pattern ){
+    function set_pattern( string $pattern ){
         $this->id_pattern = $pattern;
     }
     
