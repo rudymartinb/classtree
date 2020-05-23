@@ -81,27 +81,25 @@ class Tree {
              */
             $max = $newtree[ "width" ];
             $actual = 0;
-            foreach( $newtree["childrens"] as $child ){
+            foreach( $childrens as $child ){
                 $actual += $child["width"];
             }
             if( $actual > $max ){
                 $max = $actual;
             }
-            
-            /* update tree width
-             */
             $newtree["width"] = $max;
             
             /* calculate total tree height for this element
              */
-            $max = $newtree[ "height" ];
             $actual = 0;
-            foreach( $newtree["childrens"] as $child ){
-                $actual += $child["height"];
+            $max = 1; // this parent element
+            foreach( $childrens as $child ){
+                $actual = $child["height"];
+                if( $actual > $max ){
+                    $max = $actual;
+                }
             }
-            if( $actual > $max ){
-                $max = $actual;
-            }
+            $max += $actual;
             $newtree["height"] = $max;
             
             

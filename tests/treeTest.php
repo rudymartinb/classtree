@@ -76,8 +76,12 @@ class treeTest extends PHPUnit\Framework\TestCase {
         
         $tree->process();
         
+        var_dump( $tree );
+        
         // only one parent at top of the tree
         $this->assertEquals( 1, $tree->count_parents() );
+        $this->assertEquals( 1, $tree->total_width() );
+        $this->assertEquals( 2, $tree->total_height() );
     }
 
     function test_tree_parent_2children(){
