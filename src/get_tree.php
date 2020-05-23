@@ -95,7 +95,7 @@ class Tree {
             
             /* calculate total tree height for this element
              */
-            $newtree["height"] = $this->max_height($childrens);
+            $newtree["height"] = $this->max_height( $childrens );
             
             $tree[] = $newtree ;
         }
