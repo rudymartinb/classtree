@@ -1,11 +1,13 @@
 <?php
 function include_project_files( string $path ){
+    require_once $path.'src/function_.php';
+    require_once $path.'src/class_.php';
     require_once $path.'src/class_finder.php';
     require_once $path.'src/files.php';
     require_once $path.'src/Trees.php';
     require_once $path.'src/grid.php';
 
-    require_once $path.'src/class_.php';
+    
     
     require_once $path.'src/app.php';
     
