@@ -9,7 +9,7 @@ class function_ {
         if( count( $matches ) > 0 ){
             $this->mod = $matches["fnmod"][0];
             $this->name = $matches["fnname"][0];
-            $this->params = $matches["fnparams"][0];
+            $this->set_params( $matches["fnparams"][0] );
             $this->rettype= $matches["fnret"][0];
         }
     }
@@ -31,7 +31,11 @@ class function_ {
     
     private $params;
     function set_params( string $params ){
-        $this->params = $params;
+        $arr = explode(",", $params);
+        foreach( $arr as $key => $value ){
+            $arr[ $key ] = trim( $arr[ $key ] );
+        }
+        $this->params = $arr;
     }
     function get_params() : Array {
         return $this->params;
