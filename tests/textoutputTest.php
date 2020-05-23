@@ -21,7 +21,7 @@ class textoutputTest extends PHPUnit\Framework\TestCase {
         $class = new class_("orphan");
         $classes = [ $class ];
         $tree = get_tree( $classes );
-        var_dump( $tree );
+//         var_dump( $tree );
         $actual = textoutput( $tree );
         $this->assertEquals( "orphan\n" , $actual );
     }
