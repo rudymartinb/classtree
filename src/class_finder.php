@@ -1,6 +1,37 @@
 <?php
 namespace src;
 
+// I call it "function" but it should be read as class method.
+// (keyword "function" is used by PHP, not my fault)
+class function_ {
+    private $mod; // pr
+    function set_mod( string $mod ){
+        $this->mod = $mod;
+    }
+    function get_mod() : string {
+        return $this->mod;
+    }
+    
+    private $name;
+    function set_name( string $name ){
+        $this->name = $name;
+    }
+    function get_name() : string {
+        return $this->name;
+    }
+    
+    private $params;
+    function set_params( string $name ){
+        $this->params = $params;
+    }
+    function get_params() : Array {
+        return $this->params;
+    }
+    
+    private $rettype;
+    
+    
+}
 class class_finder {
     private $id_pattern;
     function __construct(){
@@ -22,7 +53,9 @@ class class_finder {
     }
     
     private $matches;
+    private $source = "";
     function matches( string $source ) : Array {
+        $this->source = $source;
         $matches = [];
         preg_match_all($this->id_pattern, $source, $matches );
         $this->matches = $matches;
@@ -49,7 +82,6 @@ class class_finder {
                 /* before that
                  * we need to scan the class body for functions
                  */
-                
                 
                 $lista[] = $clase;
                 continue;
