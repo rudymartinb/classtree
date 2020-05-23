@@ -54,7 +54,7 @@ class Tree {
             if( $parent !== "" ){
                 $class = force_class($class);
                 
-                if( ! is_child_of($class, $parent) ){
+                if( ! $this->is_child_of($class, $parent) ){
                     continue;
                 }
             } else {
@@ -115,27 +115,29 @@ class Tree {
         $maxheight = $actual + 1;
         return $maxheight;
     }
+    
+    function is_child_of( class_ $class, string $parent ) : bool {
+        foreach( $class->get_extends() as $thisparent ){
+            if( $thisparent == $parent ){
+                return true;
+            }
+            continue;
+        }
+        foreach( $class->get_implements() as $thisparent ){
+            if( $thisparent == $parent ){
+                return true;
+            }
+            continue;
+        }
+        
+        return false;
+    }
+    
         
     
     
 }
 
-function is_child_of( class_ $class, string $parent ) : bool {
-    foreach( $class->get_extends() as $thisparent ){
-        if( $thisparent == $parent ){
-            return true;
-        }
-        continue;
-    }
-    foreach( $class->get_implements() as $thisparent ){
-        if( $thisparent == $parent ){
-            return true;
-        }
-        continue;
-    }
-    
-    return false;
-}
 function is_child( class_ $class ) : bool {
     return count( $class->get_extends() ) != 0 or count( $class->get_implements() ) != 0;
 }
