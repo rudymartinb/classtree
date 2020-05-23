@@ -39,9 +39,8 @@ class class_Test extends PHPUnit\Framework\TestCase {
 //         var_dump( substr($source, $strpos+strlen($class) )) ;
         $before = $matches[0][2];
         $after  = $matches[0][3];
-        if (preg_match("/$before-(.*?)-$after/", $source, $match) == 1) {
-            var_dump( $match[0] );
-        }
+        preg_match("/$before-(.*?)-$after/", $source, $match);
+        var_dump( $match[0] );
         
         
         $this->assertTrue( $strpos > 0 );
