@@ -3,10 +3,11 @@
 use src\function_;
 
 function get_mod( string $source ){
+    $source = trim( $source );
     $pos = strpos($source, "$");
     
     // dollar sign must be present 
-    if( $pos == 0 ){
+    if( $pos === FALSE or $pos == 0){
         return "";    
     }
     return substr($source,0, $pos-1);
