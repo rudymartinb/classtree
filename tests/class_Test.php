@@ -14,6 +14,35 @@ function get_between_strings( string $source, string $string1, string $string2 )
 
 class class_Test extends PHPUnit\Framework\TestCase {
 
+    function test_class_body_grep(){
+        $source = '{
+    function algo1( int $uno, string $dos ): string {
+        
+    }
+    
+    function algo2( int $uno, string $dos ) {
+    }
+    function algo3( ) : bool {
+    }
+    function algo4( ) {
+    }
+}
+';
+
+        $pattern  = "/^[ {\n]*";
+        $pattern .= "((?<fntag>function)[ ]*";
+        $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(;";
+        $pattern .= "(?<fnparams>[0-9a-zA-Z_ ,\\\\]+)[ ]*\)";
+        $pattern .= "(?<fnret>[0-9a-zA-Z_:\\\\]+)[ ]*\{";
+//         $pattern .= "((?<functag>function\()[ ]*";
+        $pattern .= ".*\}*)/m";
+        
+        $finder = new class_finder();
+        $finder->set_patter($pattern);
+        $matches = $finder->matches( $source );
+        vaR_dump( $matches[0] );
+        
+    }
     function test_interface_body(){
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
