@@ -6,11 +6,12 @@ namespace src;
 class function_ {
     function __construct( string $source  ){
         $matches = $this->extract_functions($source);
-        var_dump( $matches );
-        $this->mod = $matches["fnmod"][0];
-        $this->name = $matches["fnname"][0];
-        $this->params = $matches["fnparams"][0];
-        $this->rettype= $matches["fnret"][0];
+        if( count( $matches ) > 0 ){
+            $this->mod = $matches["fnmod"][0];
+            $this->name = $matches["fnname"][0];
+            $this->params = $matches["fnparams"][0];
+            $this->rettype= $matches["fnret"][0];
+        }
     }
     private $mod; // pr
     function set_mod( string $mod ){
