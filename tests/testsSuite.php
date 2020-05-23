@@ -5,7 +5,6 @@ include_project_files("./");
 /*
  * TESTS !!!
  */
-// require_once 'tests/mocks/sources.php';
 require_once 'tests/microtests/filesTest.php';
 
 require_once 'tests/class_Test.php';
