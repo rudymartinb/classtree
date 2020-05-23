@@ -113,10 +113,3 @@ function get_tree( Array $classes, string $parent = "" ){
     return $tree->get_trees();
 }
 
-// function get_max_width( Array & $trees ) : int {
-//     $max = 0;
-//     foreach( $trees as $tree ){
-//         $max += $tree["width"] ;
-//     }
-//     return $max;
-// }
