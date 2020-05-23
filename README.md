@@ -13,13 +13,11 @@ Install instructions:
 clone the git and execute install.sh on scrtips directory. 
 It will create a ~/bin directory, a symlink to the classtree.sh located at the bin directory and then add a line to your .bash_profile which includes de ~/bin to your PATH enviroment.
 
-How to use it:
+Update: removed textoutput while working with graphics 
 
-classtree /path/to/project/sources /tmp/outputfile.txt
+Testing:
+take a look at scripts/testphp.sh, modify if neccesary then run from the project root directory:
 
-
-Note:
-I apologize for mixing Spanish and English, will switch it entirely to English ASAP (read: while I refactor).
-
+./scripts/runtests.sh
 
  

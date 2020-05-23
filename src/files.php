@@ -1,7 +1,7 @@
 <?php
 namespace files;
 
-use src\interface_;
+
 use src\class_finder;
 
 function begins_with_dot( string $entry ) : bool {
