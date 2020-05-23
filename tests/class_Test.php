@@ -39,6 +39,17 @@ class class_Test extends PHPUnit\Framework\TestCase {
     }
 
     function test_class_1(){
+        $filename = "./tests/dummy/prueba.php";
+        $source = get_source( $filename );
+        
+        $finder = new class_finder();
+        
+        $matches = $finder->matches($source );
+//                 var_dump( $matches );
+        $classes = $finder->separar_clases();
+        
+        $class = $classes[0];
+        $this->assertEquals( 'father', trim( $matches["nombretipo"][2] ) );
         
     }
     function test_class_body_grep(){
