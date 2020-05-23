@@ -49,6 +49,24 @@ class class_ {
     function set_extends( string $parent ){
         $this->extends[] = $parent;
     }
+    
+    
+    function is_child_of( string $parent ) : bool {
+        foreach( $this->get_extends() as $thisparent ){
+            if( $thisparent == $parent ){
+                return true;
+            }
+            continue;
+        }
+        foreach( $this->get_implements() as $thisparent ){
+            if( $thisparent == $parent ){
+                return true;
+            }
+            continue;
+        }
+        
+        return false;
+    }
 
     private $implements = [];
     function get_implements(){
