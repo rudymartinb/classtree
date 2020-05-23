@@ -20,6 +20,9 @@ class Tree {
     function count() : int {
         return count( $this->tree );
     }
+    function total_width() : int {
+        return 0;
+    }
     
     function process() {
         $this->tree = $this->get_tree( $this->classes );    

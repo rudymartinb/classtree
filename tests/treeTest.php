@@ -12,9 +12,8 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes = [];
         $tree = new Tree( $classes );
         
-        
-        
         $this->assertEquals( 0, $tree->count() );
+        $this->assertEquals( 0, $tree->total_width() );
     }
 
     function test_tree_1(){
@@ -95,32 +94,38 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, $tree->count() );
     }
 
-//     function test_tree_2parent_2children(){
-//         $classes = [];
-//         $class = new class_("father");
-//         $classes[] = $class ;
-//         $class = new class_("mother");
-//         $classes[] = $class ;
+    /* TODO:  what to do with this?
+     * if PHP decides to implement multiple parents
+     * it will probably use the comma separator 
+     * like interfaces do.
+     * 
+    function test_tree_2parent_2children(){
+        $classes = [];
+        $class = new class_("father");
+        $classes[] = $class ;
+        $class = new class_("mother");
+        $classes[] = $class ;
         
-//         $class2 = new class_("child");
-//         $class2->set_extends("father");
-//         $class2->set_extends("mother");
-//         $classes[] = $class2;
+        $class2 = new class_("child");
+        $class2->set_extends("father");
+        $class2->set_extends("mother");
+        $classes[] = $class2;
         
-//         $class3 = new class_("child2");
-//         $class3->set_extends("father");
-//         $class3->set_extends("mother");
-//         $classes[] = $class3;
+        $class3 = new class_("child2");
+        $class3->set_extends("father");
+        $class3->set_extends("mother");
+        $classes[] = $class3;
         
         
-//         $actual = get_tree( $classes );
+        $tree = new Tree( $classes );
         
-// //         var_dump($actual);
+        $tree->process();
         
-//         // theres only one tree in the first element
-//         $this->assertEquals( 2, count( $actual ) );
-//         $this->assertEquals( 2, count( $actual[0]["childrens"] ) );
-//     }
+        // only one parent at top of the tree
+        $this->assertEquals( 2, $tree->count() );
+    }
+    */
+    
     
     
 //     function test_tree_parent_3levels(){
