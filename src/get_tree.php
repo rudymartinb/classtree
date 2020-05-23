@@ -17,7 +17,10 @@ class Tree {
         $this->trees = $this->get_tree( $this->classes );
     }
     
-    private $trees = [];
+    private $trees = [];    
+    function get_trees() : Array {
+        return $this->trees;
+    }
     function count_parents() : int {
         return count( $this->trees );
     }
@@ -101,9 +104,7 @@ class Tree {
         }
         return  $tree;
     }
-    function get_trees() : Array {
-        return $this->trees;
-    }
+    
     
 }
 
