@@ -83,8 +83,8 @@ class App {
 
     function generate_file( ){
         echo "doing nothing ATM !";
-        
     }
+    
     function build(){
         $this->scan_dir();
         $this->read_sources();
