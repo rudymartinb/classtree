@@ -51,7 +51,7 @@ class Tree {
     private function get_tree( Array $classes, string $parent = "" ){
         $tree = [];
         foreach( $classes as $class ){
-            $class = force_class($class);
+            $class = force_class( $class );
             
             if( $parent !== "" ){
                 // not the child we are looking for?
