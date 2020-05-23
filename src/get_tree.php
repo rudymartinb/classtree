@@ -104,7 +104,7 @@ class Tree {
     
     private function max_width( Array $newtree ) : int {
         $children = $newtree["childrens"];
-        $maxwidth = $newtree[ "width" ];
+        $maxwidth = 1;
         $actual = 0;
         foreach( $children as $child ){
             $actual += $child["width"];
