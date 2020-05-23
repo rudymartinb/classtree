@@ -95,23 +95,16 @@ class filesTest extends PHPUnit\Framework\TestCase {
     
     
     
-//     // mocks
-//     function generate_1_class() : Array {
-//         $source = get_source_prueba2();
+//     function generate_2_class() : Array {
+//         $source = get_source_prueba();
 //         $classes = get_clases( $source );
 //         return $classes;
 //     }
-    
-    function generate_2_class() : Array {
-        $source = get_source_prueba();
-        $classes = get_clases( $source );
-        return $classes;
-    }
-    function generate_1_separated_classes() : Array {
-        $source2 = get_source_prueba2_2();
-        $classes2 = get_clases( $source2 );
-        return $classes2;
-    }
+//     function generate_1_separated_classes() : Array {
+//         $source2 = get_source_prueba2_2();
+//         $classes2 = get_clases( $source2 );
+//         return $classes2;
+//     }
     
     function test_array_search() {
         $searchfor = "sarasa";
