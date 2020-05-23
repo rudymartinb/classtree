@@ -2,29 +2,29 @@
 namespace src;
 
 class class_finder {
-    private $pattern;
+    private $id_pattern;
     function __construct(){
-        $this->pattern  = "/^(?<este>";
-        $this->pattern .= "([ ]*(?<nsflag>namespace)[ ]*";
-        $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
-        $this->pattern .= ")|";
-        $this->pattern .= "([ ]*(?<ifflag>interface)[ ]*";
-        $this->pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
-        $this->pattern .= ")|(";
-        $this->pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
-        $this->pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-        $this->pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
-        $this->pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
-        $this->pattern .= "))/m";
+        $this->id_pattern  = "/^(?<este>";
+        $this->id_pattern .= "([ ]*(?<nsflag>namespace)[ ]*";
+        $this->id_pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
+        $this->id_pattern .= ")|";
+        $this->id_pattern .= "([ ]*(?<ifflag>interface)[ ]*";
+        $this->id_pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
+        $this->id_pattern .= ")|(";
+        $this->id_pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
+        $this->id_pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $this->id_pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
+        $this->id_pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
+        $this->id_pattern .= "))/m";
     }
     function set_patter( string $pattern ){
-        $this->pattern = $pattern;
+        $this->id_pattern = $pattern;
     }
     
     private $matches;
     function matches( string $source ) : Array {
         $matches = [];
-        preg_match_all($this->pattern, $source, $matches );
+        preg_match_all($this->id_pattern, $source, $matches );
         $this->matches = $matches;
         return $matches;
     }
