@@ -20,7 +20,7 @@ function extract_functions( string $source ) : Array {
     $pattern .= "(?:[ ]*)";
     $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
     $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-    $pattern .= "(?<fnret>\:[ 0-9a-zA-Z_]*|)";
+    $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
     $pattern .= ")/m";
     
     $finder = new class_finder();
