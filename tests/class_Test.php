@@ -12,6 +12,22 @@ function get_between_strings( string $source, string $string1, string $string2 )
     return substr($source, $strpos1, $strpos2-$strpos1 );
 }
 
+function extract_functions( string $source ) : Array {
+    $pattern  = "/^";
+    $pattern .= "(";
+    $pattern .= "(?:[ ]*)";
+    $pattern .= "(?<fntag>function)";
+    $pattern .= "(?:[ ]*)";
+    $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
+    $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
+    $pattern .= "(?<fnret>\:[ 0-9a-zA-Z_]*|)";
+    $pattern .= ")/m";
+    
+    $finder = new class_finder();
+    $finder->set_patter($pattern);
+    $matches = $finder->matches( $source );
+    return $matches;
+}
 class class_Test extends PHPUnit\Framework\TestCase {
 
     function test_class_body_grep(){
@@ -31,20 +47,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
     }
 }
 ';
-
-        $pattern  = "/^";
-        $pattern .= "(";
-        $pattern .= "(?:[ ]*)";
-        $pattern .= "(?<fntag>function)";
-        $pattern .= "(?:[ ]*)";
-        $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
-        $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-        $pattern .= "(?<fnret>\:[ 0-9a-zA-Z_]*|)";
-        $pattern .= ")/m";
-        
-        $finder = new class_finder();
-        $finder->set_patter($pattern);
-        $matches = $finder->matches( $source );
+        $matches = extract_functions($source);
         var_dump( $matches[0] );
         
         $this->assertEquals( 'function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
