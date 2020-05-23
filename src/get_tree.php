@@ -88,7 +88,7 @@ class Tree {
                 "extends" => $extends, 
                 "childrens" => $children, 
                 "width" => $this->max_width( $children ),
-                "height" => $this->max_height( $children ), 
+                "height" => $this->max_height( $children )+1, 
                 "implements" => $implements, 
                 "abstract" => $abstract, 
                 "final" => $final, 
@@ -122,7 +122,7 @@ class Tree {
                 $maxheight = $actual;
             }
         }
-        $maxheight = $actual + 1;
+        $maxheight = $actual ;
         return $maxheight;
     }
     
