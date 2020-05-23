@@ -69,9 +69,10 @@ class Tree {
              * by doing a recursive call, 
              * we ensure the bottom order is analized first
              */
-            $children = $this->get_tree( $classes, $class->get_name() );
-            
             $name = $class->get_name();
+            
+            $children = $this->get_tree( $classes, $name );
+            
             $extends = $class->get_extends();
             $implements = $class->get_implements();
             $abstract = $class->get_abstract();
