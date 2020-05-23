@@ -100,9 +100,7 @@ class Tree {
         return  $tree;
     }
     
-    /* these two functions operates
-     * under the asumption the elements are childs from a parent
-     */
+
     private function max_width( Array $trees ) : int {
         $maxwidth = 1;
         $actual = 0;
