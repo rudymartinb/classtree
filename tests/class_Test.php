@@ -8,20 +8,6 @@ use src\class_finder;
 
 class class_Test extends PHPUnit\Framework\TestCase {
 
-    function test_class_namespace(){
-        $filename = "./tests/dummy/prueba2.php";
-        $source = get_source( $filename );
-        
-        $finder = new class_finder();
-        
-        $matches = $finder->matches($source );
-//         var_dump( $matches );
-        $classes = $finder->separar_clases();
-        $this->assertEquals( "class", $classes[0]->get_type() );
-        $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
-        
-
-    }
 
     function test_from_source(){
         $filename = "./tests/dummy/prueba.php";
@@ -38,6 +24,22 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 4, count( $classes ) );
         $this->assertEquals( "interface", $classes[0]->get_type() );
 //         var_dump( $classes[0] );
+    }
+    
+    
+    function test_class_namespace(){
+        $filename = "./tests/dummy/prueba2.php";
+        $source = get_source( $filename );
+        
+        $finder = new class_finder();
+        
+        $matches = $finder->matches($source );
+        //         var_dump( $matches );
+        $classes = $finder->separar_clases();
+        $this->assertEquals( "class", $classes[0]->get_type() );
+        $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
+        
+        
     }
     
     /* interfaces
