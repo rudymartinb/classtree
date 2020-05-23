@@ -40,7 +40,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $before = $matches[0][2];
         $after  = $matches[0][3];
         if (preg_match("/$before-(.*?)-$after/", $source, $match) == 1) {
-            echo $match[1];
+            var_dump( $match[0] );
         }
         
         
