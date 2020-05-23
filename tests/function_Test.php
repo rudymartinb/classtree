@@ -16,7 +16,7 @@ class parameter_ {
     
     function __construct( string $source ){
         $this->type = $this->extract_mod( $source );
-        $this->name = $this->get_var($source);
+        $this->name = $this->extract_name($source);
     }
     
     private function extract_mod( string $source ){
@@ -31,7 +31,7 @@ class parameter_ {
         
     }
     
-    function get_var( string $source ){
+    private function extract_name( string $source ){
         $pos = strpos($source, "$");
         
         // dollar sign must be present
