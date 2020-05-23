@@ -33,8 +33,10 @@ class class_Test extends PHPUnit\Framework\TestCase {
         
         var_dump($matches["ifbody"]);
 //         var_dump($matches["classbody"]);
-        
-        $this->assertTrue( true );
+
+        $strpos = strpos($source, $matches[0][2] ); 
+        $this->assertTrue( $strpos > 0 );
+//         $this->assertTrue( true );
     }
 
     function test_from_source(){
