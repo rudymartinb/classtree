@@ -29,18 +29,22 @@ class class_Test extends PHPUnit\Framework\TestCase {
 }
 ';
 
-        $pattern  = "/^[ {\n]*";
+        $pattern  = "/^";
         $pattern .= "(";
-        $pattern .= "(?<fntag>function)[ ]*";
-        $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(;";
-        $pattern .= "(?<fnparams>[0-9a-zA-Z_ ,\\\\]+)[ ]*\)";
-        $pattern .= "(?<fnret>[0-9a-zA-Z_:\\\\]+)[ ]*\{";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fntag>function)";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
+        $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
+        $pattern .= "(?<fnret>\:[ 0-9a-zA-Z_]*|)";
         $pattern .= ")/m";
         
         $finder = new class_finder();
         $finder->set_patter($pattern);
         $matches = $finder->matches( $source );
         var_dump( $matches[0] );
+        
+        $this->assertEquals( 'function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
         
     }
     function test_interface_body(){
