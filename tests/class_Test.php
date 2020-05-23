@@ -32,13 +32,10 @@ class class_Test extends PHPUnit\Framework\TestCase {
 
         $classes = $finder->separar_clases();
         
-//         var_dump( $classes );
-        
         $this->assertEquals( "interface sarasa_interface {", $matches[0][1] );
         $this->assertEquals( 4, count( $classes ) );
         $this->assertEquals( "interface", $classes[0]->get_type() );
-//         $classes = $finder->separar_clases();
-        
+        var_dump( $classes[0] );
     }
     
     /* interfaces
@@ -66,6 +63,8 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $class->set_implements("iface1,iface2");
         $this->assertEquals( ["iface1","iface2"], $class->get_implements() );
     }
+    
+    
     
     
 }
