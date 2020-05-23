@@ -23,6 +23,9 @@ class Tree {
     function total_width() : int {
         return 0;
     }
+    function total_height() : int {
+        return 0;
+    }
     
     function process() {
         $this->tree = $this->get_tree( $this->classes );    
