@@ -16,6 +16,8 @@ function extract_functions( string $source ) : Array {
     $pattern  = "/^";
     $pattern .= "(";
     $pattern .= "(?:[ ]*)";
+    $pattern .= "(?<fnmod>(static|private|public|))";
+    $pattern .= "(?:[ ]*)";
     $pattern .= "(?<fntag>function)";
     $pattern .= "(?:[ ]*)";
     $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
@@ -58,6 +60,33 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 'function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
         
     }
+
+    function test_static_private_functions(){
+        $source = '{
+    private function algo1( int $uno, string $dos ): string {
+            
+    }
+    // comment to be removed
+    static function algo2( int $uno, string $dos ) {
+    }
+    /* another comment
+     *
+    */
+    function algo3( ) : bool {
+    }
+    function algo4( ) {
+    }
+}
+';
+        $matches = extract_functions($source);
+        //         var_dump( $matches[0] );
+        
+        $this->assertEquals( 'private function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
+        $this->assertEquals( 'static function algo2( int $uno, string $dos )', trim( $matches[0][1] ) );
+        
+    }
+    
+    
     function test_interface_body(){
         $filename = "./tests/dummy/prueba.php";
         $source = get_source( $filename );
