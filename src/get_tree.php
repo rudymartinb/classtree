@@ -107,7 +107,7 @@ class Tree {
     
 }
 
-
+// TODO: remove once all references are removed
 function get_tree( Array $classes, string $parent = "" ){
     $tree = new Tree($classes);
     return $tree->get_trees();
