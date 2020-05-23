@@ -23,13 +23,13 @@ class filesTest extends PHPUnit\Framework\TestCase {
 
     function test_get_files_FAIL_1() {
         $path = "/asdfasdf";
-        $lista = get_all_files( $path );
-        $this->assertEquals( 0, count( $lista ) );
+        $source = get_all_files( $path );
+        $this->assertEquals( 0, count( $source ) );
     }
     function test_get_files_FAIL_2() {
         $path = "/bin/bash";
-        $lista = get_all_files( $path );
-        $this->assertEquals( 0, count( $lista ) );
+        $source = get_all_files( $path );
+        $this->assertEquals( 0, count( $source ) );
     }
     
     
@@ -76,12 +76,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         
         $finder = new class_finder();
         $matches = $finder->matches($source );
-//         var_dump( $matches );
-//         var_dump( $matches["namespace"][0] );
-//         var_dump( $matches["interface"][1] );
-//         var_dump( $matches["nombre"][2] );
-//         var_dump( $matches["nombre"][3] );
-//         var_dump( $matches["nombre"][4] );
+
         $classes = $finder->separar_clases();
 
         $this->assertEquals( 4, count( $classes ) );
@@ -98,43 +93,14 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 1, count( $classes ) );
     }
     
-//     function test_get_interface_1() {
-//         $filename = "./tests/dummy/prueba.php";
-//         $source = get_source( $filename );
-        
-//         $classes = get_interfaces( $source );
-//         $this->assertEquals( 1, count( $classes ) );
+    
+    
+//     // mocks
+//     function generate_1_class() : Array {
+//         $source = get_source_prueba2();
+//         $classes = get_clases( $source );
+//         return $classes;
 //     }
-    
-    
-//     function test_get_classes_from_sources() {
-//         $path = "./tests/dummy";
-//         $files = get_all_files( $path );
-//         $php_sources = get_php_files( $files );
-//         $sources = get_sources( $php_sources );
-//         $classes = get_classes_from_sources( $sources );
-//         $this->assertEquals( 4, count( $classes ) );
-//     }
-
-//     function test_get_interfaces_from_sources() {
-//         $path = "./tests/dummy";
-//         $files = get_all_files( $path );
-//         $php_sources = get_php_files( $files );
-//         $sources = get_sources( $php_sources );
-//         $interfaces = get_interfaces_from_sources( $sources );
-//         $this->assertEquals( 1, count( $interfaces ) );
-//     }
-
-
-    
-    
-    
-    // mocks
-    function generate_1_class() : Array {
-        $source = get_source_prueba2();
-        $classes = get_clases( $source );
-        return $classes;
-    }
     
     function generate_2_class() : Array {
         $source = get_source_prueba();
