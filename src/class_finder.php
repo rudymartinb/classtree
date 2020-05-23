@@ -50,6 +50,7 @@ class class_finder {
                  * we need to scan the class body for functions
                  */
                 
+                
                 $lista[] = $clase;
                 continue;
             }
@@ -61,12 +62,29 @@ class class_finder {
                 $lista[] = $clase;
                 continue;
             } 
-
-                
-            
         }
         return $lista;
     }
+    function extract_functions( string $source ) : Array {
+        $pattern  = "/^";
+        $pattern .= "(";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fnmod>(static|private|public|final|))";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fntag>function)";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
+        $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
+        $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
+        $pattern .= ")";
+        $pattern .= "/m";
+        
+        $finder = new class_finder();
+        $finder->set_pattern($pattern);
+        $matches = $finder->matches( $source );
+        return $matches;
+    }
+    
     
 }
 
