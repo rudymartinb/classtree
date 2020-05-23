@@ -81,21 +81,14 @@ class Tree {
                 "name" => $name, 
                 "extends" => $extends, 
                 "childrens" => $childrens, 
-                "width" => 1,
-                "height" => 1, 
+                "width" => $this->max_width( $childrens ),
+                "height" => $this->max_height( $childrens ), 
                 "implements" => $implements, 
                 "abstract" => $abstract, 
                 "final" => $final, 
                 "namespace" => $namespace 
             ];
 
-            /* calculate total tree width for this element
-             */
-            $newtree["width"] = $this->max_width( $childrens );
-            
-            /* calculate total tree height for this element
-             */
-            $newtree["height"] = $this->max_height( $childrens );
             
             $tree[] = $newtree ;
         }
@@ -113,6 +106,7 @@ class Tree {
         }
         return $maxwidth;
     }
+    
     private function max_height( Array $children ) : int {
         $actual = 0;
         $maxheight = 0;
