@@ -13,6 +13,8 @@ use DateTime;
 
 interface sarasa_interface {
     function algo() : string;
+    function algo1() : string;
+    function algo2() : string;
     
 }
 class father {
