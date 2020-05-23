@@ -32,7 +32,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $matches = $finder->matches($source );
         
         var_dump($matches["ifbody"]);
-        var_dump($matches["interface"]);
+        var_dump($matches["classbody"]);
         
         $this->assertTrue( true );
     }
