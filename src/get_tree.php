@@ -53,12 +53,12 @@ class Tree {
             $class = force_class( $class );
             
             if( $parent !== "" ){
-                // not the child we are looking for?
                 if( ! $class->is_child_of( $parent ) ){
                     continue;
                 }
             } else {
-                // this is necessary to avoid adding subclases to the top 
+                // this is necessary to avoid adding subclases 
+                // to the top of the tree 
                 // as if they were parent clases
                 if( $class->is_child() ){
                     continue;
