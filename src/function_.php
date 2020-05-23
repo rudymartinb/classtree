@@ -77,8 +77,8 @@ class function_ {
         foreach( $arrParams as $key => $value ){
             /* dolar sign indicates where the variable part starts
              */
-            $param = explode("$", $value);
-            $arrParams[ $key ] = trim( $param[ $key ] );
+            $param = new parameter_($value);
+            $arrParams[ $key ] = $param;
         }
         $this->params = $arrParams;
     }
