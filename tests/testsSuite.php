@@ -9,6 +9,7 @@ require_once 'tests/mocks/sources.php';
 require_once 'tests/microtests/filesTest.php';
 
 require_once 'tests/class_Test.php';
+require_once 'tests/class_finder_Test.php';
 
 require_once 'tests/treeTest.php';
 
