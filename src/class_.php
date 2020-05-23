@@ -83,7 +83,7 @@ class class_ {
     }
     
     private $functions = [];
-    function set_funcion( string $nombre, Array $parameters, string $return = "" ){
+    function set_function( string $nombre, Array $parameters, string $return = "" ){
         $this->functions[] = [ $nombre, $parameters, $return ];
     }
     function get_functions() : Array {
