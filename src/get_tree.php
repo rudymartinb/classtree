@@ -70,25 +70,26 @@ class Tree {
              * by doing a recursive call, 
              * we ensure the bottom order is analized first
              */
-            $childrens = $this->get_tree( $classes, $class->get_name() );
+            $children = $this->get_tree( $classes, $class->get_name() );
+            
             $name = $class->get_name();
             $extends = $class->get_extends();
             $implements = $class->get_implements();
             $abstract = $class->get_abstract();
             $final = $class->get_final();
             $namespace = $class->get_namespace();
+            
             $newtree = [ 
                 "name" => $name, 
                 "extends" => $extends, 
-                "childrens" => $childrens, 
-                "width" => $this->max_width( $childrens ),
-                "height" => $this->max_height( $childrens ), 
+                "childrens" => $children, 
+                "width" => $this->max_width( $children ),
+                "height" => $this->max_height( $children ), 
                 "implements" => $implements, 
                 "abstract" => $abstract, 
                 "final" => $final, 
                 "namespace" => $namespace 
             ];
-
             
             $tree[] = $newtree ;
         }
