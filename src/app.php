@@ -76,7 +76,7 @@ class App {
 
     private $trees ;
     function create_trees(){
-        $trees = new Tree( $this->classes );
+        $trees = new Trees( $this->classes );
         
         $this->trees = $trees->get_trees();
     }

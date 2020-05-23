@@ -4,13 +4,13 @@ use src\class_;
 use function src\force_class;
 use function files\get_source;
 use function files\get_clases;
-use src\Tree;
+use src\Trees;
 
 
 class treeTest extends PHPUnit\Framework\TestCase {
     function test_tree_empty(){
         $classes = [];
-        $tree = new Tree( $classes );
+        $tree = new Trees( $classes );
         
         $this->assertEquals( 0, $tree->count_parents() );
         $this->assertEquals( 0, $tree->total_width() );
@@ -20,7 +20,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
     function test_tree_1(){
         $class = new class_("orphan");
         $classes = [ $class ];
-        $tree = new Tree( $classes );
+        $tree = new Trees( $classes );
         
         $this->assertEquals( 1, $tree->count_parents() );
         $this->assertEquals( 1, $tree->total_width() );
@@ -36,7 +36,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class = new class_("orphan");
         $class->set_extends("clueless");
         $classes = [ $class ];
-        $tree = new Tree( $classes );
+        $tree = new Trees( $classes );
         
         $this->assertEquals( 0, $tree->count_parents() );
         $this->assertEquals( 0, $tree->total_width() );
@@ -51,7 +51,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class2 = new class_("orphan2");
         $classes[] = $class2;
         
-        $tree = new Tree( $classes );
+        $tree = new Trees( $classes );
         
         $this->assertEquals( 2, $tree->count_parents() );
         $this->assertEquals( 2, $tree->total_width() );
@@ -67,7 +67,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $class2->set_extends("parent");
         $classes[] = $class2;
         
-        $tree = new Tree( $classes );
+        $tree = new Trees( $classes );
         
         // only one parent at top of the tree
         $this->assertEquals( 1, $tree->count_parents() );
@@ -88,7 +88,7 @@ class treeTest extends PHPUnit\Framework\TestCase {
         $classes[] = $class3;
         
         
-        $tree = new Tree( $classes );
+        $tree = new Trees( $classes );
         
         // only one parent at top of the tree
         $this->assertEquals( 1, $tree->count_parents() );

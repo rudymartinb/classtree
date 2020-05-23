@@ -22,15 +22,15 @@ namespace src;
 
 class grid {
 
-    private $tree;
-    function add_tree( Tree $tree ){
-        $this->tree = $tree;
+    private $trees;
+    function add_tree( Trees $tree ){
+        $this->trees = $tree;
     }
     function distribute(){
                 
     } 
     function get_num_elements() : int {
-        return 0;
+        return count( $this->trees );
     }
    
 }

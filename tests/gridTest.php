@@ -2,34 +2,32 @@
 
 use src\grid;
 use src\class_;
-use src\Tree;
+use src\Trees;
 
 class gridTest extends PHPUnit\Framework\TestCase {
 
     
-//     function test_1(){
-//         $class1 = new class_("class1");
-//         $classes[] = $class1;
+    function test_1(){
+        $class1 = new class_("class1");
+        $classes[] = $class1;
         
-//         $tree = new Tree($classes);
+        $tree = new Trees($classes);
         
-//         $grid = new grid();
-//         $grid->add_tree( $tree );
+        $grid = new grid();
+        $grid->add_tree( $tree );
+        $grid->distribute();
         
+        $this->assertEquals(1, $grid->get_num_elements());
+        $this->assertEquals( true, $grid->is_placed("class1"));
+        $this->assertEquals(1, $grid->get_pos_x("class1"));
+        $this->assertEquals(1, $grid->get_pos_y("class1"));
         
-//         $grid->distribute();
+        $this->assertEquals(1, $grid->max_x() );
+        $this->assertEquals(1, $grid->max_y() );
         
-//         $this->assertEquals(1, $grid->get_num_elements());
-//         $this->assertEquals( true, $grid->is_placed("class1"));
-//         $this->assertEquals(1, $grid->get_pos_x("class1"));
-//         $this->assertEquals(1, $grid->get_pos_y("class1"));
+        $grid->distribute();
         
-//         $this->assertEquals(1, $grid->max_x() );
-//         $this->assertEquals(1, $grid->max_y() );
-        
-//         $grid->distribute();
-        
-//     }
+    }
     
 
 //     function test_2(){

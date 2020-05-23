@@ -8,7 +8,7 @@ use function src\force_class;
  * also it will calculate the width and height of each tree
  *  
  */
-class Tree {
+class Trees {
 
     function __construct( Array $classes ){
         $this->trees = $this->get_tree( $classes );
@@ -109,7 +109,7 @@ class Tree {
 
 // TODO: remove once all references are removed
 function get_tree( Array $classes, string $parent = "" ){
-    $tree = new Tree($classes);
+    $tree = new Trees($classes);
     return $tree->get_trees();
 }
 
