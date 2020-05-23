@@ -105,16 +105,16 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
         $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|)[ ]*";
         
-        $pattern .= "(";
-        $pattern .= "(?:[ ]*)";
-        $pattern .= "(?<fnmod>(static|private|public|))";
-        $pattern .= "(?:[ ]*)";
-        $pattern .= "(?<fntag>function)";
-        $pattern .= "(?:[ ]*)";
-        $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
-        $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-        $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
-        $pattern .= ")";
+//         $pattern .= "(";
+//         $pattern .= "(?:[ ]*)";
+//         $pattern .= "(?<fnmod>(static|private|public|))";
+//         $pattern .= "(?:[ ]*)";
+//         $pattern .= "(?<fntag>function)";
+//         $pattern .= "(?:[ ]*)";
+//         $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
+//         $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
+//         $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
+//         $pattern .= ")";
         
         $pattern .= "))/m";
 
