@@ -23,7 +23,8 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
         $pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
-        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|)[ {]*";
+        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|)[ ]*";
+        $pattern .= "(?<classbody>{ ( (?>[^{)]+) | (?R) )* })";
         $pattern .= "))/m";
 
         $finder = new class_finder();
