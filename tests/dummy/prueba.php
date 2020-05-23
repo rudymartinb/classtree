@@ -15,7 +15,6 @@ interface sarasa_interface {
     function algo() : string;
     function algo1() : string;
     function algo2() : string;
-    
 }
 class father {
     function algo1( int $uno, string $dos ): string {
