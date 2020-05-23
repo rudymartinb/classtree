@@ -68,13 +68,13 @@ function get_sources( Array $files ) : Array {
 
 
 
-function get_clases( string $source ) : Array {
-    $finder = new class_finder();
-    $matches = $finder->matches($source);
+// function get_clases( string $source ) : Array {
+//     $finder = new class_finder();
+//     $matches = $finder->matches($source);
     
-    $clases = separar_clases($matches);
-    return $clases;
-}
+//     $clases = separar_clases($matches);
+//     return $clases;
+// }
 
 // function get_interfaces( string $source ) : Array {
 //     $pattern  = "/^[ ]*(?<tipo>interface(?: ))[ ]*";
