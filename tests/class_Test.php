@@ -38,6 +38,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $strpos = strpos($source, $class );
 //         var_dump( substr($source, $strpos+strlen($class) )) ;
         $before = preg_quote( $matches[0][2], "\\" );
+        var_dump( $before );
         $after  = preg_quote( $matches[0][3], "\\" );
         
         preg_match("/$before-(.*?)-$after/", $source, $match);
