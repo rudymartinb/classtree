@@ -8,6 +8,30 @@ use src\class_finder;
 
 class class_Test extends PHPUnit\Framework\TestCase {
 
+    function test_interface_body(){
+        $filename = "./tests/dummy/prueba.php";
+        $source = get_source( $filename );
+        
+        $pattern  = "/^(?<este>";
+        $pattern .= "([ ]*(?<nsflag>namespace)[ ]*";
+        $pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
+        $pattern .= ")|";
+        $pattern .= "([ ]*(?<ifflag>interface)[ ]*";
+        $pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
+        $pattern .= "(?<ibody>[0-9a-zA-Z_(,):;]+)[ ]*}";
+        $pattern .= ")|(";
+        $pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
+        $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
+        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
+        $pattern .= "))/m";
+
+        $finder = new class_finder();
+        $finder->set_patter($pattern);
+        $matches = $finder->matches($source );
+        
+        var_dump($matches);
+    }
 
     function test_from_source(){
         $filename = "./tests/dummy/prueba.php";
