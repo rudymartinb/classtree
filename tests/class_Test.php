@@ -19,9 +19,12 @@ class class_Test extends PHPUnit\Framework\TestCase {
     function algo1( int $uno, string $dos ): string {
         
     }
-    
+    // comment to be removed
     function algo2( int $uno, string $dos ) {
     }
+    /* another comment
+     *
+    */
     function algo3( ) : bool {
     }
     function algo4( ) {
