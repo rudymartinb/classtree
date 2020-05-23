@@ -18,6 +18,7 @@ creating virtual grid
 refactoring get_tree() function to allow multiple interface implementations as parents
 converting get_tree() into a class
 removing textoutput() and interfaces* class and tests
+refactoring helper functions
 
 TODO: converting grid() class's methods to use the data provided by Tree()
-refactoring helper functions
+adding *class methods* information to Tree()

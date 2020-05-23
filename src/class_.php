@@ -86,7 +86,7 @@ class class_ {
     function set_funcion( string $nombre, Array $parameters, string $return = "" ){
         $this->functions[] = [ $nombre, $parameters, $return ];
     }
-    function get_funciones() : Array {
+    function get_functions() : Array {
         return $this->functions;
     }
     
