@@ -31,6 +31,14 @@ class Tree {
         }
         return $max;
     }
+    private function max_width( Array $trees ) : int {
+        $actual = 0;
+        foreach( $trees as $tree ){
+            $actual += $tree["width"];
+        }
+        return $actual;
+    }
+    
     
     /* the maximum height of all parent tree
      */
@@ -97,22 +105,6 @@ class Tree {
         }
         return  $tree;
     }
-    
-
-    private function max_width( Array $trees ) : int {
-        $maxwidth = 0;
-        $actual = 0;
-        foreach( $trees as $tree ){
-            $actual += $tree["width"];
-        }
-        if( $actual > $maxwidth ){
-            $maxwidth = $actual;
-        }
-        return $maxwidth;
-    }
-    
-    
-        
     
     
 }
