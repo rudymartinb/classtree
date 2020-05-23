@@ -92,7 +92,7 @@ class Tree {
             /* calculate total tree height for this element
              */
             $actual = 0;
-            $max = 0; // this parent element
+            $max = 0; // from this parent element
             foreach( $childrens as $child ){
                 $actual = $child["height"];
                 if( $actual > $max ){
