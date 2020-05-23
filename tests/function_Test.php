@@ -2,58 +2,76 @@
 
 use src\function_;
 
-function get_mod( string $source ){
-    $source = trim( $source );
-    $pos = strpos($source, "$");
-    
-    // dollar sign must be present 
-    if( $pos === FALSE or $pos == 0){
-        return "";    
-    }
-    return substr($source,0, $pos-1);
-    
-}
 
-function get_var( string $source ){
-    $pos = strpos($source, "$");
-    
-    // dollar sign must be present
-    if( $pos === FALSE ){
-        return "";
+class parameter_ {
+    private $type;
+    function get_type() : string {
+        return $this->type; 
     }
     
-    return substr($source,$pos);
+    private $name;
+    function get_name() : string {
+        return $this->name;
+    }
+    
+    function __construct( string $source ){
+        $this->type = $this->get_mod( $source );
+        $this->name = $this->get_var($source);
+    }
+    
+    function get_mod( string $source ){
+        $source = trim( $source );
+        $pos = strpos($source, "$");
+        
+        // dollar sign must be present
+        if( $pos === FALSE or $pos == 0){
+            return "";
+        }
+        return substr($source,0, $pos-1);
+        
+    }
+    
+    function get_var( string $source ){
+        $pos = strpos($source, "$");
+        
+        // dollar sign must be present
+        if( $pos === FALSE ){
+            return "";
+        }
+        return substr($source,$pos);
+    }
+    
 }
 
 class function_Test extends PHPUnit\Framework\TestCase {
     function test_get_mod1(){
-        $mod = get_mod( "" );
-        $this->assertEquals( "", $mod );
+        $param = new parameter_("");
+        $this->assertEquals( "", $param->get_type()  );
     }
     function test_get_mod2(){
-        $string1 = '$uno';
-        $mod = get_mod( $string1  );
-        $this->assertEquals( "", $mod );
+        $source = '$uno';
+        $param = new parameter_( $source );
+        $this->assertEquals( "", $param->get_type()  );
     }
     function test_get_mod3(){
-        $string1 = 'int $uno';
-        $mod = get_mod( $string1  );
-        $this->assertEquals( "int", $mod );
+        $source = 'int $uno';
+        $param = new parameter_( $source );
+        $this->assertEquals( "int", $param->get_type()  );
     }
 
     function test_get_var1(){
-        $mod = get_var( "" );
-        $this->assertEquals( "", $mod );
+        $param = new parameter_("");
+        $this->assertEquals( "", $param->get_name()  );
     }
 
     function test_get_var2(){
-        $mod = get_var( "asdfasdf" );
-        $this->assertEquals( "", $mod );
+        $param = new parameter_("asdf");
+        $this->assertEquals( "", $param->get_name()  );
     }
 
     function test_get_var3(){
-        $mod = get_var( '$asdfasdf' );
-        $this->assertEquals( '$asdfasdf', $mod );
+        $param = new parameter_('$asdfasdf');
+        $this->assertEquals( '$asdfasdf', $param->get_name()  );
     }
     
     
