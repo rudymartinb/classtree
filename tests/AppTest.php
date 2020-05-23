@@ -23,7 +23,8 @@ class AppTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "/home/rudy/projects/classtree", $app->get_project_dir() );
     }
     
-    
+
+    // TODO: enable when grid() is able to use Tree()
 //     function test_new(){
 
 //         $app = new App();
