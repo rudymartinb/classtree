@@ -18,7 +18,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $pattern .= ")|";
         $pattern .= "([ ]*(?<ifflag>interface)[ ]*";
         $pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
-//         $pattern .= "(?<ifbody>.*)}";
+        $pattern .= "(?<ifbody>.*)}";
         $pattern .= ")|(";
         $pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
         $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
