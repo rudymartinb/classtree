@@ -40,7 +40,8 @@ class class_Test extends PHPUnit\Framework\TestCase {
     
     function test_class_body_grep(){
         $source = '{
-    function algo1( int $uno, string $dos ): string {
+    function algo1( int $uno, string $dos ): string 
+{
         
     }
     // comment to be removed
@@ -56,7 +57,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
 }
 ';
         $matches = extract_functions($source);
-//         var_dump( $matches[0] );
+        var_dump( $matches[0] );
         
         $this->assertEquals( 'function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
         
@@ -125,7 +126,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
 
         $class1 = $matches[0][2];
         $class2 = $matches[0][3];
-        var_dump( $matches[0] );
+//         var_dump( $matches[0] );
         
 
         $this->assertTrue( true );
