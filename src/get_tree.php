@@ -20,6 +20,9 @@ class Tree {
     function count_parents() : int {
         return count( $this->tree );
     }
+    
+    /* just the total width of each parent tree
+     */
     function total_width() : int {
         $max = 0;
         foreach( $this->tree as $tree ){
@@ -27,6 +30,9 @@ class Tree {
         }
         return $max;
     }
+    
+    /* the maximum height of all parent tree
+     */
     function total_height() : int {
         $max = 0;
         foreach( $this->tree as $tree ){
