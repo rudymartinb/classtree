@@ -82,7 +82,7 @@ class App {
     }
 
     function generate_file( ){
-        echo "doing nothing ATM !";
+        // echo "doing nothing ATM !";
     }
     
     function build(){
