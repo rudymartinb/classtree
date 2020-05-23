@@ -37,6 +37,11 @@ class function_Test extends PHPUnit\Framework\TestCase {
         $mod = get_var( "" );
         $this->assertEquals( "", $mod );
     }
+
+    function test_get_var2(){
+        $mod = get_var( "asdfasdf" );
+        $this->assertEquals( "", $mod );
+    }
     
     
 //     function test_get_mod1(){
