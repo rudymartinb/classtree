@@ -73,7 +73,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
 ';
         
         $matches = extract_functions($source);
-        var_dump( $matches );
+//         var_dump( $matches );
         
         $this->assertEquals( 'function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
         $this->assertEquals( 4, trim( count( $matches[0] ) ) );
