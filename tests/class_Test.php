@@ -125,6 +125,7 @@ class class_Test extends PHPUnit\Framework\TestCase {
 
         $class1 = $matches[0][2];
         $class2 = $matches[0][3];
+        var_dump( $matches[0] );
         
 
         $this->assertTrue( true );
