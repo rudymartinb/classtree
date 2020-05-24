@@ -39,7 +39,10 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_just_1_line(){
-		$source = 'namespace test;';
+		$source = 'namespace test;
+function sarasa(){
+}
+';
 		
 		$finder = new namespace_finder();
 		
@@ -52,7 +55,8 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$namespaces = $finder->split();
 		$expected = [];
 		$expected[] = [ "namespace" => "test" ];
-		$this->assertEquals( $expected, $namespaces );}
+		$this->assertEquals( $expected, $namespaces );
+	}
 
 	/*
 	 * having a source code with 2 name spaces 
