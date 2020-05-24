@@ -64,6 +64,7 @@ class function_ {
         $pattern .= "(?<fntag>function)";
         $pattern .= "(?:[ ]*)";
         $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
+        $pattern .= "(?:[ ]*)";
         $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
         $pattern .= "((?:[ ]*\:[ ]*)(?<fnret>[0-9a-zA-Z_]*)[ ]*|)";
         $pattern .= ")";
