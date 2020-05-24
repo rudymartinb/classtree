@@ -14,9 +14,10 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         //                 var_dump( $matches );
         $classes = $finder->separar_clases();
         $bodies = $finder->find_bodies();
-        var_dump($bodies);
+        var_dump($bodies["father"]);
 //         var_dump($matches);
-        $class = $classes[0];
+
+        $class = $classes[0]; // sarasa interface
         
         $expected = '
     function algo() : string;
@@ -27,6 +28,29 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         $this->assertEquals( $expected, $bodies["sarasa_interface"] );
         $this->assertEquals( "sarasa_interface", $class->get_name() );
         $this->assertEquals( $expected, $class->get_body() );
+        
+        $class = $classes[1]; // father
+        $name = "father";
+        $expected = '
+    function algo1( int $uno, string $dos ): string {
+        
+    }
+    
+    function algo2( int $uno, string $dos ) {
+    }
+    function algo3( ) : bool {
+    }
+    function algo4( ) {
+    }
+}
+
+';
+        
+        $this->assertEquals( $name , $class->get_name() );
+        $this->assertEquals( $expected, $bodies[ $name ] );
+        $this->assertEquals( $expected, $class->get_body() );
+        
+        
     }
     
     

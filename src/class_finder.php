@@ -83,7 +83,9 @@ class class_finder {
                 $clase->set_implements( $matches["implements"][$key] );
                 $clase->set_abstract( $matches["abstract"][$key] );
                 $clase->set_namespace( $namespace );
-//                 $clase->set_body($bodies[$name]);
+                if( $bodies[$name] !== null ){
+                    $clase->set_body($bodies[$name]);
+                }
                 $lista[] = $clase;
                 continue;
             }
