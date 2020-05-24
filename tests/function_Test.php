@@ -27,16 +27,12 @@ class function_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         
         $matches = $finder->matches($source );
-        //         var_dump( $matches["tipo"] );
-        $bodies = $finder->find_bodies();
-        //         var_dump($bodies);
         $classes = $finder->separar_clases();
         
         //
         //         var_dump($matches);
         
         $class = $classes[1]; // sarasa interface
-        var_dump($class->get_functions());
         $expected = 'algo1';
         $this->assertEquals( $expected, $class->get_functions()[0]["name"] );
     }
