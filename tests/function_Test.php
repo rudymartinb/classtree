@@ -19,11 +19,7 @@ class function_Test extends PHPUnit\Framework\TestCase {
         $this->assertEquals( '$dos', $fn->get_params()[1]->get_name() );
         $this->assertEquals( 'string', $fn->get_return_type() );
     }
-    function test_2(){
-        
-        
-    }
-    
+ 
 //     function test_real() {
 //         $filename = "./tests/dummy/prueba.php";
 //         $source = get_source( $filename );
