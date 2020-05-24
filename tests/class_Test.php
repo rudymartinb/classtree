@@ -7,38 +7,13 @@ use src\class_finder;
 use function src\force_class;
 
 
-function get_between_strings( string $source, string $string1, string $string2 ) : string {
-    $strpos1 = strpos($source, $string1 )+strlen($string1);
-    $strpos2 = strpos($source, $string2 );
-    return substr($source, $strpos1, $strpos2-$strpos1 );
-}
-
-// function extract_functions( string $source ) : Array {
-//     $pattern  = "/^";
-//     $pattern .= "(";
-//     $pattern .= "(?:[ ]*)";
-//     $pattern .= "(?<fnmod>(static|private|public|final|))";
-//     $pattern .= "(?:[ ]*)";
-//     $pattern .= "(?<fntag>function)";
-//     $pattern .= "(?:[ ]*)";
-//     $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
-//     $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-//     $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
-//     $pattern .= ")";
-//     $pattern .= "/m";
-    
-//     $finder = new class_finder();
-//     $finder->set_pattern($pattern);
-//     $matches = $finder->matches( $source );
-//     return $matches;
-// }
 
 class class_Test extends PHPUnit\Framework\TestCase {
 
-    function test_between_strings(){
-        $source = "ABCD 123456789 DEFG";
-        $this->assertEquals(" 123456789 ", get_between_strings($source, "ABCD", "DEFG"));
-    }
+//     function test_between_strings(){
+//         $source = "ABCD 123456789 DEFG";
+//         $this->assertEquals(" 123456789 ", get_between_strings($source, "ABCD", "DEFG"));
+//     }
 
     function test_class_1(){
         $filename = "./tests/dummy/prueba.php";
