@@ -11,8 +11,30 @@ use function files\get_interfaces;
 use src\class_finder;
 // use src\namespace_finder;
 
+function mymatch( string $source ) : Array {
+    $pattern = "/^\{\}";
+    $pattern .= "/xm";
+    $matches = [];
+    preg_match_all($pattern, $source, $matches );
+    return $matches;
+}
 
 class filesTest extends PHPUnit\Framework\TestCase {
+    /*
+     * preg patterns test
+     */
+    function test_braces() {
+
+        
+        // $filename = "./tests/dummy/prueba2.php";
+        // $source = get_source( $filename );
+        $source = "{}";
+        
+        $matches = mymatch($source);
+        var_dump( $matches[0] );
+        $this->assertEquals( "{}", $matches[0][0] );
+        
+    }
     
     /* this test uses fixed files on tests/dummy dir
      * adding or removing files will cause this test to fail
