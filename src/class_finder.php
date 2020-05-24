@@ -33,8 +33,40 @@ class class_finder {
         $this->matches = $matches;
         return $matches;
     }
-    
+
+    function find_bodies() : Array {
+        $matches = $this->matches;
+        $bodies = [];
+        foreach ($matches[0] as $key => $code ) {
+            if( $matches[ "nsflag" ][ $key ] == "namespace" ){
+                continue;
+            }
+            $pointer = $key;
+            while( true ){
+                $pointer ++;
+                $next_code = $matches[0][$pointer];
+                if( $next_code === null ){
+                    break;
+                }
+                if( $matches[ "nsflag" ][ $pointer ] == "namespace" ){
+                    continue;
+                }
+                if( $matches[ "ifflag" ][ $key ] == "interface" ){
+                    $name = $matches[ "interface" ][ $key ];
+                } else {
+                    $name = $matches[ "nombretipo" ][ $key] ;
+                }
+                $body = $this->get_between_strings($this->source, $code, $next_code);
+                $bodies[ $name ] = $body;
+                break;
+            }
+        }
+        return $bodies;
+    }
+        
     function separar_clases() : Array {
+        $bodies = $this->find_bodies();
+        
         $matches = $this->matches;
         $lista = [];
         $namespace = "";
@@ -44,41 +76,24 @@ class class_finder {
                 continue;
             }
             if( $value == "class"){
-                $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
+                $name = trim( $matches[ "nombretipo"][$key] );
+                $clase = new class_( $name );
                 $clase->set_type( "class" );
                 $clase->set_extends( $matches["extends"][$key] );
                 $clase->set_implements( $matches["implements"][$key] );
                 $clase->set_abstract( $matches["abstract"][$key] );
                 $clase->set_namespace( $namespace );
-                
-//                 $this_class = $matches["nombretipo"][$key];
-//                 if( $key < count( $matches[0])-1 ){
-//                     $next_class = $matches["nombretipo"][$key+1];
-//                     $body = $this->get_between_strings($this->source, $this_class, $next_class);
-//                 } else {
-//                     $body = $this->get_from_class($this->source, $this_class, $next_class);
-//                 }
-                
-//                 $funcs = $this->extract_functions($body);
-//                 foreach ($funcs as $key => $fn ){
-//                     $name = $fn["fnname"][$key];
-//                     $parameters = $fn["fnparams"][$key];
-//                     $rettype = $fn["fnrettype"][$key];
-//                     $clase->set_function($name, $parameters);
-//                 }
-                
-                /* before that
-                 * we need to scan the class body for functions
-                 */
-                
+//                 $clase->set_body($bodies[$name]);
                 $lista[] = $clase;
                 continue;
             }
             if( $matches[ "ifflag" ][ $key ] == "interface" ){
-                $clase = new class_( trim( $matches[ "interface"][$key] ) );
+                $name = trim( $matches[ "interface"][$key] );
+                $clase = new class_( $name );
                 $clase->set_type( "interface" );
                 $clase->set_extends( $matches["extends"][$key] );
                 $clase->set_namespace( $namespace );
+                $clase->set_body($bodies[$name]);
                 $lista[] = $clase;
                 continue;
             } 

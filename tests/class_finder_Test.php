@@ -1,6 +1,7 @@
 <?php
 
 use src\class_finder;
+use function files\get_source;
 
 class class_finder_Test extends PHPUnit\Framework\TestCase {
     function test_recover_body(){
@@ -13,14 +14,18 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         //                 var_dump( $matches );
         $classes = $finder->separar_clases();
         $bodies = $finder->find_bodies();
-        
-        $class = $classes[1];
+        var_dump($bodies);
+//         var_dump($matches);
+        $class = $classes[0];
         
         $expected = '
     function algo() : string;
     function algo1( string $something ) : string;
     function algo2( father $father ) : string;
-}';
+}
+';
+        $this->assertEquals( $expected, $bodies["sarasa_interface"] );
+        $this->assertEquals( "sarasa_interface", $class->get_name() );
         $this->assertEquals( $expected, $class->get_body() );
     }
     

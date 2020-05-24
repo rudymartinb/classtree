@@ -82,6 +82,14 @@ class class_ {
         return $this->namespace;
     }
     
+    private $body = "";
+    function set_body( string $body ){
+        $this->body = $body;
+    }
+    function get_body(): string {
+        return $this->body;
+    }
+    
     private $functions = [];
     function set_function( string $name, Array $parameters, string $return_type = "" ){
         $this->functions[] = [ "name" => $name, "params"=> $parameters, "rettype" => $return_type ];
