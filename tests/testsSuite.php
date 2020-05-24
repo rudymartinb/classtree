@@ -7,6 +7,7 @@ include_project_files("./");
  */
 require_once 'tests/microtests/filesTest.php';
 
+require_once 'tests/parameter_Test.php';
 require_once 'tests/function_Test.php';
 require_once 'tests/class_Test.php';
 require_once 'tests/class_finder_Test.php';
