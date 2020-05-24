@@ -33,7 +33,7 @@ class namespace_finder {
     	return [];
     }
     function found() : bool {
-    	return count( $this->matches ) == 0;
+    	return count( $this->matches[0] ) != 0;
     }
     
 }
