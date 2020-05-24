@@ -88,10 +88,16 @@ class class_finder {
                 $clase->set_implements( $matches["implements"][$key] );
                 $clase->set_abstract( $matches["abstract"][$key] );
                 $clase->set_namespace( $namespace );
-                $clase->set_body($bodies[$name]);
-                if( $bodies[$name] !== null ){
+                
+                $class_source = $bodies[$name];
+                $arr = $this->extract_functions($class_source);
+                foreach( $arr[0] as $code ){
+                    $fn = new function_($code);
+                    $clase->set_function($fn->get_name(),$fn->get_params(),$fn->get_return_type());
                     
                 }
+                $clase->set_body($bodies[$name]);
+                
                 $lista[] = $clase;
                 continue;
             }
@@ -137,7 +143,7 @@ class class_finder {
         $finder = new class_finder();
         $finder->set_pattern($pattern);
         $matches = $finder->matches( $source );
-//         return $matches;
+        return $matches;
     }
     
     
