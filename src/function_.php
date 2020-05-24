@@ -65,7 +65,7 @@ class function_ {
         $pattern .= "(?:[ ]*)";
         $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
         $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-        $pattern .= "(([ ]*\:[ ]*)(?<fnret>[0-9a-zA-Z_]*)[ ]*|)";
+        $pattern .= "((?:[ ]*\:[ ]*)(?<fnret>[0-9a-zA-Z_]*)[ ]*|)";
         $pattern .= ")";
         $pattern .= "/m";
         
