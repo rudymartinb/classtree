@@ -434,13 +434,13 @@ class trees_Test extends PHPUnit\Framework\TestCase {
 //         $this->assertEquals( 2, $actual );
 //     }
 
-//     /*
-//      * 1 interface at the top
-//      * 2 interfaces extending the first
-//      * 1 class at the bottom
-//      *
-//      * drawing should look like a diamond
-//      */
+    /*
+     * 1 interface at the top
+     * 2 interfaces extending the first
+     * 1 class at the bottom
+     *
+     * drawing should look like a diamond
+     */
 //     function test_3interfaces_1class_diamond() {
 //         $classes = [];
 //         $class = new class_("myinterface0");
