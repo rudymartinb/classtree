@@ -30,7 +30,10 @@ class namespace_finder {
     	return [];
     }
     function split() : Array {
-    	return [];
+    	if( !$this->found() )
+    		return [];
+    	
+    	return [ "namespace" => $this->matches["nombretipo"][0] ];
     }
     function found() : bool {
     	return count( $this->matches[0] ) != 0;

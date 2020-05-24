@@ -19,9 +19,6 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$matches = $finder->matches( $source );
 		$this->assertEquals( false, $finder->found() );
 		
-		$bodies = $finder->find_bodies();
-		$this->assertEquals( [], $bodies );
-		
 		$namespaces = $finder->split();
 		$this->assertEquals( [], $namespaces );
 		
@@ -35,9 +32,6 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$matches = $finder->matches( $source );
 		$this->assertEquals( false, $finder->found() );
 		
-		$bodies = $finder->find_bodies();
-		$this->assertEquals( [], $bodies );
-		
 		$namespaces = $finder->split();
 		$this->assertEquals( [], $namespaces );
 	}
@@ -50,11 +44,8 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$matches = $finder->matches( $source );
 		$this->assertEquals( true, $finder->found() );
 		
-		$bodies = $finder->find_bodies();
-		$this->assertEquals( [], $bodies );
-		
 		$namespaces = $finder->split();
-		$this->assertEquals( [], $namespaces );
+		$this->assertEquals( [ "namespace" => "test" ], $namespaces );
 	}
 	
 	
