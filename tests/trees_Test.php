@@ -474,23 +474,6 @@ class trees_Test extends PHPUnit\Framework\TestCase {
     
     
     
-    //     // this test could fail if the file is modified
-    //     function test_REAL(){
-    //         $source = get_source("src/class_.php" );
-        
-    //         $finder = new class_finder();
-    //         $finder->matches($source);
-    //         $classes = $finder->separar_clases();
-    
-    // //         var_dump( $classes );
-    
-    //         $tree = get_tree( $classes );
-    // //         var_export($tree);
-    
-    
-    //         $this->assertEquals( 1, count( $tree ) );
-    //     }
-    
         
 }
 
