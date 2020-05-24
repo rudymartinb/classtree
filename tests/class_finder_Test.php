@@ -11,10 +11,12 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         
         $matches = $finder->matches($source );
-        //                 var_dump( $matches );
-        $classes = $finder->separar_clases();
+        var_dump( $matches["tipo"] );
         $bodies = $finder->find_bodies();
-        var_dump($bodies["father"]);
+        var_dump($bodies);
+        $classes = $finder->separar_clases();
+        
+//         
 //         var_dump($matches);
 
         $class = $classes[0]; // sarasa interface

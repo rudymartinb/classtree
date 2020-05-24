@@ -43,19 +43,24 @@ class class_finder {
             }
             $pointer = $key;
             while( true ){
-                $pointer ++;
-                $next_code = $matches[0][$pointer];
-                if( $next_code === null ){
-                    break;
-                }
-                if( $matches[ "nsflag" ][ $pointer ] == "namespace" ){
-                    continue;
-                }
                 if( $matches[ "ifflag" ][ $key ] == "interface" ){
                     $name = $matches[ "interface" ][ $key ];
                 } else {
                     $name = $matches[ "nombretipo" ][ $key] ;
                 }
+                
+                $pointer ++;
+                $next_code = $matches[0][$pointer];
+                if( $next_code === null ){
+                    $body = $this->get_from_class($this->source, $code);
+                    $bodies[ $name ] = $body;
+                    
+                    break;
+                }
+                if( $matches[ "nsflag" ][ $pointer ] == "namespace" ){
+                    continue;
+                }
+                
                 $body = $this->get_between_strings($this->source, $code, $next_code);
                 $bodies[ $name ] = $body;
                 break;
@@ -75,7 +80,7 @@ class class_finder {
                 $namespace = $matches[ "nsname" ][ $key ];
                 continue;
             }
-            if( $value == "class"){
+            if( $value === "class"){
                 $name = trim( $matches[ "nombretipo"][$key] );
                 $clase = new class_( $name );
                 $clase->set_type( "class" );
@@ -83,8 +88,9 @@ class class_finder {
                 $clase->set_implements( $matches["implements"][$key] );
                 $clase->set_abstract( $matches["abstract"][$key] );
                 $clase->set_namespace( $namespace );
+                $clase->set_body($bodies[$name]);
                 if( $bodies[$name] !== null ){
-                    $clase->set_body($bodies[$name]);
+                    
                 }
                 $lista[] = $clase;
                 continue;
