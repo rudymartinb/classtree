@@ -12,25 +12,25 @@ function get_between_strings( string $source, string $string1, string $string2 )
     return substr($source, $strpos1, $strpos2-$strpos1 );
 }
 
-function extract_functions( string $source ) : Array {
-    $pattern  = "/^";
-    $pattern .= "(";
-    $pattern .= "(?:[ ]*)";
-    $pattern .= "(?<fnmod>(static|private|public|final|))";
-    $pattern .= "(?:[ ]*)";
-    $pattern .= "(?<fntag>function)";
-    $pattern .= "(?:[ ]*)";
-    $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
-    $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-    $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
-    $pattern .= ")";
-    $pattern .= "/m";
+// function extract_functions( string $source ) : Array {
+//     $pattern  = "/^";
+//     $pattern .= "(";
+//     $pattern .= "(?:[ ]*)";
+//     $pattern .= "(?<fnmod>(static|private|public|final|))";
+//     $pattern .= "(?:[ ]*)";
+//     $pattern .= "(?<fntag>function)";
+//     $pattern .= "(?:[ ]*)";
+//     $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
+//     $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
+//     $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
+//     $pattern .= ")";
+//     $pattern .= "/m";
     
-    $finder = new class_finder();
-    $finder->set_pattern($pattern);
-    $matches = $finder->matches( $source );
-    return $matches;
-}
+//     $finder = new class_finder();
+//     $finder->set_pattern($pattern);
+//     $matches = $finder->matches( $source );
+//     return $matches;
+// }
 
 class class_Test extends PHPUnit\Framework\TestCase {
 
@@ -49,61 +49,11 @@ class class_Test extends PHPUnit\Framework\TestCase {
 //                 var_dump( $matches );
         $classes = $finder->separar_clases();
         
-        $class = $classes[0];
-        $this->assertEquals( 'father', trim( $matches["nombretipo"][2] ) );
+        $class = $classes[1];
+        $this->assertEquals( 'father', $class->get_name() );
         
     }
-    function test_class_body_grep(){
-        $source = '{
-    function algo1( int $uno, string $dos ): string 
-    {
-        
-    }
-    // comment to be removed
-    function algo2( int $uno, string $dos ) {
-    }
-    /* another comment
-     *
-    */
-    public function algo3( ) : bool {
-    }
-    final function algo4( ) {
-    }
-}
-';
-        
-        $matches = extract_functions($source);
-//         var_dump( $matches );
-        
-        $this->assertEquals( 'function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
-        $this->assertEquals( 4, trim( count( $matches[0] ) ) );
-        
-    }
-
-    function test_static_private_functions(){
-        $source = '{
-    private function algo1( int $uno, string $dos ): string {
-            
-    }
-    // comment to be removed
-    static function algo2( int $uno, string $dos ) {
-    }
-    /* another comment
-     *
-    */
-    function algo3( ) : bool {
-    }
-    function algo4( ) {
-    }
-}
-';
-        $matches = extract_functions($source);
-        //         var_dump( $matches[0] );
-        
-        $this->assertEquals( 'private function algo1( int $uno, string $dos ): string', trim( $matches[0][0] ) );
-        $this->assertEquals( 'static function algo2( int $uno, string $dos )', trim( $matches[0][1] ) );
-        
-    }
+    
     
     
     function test_interface_body(){
