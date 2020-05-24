@@ -2,9 +2,33 @@
 
 use src\function_;
 use src\parameter_;
+use src\class_finder;
 
 
 class function_Test extends PHPUnit\Framework\TestCase {
+    
+    function test_rettype(){
+        $source = 'private function algo1( int $uno, string $dos ): string {';
+        
+        $pattern  = "/^";
+        $pattern .= "(";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fnmod>(static|private|public|final|))";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fntag>function)";
+        $pattern .= "(?:[ ]*)";
+        $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
+        $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
+        $pattern .= "(([ ]*\:[ ]*)(?<fnret>[0-9a-zA-Z_]*)[ ]*|)";
+        $pattern .= ")";
+        $pattern .= "/m";
+        
+        $finder = new class_finder();
+        $finder->set_pattern($pattern);
+        $matches = $finder->matches( $source );
+        var_dump($matches["fnret"]);
+    }
+    
     
     function test_1(){
         $source = 'private function algo1( int $uno, string $dos ): string {';
@@ -14,6 +38,7 @@ class function_Test extends PHPUnit\Framework\TestCase {
         $this->assertEquals( '$uno', $fn->get_params()[0]->get_name() );
         $this->assertEquals( 'string', $fn->get_params()[1]->get_type() );
         $this->assertEquals( '$dos', $fn->get_params()[1]->get_name() );
+        $this->assertEquals( 'string', $fn->get_return_type() );
         
         
     }

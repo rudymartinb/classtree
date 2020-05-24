@@ -11,8 +11,9 @@ class function_ {
         if( count( $matches ) > 0 ){
             $this->mod = $matches["fnmod"][0];
             $this->name = $matches["fnname"][0];
+            
             $this->set_params( $matches["fnparams"][0] );
-            $this->rettype= $matches["fnret"][0];
+            $this->set_return_type( $matches["fnret"][0] );
         }
     }
     private $mod; // pr
@@ -35,8 +36,6 @@ class function_ {
     function set_params( string $params ){
         $arrParams = explode(",", $params);
         foreach( $arrParams as $key => $value ){
-            /* dolar sign indicates where the variable part starts
-             */
             $param = new parameter_($value);
             $arrParams[ $key ] = $param;
         }
@@ -47,6 +46,11 @@ class function_ {
     }
     
     private $rettype;
+    private function set_return_type( string $return_type ){
+        $return_type = trim( $return_type );
+        
+        $this->rettype = $return_type;        
+    }
     function get_return_type() : string {
         return $this->rettype;
     }
@@ -61,7 +65,7 @@ class function_ {
         $pattern .= "(?:[ ]*)";
         $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
         $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-        $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
+        $pattern .= "(([ ]*\:[ ]*)(?<fnret>[0-9a-zA-Z_]*)[ ]*|)";
         $pattern .= ")";
         $pattern .= "/m";
         
