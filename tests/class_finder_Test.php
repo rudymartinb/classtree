@@ -51,7 +51,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         $this->assertEquals( $name , $class->get_name() );
         $this->assertEquals( $expected, $bodies[ $name ] );
         $this->assertEquals( $expected, $class->get_body() );
-        var_dump($class->get_functions());
+//         var_dump($class->get_functions());
         
         
     }
