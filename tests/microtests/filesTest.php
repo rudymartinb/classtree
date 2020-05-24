@@ -12,14 +12,7 @@ use src\class_finder;
 // use src\namespace_finder;
 
 function mymatch( string $source ) : Array {
-    $pattern = "/^";
-    $pattern .= "\{";
-    $pattern .= "(";
-    $pattern .= "(?>[^{}]*)";
-    $pattern .= "|(?R)";
-    $pattern .= ")*";
-    $pattern .= "\}";
-    $pattern .= "/xm";
+
     $pattern = "/\{(([^{}]*|(?R))*)\}/";
 //     preg_match_all(,$string,$matches);
     
@@ -51,8 +44,8 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals( "{ }", $matches[0][0] );
     }
     function test_braces_3() {
-        // $filename = "./tests/dummy/prueba2.php";
-        // $source = get_source( $filename );
+//         $filename = "./tests/dummy/prueba2.php";
+//         $source = get_source( $filename );
         $source = "{ {} }";
         
         $matches = mymatch($source);
