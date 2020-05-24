@@ -34,6 +34,8 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$namespaces = $finder->split();
 		$this->assertEquals( [], $namespaces );
+		
+		
 	}
 
 	function test_just_1_line(){
@@ -43,6 +45,9 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$matches = $finder->matches( $source );
 		$this->assertEquals( true, $finder->found() );
+		
+		$finder->find_bodies();
+		$this->assertEquals( "", $finder->get_body("test") );
 		
 		$namespaces = $finder->split();
 		$expected = [];

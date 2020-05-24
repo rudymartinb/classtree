@@ -29,6 +29,9 @@ class namespace_finder {
     function find_bodies() : Array {
     	return [];
     }
+    function get_body( string $namespace ){
+    	return "";
+    }
     function split() : Array {
     	if( !$this->found() ){
     		return [];
