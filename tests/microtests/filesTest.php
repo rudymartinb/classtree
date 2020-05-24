@@ -12,8 +12,12 @@ use src\class_finder;
 // use src\namespace_finder;
 
 function mymatch( string $source ) : Array {
-    $pattern = "/^\{.*\}";
+    $pattern = "/^";
+    $pattern .= "\{((?>[^{}]*)";
+    $pattern .= "|(?R))*\}";
     $pattern .= "/xm";
+    
+    
     $matches = [];
     preg_match_all($pattern, $source, $matches );
     return $matches;
