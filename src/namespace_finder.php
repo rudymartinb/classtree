@@ -1,10 +1,5 @@
 <?php
 
-namespace sarasa;
-function sarasa(){
-	
-}
-
 namespace src;
 
 class namespace_finder {
