@@ -49,7 +49,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $source = "{ {} }";
         
         $matches = mymatch($source);
-        var_dump( $matches[0] );
+//         var_dump( $matches[0] );
         $this->assertEquals( "{ {} }", $matches[0][0] );
     }
     
