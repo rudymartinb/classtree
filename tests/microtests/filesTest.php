@@ -68,7 +68,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $source = "a{b {c}d{e}f }g{h}";
         
         $matches = mymatch($source);
-        var_dump( $matches[0] );
+//         var_dump( $matches[0] );
         $this->assertEquals( "{b {c}d{e}f }", $matches[0][0] );
     }
     
