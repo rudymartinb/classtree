@@ -13,10 +13,15 @@ use src\class_finder;
 
 function mymatch( string $source ) : Array {
     $pattern = "/^";
-    $pattern .= "\{((?>[^{}]*)";
-    $pattern .= "|(?R))*\}";
+    $pattern .= "\{";
+    $pattern .= "(";
+    $pattern .= "(?>[^{}]*)";
+    $pattern .= "|(?R)";
+    $pattern .= ")*";
+    $pattern .= "\}";
     $pattern .= "/xm";
-    
+    $pattern = "/\{(([^{}]*|(?R))*)\}/";
+//     preg_match_all(,$string,$matches);
     
     $matches = [];
     preg_match_all($pattern, $source, $matches );
@@ -42,9 +47,19 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $source = "{ }";
         
         $matches = mymatch($source);
-        var_dump( $matches[0] );
+//         var_dump( $matches[0] );
         $this->assertEquals( "{ }", $matches[0][0] );
     }
+    function test_braces_3() {
+        // $filename = "./tests/dummy/prueba2.php";
+        // $source = get_source( $filename );
+        $source = "{ {} }";
+        
+        $matches = mymatch($source);
+        var_dump( $matches[0] );
+        $this->assertEquals( "{ {} }", $matches[0][0] );
+    }
+    
     
     
     /* this test uses fixed files on tests/dummy dir
