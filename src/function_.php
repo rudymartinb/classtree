@@ -32,8 +32,11 @@ class function_ {
         return $this->name;
     }
     
-    private $params;
+    private $params = [];
     function set_params( string $params ){
+        if( $params === ""){
+            return ;
+        }
         $arrParams = explode(",", $params);
         foreach( $arrParams as $key => $value ){
             $param = new parameter_($value);
