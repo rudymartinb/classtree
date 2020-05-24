@@ -47,14 +47,19 @@ function sarasa(){
 		$finder = new namespace_finder();
 		
 		$matches = $finder->matches( $source );
+// 		var_dump($matches);
 		$this->assertEquals( true, $finder->found() );
 		
 		$finder->find_bodies();
-		$this->assertEquals( "", $finder->get_body("test") );
+		$expected_body = "function sarasa(){
+}
+";
+
+		$this->assertEquals( $expected_body, $finder->get_body("test") );
 		
 		$namespaces = $finder->split();
 		$expected = [];
-		$expected[] = [ "namespace" => "test" ];
+		$expected[] = [ "namespace" => "test", "body"=>$expected_body ];
 		$this->assertEquals( $expected, $namespaces );
 	}
 
@@ -62,22 +67,22 @@ function sarasa(){
 	 * having a source code with 2 name spaces 
 	 * should be considered a bad practice
 	 */
-	function test_just_2_line(){
-		$source = '
-namespace test1;
-namespace test2';
+// 	function test_just_2_line(){
+// 		$source = '
+// namespace test1;
+// namespace test2;';
 		
-		$finder = new namespace_finder();
+// 		$finder = new namespace_finder();
 		
-		$matches = $finder->matches( $source );
-		$this->assertEquals( true, $finder->found() );
+// 		$matches = $finder->matches( $source );
+// 		$this->assertEquals( true, $finder->found() );
 		
-		$namespaces = $finder->split();
-		$expected = [];
-		$expected[] = [ "namespace" => "test1" ];
-		$expected[] = [ "namespace" => "test2" ];
-		$this->assertEquals( $expected, $namespaces );
-	}
+// 		$namespaces = $finder->split();
+// 		$expected = [];
+// 		$expected[] = [ "namespace" => "test1", "body"=>'\n' ];
+// 		$expected[] = [ "namespace" => "test2", "body"=>'' ];
+// 		$this->assertEquals( $expected, $namespaces );
+// 	}
 	
 	
 	
