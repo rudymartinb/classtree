@@ -1,8 +1,6 @@
 <?php
 namespace src;
 
-/* TODO: scan for namespaces with body {}
- */
 class class_finder {
     private $id_pattern;
     function __construct(){
@@ -41,6 +39,8 @@ class class_finder {
         $bodies = [];
         foreach ($matches[0] as $key => $code ) {
             if( $matches[ "nsflag" ][ $key ] == "namespace" ){
+                /* TODO: scan for namespaces with body {}
+                 */
                 continue;
             }
             $pointer = $key;
