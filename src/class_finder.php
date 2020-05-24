@@ -137,7 +137,7 @@ class class_finder {
         $finder = new class_finder();
         $finder->set_pattern($pattern);
         $matches = $finder->matches( $source );
-        return $matches;
+//         return $matches;
     }
     
     
