@@ -14,11 +14,11 @@ class parameter_ {
     }
     
     function __construct( string $source ){
-        $this->type = $this->extract_mod( $source );
+        $this->type = $this->extract_type( $source );
         $this->name = $this->extract_name($source);
     }
     
-    private function extract_mod( string $source ){
+    private function extract_type( string $source ){
         $source = trim( $source );
         $pos = strpos($source, "$");
         
