@@ -94,5 +94,10 @@ I'm also considering creating separated images for each tree and just one for or
 
 Another element to keep in mind, horizal space needed by a node.
 
-So, if I have a tree o
+20200524
+added function information to classes along with parameters type and return types as strings. 
+
+I'm considering splitting the regular expression in class_finder to several ones, one for namespaces, one for interfaces, one for classes and I already have one for functions. By doing that I could simply pass the found strings to the constructor of the class_ interface.
+
+
 

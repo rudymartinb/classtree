@@ -6,8 +6,6 @@ use function files\get_clases;
 use src\class_finder;
 use function src\force_class;
 
-
-
 class class_Test extends PHPUnit\Framework\TestCase {
 
 //     function test_between_strings(){
