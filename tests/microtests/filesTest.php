@@ -56,11 +56,11 @@ class filesTest extends PHPUnit\Framework\TestCase {
     function test_braces_4() {
         //         $filename = "./tests/dummy/prueba2.php";
         //         $source = get_source( $filename );
-        $source = "{ {} }{}";
+        $source = "{ {}{} }{}";
         
         $matches = mymatch($source);
                 var_dump( $matches[0] );
-        $this->assertEquals( "{ {} }", $matches[0][0] );
+        $this->assertEquals( "{ {}{} }", $matches[0][0] );
     }
     
     
