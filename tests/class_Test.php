@@ -4,6 +4,7 @@ use src\class_;
 use function files\get_source;
 use function files\get_clases;
 use src\class_finder;
+use function src\force_class;
 
 
 function get_between_strings( string $source, string $string1, string $string2 ) : string {
@@ -84,10 +85,14 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $matches = $finder->matches($source );
         //         var_dump( $matches );
         $classes = $finder->separar_clases();
+        
+        $class = force_class($classes[0]);
+        
         $this->assertEquals( "class", $classes[0]->get_type() );
         $this->assertEquals( "whats\\is\\this", $classes[0]->get_namespace() );
         
-        
+//         $this->assertEquals( 2, count( $class->get_functions() ) );
+       
     }
     
     /* interfaces

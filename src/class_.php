@@ -84,7 +84,7 @@ class class_ {
     
     private $functions = [];
     function set_function( string $name, Array $parameters, string $return_type = "" ){
-        $this->functions[] = [ $name, $parameters, $return_type ];
+        $this->functions[] = [ "name" => $name, "params"=> $parameters, "rettype" => $return_type ];
     }
     function get_functions() : Array {
         return $this->functions;

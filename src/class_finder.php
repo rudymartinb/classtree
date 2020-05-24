@@ -11,7 +11,10 @@ class class_finder {
         $this->id_pattern .= "([ ]*(?<ifflag>interface)[ ]*";
         $this->id_pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
         $this->id_pattern .= ")|(";
-        $this->id_pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
+        $this->id_pattern .= "(?<final>final|)";
+        $this->id_pattern .= "(?<abstract>abstract|)";
+        $this->id_pattern .= "[ ]*(?: |)";
+        $this->id_pattern .= "(?<tipo>class)(?: )[ ]*";
         $this->id_pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
         $this->id_pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
         $this->id_pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
@@ -40,13 +43,29 @@ class class_finder {
                 $namespace = $matches[ "nsname" ][ $key ];
                 continue;
             }
-            if( $value == "class "){
+            if( $value == "class"){
                 $clase = new class_( trim( $matches[ "nombretipo"][$key] ) );
                 $clase->set_type( "class" );
                 $clase->set_extends( $matches["extends"][$key] );
                 $clase->set_implements( $matches["implements"][$key] );
                 $clase->set_abstract( $matches["abstract"][$key] );
                 $clase->set_namespace( $namespace );
+                
+//                 $this_class = $matches["nombretipo"][$key];
+//                 if( $key < count( $matches[0])-1 ){
+//                     $next_class = $matches["nombretipo"][$key+1];
+//                     $body = $this->get_between_strings($this->source, $this_class, $next_class);
+//                 } else {
+//                     $body = $this->get_from_class($this->source, $this_class, $next_class);
+//                 }
+                
+//                 $funcs = $this->extract_functions($body);
+//                 foreach ($funcs as $key => $fn ){
+//                     $name = $fn["fnname"][$key];
+//                     $parameters = $fn["fnparams"][$key];
+//                     $rettype = $fn["fnrettype"][$key];
+//                     $clase->set_function($name, $parameters);
+//                 }
                 
                 /* before that
                  * we need to scan the class body for functions
@@ -66,6 +85,18 @@ class class_finder {
         }
         return $lista;
     }
+    
+    function get_between_strings( string $source, string $string1, string $string2 ) : string {
+        $strpos1 = strpos($source, $string1 )+strlen($string1);
+        $strpos2 = strpos($source, $string2 );
+        return substr($source, $strpos1, $strpos2-$strpos1 );
+    }
+    
+    private function get_from_class( string $source, string $string1 ) : string {
+        $strpos1 = strpos($source, $string1 )+strlen($string1);
+        return substr($source, $strpos1 );
+    }
+    
     function extract_functions( string $source ) : Array {
         $pattern  = "/^";
         $pattern .= "(";
