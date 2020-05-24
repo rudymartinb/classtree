@@ -17,4 +17,11 @@ class namespace_finder {
         preg_match_all($this->pattern, $source, $matches );
         return $matches;
     }
+    function find_bodies() : Array {
+    	return [];
+    }
+    function split() : Array {
+    	return [];
+    }
+    
 }
