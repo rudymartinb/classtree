@@ -47,6 +47,9 @@ class function_ {
     }
     
     private $rettype;
+    function get_return_type() : string {
+        return $this->rettype;
+    }
     
     function extract_functions( string $source ) : Array {
         $pattern  = "/^";
