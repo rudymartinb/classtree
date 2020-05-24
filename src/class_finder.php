@@ -1,6 +1,8 @@
 <?php
 namespace src;
 
+/* TODO: scan for namespaces with body {}
+ */
 class class_finder {
     private $id_pattern;
     function __construct(){
