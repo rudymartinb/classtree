@@ -3,6 +3,7 @@
 use src\function_;
 use src\parameter_;
 use src\class_finder;
+use function files\get_source;
 
 
 class function_Test extends PHPUnit\Framework\TestCase {
@@ -17,8 +18,32 @@ class function_Test extends PHPUnit\Framework\TestCase {
         $this->assertEquals( 'string', $fn->get_params()[1]->get_type() );
         $this->assertEquals( '$dos', $fn->get_params()[1]->get_name() );
         $this->assertEquals( 'string', $fn->get_return_type() );
+    }
+    function test_2(){
         
         
     }
+    
+//     function test_real() {
+//         $filename = "./tests/dummy/prueba.php";
+//         $source = get_source( $filename );
+        
+//         $finder = new class_finder();
+        
+//         $matches = $finder->matches($source );
+//         //         var_dump( $matches["tipo"] );
+//         $bodies = $finder->find_bodies();
+//         //         var_dump($bodies);
+//         $classes = $finder->separar_clases();
+        
+//         //
+//         //         var_dump($matches);
+        
+//         $class = $classes[0]; // sarasa interface
+        
+//         $expected = 'function algo() : string;';
+//         $this->assertEquals( $expected, $class->get_functions()[0] );
+//     }
+    
 }
 

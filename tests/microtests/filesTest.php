@@ -9,89 +9,9 @@ use function files\get_classes_from_sources;
 use function files\get_interfaces_from_sources;
 use function files\get_interfaces;
 use src\class_finder;
-// use src\namespace_finder;
-
-function mymatch( string $source ) : Array {
-
-    $pattern = "/\{";
-    $pattern .= "(";
-    $pattern .= "(";
-//     $pattern .= "(?!(\'[^'\{\}]*\')|(?R))";
-    $pattern .= "([^{}]*)";
-    
-    $pattern .= "|(?R))";
-    $pattern .= ")*";
-    $pattern .= "\}/";
-    
-    
-//     preg_match_all(,$string,$matches);
-    
-    $matches = [];
-    preg_match_all($pattern, $source, $matches );
-    return $matches;
-}
 
 class filesTest extends PHPUnit\Framework\TestCase {
-    /*
-     * preg patterns test
-     */
-    function test_braces_1() {
-        // $filename = "./tests/dummy/prueba2.php";
-        // $source = get_source( $filename );
-        $source = "{}";
-        
-        $matches = mymatch($source);
-//         var_dump( $matches[0] );
-        $this->assertEquals( "{}", $matches[0][0] );
-    }
-    function test_braces_2() {
-        // $filename = "./tests/dummy/prueba2.php";
-        // $source = get_source( $filename );
-        $source = "{ }";
-        
-        $matches = mymatch($source);
-//         var_dump( $matches[0] );
-        $this->assertEquals( "{ }", $matches[0][0] );
-    }
-    function test_braces_3() {
-//         $filename = "./tests/dummy/prueba2.php";
-//         $source = get_source( $filename );
-        $source = "{ {} }";
-        
-        $matches = mymatch($source);
-//         var_dump( $matches[0] );
-        $this->assertEquals( "{ {} }", $matches[0][0] );
-    }
 
-    function test_braces_4() {
-        //         $filename = "./tests/dummy/prueba2.php";
-        //         $source = get_source( $filename );
-        $source = "{ {}{} }{}";
-        
-        $matches = mymatch($source);
-//         var_dump( $matches[0] );
-        $this->assertEquals( "{ {}{} }", $matches[0][0] );
-    }
-    function test_braces_5() {
-        //         $filename = "./tests/dummy/prueba2.php";
-        //         $source = get_source( $filename );
-        $source = "a{b {c}d{e}f }g{h}";
-        
-        $matches = mymatch($source);
-//         var_dump( $matches[0] );
-        $this->assertEquals( "{b {c}d{e}f }", $matches[0][0] );
-    }
-
-//     function test_braces_6() {
-//         //         $filename = "./tests/dummy/prueba2.php";
-//         //         $source = get_source( $filename );
-//         $source = "a{b '}'d{e}f }g{h}";
-        
-//         $matches = mymatch($source);
-//         var_dump( $matches[0] );
-//         $this->assertEquals( "{b {c}d{e}f }", $matches[0][0] );
-//     }
-    
     
     
     /* this test uses fixed files on tests/dummy dir
