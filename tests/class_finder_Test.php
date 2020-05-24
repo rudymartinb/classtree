@@ -11,9 +11,9 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         
         $matches = $finder->matches($source );
-        var_dump( $matches["tipo"] );
+//         var_dump( $matches["tipo"] );
         $bodies = $finder->find_bodies();
-        var_dump($bodies);
+//         var_dump($bodies);
         $classes = $finder->separar_clases();
         
 //         
