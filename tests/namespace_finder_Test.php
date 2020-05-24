@@ -2,6 +2,13 @@
 
 use src\namespace_finder;
 
+/*
+ * there's little point in wasting a class just to hold a character string 
+ * if there's not much use we can make of it.
+ * 
+ * so the plan is to make that class hold the body as well 
+ * which would be the entire source code if the namespace just end with ";"
+ */
 class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 	function test1(){
 		
@@ -20,8 +27,7 @@ function body() {
 		$bodies = $finder->find_bodies();
 		$namespaces = $finder->split();
 		
-		//
-		//         var_dump($matches);
+		//  var_dump($matches);
 		
 		$class = $classes[0]; // sarasa interface
 		
