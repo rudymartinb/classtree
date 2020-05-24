@@ -56,48 +56,6 @@ class class_Test extends PHPUnit\Framework\TestCase {
     
     
     
-    function test_interface_body(){
-        $filename = "./tests/dummy/prueba.php";
-        $source = get_source( $filename );
-        
-        $pattern  = "/^(?<este>";
-        $pattern .= "([ ]*(?<nsflag>namespace)[ ]*";
-        $pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
-        $pattern .= ")|";
-        $pattern .= "([ ]*(?<ifflag>interface)[ ]*";
-        $pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
-        $pattern .= "(?<ifbody>[^}]*)}";
-        $pattern .= ")|(";
-        $pattern .= "(?<final>final|)(?<abstract>abstract|)[ ]*(?<tipo>class(?: ))[ ]*";
-        $pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-        $pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
-        $pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|)[ ]*";
-        
-//         $pattern .= "(";
-//         $pattern .= "(?:[ ]*)";
-//         $pattern .= "(?<fnmod>(static|private|public|))";
-//         $pattern .= "(?:[ ]*)";
-//         $pattern .= "(?<fntag>function)";
-//         $pattern .= "(?:[ ]*)";
-//         $pattern .= "(?<fnname>[0-9a-zA-Z_]+)[ ]*\(";
-//         $pattern .= "(?<fnparams>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-//         $pattern .= "(?<fnret>[ ]*\:[ ]*[0-9a-zA-Z_]*[ ]*|)";
-//         $pattern .= ")";
-        
-        $pattern .= "))/m";
-
-        $finder = new class_finder();
-        $finder->set_pattern($pattern);
-        $matches = $finder->matches($source );
-        
-
-        $class1 = $matches[0][2];
-        $class2 = $matches[0][3];
-//         var_dump( $matches[0] );
-        
-
-        $this->assertTrue( true );
-    }
 
     function test_from_source(){
         $filename = "./tests/dummy/prueba.php";
