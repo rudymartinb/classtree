@@ -62,6 +62,15 @@ class filesTest extends PHPUnit\Framework\TestCase {
                 var_dump( $matches[0] );
         $this->assertEquals( "{ {}{} }", $matches[0][0] );
     }
+    function test_braces_5() {
+        //         $filename = "./tests/dummy/prueba2.php";
+        //         $source = get_source( $filename );
+        $source = "a{b {c}d{e}f }g{h}";
+        
+        $matches = mymatch($source);
+        var_dump( $matches[0] );
+        $this->assertEquals( "{b {c}d{e}f }", $matches[0][0] );
+    }
     
     
     
