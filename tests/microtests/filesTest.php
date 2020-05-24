@@ -13,7 +13,17 @@ use src\class_finder;
 
 function mymatch( string $source ) : Array {
 
-    $pattern = "/\{(([^{}]*|(?R))*)\}/";
+    $pattern = "/\{";
+    $pattern .= "(";
+    $pattern .= "(";
+//     $pattern .= "(?!(\'[^'\{\}]*\')|(?R))";
+    $pattern .= "([^{}]*)";
+    
+    $pattern .= "|(?R))";
+    $pattern .= ")*";
+    $pattern .= "\}/";
+    
+    
 //     preg_match_all(,$string,$matches);
     
     $matches = [];
@@ -59,7 +69,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
         $source = "{ {}{} }{}";
         
         $matches = mymatch($source);
-                var_dump( $matches[0] );
+//         var_dump( $matches[0] );
         $this->assertEquals( "{ {}{} }", $matches[0][0] );
     }
     function test_braces_5() {
@@ -71,6 +81,16 @@ class filesTest extends PHPUnit\Framework\TestCase {
 //         var_dump( $matches[0] );
         $this->assertEquals( "{b {c}d{e}f }", $matches[0][0] );
     }
+
+//     function test_braces_6() {
+//         //         $filename = "./tests/dummy/prueba2.php";
+//         //         $source = get_source( $filename );
+//         $source = "a{b '}'d{e}f }g{h}";
+        
+//         $matches = mymatch($source);
+//         var_dump( $matches[0] );
+//         $this->assertEquals( "{b {c}d{e}f }", $matches[0][0] );
+//     }
     
     
     
