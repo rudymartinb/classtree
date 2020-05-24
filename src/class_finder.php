@@ -94,7 +94,6 @@ class class_finder {
                 foreach( $arr[0] as $code ){
                     $fn = new function_($code);
                     $clase->set_function($fn->get_name(),$fn->get_params(),$fn->get_return_type());
-                    
                 }
                 $clase->set_body($bodies[$name]);
                 
