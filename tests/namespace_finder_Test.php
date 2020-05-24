@@ -45,8 +45,31 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( true, $finder->found() );
 		
 		$namespaces = $finder->split();
-		$this->assertEquals( [ "namespace" => "test" ], $namespaces );
+		$expected = [];
+		$expected[] = [ "namespace" => "test" ];
+		$this->assertEquals( $expected, $namespaces );}
+
+	/*
+	 * having a source code with 2 name spaces 
+	 * should be considered a bad practice
+	 */
+	function test_just_2_line(){
+		$source = '
+namespace test1;
+namespace test2';
+		
+		$finder = new namespace_finder();
+		
+		$matches = $finder->matches( $source );
+		$this->assertEquals( true, $finder->found() );
+		
+		$namespaces = $finder->split();
+		$expected = [];
+		$expected[] = [ "namespace" => "test1" ];
+		$expected[] = [ "namespace" => "test2" ];
+		$this->assertEquals( $expected, $namespaces );
 	}
+	
 	
 	
 	

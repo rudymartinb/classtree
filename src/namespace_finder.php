@@ -30,10 +30,15 @@ class namespace_finder {
     	return [];
     }
     function split() : Array {
-    	if( !$this->found() )
+    	if( !$this->found() ){
     		return [];
+    	}
+    	$nslist = [];
+    	foreach ($this->matches["nombretipo"] as $namespace ){
+    		$nslist[] = [ "namespace" => $namespace ];
+    	}
     	
-    	return [ "namespace" => $this->matches["nombretipo"][0] ];
+    	return $nslist;
     }
     function found() : bool {
     	return count( $this->matches[0] ) != 0;
