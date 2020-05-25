@@ -12,6 +12,8 @@ class namespace_finder {
     	/*
     	 * for the namespace keyword 
     	 * then add all the code up to the next keyword.
+    	 * 
+    	 * TODO: test this against a windows newline character 
     	 */
         $this->pattern  = "/^[ ]*(?<original>(?:namespace)[ ]+";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
