@@ -10,7 +10,8 @@ class namespace_finder {
     	$this->source = $source;
     	
         $this->pattern  = "/^[ ]*(?:namespace)[ ]+";
-        $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ;{]*";
+        $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
+        $this->pattern .= "[ ;{]*";
         $this->pattern .= "/m";
         
         $this->matches($source);

@@ -60,47 +60,47 @@ function test() {
 	$this->assertEquals( false, $finder->more_elements() );
 }
 
-function test_2_namespaces_with_body(){
-	$source = 'namespace test;
-function test() {
-}
 
-namespace test2;
-function test2() {
-}
-';
-	
-	$finder = new namespace_finder( $source );
-	
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test", $finder->get_name() );
-	
-	$this->assertEquals( "namespace test2;", $finder->get_next_namepace_line() );
-	
-	$expected = '
-function test() {
-}
 
-';
-	$body = $finder->get_body();
+// function test_2_namespaces_with_body(){
+// 	$source = 'namespace test;
+// function test() {
+// }
+
+// namespace test2;
+// function test2() {
+// }';
+	
+// 	$finder = new namespace_finder( $source );
+	
+// 	$this->assertEquals( true, $finder->more_elements() );
+// 	$this->assertEquals( "test", $finder->get_name() );
+	
+// 	$this->assertEquals( "namespace test2;", $finder->get_next_namepace_line() );
+	
+// 	$expected = '
+// function test() {
+// }
+
+// ';
+// 	$body = $finder->get_body();
 // 	var_dump($body);
-	$this->assertEquals( $expected, $finder->get_body() );
-	$finder->next();
+// 	$this->assertEquals( $expected, $finder->get_body() );
+// 	$finder->next();
 
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test2", $finder->get_name() );
+// 	$this->assertEquals( true, $finder->more_elements() );
+// 	$this->assertEquals( "test2", $finder->get_name() );
 
-	$expected = '
-function test2() {
-}
-';
+// 	$expected = '
+// function test2() {
+// }';
 
-	$body = $finder->get_body();
-	$this->assertEquals( $expected, $body );
+// 	$body = $finder->get_body();
+// 	$this->assertEquals( $expected, $body );
 	
-	$finder->next();
-	$this->assertEquals( false, $finder->more_elements() );
-}
+// 	$finder->next();
+// 	$this->assertEquals( false, $finder->more_elements() );
+// }
 
 
 
