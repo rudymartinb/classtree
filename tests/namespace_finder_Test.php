@@ -75,7 +75,7 @@ function test2() {
 	
 // 	var_dump( $finder->matches($source)["original"] );
 // 	echo( "-----------------------------" );
-// 	var_dump( $finder->matches($source)["0"] );
+// 	var_dump( $finder->matches($source)["body"] );
 // 	echo( "-----------------------------" );
 
 	
@@ -92,11 +92,8 @@ function test() {
 }
 
 ';
-// 	$body = $finder->get_body();
-// 	var_dump($body);
+
 	$this->assertEquals( $expected, $finder->get_body() );
-	
-// 	$this->assertEquals( "namespace test2;", $finder->get_next_namepace_line() );
 	
 	$finder->next();
 
