@@ -77,7 +77,7 @@ function test2() {
 	$expected = '
 function test() {
 }
-na';
+';
 	$body = $finder->get_body();
 	var_dump($body);
 	$this->assertEquals( $expected, $finder->get_body() );

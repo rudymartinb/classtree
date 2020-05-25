@@ -54,17 +54,21 @@ class namespace_finder {
     	$start_position = strpos( $source , $line )+strlen( $line );
     	$body_lenght = strlen( $source )-$start_position;
     	
-    	$next_line = $this->matches[0][$this->current_key+1];
+    	$next_line = $this->get_next_namepace_line();
     	
     	if( $next_line != "" and $next_line !== null ){
-    		$newline_position = strpos( $source, $next_line );
+    		$newline_position = strpos( $source, $next_line ) +2;
     		$body_lenght = $body_lenght - $newline_position ;
     	}
     	
     	return substr($this->source, $start_position, $body_lenght );
     }
     function get_next_namepace_line() : string {
-    	return $this->matches[0][$this->current_key+1];
+    	$line = $this->matches[0][$this->current_key+1];
+    	if( $line === null ){
+    		return "";
+    	}
+    	return $line;
     }
     
 //     function find_bodies() : Array {
