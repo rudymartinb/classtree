@@ -19,10 +19,14 @@ class namespace_finder {
 
     
     private $current_key = 0;
+    function next(){
+    	$this->current_key ++;
+    }
     private $matches = [];
     function more_elements() : bool {
-    	return count( $this->matches[ $this->current_key] ) != 0;
+    	return count( $this->matches[ 0 ] ) > $this->current_key;
     }
+    
     function get_name() : string {
     	return $this->matches["nombretipo"][ $this->current_key ];
     }
