@@ -14,54 +14,50 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$source = '';
 		
-		$finder = new namespace_finder();
+		$finder = new namespace_finder( $source );
 		
-		$matches = $finder->matches( $source );
-		$this->assertEquals( false, $finder->found() );
-		
-		$namespaces = $finder->split();
-		$this->assertEquals( [], $namespaces );
+		$this->assertEquals( false, $finder->more_elements() );
 		
 	}
 	
-	function test_something_else(){
-		$source = 'this is a test';
+// 	function test_something_else(){
+// 		$source = 'this is a test';
 		
-		$finder = new namespace_finder();
+// 		$finder = new namespace_finder();
 		
-		$matches = $finder->matches( $source );
-		$this->assertEquals( false, $finder->found() );
+// 		$matches = $finder->matches( $source );
+// 		$this->assertEquals( false, $finder->found() );
 		
-		$namespaces = $finder->split();
-		$this->assertEquals( [], $namespaces );
+// 		$namespaces = $finder->split();
+// 		$this->assertEquals( [], $namespaces );
 		
 		
-	}
+// 	}
 
-	function test_just_1_line(){
-		$source = 'namespace test;
-function sarasa(){
-}
-';
+// 	function test_just_1_line(){
+// 		$source = 'namespace test;
+// function sarasa(){
+// }
+// ';
 		
-		$finder = new namespace_finder();
+// 		$finder = new namespace_finder();
 		
-		$matches = $finder->matches( $source );
-// 		var_dump($matches);
-		$this->assertEquals( true, $finder->found() );
+// 		$matches = $finder->matches( $source );
+// // 		var_dump($matches);
+// 		$this->assertEquals( true, $finder->found() );
 		
-		$finder->find_bodies();
-		$expected_body = "function sarasa(){
-}
-";
+// 		$finder->find_bodies();
+// 		$expected_body = "function sarasa(){
+// }
+// ";
 
-		$this->assertEquals( $expected_body, $finder->get_body("test") );
+// 		$this->assertEquals( $expected_body, $finder->get_body("test") );
 		
-		$namespaces = $finder->split();
-		$expected = [];
-		$expected[] = [ "namespace" => "test", "body"=>$expected_body ];
-		$this->assertEquals( $expected, $namespaces );
-	}
+// 		$namespaces = $finder->split();
+// 		$expected = [];
+// 		$expected[] = [ "namespace" => "test", "body"=>$expected_body ];
+// 		$this->assertEquals( $expected, $namespaces );
+// 	}
 
 	/*
 	 * having a source code with 2 name spaces 
@@ -76,8 +72,8 @@ function sarasa(){
 		
 // 		$matches = $finder->matches( $source );
 // 		$this->assertEquals( true, $finder->found() );
-		
 // 		$namespaces = $finder->split();
+		
 // 		$expected = [];
 // 		$expected[] = [ "namespace" => "test1", "body"=>'\n' ];
 // 		$expected[] = [ "namespace" => "test2", "body"=>'' ];

@@ -67,9 +67,6 @@ I call "level" the horizontal ruler of the future diagram grid. Parents classes 
 
 "Tree" would be the vertial aligment of a set of classes. 
 
-20200517 
-
-<deleted bc it was useless babling>
 	
 20200519
 after two days rushing a bit to get the text tree I realized I was representing a two dimensials problem into a one-dimensional solution. At least using the same method.
@@ -99,5 +96,11 @@ added function information to classes along with parameters type and return type
 
 I'm considering splitting the regular expression in class_finder to several ones, one for namespaces, one for interfaces, one for classes and I already have one for functions. By doing that I could simply pass the found strings to the constructor of the class_ interface.
 
+20200525
+There's things I don't like about how is this done: 
 
+first off is the functions lenght
+second is the fact I rely too much on the values returned by the preg_match_all
+
+since I need to iterate each element of the array returned by preg_match, I think it would be appropiate to create methods for that. 
 
