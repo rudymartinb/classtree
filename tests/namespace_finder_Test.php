@@ -92,8 +92,8 @@ function test() {
 }
 
 ';
-	$body = $finder->get_body();
-	var_dump($body);
+// 	$body = $finder->get_body();
+// 	var_dump($body);
 	$this->assertEquals( $expected, $finder->get_body() );
 	
 // 	$this->assertEquals( "namespace test2;", $finder->get_next_namepace_line() );
