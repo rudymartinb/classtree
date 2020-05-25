@@ -8,12 +8,16 @@ class namespace_finder {
     private $source = "";
     function __construct( string $source ){
     	$this->source = $source;
-    	
+
+    	/*
+    	 * for the namespace keyword 
+    	 * then add all the code up to the next keyword.
+    	 */
         $this->pattern  = "/^[ ]*(?<original>(?:namespace)[ ]+";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
         $this->pattern .= "(?:[^\n]*))";
         // rest of the namespace body is included
-        $this->pattern .= "(?:(?!(?R)).)*";
+        $this->pattern .= "(?<body>(?!(?R)).)*";
         $this->pattern .= "/ms";
         
         $this->matches($source);
@@ -53,7 +57,6 @@ class namespace_finder {
     	$code = $this->matches["0"][$this->current_key];
     	$original = $this->matches["original"][$this->current_key];
     	$start = strlen( $original );
-    	
     	return substr( $code, $start );
     }
     
