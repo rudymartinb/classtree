@@ -14,6 +14,7 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$source = '';
 		
 		$finder = new namespace_finder( $source );
+
 		
 		$this->assertEquals( false, $finder->more_elements() );
 	}
@@ -31,7 +32,6 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$finder = new namespace_finder( $source );
 
-		var_dump($finder->matches($source));
 		$this->assertEquals( true, $finder->more_elements() );
 	}
 
