@@ -54,7 +54,7 @@ function test() {
 function test() {
 }
 ';
-	$body = $finder->get_body();
+// 	$body = $finder->get_body();
 	$this->assertEquals( $expected, $finder->get_body() );
 	$finder->next();
 	$this->assertEquals( false, $finder->more_elements() );
