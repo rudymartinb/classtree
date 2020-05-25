@@ -113,15 +113,15 @@ function test2() {
 
 
 function test_2_namespaces_with_body_2(){
-	$source = 'namespace test;
-function test() {
+	$source = 'namespace test{
+	function test() {
+	}
 }
+namespace test2{
 
-namespace test2;
-
-function test2() {
+	function test2() {
+	}
 }
-
 ';
 	
 	$finder = new namespace_finder( $source );
@@ -131,12 +131,11 @@ function test2() {
 	
 	
 	$expected = '
-function test() {
+	function test() {
+	}
 }
-
 ';
 	$body = $finder->get_body();
-	var_dump($body);
 	$this->assertEquals( $expected, $finder->get_body() );
 	$finder->next();
 	
@@ -145,9 +144,9 @@ function test() {
 	
 	$expected = '
 
-function test2() {
+	function test2() {
+	}
 }
-
 ';
 	
 	$body = $finder->get_body();
