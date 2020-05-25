@@ -9,11 +9,10 @@ class namespace_finder {
     function __construct( string $source ){
     	$this->source = $source;
     	
-        $this->pattern  = "/^[ ]*(?:namespace)[ ]+";
+        $this->pattern  = "/^[ ]*(?<original>(?:namespace)[ ]+";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
-        $this->pattern .= "(?:[ ;{]*)";
-//         $this->pattern .= "(?<body>(?!(?0))*)";
-        $this->pattern .= "(?<body>.*)";
+        $this->pattern .= "(?:[^\n]*))";
+        $this->pattern .= "(?:(?!(?R)).)*";
         $this->pattern .= "/ms";
         
         $this->matches($source);
@@ -50,7 +49,11 @@ class namespace_finder {
     }
     
     function get_body() : string {
-    	return $this->matches["body"][$this->current_key];
+    	$code = $this->matches["0"][$this->current_key];
+    	$original = $this->matches["original"][$this->current_key];
+    	$start = strlen( $original );
+    	
+    	return substr( $code, $start );
     	
 //     	$source = $this->source;
     	
