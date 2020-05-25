@@ -57,12 +57,15 @@ class namespace_finder {
     	$next_line = $this->matches[0][$this->current_key+1];
     	
     	if( $next_line != "" and $next_line !== null ){
-    		$body_lenght = $body_lenght - strpos( $source, $next_line );
+    		$newline_position = strpos( $source, $next_line );
+    		$body_lenght = $body_lenght - $newline_position ;
     	}
     	
     	return substr($this->source, $start_position, $body_lenght );
     }
-    
+    function get_next_namepace_line() : string {
+    	return $this->matches[0][$this->current_key+1];
+    }
     
 //     function find_bodies() : Array {
 //     	return [];
