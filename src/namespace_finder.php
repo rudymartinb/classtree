@@ -48,10 +48,9 @@ class namespace_finder {
     
     function get_body() : string {
     	$source = $this->source;
-    	// line found
-    	$line = $this->matches[0][$this->current_key];
     	
-    	$start_position = strpos( $source , $line )+strlen( $line );
+    	$start_position = $this->get_start_position($this->current_key);
+    	
     	$body_lenght = strlen( $source )-$start_position;
     	
     	$next_line = $this->get_next_namepace_line();
@@ -63,6 +62,14 @@ class namespace_finder {
     	
     	return substr($this->source, $start_position, $body_lenght );
     }
+    
+    function get_start_position( int $key ) : string {
+    	$line = $this->matches[0][$key];
+    	
+    	$start_position = strpos( $this->source , $line )+strlen( $line );
+    	return $start_position;
+    }
+    
     function get_next_namepace_line() : string {
     	$line = $this->matches[0][$this->current_key+1];
     	if( $line === null ){
