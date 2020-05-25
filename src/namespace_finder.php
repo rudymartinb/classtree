@@ -56,7 +56,7 @@ class namespace_finder {
     	$next_line = $this->get_next_namepace_line();
     	
     	if( $next_line != "" and $next_line !== null ){
-    		$newline_position = strpos( $source, $next_line ) +2;
+    		$newline_position = strpos( $source, $next_line )+1;
     		$body_lenght = $body_lenght - $newline_position ;
     	}
     	

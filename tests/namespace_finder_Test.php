@@ -64,6 +64,7 @@ function test_2_namespaces_with_body(){
 	$source = 'namespace test;
 function test() {
 }
+
 namespace test2;
 function test2() {
 }
@@ -79,6 +80,7 @@ function test2() {
 	$expected = '
 function test() {
 }
+
 ';
 	$body = $finder->get_body();
 // 	var_dump($body);
