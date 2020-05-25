@@ -11,28 +11,20 @@ use src\namespace_finder;
  */
 class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 	function test_empty(){
-		
 		$source = '';
 		
 		$finder = new namespace_finder( $source );
 		
 		$this->assertEquals( false, $finder->more_elements() );
-		
 	}
 	
-// 	function test_something_else(){
-// 		$source = 'this is a test';
+	function test_something_else(){
+		$source = 'this is a test';
 		
-// 		$finder = new namespace_finder();
+		$finder = new namespace_finder( $source );
 		
-// 		$matches = $finder->matches( $source );
-// 		$this->assertEquals( false, $finder->found() );
-		
-// 		$namespaces = $finder->split();
-// 		$this->assertEquals( [], $namespaces );
-		
-		
-// 	}
+		$this->assertEquals( false, $finder->more_elements() );
+	}
 
 // 	function test_just_1_line(){
 // 		$source = 'namespace test;
