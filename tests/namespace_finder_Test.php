@@ -72,7 +72,6 @@ function test() {
 }
 ';
 	$body = $finder->get_body();
-	var_dump( $body );
 	$this->assertEquals( $expected, $finder->get_body() );
 	$finder->next();
 
@@ -83,7 +82,7 @@ function test() {
 }
 ';
 	
-	
+	$body = $finder->get_body();
 	$this->assertEquals( $expected, $body );
 	
 	$finder->next();
