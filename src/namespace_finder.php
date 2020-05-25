@@ -9,11 +9,10 @@ class namespace_finder {
     function __construct( string $source ){
     	$this->source = $source;
 
-    	/*
-    	 * for the namespace keyword 
+    	/* for the namespace keyword 
     	 * then add all the code up to the next keyword.
     	 * 
-    	 * TODO: test this against a windows newline character 
+    	 * TODO: test this against a windows newline character file 
     	 */
         $this->pattern  = "/^[ ]*(?<original>(?:namespace)[ ]+";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
@@ -32,9 +31,6 @@ class namespace_finder {
      * original = first line of code of the namespace matched
      *  
      */
-
-    
-    
     private $current_key = 0;
     function next(){
     	$this->current_key ++;
@@ -63,13 +59,6 @@ class namespace_finder {
     	$start = strlen( $original );
     	return substr( $code, $start );
     }
-    
-//     function get_start_position( int $key ) : string {
-//     	$line = $this->matches[0][$key];
-    	
-//     	$start_position = strpos( $this->source , $line )+strlen( $line );
-//     	return $start_position;
-//     }
-    
+   
     
 }
