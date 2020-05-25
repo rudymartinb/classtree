@@ -18,11 +18,15 @@ class namespace_finder {
 
 
     
-    
+    private $current_key = 0;
     private $matches = [];
     function more_elements() : bool {
-    	return count( $this->matches[0] ) != 0;
+    	return count( $this->matches[ $this->current_key] ) != 0;
     }
+    function get_name() : string {
+    	return $this->matches["nombretipo"][ $this->current_key ];
+    }
+    
     
     function matches( string $source ) : Array {
     	$this->source = $source;
