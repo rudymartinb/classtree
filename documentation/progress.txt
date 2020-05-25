@@ -104,3 +104,7 @@ second is the fact I rely too much on the values returned by the preg_match_all
 
 since I need to iterate each element of the array returned by preg_match, I think it would be appropiate to create methods for that. 
 
+so far so good.
+got it by using a nasty trick with regular expressions.
+
+not testing a file with no namespaces, should return the entire code.
