@@ -26,22 +26,15 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( false, $finder->more_elements() );
 	}
 
-// 	function test_just_1_line(){
-// 		$source = 'namespace test;
-// function sarasa(){
-// }
-// ';
+	function test_just_1_line(){
+		$source = 'namespace test;';
 		
-// 		$finder = new namespace_finder();
-		
-// 		$matches = $finder->matches( $source );
-// // 		var_dump($matches);
-// 		$this->assertEquals( true, $finder->found() );
-		
-// 		$finder->find_bodies();
-// 		$expected_body = "function sarasa(){
-// }
-// ";
+		$finder = new namespace_finder( $source );
+
+		var_dump($finder->matches($source));
+		$this->assertEquals( true, $finder->more_elements() );
+	}
+
 
 // 		$this->assertEquals( $expected_body, $finder->get_body("test") );
 		

@@ -12,22 +12,26 @@ class namespace_finder {
         $this->pattern  = "/^[ ]*(?:namespace)[ ]+";
         $this->pattern .= "(?<nombretipo>[0-9a-zA-Z_\\\\]+)[ ;{]*";
         $this->pattern .= "/m";
+        
+        $this->matches($source);
     }
 
 
+    
+    
+    private $matches = [];
     function more_elements() : bool {
-    	return false;
+    	return count( $this->matches[0] ) != 0;
     }
     
-    
-//     private $matches = [];
-//     function matches( string $source ) : Array {
-//     	$this->source = $source;
-//         $matches = [];
-//         preg_match_all($this->pattern, $source, $matches );
-//         $this->matches = $matches;
-//         return $matches;
-//     }
+    function matches( string $source ) : Array {
+    	$this->source = $source;
+        $matches = [];
+        preg_match_all($this->pattern, $source, $matches );
+        $this->matches = $matches;
+        return $matches;
+    }
+
 //     function find_bodies() : Array {
 //     	return [];
 //     }
