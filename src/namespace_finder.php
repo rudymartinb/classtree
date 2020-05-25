@@ -64,13 +64,13 @@ class namespace_finder {
     	return $start_position;
     }
     
-    function get_next_namepace_line() : string {
-    	$line = $this->matches[0][$this->current_key+1];
-    	if( $line === null ){
-    		return "";
-    	}
-    	return $line;
-    }
+//     function get_next_namepace_line() : string {
+//     	$line = $this->matches[0][$this->current_key+1];
+//     	if( $line === null ){
+//     		return "";
+//     	}
+//     	return $line;
+//     }
     
 //     function find_bodies() : Array {
 //     	return [];
