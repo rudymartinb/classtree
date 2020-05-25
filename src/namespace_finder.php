@@ -28,7 +28,8 @@ class namespace_finder {
     /*
      * understanding $matches firt index key:
      * 0 = represents the lines of code matched
-     * 1/nombretipo = name of the namespace found.
+     * 1/nsname = name of the namespace found.
+     * original = first line of code of the namespace matched
      *  
      */
 
@@ -63,12 +64,12 @@ class namespace_finder {
     	return substr( $code, $start );
     }
     
-    function get_start_position( int $key ) : string {
-    	$line = $this->matches[0][$key];
+//     function get_start_position( int $key ) : string {
+//     	$line = $this->matches[0][$key];
     	
-    	$start_position = strpos( $this->source , $line )+strlen( $line );
-    	return $start_position;
-    }
+//     	$start_position = strpos( $this->source , $line )+strlen( $line );
+//     	return $start_position;
+//     }
     
     
 }
