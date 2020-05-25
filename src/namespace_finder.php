@@ -45,7 +45,19 @@ class namespace_finder {
         $this->matches = $matches;
         return $matches;
     }
-
+    
+    function get_body() : string {
+    	$source = $this->source;
+    	// line found
+    	$line = $this->matches[0][$this->current_key];
+    	
+    	$strpos1 = strpos( $source , $line )+strlen( $line )+1;
+    	$lenght = strlen( $source )-$strpos1;
+    	
+    	return substr($this->source, $strpos1, $lenght );
+    }
+    
+    
 //     function find_bodies() : Array {
 //     	return [];
 //     }
