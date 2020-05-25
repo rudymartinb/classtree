@@ -12,6 +12,7 @@ class namespace_finder {
         $this->pattern  = "/^[ ]*(?<original>(?:namespace)[ ]+";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
         $this->pattern .= "(?:[^\n]*))";
+        // rest of the namespace body is included
         $this->pattern .= "(?:(?!(?R)).)*";
         $this->pattern .= "/ms";
         
@@ -54,21 +55,6 @@ class namespace_finder {
     	$start = strlen( $original );
     	
     	return substr( $code, $start );
-    	
-//     	$source = $this->source;
-    	
-//     	$start_position = $this->get_start_position($this->current_key);
-    	
-//     	$body_lenght = strlen( $source )-$start_position;
-    	
-//     	$next_line = $this->get_next_namepace_line();
-    	
-//     	if( $next_line != "" and $next_line !== null ){
-//     		$newline_position = strpos( $source, $next_line )+1;
-//     		$body_lenght = $body_lenght - $newline_position ;
-//     	}
-    	
-//     	return substr($this->source, $start_position, $body_lenght );
     }
     
     function get_start_position( int $key ) : string {
