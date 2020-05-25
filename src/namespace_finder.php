@@ -14,7 +14,7 @@ class namespace_finder {
         $this->pattern .= "(?:[ ;{]*)";
 //         $this->pattern .= "(?<body>(?!(?0))*)";
         $this->pattern .= "(?<body>.*)";
-        $this->pattern .= "/m";
+        $this->pattern .= "/ms";
         
         $this->matches($source);
     }
@@ -50,20 +50,22 @@ class namespace_finder {
     }
     
     function get_body() : string {
-    	$source = $this->source;
+    	return $this->matches["body"][$this->current_key];
     	
-    	$start_position = $this->get_start_position($this->current_key);
+//     	$source = $this->source;
     	
-    	$body_lenght = strlen( $source )-$start_position;
+//     	$start_position = $this->get_start_position($this->current_key);
     	
-    	$next_line = $this->get_next_namepace_line();
+//     	$body_lenght = strlen( $source )-$start_position;
     	
-    	if( $next_line != "" and $next_line !== null ){
-    		$newline_position = strpos( $source, $next_line )+1;
-    		$body_lenght = $body_lenght - $newline_position ;
-    	}
+//     	$next_line = $this->get_next_namepace_line();
     	
-    	return substr($this->source, $start_position, $body_lenght );
+//     	if( $next_line != "" and $next_line !== null ){
+//     		$newline_position = strpos( $source, $next_line )+1;
+//     		$body_lenght = $body_lenght - $newline_position ;
+//     	}
+    	
+//     	return substr($this->source, $start_position, $body_lenght );
     }
     
     function get_start_position( int $key ) : string {
