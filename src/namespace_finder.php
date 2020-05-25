@@ -33,6 +33,7 @@ class namespace_finder {
      */
 
     
+    
     private $current_key = 0;
     function next(){
     	$this->current_key ++;
