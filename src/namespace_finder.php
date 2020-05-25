@@ -10,12 +10,18 @@ class namespace_finder {
     	$this->source = $source;
     	
         $this->pattern  = "/^[ ]*(?:namespace)[ ]+";
-        $this->pattern .= "(?<nombretipo>[0-9a-zA-Z_\\\\]+)[ ;{]*";
+        $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ;{]*";
         $this->pattern .= "/m";
         
         $this->matches($source);
     }
 
+    /*
+     * understanding $matches firt index key:
+     * 0 = represents the lines of code matched
+     * 1/nombretipo = name of the namespace found.
+     *  
+     */
 
     
     private $current_key = 0;
@@ -28,7 +34,7 @@ class namespace_finder {
     }
     
     function get_name() : string {
-    	return $this->matches["nombretipo"][ $this->current_key ];
+    	return $this->matches["nsname"][ $this->current_key ];
     }
     
     
