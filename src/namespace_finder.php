@@ -51,10 +51,16 @@ class namespace_finder {
     	// line found
     	$line = $this->matches[0][$this->current_key];
     	
-    	$strpos1 = strpos( $source , $line )+strlen( $line )+1;
-    	$lenght = strlen( $source )-$strpos1;
+    	$start_position = strpos( $source , $line )+strlen( $line )+1;
+    	$body_lenght = strlen( $source )-$start_position;
     	
-    	return substr($this->source, $strpos1, $lenght );
+    	$next_line = $this->matches[0][$this->current_key+1];
+    	
+    	if( $next_line != "" and $next_line !== null ){
+    		$body_lenght = $body_lenght - strpos( $source, $next_line )-1;
+    	}
+    	
+    	return substr($this->source, $start_position, $body_lenght );
     }
     
     
