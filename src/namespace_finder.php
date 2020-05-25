@@ -64,50 +64,5 @@ class namespace_finder {
     	return $start_position;
     }
     
-//     function get_next_namepace_line() : string {
-//     	$line = $this->matches[0][$this->current_key+1];
-//     	if( $line === null ){
-//     		return "";
-//     	}
-//     	return $line;
-//     }
-    
-//     function find_bodies() : Array {
-//     	return [];
-//     }
-    
-//     function get_body( string $namespace, string $next_line = "" ) : string {
-//     	$source = $this->source;
-//     	$subkey = array_search( $namespace,  $this->matches["nombretipo"] );
-//     	// line found
-//     	$line = $this->matches[0][$subkey];
-
-//     	$strpos1 = strpos( $source , $line )+strlen( $line )+1;
-//     	$lenght = strlen( $source )-$strpos1;
-//     	if( $next_line != "" ){
-//     		$lenght = $lenght - strpos( $source, $next_line );
-//     	} 
-
-//     	return substr($this->source, $strpos1, $lenght );
-//     }
-    
-//     function split() : Array {
-//     	if( !$this->found() ){
-//     		return [];
-//     	}
-//     	$nslist = [];
-//     	foreach ($this->matches["nombretipo"] as $key => $namespace ){
-//     		$next_line = $this->matches[ 0 ][$key+1];
-//     		if( $next_line === null ){
-//     			$next_line = "";
-//     		} 
-//     		$nslist[] = [ "namespace" => $namespace, "body" => $this->get_body($namespace, $next_line) ];
-//     	}
-    	
-//     	return $nslist;
-//     }
-//     function found() : bool {
-//     	return count( $this->matches[0] ) != 0;
-//     }
     
 }
