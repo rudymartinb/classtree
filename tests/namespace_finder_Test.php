@@ -37,28 +37,28 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( false, $finder->more_elements() );
 	}
 
-// 	function test_just_1_namespace_with_body_1(){
-// 		$source = 'namespace test;
-// function test() {
-// }
-// ';
+	function test_just_1_namespace_with_body_1(){
+		$source = 'namespace test;
+function test() {
+}
+';
 	
-// 	$finder = new namespace_finder( $source );
+	$finder = new namespace_finder( $source );
 	
-// 	$this->assertEquals( true, $finder->more_elements() );
-// 	$this->assertEquals( "test", $finder->get_name() );
+	$this->assertEquals( true, $finder->more_elements() );
+	$this->assertEquals( "test", $finder->get_name() );
 
-// 	/*  newline is not counted as preg match
-// 	 */
-// 	$expected = '
-// function test() {
-// }
-// ';
-// 	$body = $finder->get_body();
-// 	$this->assertEquals( $expected, $finder->get_body() );
-// 	$finder->next();
-// 	$this->assertEquals( false, $finder->more_elements() );
-// }
+	/*  newline is not counted as preg match
+	 */
+	$expected = '
+function test() {
+}
+';
+	$body = $finder->get_body();
+	$this->assertEquals( $expected, $finder->get_body() );
+	$finder->next();
+	$this->assertEquals( false, $finder->more_elements() );
+}
 
 
 
