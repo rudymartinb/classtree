@@ -13,7 +13,7 @@ class namespace_finder {
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
 //         $this->pattern .= "(?:[ ;{]*)";
 //         $this->pattern .= "(?<body>(?!(?0))*)";
-        $this->pattern .= "(?<body>.*)";
+        $this->pattern .= "(?<body>.*)*";
         
         $this->pattern .= "/m";
         
