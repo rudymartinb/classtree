@@ -55,7 +55,7 @@ function test() {
 }
 ';
 	$body = $finder->get_body();
-	var_dump( $body );
+	var_dump( $finder->matches($source) );
 	$this->assertEquals( $expected, $finder->get_body() );
 	$finder->next();
 	$this->assertEquals( false, $finder->more_elements() );
