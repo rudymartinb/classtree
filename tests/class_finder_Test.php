@@ -75,8 +75,7 @@ function test1(){
         $this->assertEquals( true, $finder->more_elements() );
         $this->assertEquals( "test", $finder->get_name() );
         
-        $expected = '
-{
+        $expected = '{
 function test1(){
 }
 }';
@@ -120,6 +119,7 @@ function test2(){
         $this->assertEquals( "abstract", $finder->get_abstract() );
     }
 
+    
     function test_final(){
     	$source = "final class afinalclass extends other_class {
 }";
@@ -129,6 +129,21 @@ function test2(){
     	$this->assertEquals( "other_class", $finder->get_extends() );
     	$this->assertEquals( "final", $finder->get_final() );
     }
+
+    
+//     function test_very_weird(){
+//     	$source = "final 
+// class 
+// afinalclass 
+// extends 
+// other_class {
+// }";
+    	
+//     	$finder = new class_finder( $source );
+//     	$this->assertEquals( "afinalclass", $finder->get_name() );
+//     	$this->assertEquals( "other_class", $finder->get_extends() );
+//     	$this->assertEquals( "final", $finder->get_final() );
+//     }
     
     
 //     function test_grep_abstract(){

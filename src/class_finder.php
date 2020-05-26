@@ -25,7 +25,7 @@ class class_finder {
         $this->pattern .= "( implements (?<implements>(\s*[0-9a-zA-Z_,]+)+))*";
         
         // end of the declaration line
-        $this->pattern .= "[^{\n]*)";
+        $this->pattern .= "[^{]*)";
         $this->pattern .= ")";
         
         // TODO: probably the correct way would be to search for nested {}
