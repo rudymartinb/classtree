@@ -1,32 +1,45 @@
 <?php
 
-/**
- *  test case.
- */
-class preg_match_all_Test extends PHPUnit_Framework_TestCase {
 
-	/**
-	 * Prepares the environment before running a test.
-	 */
-	protected function setUp() {
-		parent::setUp ();
-
-		// TODO Auto-generated preg_match_all_Test::setUp()
+class preg_match_all_Test extends PHPUnit\Framework\TestCase {
+	
+	function test_preg(){
+		$source =" mario 1 2 3 bros 2 3 1 ";
+		//		  12345678901234567
+		$pattern = "/(?:[ ]*)";
+		$pattern .= "(";
+		$pattern .= "(?:[ ]*)";
+		$pattern .= "(?<mario>mario([\s\,]*[0-9])*)";
+		$pattern .= "(?:[ ]*)|";
+		$pattern .= "(?:[ ]*)";
+		$pattern .= "(?<bros>bros([\s\,]*[0-9])*)";
+		$pattern .= "(?:[ ]*)";
+		$pattern .= ")*";
+		
+		$pattern .= "/ms";
+		
+		$matches = [];
+		preg_match_all($pattern, $source, $matches );
+		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
+		$this->assertEquals( "bros 2 3 1", $matches["bros"][0] );
+		
+		$source =" bros 2 3 1 mario 1 2 3";
+		preg_match_all($pattern, $source, $matches );
+		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
+		$this->assertEquals( "bros 2 3 1", $matches["bros"][0] );
+		
+		$source =" bros 2,3,1 mario 1 2 3";
+		preg_match_all($pattern, $source, $matches );
+		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
+		$this->assertEquals( "bros 2,3,1", $matches["bros"][0] );
+		
+		$source =" bros 2, 3, 1 mario 1 2 3";
+		preg_match_all($pattern, $source, $matches );
+		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
+		$this->assertEquals( "bros 2, 3, 1", $matches["bros"][0] );
+		
+		
 	}
-
-	/**
-	 * Cleans up the environment after running a test.
-	 */
-	protected function tearDown() {
-		// TODO Auto-generated preg_match_all_Test::tearDown()
-		parent::tearDown ();
-	}
-
-	/**
-	 * Constructs the test case.
-	 */
-	public function __construct() {
-		// TODO Auto-generated constructor
-	}
+	
 }
 
