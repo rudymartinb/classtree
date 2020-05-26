@@ -63,6 +63,7 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 
 
 function test_2_namespaces_with_body(){
+	
 	$source = 'namespace test;
 function test() {
 }
@@ -81,8 +82,6 @@ function test2() {
 // 	echo( "-----------------------------" );
 	
 	$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
-// 	$this->assertEquals( true, $finder->more_elements() );
-// 	$this->assertEquals( "test", $finder->get_name() );
 
 	
 	$expected = '
@@ -90,7 +89,6 @@ function test() {
 }
 
 ';
-
 	$this->assertEquals( $expected, $finder->get_body() );
 	
 	$finder->next();
