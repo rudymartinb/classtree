@@ -63,6 +63,8 @@ class namespace_finder {
     
     function get_body() : string {
     	return $this->matches["body"][ $this->current_key ];
+    	
+    	// TODO: REMOVE !!!
     	$code = $this->matches["0"][$this->current_key];
     	$original = $this->matches["original"][$this->current_key];
     	$start = strlen( $original );
