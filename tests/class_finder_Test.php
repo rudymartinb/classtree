@@ -59,7 +59,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	
 	
 	
-    function test_recover_body(){
+    function test_body_1(){
         $source = 'class test {
 function test1(){
 }
@@ -70,14 +70,37 @@ function test1(){
         $this->assertEquals( true, $finder->more_elements() );
         $this->assertEquals( "test", $finder->get_name() );
         
-        $expected = '
+        $expected = '{
 function test1(){
 }
 }';
         $this->assertEquals( $expected, $finder->get_body() );
-        
-        
-        
+    }
+
+    function test_body_2(){
+    	$source = 'class test {
+function test1(){
+}
+}
+class test2 {
+function test2(){
+}
+}';
+    	
+    	$finder = new class_finder($source);
+    	
+    	$this->assertEquals( true, $finder->more_elements() );
+    	$this->assertEquals( "test", $finder->get_name() );
+    	$finder->next();
+    	
+    	$expected = '{
+function test2(){
+}
+}';
+    	var_dump($finder->matches($source)[0]);
+    	$this->assertEquals( $expected, $finder->get_body() );
+    	
+    	
     }
     
     

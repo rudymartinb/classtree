@@ -20,12 +20,12 @@ class class_finder {
         $this->pattern .= "( extends (?<extends>[0-9a-zA-Z_]*))|";
         $this->pattern .= "( implements (?<implements>(\s*[0-9a-zA-Z_,]*)*))";
         $this->pattern .= ")*";
-        $this->pattern .= "[ {]*";
-        $this->pattern .= "(?<body>.*";
-//         $this->pattern .= "((?!(?R)).)*";
+        $this->pattern .= "[^{]*)";
+        $this->pattern .= "(?<body>";
+        $this->pattern .= "((?!class).)*";
         $this->pattern .= ")";
         
-        $this->pattern .= "))";
+        $this->pattern .= ")";
         // body business
         
         $this->pattern .= "/ms";
