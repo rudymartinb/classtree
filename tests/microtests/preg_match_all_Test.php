@@ -21,7 +21,6 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 		$pattern .= "\s*";
 		$pattern .= "(?<bros>bros";
 		$pattern .= "((?! mario)(?:[\s\,]+[0-9a-z]+))*";
-// 		$pattern .= "([\s\,]*[0-9a-z]*)*";
 		$pattern .= ")*";
 		$pattern .= "\s*";
 		$pattern .= ")*";
