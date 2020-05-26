@@ -14,7 +14,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	}
 	
 	function test_one(){
-		$source = 'class test {\n}';
+		$source = 'class test {}';
 		
 		$finder = new class_finder( $source );
 		
