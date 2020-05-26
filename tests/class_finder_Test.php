@@ -57,15 +57,15 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "something, else", $finder->get_implements() );
 	}
 	
-// 	function test_class_implements_extends(){
-// 		$source = 'class test implements something, else extends one';
-// 		$finder = new class_finder( $source );
+	function test_class_implements_extends(){
+		$source = 'class test implements something, else extends one';
+		$finder = new class_finder( $source );
 		
-// 		$this->assertEquals( true, $finder->more_elements() );
-// 		$this->assertEquals( "test", $finder->get_name() );
-// 		$this->assertEquals( "something, else ", $finder->get_implements() );
-// 		$this->assertEquals( "one", $finder->get_extends() );
-// 	}
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test", $finder->get_name() );
+		$this->assertEquals( "something, else", $finder->get_implements() );
+		$this->assertEquals( "one", $finder->get_extends() );
+	}
 	
 	
 //     function test_recover_body(){
