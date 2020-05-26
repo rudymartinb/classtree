@@ -6,7 +6,7 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 	function test_preg(){
 		$source =" mario 1 2 3 bros 2 3 1 ";
 		//		  12345678901234567
-		$pattern = "/(?:[ ]*)";
+		$pattern = "/\s*";
 		$pattern .= "(";
 		$pattern .= "(?:[ ]*)";
 		$pattern .= "(?<mario>mario([\s\,]*[0-9])*)";
