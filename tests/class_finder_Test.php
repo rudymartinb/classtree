@@ -19,6 +19,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$source =" bros 2 mario 1 ";
 		var_dump( $matches );
 		$this->assertEquals( 2, count( $matches[0] ) );
+		$this->assertEquals( "mario 1", $matches["mario"][0] );
 		
 	}
 	function test_zero(){
