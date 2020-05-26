@@ -4,7 +4,20 @@ use src\class_finder;
 use function files\get_source;
 
 class class_finder_Test extends PHPUnit\Framework\TestCase {
-	
+	function test_preg(){
+		$source =" mario 1 bros 2 ";
+		//		  12345678901234567
+		$pattern = "/[ ]*(?<mario>mario [0-9]*)|(?<bros> bros [0-9]*)";
+// 		$pattern = "/[ ]*(((?<mario>mario [0-9]*))|((<bros> bros [0-9]*)))*";
+		$pattern .= "/ms";
+		
+		$matches = [];
+		preg_match_all($pattern, $source, $matches );
+		var_dump( $matches[0] );
+		$this->assertEquals( 2, count( $matches[0] ) );
+		
+		
+	}
 	function test_zero(){
 		$source = '';
 		
