@@ -183,12 +183,8 @@ function test2() {
 		$this->assertEquals( "test", $finder->get_name() );
 		
 		
-		$expected = '
-function test() {
-	}
-}
-';
-		$expected = "\nfunction test() {\n";
+		$expected  = "\n";
+		$expected .= "function test() {\n";
 		$expected .= "	}\n";
 		$expected .= "}\n";
 		
