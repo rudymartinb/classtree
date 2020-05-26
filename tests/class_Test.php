@@ -95,7 +95,5 @@ class class_Test extends PHPUnit\Framework\TestCase {
     }
     
     
-    
-    
 }
 
