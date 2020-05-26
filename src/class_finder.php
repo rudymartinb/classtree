@@ -1,6 +1,13 @@
 <?php
 namespace src;
 
+final
+class
+afinalclass
+extends
+class_finder {
+}
+
 class class_finder {
     private $pattern;
     
