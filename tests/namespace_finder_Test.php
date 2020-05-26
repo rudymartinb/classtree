@@ -73,11 +73,11 @@ function test2() {
 	
 	$finder = new namespace_finder( $source );
 	
-	var_dump( $finder->matches($source)["original"] );
+// 	var_dump( $finder->matches($source)["original"] );
 // 	echo( "-----------------------------" );
 // 	var_dump( $finder->matches($source)["0"] );
 // 	echo( "-----------------------------" );
-	var_dump( $finder->matches($source)["body"] );
+// 	var_dump( $finder->matches($source)["body"] );
 	
 	$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
 // 	$this->assertEquals( true, $finder->more_elements() );
