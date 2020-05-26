@@ -10,10 +10,10 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$pattern = "/(?:[ ]*)";
 		$pattern .= "(";
 		$pattern .= "(?:[ ]*)";
-		$pattern .= "(?<mario>mario(\s[0-9])*)";
+		$pattern .= "(?<mario>mario([\s\,]*[0-9])*)";
 		$pattern .= "(?:[ ]*)|";
 		$pattern .= "(?:[ ]*)";
-		$pattern .= "(?<bros>bros(\s[0-9])*)";
+		$pattern .= "(?<bros>bros([\s\,]*[0-9])*)";
 		$pattern .= "(?:[ ]*)";
 		$pattern .= ")*";
 		
@@ -21,17 +21,19 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$matches = [];
 		preg_match_all($pattern, $source, $matches );
-// 		var_dump( $matches );
-// 		$this->assertEquals( 2, count( $matches[0] ) );
 		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
 		$this->assertEquals( "bros 2 3 1", $matches["bros"][0] );
 
 		$source =" bros 2 3 1 mario 1 2 3";
 		preg_match_all($pattern, $source, $matches );
-// 		var_dump( $matches );
-// 		$this->assertEquals( 2, count( $matches[0] ) );
 		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
 		$this->assertEquals( "bros 2 3 1", $matches["bros"][0] );
+
+		$source =" bros 2,3,1 mario 1 2 3";
+		preg_match_all($pattern, $source, $matches );
+		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
+		$this->assertEquals( "bros 2,3,1", $matches["bros"][0] );
+		
 		
 	}
 	function test_zero(){
