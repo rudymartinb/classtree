@@ -17,8 +17,8 @@ class class_finder {
         
         // I'm not sure which one can precede the other
         $this->pattern .= "(";
-        $this->pattern .= "( extends ((?! implements)(?<extends>[0-9a-zA-Z_]*)))|";
-        $this->pattern .= "( implements (?<implements>(\s*[0-9a-zA-Z_,]*)*))";
+        $this->pattern .= "( extends (?<extends>[0-9a-zA-Z_]*))|";
+        $this->pattern .= "( implements ((?! extends)(?<implements>(\s*[0-9a-zA-Z_,]*)*)))";
         $this->pattern .= ")*";
         $this->pattern .= "[ {]*";
         $this->pattern .= "))";
