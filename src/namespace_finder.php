@@ -26,7 +26,7 @@ class namespace_finder {
         $this->pattern .= "((?!(?R)).)*";
         $this->pattern .= ")";
         
-        $this->pattern .= "/mxs";
+        $this->pattern .= "/ms";
         
         $this->matches($source);
     }
