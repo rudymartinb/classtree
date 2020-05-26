@@ -97,7 +97,7 @@ function test2(){
 function test2(){
 }
 }';
-    	var_dump($finder->matches($source)[0]);
+//     	var_dump($finder->matches($source)[0]);
     	$this->assertEquals( $expected, $finder->get_body() );
     	
     	
