@@ -188,6 +188,10 @@ function test() {
 	}
 }
 ';
+		$expected = "\nfunction test() {\n";
+		$expected .= "	}\n";
+		$expected .= "}\n";
+		
 		$body = $finder->get_body();
 		$this->assertEquals( $expected, $finder->get_body() );
 		$finder->next();
