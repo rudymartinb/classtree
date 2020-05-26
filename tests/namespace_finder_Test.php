@@ -196,8 +196,7 @@ function test2() {
 		$this->assertEquals( "test2", $finder->get_name() );
 		
 
-		$expected = "\n";
-		$expected .= "\n";
+		$expected = "\n\n";
 		$expected .= "	function test2() {\n";
 		$expected .= "	}\n";
 		$expected .= "}\n";
