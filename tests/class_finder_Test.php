@@ -58,7 +58,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	}
 	
 	/*
-	 * this does not works under php
+	 * this does not works under php (at least v 7.4)
 	 */
 // 	function test_class_implements_extends(){
 // 		$source = 'class test implements something, else extends one';
