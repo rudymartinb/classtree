@@ -13,22 +13,3 @@
  * since it loads from the test suite 
  * it won't affect the production code.
  */
-
-function
-weird_function
-(
-		int $something 
-		)
-		:
-		int
-		{
-	return
-	0
-	;
-}
-
-function w1(){
-	function w2(){
-		
-	}
-}
