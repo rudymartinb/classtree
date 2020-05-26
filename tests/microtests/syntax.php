@@ -25,3 +25,9 @@ weird_function
 	0
 	;
 }
+
+function w1(){
+	function w2(){
+		
+	}
+}
