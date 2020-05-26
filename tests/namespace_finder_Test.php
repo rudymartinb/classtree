@@ -158,6 +158,8 @@ function test2() {
 	
 	$finder->next();
 	$this->assertEquals( true, $finder->more_elements() );
+	
+	// todo: the rest ?
 }
 
 
