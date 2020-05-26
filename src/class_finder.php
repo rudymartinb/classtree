@@ -1,6 +1,15 @@
 <?php
 namespace src;
 
+/* production code
+ * should execute namespace_finder on each source
+ * from there, get the source for each namespace containted among them 
+ * (without namespace clauses)
+ * then use this class passing both source and namespace name to it
+ * 
+ * if the source has no namespace, only source is needed.
+ * 
+ */
 class class_finder {
     private $pattern;
     
