@@ -167,7 +167,7 @@ function test2() {
 	
 	function test_2_namespaces_with_body_2(){
 		$source = "namespace test{\n";
-		$source .= 'function test() {
+		$source .= "function test() {
 	}
 }
 namespace test2{
@@ -175,7 +175,7 @@ namespace test2{
 	function test2() {
 	}
 }
-';
+";
 	
 		$finder = new namespace_finder( $source );
 		
