@@ -19,10 +19,13 @@ class namespace_finder {
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
         $this->pattern .= "(?:[^\n]*)";
         $this->pattern .= ")";
-        // rest of the namespace body is included
+        /* rest of the namespace body is included
+         * by doing a recursive negative search to find the rest
+         */
         $this->pattern .= "(?<body>";
         $this->pattern .= "((?!(?R)).)*";
         $this->pattern .= ")";
+        
         $this->pattern .= "/mxs";
         
         $this->matches($source);
