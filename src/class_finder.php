@@ -10,10 +10,13 @@ class class_finder {
     function __construct( string $source ){
         $this->pattern  = "/^(?<original>";
         $this->pattern .= "(";
+        
+        // the extra enclosed subpattern 
+        // is necesary to avoid including the trailing space
         $this->pattern .= "((?<final>final) )*";
         $this->pattern .= "((?<abstract>abstract) )*";
         
-        $this->pattern .= "(?:class)(?: )[ ]*";
+        $this->pattern .= "(?:class )[ ]*";
         $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
 
         // extends always goes before implements
