@@ -60,11 +60,11 @@ function test() {
 	$this->assertEquals( false, $finder->more_elements() );
 }
 
-
-
-function test_2_namespaces_with_body(){
 	
-	$source = 'namespace test;
+	
+	function test_2_namespaces_with_body(){
+	
+		$source = 'namespace test;
 function test() {
 }
 
@@ -72,44 +72,44 @@ namespace test2;
 function test2() {
 }';
 	
-	$finder = new namespace_finder( $source );
+		$finder = new namespace_finder( $source );
+		
+	// 	var_dump( $finder->matches($source)["original"] );
+	// 	echo( "-----------------------------" );
+	// 	var_dump( $finder->matches($source)["0"] );
+	// 	echo( "-----------------------------" );
+	// 	var_dump( $finder->matches($source)["body"] );
+	// 	echo( "-----------------------------" );
+		
+		$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
 	
-// 	var_dump( $finder->matches($source)["original"] );
-// 	echo( "-----------------------------" );
-// 	var_dump( $finder->matches($source)["0"] );
-// 	echo( "-----------------------------" );
-// 	var_dump( $finder->matches($source)["body"] );
-// 	echo( "-----------------------------" );
-	
-	$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
-
-	
-	$expected = '
+		
+		$expected = '
 function test() {
 }
 
 ';
-	$this->assertEquals( $expected, $finder->get_body() );
+		$this->assertEquals( $expected, $finder->get_body() );
+		
+		$finder->next();
 	
-	$finder->next();
-
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test2", $finder->get_name() );
-
-	$expected = '
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test2", $finder->get_name() );
+	
+		$expected = '
 function test2() {
 }';
 
-	$body = $finder->get_body();
-	$this->assertEquals( $expected, $body );
+		$body = $finder->get_body();
+		$this->assertEquals( $expected, $body );
+		
+		$finder->next();
+		$this->assertEquals( false, $finder->more_elements() );
+	}
 	
-	$finder->next();
-	$this->assertEquals( false, $finder->more_elements() );
-}
 
-
-function test_3_namespaces_with_body(){
-	$source = 'namespace test;
+	function test_3_namespaces_with_body(){
+		$source = 'namespace test;
 function test() {
 }
 			
@@ -120,18 +120,18 @@ namespace test3;
 function test3() {
 }
 ';
-	
-	$finder = new namespace_finder( $source );
-	
-	// 	var_dump( $finder->matches($source)["original"] );
-	// 	echo( "-----------------------------" );
-// 		var_dump( $finder->matches($source)["0"] );
-	// 	echo( "-----------------------------" );
-	// 	var_dump( $finder->matches($source)["body"] );
-	
-	$this->assertEquals( 3, count( $finder->matches($source)[0] ) );
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test", $finder->get_name() );
+		
+		$finder = new namespace_finder( $source );
+		
+		// 	var_dump( $finder->matches($source)["original"] );
+		// 	echo( "-----------------------------" );
+	// 		var_dump( $finder->matches($source)["0"] );
+		// 	echo( "-----------------------------" );
+		// 	var_dump( $finder->matches($source)["body"] );
+		
+		$this->assertEquals( 3, count( $finder->matches($source)[0] ) );
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test", $finder->get_name() );
 	
 	
 	$expected = '
@@ -139,34 +139,34 @@ function test() {
 }
 			
 ';
-	
-	$this->assertEquals( $expected, $finder->get_body() );
-	
-	$finder->next();
-	
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test2", $finder->get_name() );
-	
-	$expected = '
+		
+		$this->assertEquals( $expected, $finder->get_body() );
+		
+		$finder->next();
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test2", $finder->get_name() );
+		
+		$expected = '
 function test2() {
 }
 ';
 	
-	$body = $finder->get_body();
-	$this->assertEquals( $expected, $body );
+		$body = $finder->get_body();
+		$this->assertEquals( $expected, $body );
+		
+		$finder->next();
+		$this->assertEquals( true, $finder->more_elements() );
+		
+		// todo: the rest ?
+	}
 	
-	$finder->next();
-	$this->assertEquals( true, $finder->more_elements() );
 	
-	// todo: the rest ?
-}
-
-
-
-
-
-function test_2_namespaces_with_body_2(){
-	$source = 'namespace test{
+	
+	
+	
+	function test_2_namespaces_with_body_2(){
+		$source = 'namespace test{
 	function test() {
 	}
 }
@@ -177,37 +177,37 @@ namespace test2{
 }
 ';
 	
-	$finder = new namespace_finder( $source );
-	
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test", $finder->get_name() );
-	
-	
+		$finder = new namespace_finder( $source );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test", $finder->get_name() );
+		
+		
 	$expected = '
 	function test() {
 	}
 }
 ';
-	$body = $finder->get_body();
-	$this->assertEquals( $expected, $finder->get_body() );
-	$finder->next();
-	
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test2", $finder->get_name() );
-	
-	$expected = '
+		$body = $finder->get_body();
+		$this->assertEquals( $expected, $finder->get_body() );
+		$finder->next();
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test2", $finder->get_name() );
+		
+		$expected = '
 
 	function test2() {
 	}
 }
 ';
-	
-	$body = $finder->get_body();
-	$this->assertEquals( $expected, $body );
-	
-	$finder->next();
-	$this->assertEquals( false, $finder->more_elements() );
-}
+		
+		$body = $finder->get_body();
+		$this->assertEquals( $expected, $body );
+		
+		$finder->next();
+		$this->assertEquals( false, $finder->more_elements() );
+	}
 
     
 }
