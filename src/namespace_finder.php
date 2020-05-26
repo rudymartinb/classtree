@@ -21,11 +21,12 @@ class namespace_finder {
         $this->pattern .= ")";
         
         /* rest of the namespace body is included
-         * (IOW: just the code that follows, that's what I call "body")
          * by doing a negative recursive search
+         * (IOW: just the code that follows up to the next namespace, 
+         * that's what I call "body")
          * 
          * will include the first newline
-         * excluded in the first part 
+         * previously excluded in the first part 
          */
         $this->pattern .= "(?<body>";
         $this->pattern .= "((?!(?R)).)*";
