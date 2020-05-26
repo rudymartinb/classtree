@@ -5,7 +5,10 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 	
 	function test_preg(){
 		$source =" mario 1 2 3 bros 2 3 1 ";
-		//		  12345678901234567
+		/*
+		 * I dont really know what can be less confusing
+		 * if having everything on one line or multiple lines./
+		 */
 		$pattern = "/";
 		$pattern .= "\s*";
 		$pattern .= "(";
