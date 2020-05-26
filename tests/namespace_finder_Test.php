@@ -73,10 +73,10 @@ function test2() {
 	
 	$finder = new namespace_finder( $source );
 	
-// 	var_dump( $finder->matches($source)["original"] );
-// 	echo( "-----------------------------" );
-// 	var_dump( $finder->matches($source)["body"] );
-// 	echo( "-----------------------------" );
+	var_dump( $finder->matches($source)["original"] );
+	echo( "-----------------------------" );
+	var_dump( $finder->matches($source)["body"] );
+	echo( "-----------------------------" );
 
 	
 	$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
@@ -112,49 +112,49 @@ function test2() {
 
 
 
-function test_2_namespaces_with_body_2(){
-	$source = 'namespace test{
-	function test() {
-	}
-}
-namespace test2{
+// function test_2_namespaces_with_body_2(){
+// 	$source = 'namespace test{
+// 	function test() {
+// 	}
+// }
+// namespace test2{
 
-	function test2() {
-	}
-}
-';
+// 	function test2() {
+// 	}
+// }
+// ';
 	
-	$finder = new namespace_finder( $source );
+// 	$finder = new namespace_finder( $source );
 	
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test", $finder->get_name() );
+// 	$this->assertEquals( true, $finder->more_elements() );
+// 	$this->assertEquals( "test", $finder->get_name() );
 	
 	
-	$expected = '
-	function test() {
-	}
-}
-';
-	$body = $finder->get_body();
-	$this->assertEquals( $expected, $finder->get_body() );
-	$finder->next();
+// 	$expected = '
+// 	function test() {
+// 	}
+// }
+// ';
+// 	$body = $finder->get_body();
+// 	$this->assertEquals( $expected, $finder->get_body() );
+// 	$finder->next();
 	
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test2", $finder->get_name() );
+// 	$this->assertEquals( true, $finder->more_elements() );
+// 	$this->assertEquals( "test2", $finder->get_name() );
 	
-	$expected = '
+// 	$expected = '
 
-	function test2() {
-	}
-}
-';
+// 	function test2() {
+// 	}
+// }
+// ';
 	
-	$body = $finder->get_body();
-	$this->assertEquals( $expected, $body );
+// 	$body = $finder->get_body();
+// 	$this->assertEquals( $expected, $body );
 	
-	$finder->next();
-	$this->assertEquals( false, $finder->more_elements() );
-}
+// 	$finder->next();
+// 	$this->assertEquals( false, $finder->more_elements() );
+// }
 
 
 
