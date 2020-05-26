@@ -61,10 +61,10 @@ class namespace_finder {
     	return $this->matches["body"][ $this->current_key ];
     	
     	// TODO: REMOVE !!!
-    	$code = $this->matches["0"][$this->current_key];
-    	$original = $this->matches["original"][$this->current_key];
-    	$start = strlen( $original );
-    	return substr( $code, $start );
+//     	$code = $this->matches["0"][$this->current_key];
+//     	$original = $this->matches["original"][$this->current_key];
+//     	$start = strlen( $original );
+//     	return substr( $code, $start );
     }
    
     
