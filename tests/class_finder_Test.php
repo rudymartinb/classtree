@@ -13,11 +13,22 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( false, $finder->more_elements() );
 	}
 	
-	function test_one(){
+	function test_bare_class(){
 		$source = 'class test {}';
 		$finder = new class_finder( $source );
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "test", $finder->get_name() );
+	}
+
+	function test_class_extends(){
+		$source = 'class test extends something ';
+		$finder = new class_finder( $source );
+		
+		var_dump( $finder->matches($source));
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test", $finder->get_name() );
+		$this->assertEquals( "something", $finder->get_extends() );
 	}
 	
 	
