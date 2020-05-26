@@ -60,7 +60,8 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	
 	
     function test_body_1(){
-        $source = 'class test {
+        $source = 'class test 
+{
 function test1(){
 }
 }';
@@ -70,7 +71,8 @@ function test1(){
         $this->assertEquals( true, $finder->more_elements() );
         $this->assertEquals( "test", $finder->get_name() );
         
-        $expected = '{
+        $expected = '
+{
 function test1(){
 }
 }';
