@@ -19,7 +19,7 @@ class namespace_finder {
         $this->pattern .= "(?:[^\n]*))";
         // rest of the namespace body is included
         $this->pattern .= "(?<body>(?!(?R)).)*";
-        $this->pattern .= "/ms";
+        $this->pattern .= "/mxs";
         
         $this->matches($source);
     }
