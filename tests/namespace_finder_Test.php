@@ -201,7 +201,13 @@ function test2() {
 	}
 }
 ';
-	
+
+		$expected = "\n";
+		$expected .= "\n";
+		$expected .= "	function test2() {\n";
+		$expected .= "	}\n";
+		$expected .= "}\n";
+		
 	$body = $finder->get_body();
 	$this->assertEquals( $expected, $body );
 	
