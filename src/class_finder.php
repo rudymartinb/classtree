@@ -11,7 +11,7 @@ class class_finder {
         $this->pattern  = "/^(?<original>";
         $this->pattern .= "(";
         $this->pattern .= "(?<final>final )*";
-        $this->pattern .= "(?<abstract>abstract )*";
+        $this->pattern .= "((?<abstract>abstract) )*";
         
         $this->pattern .= "(?:class)(?: )[ ]*";
         $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
@@ -52,6 +52,9 @@ class class_finder {
     }
     function get_implements() : string {
     	return $this->matches["implements"][ $this->current_key ];
+    }
+    function get_abstract() : string {
+    	return $this->matches["abstract"][ $this->current_key ];
     }
     
 

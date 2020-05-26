@@ -2,7 +2,11 @@
 
 use src\class_finder;
 use function files\get_source;
-
+/*
+ * for readability I ended up leaving the $expected variables as multilines
+ * but be careful when formatting with tab because it will break the tests
+ * 
+ */
 class class_finder_Test extends PHPUnit\Framework\TestCase {
 	
 	function test_zero(){
@@ -59,7 +63,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	
 	
 	
-    function test_body_1(){
+    function test_body_1_class(){
         $source = 'class test 
 {
 function test1(){
@@ -79,7 +83,7 @@ function test1(){
         $this->assertEquals( $expected, $finder->get_body() );
     }
 
-    function test_body_2(){
+    function test_body_2_classes(){
     	$source = 'class test {
 function test1(){
 }
@@ -106,17 +110,15 @@ function test2(){
     	
     }
     
-    
-    
-//     /// PREG
-//     function test_grep_2(){
-//         $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";
+    function test_abstract(){
+        $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {
+}";
         
-//         $finder = new class_finder();
-//         $matches = $finder->matches($source);
-        
-//         $this->assertEquals( "abstract class Caso00_Builder implements builder_interface, builder_getcaso {", $matches[0][0] );
-//     }
+        $finder = new class_finder( $source );
+        $this->assertEquals( "Caso00_Builder", $finder->get_name() );
+        $this->assertEquals( "builder_interface, builder_getcaso", $finder->get_implements() );
+        $this->assertEquals( "abstract", $finder->get_abstract() );
+    }
     
 //     function test_grep_abstract(){
 //         $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";
@@ -127,24 +129,6 @@ function test2(){
 //         $this->assertEquals( "abstract", $matches["abstract"][0] );
 //     }
     
-//     function test_grep_final(){
-//         $source = "final class Caso00_Builder implements builder_interface, builder_getcaso {";
-        
-//         $finder = new class_finder();
-//         $matches = $finder->matches($source);
-        
-//         $this->assertEquals( "final", $matches["final"][0] );
-//     }
-    
-//     function test_grep_namespace(){
-//         $filename = "./tests/dummy/prueba2.php";
-//         $source = get_source( $filename );
-        
-//         $finder = new class_finder();
-//         $matches = $finder->matches($source);
-        
-//         $this->assertEquals( "whats\\is\\this", $matches["nsname"][0] );
-//     }
     
 }
 
