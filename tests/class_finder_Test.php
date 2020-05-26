@@ -57,6 +57,9 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "something, else", $finder->get_implements() );
 	}
 	
+	/*
+	 * not sure if this works under php
+	 */
 	function test_class_implements_extends(){
 		$source = 'class test implements something, else extends one';
 		$finder = new class_finder( $source );
