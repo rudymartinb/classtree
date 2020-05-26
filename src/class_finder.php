@@ -1,14 +1,5 @@
 <?php
 namespace src;
-class baseclass {
-	
-}
-interface sarasa{
-	
-}
-class mytest extends baseclass implements sarasa {
-	
-}
 
 class class_finder {
     private $pattern;
