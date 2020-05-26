@@ -35,7 +35,7 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 		
 		$source =" bros 2 3 1 mario 1 2 3";
 		preg_match_all($pattern, $source, $matches );
-		var_dump($matches["mario"]);
+// 		var_dump($matches["mario"]);
 		$this->assertEquals( "mario 1 2 3", $matches["mario"][2] );
 		$this->assertEquals( "bros 2 3 1", $matches["bros"][2] );
 		
