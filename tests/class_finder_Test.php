@@ -13,7 +13,8 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$pattern .= "(?<mario>mario [0-9]*)";
 		$pattern .= "(?:[ ]*)|";
 		$pattern .= "(?:[ ]*)";
-		$pattern .= "(?<bros>bros [0-9]*)(?:[ ]*)){0,2}";
+		$pattern .= "(?<bros>bros [0-9]*)";
+		$pattern .= "(?:[ ]*)){0,2}";
 		
 		$pattern .= "/ms";
 		
