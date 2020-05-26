@@ -195,12 +195,6 @@ function test2() {
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "test2", $finder->get_name() );
 		
-		$expected = '
-
-	function test2() {
-	}
-}
-';
 
 		$expected = "\n";
 		$expected .= "\n";
@@ -208,12 +202,12 @@ function test2() {
 		$expected .= "	}\n";
 		$expected .= "}\n";
 		
-	$body = $finder->get_body();
-	$this->assertEquals( $expected, $body );
-	
-	$finder->next();
-	$this->assertEquals( false, $finder->more_elements() );
-}
+		$body = $finder->get_body();
+		$this->assertEquals( $expected, $body );
+		
+		$finder->next();
+		$this->assertEquals( false, $finder->more_elements() );
+	}
 
     
 }
