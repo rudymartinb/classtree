@@ -12,7 +12,7 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 		$pattern = "/";
 		$pattern .= "\s*";
 		$pattern .= "(";
-		$pattern .= "\s*";
+// 		$pattern .= "\s*";
 		$pattern .= "(?<mario>mario";
 		$pattern .= "((?! bros)(?:[\s\,]+[0-9a-z]+))*";
 		$pattern .= ")*";
