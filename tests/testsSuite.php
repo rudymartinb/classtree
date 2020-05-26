@@ -21,6 +21,13 @@ require_once 'tests/gridTest.php';
 require_once 'tests/AppTest.php';
 
 
+/*
+ * the following file is intended to test 
+ * how things work in php
+ * just write anything that might seems valid on it
+ * and remember to delete it once done.
+ */
+require_once 'tests/microtests/syntax.php';
 
 
 class testsSuite extends PHPUnit\Framework\TestSuite {
