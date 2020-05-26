@@ -168,8 +168,8 @@ function test2() {
 	function test_2_namespaces_with_body_2(){
 		$source = "namespace test{\n";
 		$source .= "function test() {\n";
-		$source .= "	}
-}
+		$source .= "	}\n";
+		$source .= "}
 namespace test2{
 
 	function test2() {
