@@ -16,13 +16,13 @@ class class_finder {
         $this->pattern .= "((?<final>final) )*\s*";
         $this->pattern .= "((?<abstract>abstract) )*";
         
-        $this->pattern .= "(?:class )[ ]*";
+        $this->pattern .= "(?:class )[ ]*\s*";
         $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
 
         // extends always goes before implements
 
-        $this->pattern .= "( extends (?<extends>[0-9a-zA-Z_]*))*";
-        $this->pattern .= "( implements (?<implements>(\s*[0-9a-zA-Z_,]+)+))*";
+        $this->pattern .= "(\s*extends\s*(?<extends>[0-9a-zA-Z_]*))*";
+        $this->pattern .= "(\s*implements\s*(?<implements>(\s*[0-9a-zA-Z_,]+)+))*";
         
         // end of the declaration line
         $this->pattern .= "[^{]*)";

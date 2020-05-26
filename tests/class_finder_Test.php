@@ -131,19 +131,19 @@ function test2(){
     }
 
     
-//     function test_very_weird(){
-//     	$source = "final 
-// class 
-// afinalclass 
-// extends 
-// other_class {
-// }";
+    function test_very_weird(){
+    	$source = "final 
+class 
+afinalclass 
+extends 
+other_class {
+}";
     	
-//     	$finder = new class_finder( $source );
-//     	$this->assertEquals( "afinalclass", $finder->get_name() );
-//     	$this->assertEquals( "other_class", $finder->get_extends() );
-//     	$this->assertEquals( "final", $finder->get_final() );
-//     }
+    	$finder = new class_finder( $source );
+    	$this->assertEquals( "afinalclass", $finder->get_name() );
+    	$this->assertEquals( "other_class", $finder->get_extends() );
+    	$this->assertEquals( "final", $finder->get_final() );
+    }
     
     
 //     function test_grep_abstract(){
