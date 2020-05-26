@@ -11,10 +11,17 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$finder = new class_finder( $source );
 		
 		$this->assertEquals( false, $finder->more_elements() );
+	}
+	
+	function test_one(){
+		$source = 'class test {}';
 		
+		$finder = new class_finder( $source );
 		
+		$this->assertEquals( true, $finder->more_elements() );
 		
 	}
+	
 	
 //     function test_recover_body(){
 //         $filename = "./tests/dummy/prueba.php";

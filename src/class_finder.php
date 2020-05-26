@@ -2,41 +2,49 @@
 namespace src;
 
 class class_finder {
-    private $id_pattern;
+    private $pattern;
+    
+    private $matches;
+    private $source = "";
+    
     function __construct( string $source ){
-        $this->id_pattern  = "/^(?<este>";
-        $this->id_pattern .= "([ ]*(?<nsflag>namespace)[ ]*";
-        $this->id_pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)[ ]*;";
-        $this->id_pattern .= ")|";
-        $this->id_pattern .= "([ ]*(?<ifflag>interface)[ ]*";
-        $this->id_pattern .= "(?<interface>[0-9a-zA-Z_]+)[ ]*{";
-        $this->id_pattern .= ")|(";
-        $this->id_pattern .= "(?<final>final|)";
-        $this->id_pattern .= "(?<abstract>abstract|)";
-        $this->id_pattern .= "[ ]*(?: |)";
-        $this->id_pattern .= "(?<tipo>class)(?: )[ ]*";
-        $this->id_pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
-        $this->id_pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
-        $this->id_pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
-        $this->id_pattern .= "))/m";
+        $this->pattern  = "/^(?<original>";
+        $this->pattern .= "(";
+//         $this->pattern .= "(?<final>final|)";
+//         $this->pattern .= "(?<abstract>abstract|)";
+        $this->pattern .= "[ ]*(?: |)";
+        $this->pattern .= "(?<tipo>class)(?: )[ ]*";
+        $this->pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $this->pattern .= "(implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]+";
+        $this->pattern .= "(extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
+        $this->pattern .= "))";
+        $this->pattern .= "/ms";
+        
+        $this->matches($source);
     }
     
-    function more_elements() : bool {
-    	return false;
+    private $current_key = 0;
+    function next(){
+    	$this->current_key ++;
     }
+    function more_elements() : bool {
+    	return count( $this->matches[ 0 ] ) > $this->current_key;
+    }
+    
+
+    function matches( string $source ) : Array {
+    	$this->source = $source;
+    	$matches = [];
+    	preg_match_all($this->pattern, $source, $matches );
+    	$this->matches = $matches;
+    	return $matches;
+    }
+    
+    
 //     function set_pattern( string $pattern ){
 //         $this->id_pattern = $pattern;
 //     }
     
-//     private $matches;
-//     private $source = "";
-//     function matches( string $source ) : Array {
-//         $this->source = $source;
-//         $matches = [];
-//         preg_match_all($this->id_pattern, $source, $matches );
-//         $this->matches = $matches;
-//         return $matches;
-//     }
 
 //     function find_bodies() : Array {
 //         $matches = $this->matches;
