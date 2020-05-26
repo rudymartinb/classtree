@@ -10,7 +10,7 @@ class class_finder {
     function __construct( string $source ){
         $this->pattern  = "/^(?<original>";
         $this->pattern .= "(";
-        $this->pattern .= "(?<final>final |)";
+        $this->pattern .= "(?<final>final )*";
         $this->pattern .= "(?<abstract>abstract )*";
         $this->pattern .= "(?:class)(?: )[ ]*";
         $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
