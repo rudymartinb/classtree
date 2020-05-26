@@ -172,10 +172,10 @@ function test2() {
 		$source .= "}\n";
 		$source .= "namespace test2{\n";
 		$source .= "\n";
-		$source .= "	function test2() {
-	}
-}
-";
+		$source .= "	function test2() {\n";
+		$source .= "	}\n";
+		$source .= "}\n";
+
 	
 		$finder = new namespace_finder( $source );
 		
