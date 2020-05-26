@@ -80,4 +80,3 @@ class namespace_finder {
     
 }
 
-	$asdfasdfasdf;
