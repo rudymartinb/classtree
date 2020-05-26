@@ -15,7 +15,7 @@ class class_finder {
         $this->pattern .= "[ ]*(?: |)";
         $this->pattern .= "(?:class)(?: )[ ]*";
         $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
-//         $this->pattern .= "( implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]*";
+        $this->pattern .= "( implements (?<implements>[0-9a-zA-Z_, ]*)|)";
         $this->pattern .= "( extends (?<extends>[0-9a-zA-Z_]*)|).*[ {]*";
         $this->pattern .= "))";
         $this->pattern .= "/ms";
@@ -36,6 +36,9 @@ class class_finder {
     }
     function get_extends() : string {
     	return $this->matches["extends"][ $this->current_key ];
+    }
+    function get_implements() : string {
+    	return $this->matches["implements"][ $this->current_key ];
     }
     
 
