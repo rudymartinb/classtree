@@ -3,7 +3,10 @@ namespace src;
 class baseclass {
 	
 }
-class mytest extends baseclass {
+interface sarasa{
+	
+}
+class mytest extends baseclass implements sarasa {
 	
 }
 
