@@ -23,6 +23,8 @@ class class_finder {
         $this->pattern .= "[^{]*)";
         
         $this->pattern .= "(?<body>";
+        
+        // probably the correct way would be to search for nested {}
         $this->pattern .= "((?!(class |interface )).)*";
         $this->pattern .= ")";
         
