@@ -167,7 +167,7 @@ function test2() {
 	
 	function test_2_namespaces_with_body_2(){
 		$source = 'namespace test{
-	function test() {
+function test() {
 	}
 }
 namespace test2{
@@ -183,8 +183,8 @@ namespace test2{
 		$this->assertEquals( "test", $finder->get_name() );
 		
 		
-	$expected = '
-	function test() {
+		$expected = '
+function test() {
 	}
 }
 ';
@@ -201,13 +201,13 @@ namespace test2{
 	}
 }
 ';
-		
-		$body = $finder->get_body();
-		$this->assertEquals( $expected, $body );
-		
-		$finder->next();
-		$this->assertEquals( false, $finder->more_elements() );
-	}
+	
+	$body = $finder->get_body();
+	$this->assertEquals( $expected, $body );
+	
+	$finder->next();
+	$this->assertEquals( false, $finder->more_elements() );
+}
 
     
 }
