@@ -172,7 +172,7 @@ function test2() {
 		$source .= "}\n";
 		$source .= "namespace test2{\n";
 		$source .= "\n";
-		$source .= "	function test2() {\n";
+		$source .= "function test2() {\n";
 		$source .= "	}\n";
 		$source .= "}\n";
 
@@ -197,7 +197,7 @@ function test2() {
 		
 
 		$expected = "\n\n";
-		$expected .= "	function test2() {\n";
+		$expected .= "function test2() {\n";
 		$expected .= "	}\n";
 		$expected .= "}\n";
 		
