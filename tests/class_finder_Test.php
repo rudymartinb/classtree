@@ -119,6 +119,17 @@ function test2(){
         $this->assertEquals( "builder_interface, builder_getcaso", $finder->get_implements() );
         $this->assertEquals( "abstract", $finder->get_abstract() );
     }
+
+    function test_final(){
+    	$source = "final class afinalclass extends other_class {
+}";
+    	
+    	$finder = new class_finder( $source );
+    	$this->assertEquals( "afinalclass", $finder->get_name() );
+    	$this->assertEquals( "other_class", $finder->get_extends() );
+    	$this->assertEquals( "final", $finder->get_final() );
+    }
+    
     
 //     function test_grep_abstract(){
 //         $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";

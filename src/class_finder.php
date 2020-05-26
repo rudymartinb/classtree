@@ -10,7 +10,7 @@ class class_finder {
     function __construct( string $source ){
         $this->pattern  = "/^(?<original>";
         $this->pattern .= "(";
-        $this->pattern .= "(?<final>final )*";
+        $this->pattern .= "((?<final>final) )*";
         $this->pattern .= "((?<abstract>abstract) )*";
         
         $this->pattern .= "(?:class)(?: )[ ]*";
@@ -55,6 +55,9 @@ class class_finder {
     }
     function get_abstract() : string {
     	return $this->matches["abstract"][ $this->current_key ];
+    }
+    function get_final() : string {
+    	return $this->matches["final"][ $this->current_key ];
     }
     
 
