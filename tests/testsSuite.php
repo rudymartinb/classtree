@@ -33,7 +33,7 @@ require_once 'tests/microtests/syntax.php';
 class testsSuite extends PHPUnit\Framework\TestSuite {
 
     public function __construct() {
-        $this->setName('testsSuite');
+//         $this->setName('testsSuite');
         $this->addTestSuite('preg_match_all_Test');
          
         $this->addTestSuite('class_finder_Test');
