@@ -22,7 +22,7 @@ class class_finder {
         $this->pattern .= ")*";
         $this->pattern .= "[^{]*)";
         $this->pattern .= "(?<body>";
-        $this->pattern .= "((?!(class|interface)).)*";
+        $this->pattern .= "((?!(class |Interface)).)*";
         $this->pattern .= ")";
         
         $this->pattern .= ")";
