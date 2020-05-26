@@ -78,6 +78,7 @@ function test2() {
 // 	var_dump( $finder->matches($source)["0"] );
 // 	echo( "-----------------------------" );
 // 	var_dump( $finder->matches($source)["body"] );
+// 	echo( "-----------------------------" );
 	
 	$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
 // 	$this->assertEquals( true, $finder->more_elements() );
