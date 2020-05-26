@@ -5,6 +5,7 @@ include_project_files("./");
 /*
  * TESTS !!!
  */
+require_once 'tests/microtests/preg_match_all_Test.php';
 require_once 'tests/microtests/filesTest.php';
 
 require_once 'tests/parameter_Test.php';
@@ -18,7 +19,8 @@ require_once 'tests/trees_Test.php';
 require_once 'tests/gridTest.php';
 
 require_once 'tests/AppTest.php';
-require_once 'tests/microtests/preg_match_all_Test.php';
+
+
 
 
 class testsSuite extends PHPUnit\Framework\TestSuite {
