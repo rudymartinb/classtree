@@ -26,21 +26,21 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
     public function __construct() {
         $this->setName('testsSuite');
         
-        $this->addTestSuite('filesTest');
-        
-        $this->addTestSuite('function_Test');
-        $this->addTestSuite('class_Test');
         $this->addTestSuite('class_finder_Test');
         $this->addTestSuite('namespace_finder_Test');
+        
+//         $this->addTestSuite('filesTest');
+//         $this->addTestSuite('function_Test');
+//         $this->addTestSuite('class_Test');
 
 
         
-        $this->addTestSuite('trees_Test');
+//         $this->addTestSuite('trees_Test');
         
 //         $this->addTestSuite('gridTest');
 
         
-        $this->addTestSuite('AppTest');
+//         $this->addTestSuite('AppTest');
         
     }
 
