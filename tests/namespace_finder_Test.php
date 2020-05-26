@@ -75,7 +75,7 @@ function test2() {
 	
 	var_dump( $finder->matches($source)["original"] );
 	echo( "-----------------------------" );
-	var_dump( $finder->matches($source)["body"] );
+	var_dump( $finder->matches($source)["0"] );
 	echo( "-----------------------------" );
 
 	
