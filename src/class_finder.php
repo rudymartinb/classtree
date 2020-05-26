@@ -13,8 +13,8 @@ class class_finder {
 //         $this->pattern .= "(?<final>final|)";
 //         $this->pattern .= "(?<abstract>abstract|)";
         $this->pattern .= "[ ]*(?: |)";
-        $this->pattern .= "(?<tipo>class)(?: )[ ]*";
-        $this->pattern .= "(?<nombretipo>[0-9a-zA-Z_]+)[ ]*";
+        $this->pattern .= "(?:class)(?: )[ ]*";
+        $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)[ ]*";
         $this->pattern .= "( implements (?<implements>[0-9a-zA-Z_, ]*)|)[ ]*";
         $this->pattern .= "( extends (?<extends>[0-9a-zA-Z_,]*)|).*[ {]*";
         $this->pattern .= "))";
@@ -29,6 +29,10 @@ class class_finder {
     }
     function more_elements() : bool {
     	return count( $this->matches[ 0 ] ) > $this->current_key;
+    }
+    
+    function get_name() : string {
+    	return $this->matches["classname"][ $this->current_key ];
     }
     
 
