@@ -21,6 +21,10 @@ class class_finder {
         $this->pattern .= "( implements (?<implements>(\s*[0-9a-zA-Z_,]*)*))";
         $this->pattern .= ")*";
         $this->pattern .= "[ {]*";
+        $this->pattern .= "(?<body>.*";
+//         $this->pattern .= "((?!(?R)).)*";
+        $this->pattern .= ")";
+        
         $this->pattern .= "))";
         // body business
         
@@ -56,6 +60,9 @@ class class_finder {
     	return $matches;
     }
     
+    function get_body() : string {
+    	return $this->matches["body"][ $this->current_key ];
+    }
     
 
         

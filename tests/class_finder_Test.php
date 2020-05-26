@@ -57,71 +57,28 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "something, else", $finder->get_implements() );
 	}
 	
-	/*
-	 * this does not works under php (at least v 7.4)
-	 */
-// 	function test_class_implements_extends(){
-// 		$source = 'class test implements something, else extends one';
-// 		$finder = new class_finder( $source );
-		
-// 		$this->assertEquals( true, $finder->more_elements() );
-// 		$this->assertEquals( "test", $finder->get_name() );
-// 		$this->assertEquals( "something, else", $finder->get_implements() );
-// 		$this->assertEquals( "one", $finder->get_extends() );
-// 	}
 	
 	
-//     function test_recover_body(){
-//         $filename = "./tests/dummy/prueba.php";
-//         $source = get_source( $filename );
+    function test_recover_body(){
+        $source = 'class test {
+function test1(){
+}
+}';
         
-//         $finder = new class_finder();
-        
-//         $matches = $finder->matches($source );
-// //         var_dump( $matches["tipo"] );
-//         $bodies = $finder->find_bodies();
-// //         var_dump($bodies);
-//         $classes = $finder->separar_clases();
-        
-// //         
-// //         var_dump($matches);
+        $finder = new class_finder($source);
 
-//         $class = $classes[0]; // sarasa interface
+        $this->assertEquals( true, $finder->more_elements() );
+        $this->assertEquals( "test", $finder->get_name() );
         
-//         $expected = '
-//     function algo() : string;
-//     function algo1( string $something ) : string;
-//     function algo2( father $father ) : string;
-// }
-// ';
-//         $this->assertEquals( $expected, $bodies["sarasa_interface"] );
-//         $this->assertEquals( "sarasa_interface", $class->get_name() );
-//         $this->assertEquals( $expected, $class->get_body() );
-        
-//         $class = $classes[1]; // father
-//         $name = "father";
-//         $expected = '
-//     function algo1( int $uno, string $dos ): string {
-        
-//     }
-    
-//     function algo2( int $uno, string $dos ) {
-//     }
-//     function algo3( ) : bool {
-//     }
-//     function algo4( ) {
-//     }
-// }
-
-// ';
-        
-//         $this->assertEquals( $name , $class->get_name() );
-//         $this->assertEquals( $expected, $bodies[ $name ] );
-//         $this->assertEquals( $expected, $class->get_body() );
-// //         var_dump($class->get_functions());
+        $expected = '
+function test1(){
+}
+}';
+        $this->assertEquals( $expected, $finder->get_body() );
         
         
-//     }
+        
+    }
     
     
     
