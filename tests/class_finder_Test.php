@@ -130,6 +130,19 @@ function test2(){
     	$this->assertEquals( "final", $finder->get_final() );
     }
 
+    function test_namespace_1(){
+    	$source = "
+abstract class afinalclass extends other_class {
+}";
+    	
+    	$namespace = "nstest1";
+    	$finder = new class_finder( $source, $namespace );
+    	$this->assertEquals( "afinalclass", $finder->get_name() );
+    	$this->assertEquals( "other_class", $finder->get_extends() );
+    	$this->assertEquals( "abstract", $finder->get_abstract() );
+    	$this->assertEquals( "nstest1", $finder->get_namespace() );
+    }
+    
     
     function test_very_weird(){
     	$source = "final 

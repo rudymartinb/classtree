@@ -6,8 +6,10 @@ class class_finder {
     
     private $matches;
     private $source = "";
-    
-    function __construct( string $source ){
+    private $namespace = "";
+    function __construct( string $source, string $namespace = "" ){
+    	$this->namespace = $namespace;
+    	
         $this->pattern  = "/^(?<original>";
         $this->pattern .= "(";
         
@@ -62,6 +64,9 @@ class class_finder {
     }
     function get_final() : string {
     	return $this->matches["final"][ $this->current_key ];
+    }
+    function get_namespace() : string {
+    	return $this->namespace;
     }
     
 
