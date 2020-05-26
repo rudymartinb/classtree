@@ -22,4 +22,5 @@ refactoring helper functions
 
 TODO: converting grid() class's methods to use the data provided by Tree()
 TO FINISH: adding *class methods* information to Tree()
-namespace_finder: new methods as replacement of preg array iteration 
+namespace_finder: new methods as replacement of preg array iteration
+rewritting class_finder to make a good use of preg_match 
