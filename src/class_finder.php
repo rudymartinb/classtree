@@ -21,14 +21,13 @@ class class_finder {
         $this->pattern .= "( implements (?<implements>(\s*[0-9a-zA-Z_,]+)+))*";
 //         $this->pattern .= ")*";
         $this->pattern .= "[^{]*)";
-        
+        $this->pattern .= ")";
         $this->pattern .= "(?<body>";
         
         // TODO: probably the correct way would be to search for nested {}
         $this->pattern .= "((?!((?R)|interface )).)*";
         $this->pattern .= ")";
         
-        $this->pattern .= ")";
         // body business
         
         $this->pattern .= "/ms";
