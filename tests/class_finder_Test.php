@@ -14,12 +14,11 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	}
 	
 	function test_one(){
-		$source = 'class test {}';
+		$source = 'class test {\n}';
 		
 		$finder = new class_finder( $source );
 		
 		$this->assertEquals( true, $finder->more_elements() );
-		
 	}
 	
 	
