@@ -169,10 +169,10 @@ function test2() {
 		$source = "namespace test{\n";
 		$source .= "function test() {\n";
 		$source .= "	}\n";
-		$source .= "}
-namespace test2{
-
-	function test2() {
+		$source .= "}\n";
+		$source .= "namespace test2{\n";
+		$source .= "\n";
+		$source .= "	function test2() {
 	}
 }
 ";
