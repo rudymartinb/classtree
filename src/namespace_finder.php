@@ -42,6 +42,7 @@ class namespace_finder {
      * 0 = represents the lines of code matched
      * 1/nsname = name of the namespace found.
      * original = first line of code of the namespace matched
+     * body = just the code that follows up to the next namespace, if any
      *  
      */
     private $current_key = 0;
