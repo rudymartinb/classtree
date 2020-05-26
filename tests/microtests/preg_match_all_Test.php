@@ -6,14 +6,15 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 	function test_preg(){
 		$source =" mario 1 2 3 bros 2 3 1 ";
 		//		  12345678901234567
-		$pattern = "/\s*";
+		$pattern = "/";
+		$pattern .= "\s*";
 		$pattern .= "(";
-		$pattern .= "(?:[ ]*)";
+		$pattern .= "\s*";
 		$pattern .= "(?<mario>mario([\s\,]*[0-9])*)";
 		$pattern .= "(?:[ ]*)|";
-		$pattern .= "(?:[ ]*)";
+		$pattern .= "\s*";
 		$pattern .= "(?<bros>bros([\s\,]*[0-9])*)";
-		$pattern .= "(?:[ ]*)";
+		$pattern .= "\s*";
 		$pattern .= ")*";
 		
 		$pattern .= "/ms";
