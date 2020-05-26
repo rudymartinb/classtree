@@ -80,8 +80,8 @@ function test2() {
 	var_dump( $finder->matches($source)["body"] );
 	
 	$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
-	$this->assertEquals( true, $finder->more_elements() );
-	$this->assertEquals( "test", $finder->get_name() );
+// 	$this->assertEquals( true, $finder->more_elements() );
+// 	$this->assertEquals( "test", $finder->get_name() );
 
 	
 	$expected = '
