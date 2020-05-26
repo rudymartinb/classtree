@@ -159,16 +159,7 @@ other_class {
     	$this->assertEquals( "abstract", $finder->get_abstract() );
     }
     
-    
-//     function test_grep_abstract(){
-//         $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";
-        
-//         $finder = new class_finder();
-//         $matches = $finder->matches($source);
-        
-//         $this->assertEquals( "abstract", $matches["abstract"][0] );
-//     }
-    
+
     
 }
 
