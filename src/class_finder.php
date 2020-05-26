@@ -13,7 +13,7 @@ class class_finder {
         
         // the extra enclosed subpattern 
         // is necesary to avoid including the trailing space
-        $this->pattern .= "((?<final>final) )*\s*";
+        $this->pattern .= "((?<final>final)\s*)*";
         $this->pattern .= "((?<abstract>abstract) )*";
         
         $this->pattern .= "(?:class\s*)[ ]*";
