@@ -145,6 +145,20 @@ other_class {
     	$this->assertEquals( "final", $finder->get_final() );
     }
     
+    function test_very_weird_2(){
+    	$source = "abstract
+class
+afinalclass
+extends
+other_class {
+}";
+    	
+    	$finder = new class_finder( $source );
+    	$this->assertEquals( "afinalclass", $finder->get_name() );
+    	$this->assertEquals( "other_class", $finder->get_extends() );
+    	$this->assertEquals( "abstract", $finder->get_abstract() );
+    }
+    
     
 //     function test_grep_abstract(){
 //         $source = "abstract class Caso00_Builder implements builder_interface, builder_getcaso {";
