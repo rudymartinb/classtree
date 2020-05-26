@@ -17,7 +17,7 @@ class namespace_finder {
         $this->pattern  = "/^";
         $this->pattern .= "(?<original>[ ]*(?:namespace)[ ]+";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
-        $this->pattern .= "(?:[^\n]*)"; // everything else up to the first newline is excluded 
+        $this->pattern .= "(?:[^\n]*)"; // everything else up to the first newline 
         $this->pattern .= ")";
         
         /* rest of the namespace body is included
