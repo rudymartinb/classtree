@@ -13,7 +13,7 @@ class class_finder {
         $this->pattern .= "(?<final>final )*";
         $this->pattern .= "(?<abstract>abstract )*";
         $this->pattern .= "(?:class)(?: )[ ]*";
-        $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)+";
+        $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
 
         // extends always goes before implements
 //         $this->pattern .= "(";
