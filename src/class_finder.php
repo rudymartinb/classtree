@@ -12,6 +12,7 @@ class class_finder {
         $this->pattern .= "(";
         $this->pattern .= "(?<final>final )*";
         $this->pattern .= "(?<abstract>abstract )*";
+        
         $this->pattern .= "(?:class)(?: )[ ]*";
         $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
 
@@ -22,9 +23,9 @@ class class_finder {
 //         $this->pattern .= ")*";
         $this->pattern .= "[^{]*)";
         $this->pattern .= ")";
-        $this->pattern .= "(?<body>";
         
         // TODO: probably the correct way would be to search for nested {}
+        $this->pattern .= "(?<body>";
         $this->pattern .= "((?!((?R)|interface )).)*";
         $this->pattern .= ")";
         
