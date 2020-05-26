@@ -1,5 +1,11 @@
 <?php
 namespace src;
+class baseclass {
+	
+}
+class mytest extends baseclass {
+	
+}
 
 class class_finder {
     private $pattern;
