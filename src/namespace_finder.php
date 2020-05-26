@@ -21,6 +21,7 @@ class namespace_finder {
         $this->pattern .= ")";
         
         /* rest of the namespace body is included
+         * (IOW: just the code that follows, that's what I call "body")
          * by doing a negative recursive search
          * 
          * will include the first newline
