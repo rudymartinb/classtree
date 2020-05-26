@@ -10,13 +10,15 @@ class class_finder {
     function __construct( string $source ){
         $this->pattern  = "/^(?<original>";
         $this->pattern .= "(";
-//         $this->pattern .= "(?<final>final|)";
-//         $this->pattern .= "(?<abstract>abstract|)";
-        $this->pattern .= "[ ]*(?: |)";
+        $this->pattern .= "(?<final>final |)";
+        $this->pattern .= "(?<abstract>abstract |)";
+//         $this->pattern .= "[ ]*(?: |)";
         $this->pattern .= "(?:class)(?: )[ ]*";
         $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
-        $this->pattern .= "( extends (?<extends>[0-9a-zA-Z_]*)|)";
-        $this->pattern .= "( implements (?<implements>[0-9a-zA-Z_, ]*)|)";
+        $this->pattern .= "(?=.*";
+        $this->pattern .= "(?:( extends (?<extends>[0-9a-zA-Z_]*))|";
+        $this->pattern .= "( implements (?<implements>[0-9a-zA-Z_, ]*)))";
+        $this->pattern .= "){0,2}";
         $this->pattern .= "[ {]*";
         $this->pattern .= "))";
         $this->pattern .= "/ms";
