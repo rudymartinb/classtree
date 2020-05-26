@@ -4,7 +4,7 @@
  */
 
 function
-test
+weird_function
 (
 		int $something 
 		)
