@@ -17,7 +17,6 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 		$pattern .= "(?<bros>bros([\s\,]*[0-9])*)";
 		$pattern .= "\s*";
 		$pattern .= ")*";
-		
 		$pattern .= "/ms";
 		
 		$matches = [];
