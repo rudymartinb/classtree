@@ -7,7 +7,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	function test_preg(){
 		$source =" mario 1 bros 2 ";
 		//		  12345678901234567
-		$pattern = "/(?:[ ]*)((?<mario>mario [0-9]*)|(?<bros> bros [0-9]*)){0,2}(?:[ ]*)";
+		$pattern = "/(?:[ ]*)((?<mario>mario [0-9]*)(?:[ ]*)|(?<bros>bros [0-9]*)){0,2}(?:[ ]*)";
 		$pattern .= "/ms";
 		
 		$matches = [];
@@ -15,11 +15,13 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		var_dump( $matches );
 		$this->assertEquals( 2, count( $matches[0] ) );
 		$this->assertEquals( "mario 1", $matches["mario"][0] );
+		$this->assertEquals( "bros 2", $matches["bros"][0] );
 
 		$source =" bros 2 mario 1 ";
 		var_dump( $matches );
 		$this->assertEquals( 2, count( $matches[0] ) );
 		$this->assertEquals( "mario 1", $matches["mario"][0] );
+		$this->assertEquals( "bros 2", $matches["bros"][0] );
 		
 	}
 	function test_zero(){
