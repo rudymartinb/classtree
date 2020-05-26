@@ -26,7 +26,8 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
 		$this->assertEquals( "bros 2 3 1", $matches["bros"][0] );
 
-		$source =" bros 2 mario 1 ";
+		$source =" bros 2 3 1 mario 1 2 3";
+		preg_match_all($pattern, $source, $matches );
 // 		var_dump( $matches );
 // 		$this->assertEquals( 2, count( $matches[0] ) );
 		$this->assertEquals( "mario 1 2 3", $matches["mario"][0] );
