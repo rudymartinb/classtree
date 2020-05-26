@@ -15,7 +15,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 		$pattern .= "(?:[ ]*)";
 		$pattern .= "(?<bros>bros [0-9]*)";
 		$pattern .= "(?:[ ]*)";
-		$pattern .= "){0,2}";
+		$pattern .= ")*";
 		
 		$pattern .= "/ms";
 		
