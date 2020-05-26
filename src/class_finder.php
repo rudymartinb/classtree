@@ -18,7 +18,7 @@ class class_finder {
         $this->pattern .= "(?=.*";
         $this->pattern .= "(?:( extends (?<extends>[0-9a-zA-Z_]*))|";
         $this->pattern .= "( implements (?<implements>[0-9a-zA-Z_, ]*)))";
-        $this->pattern .= "){0,2}";
+        $this->pattern .= ")*";
         $this->pattern .= "[ {]*";
         $this->pattern .= "))";
         $this->pattern .= "/ms";
