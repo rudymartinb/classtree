@@ -19,7 +19,7 @@ namespace
 sarasa2 
 { 
 	function 
-	sarsa
+	sarasa
 	(
 			) 
 	{ 
