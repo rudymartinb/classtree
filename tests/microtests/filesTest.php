@@ -21,7 +21,9 @@ class filesTest extends PHPUnit\Framework\TestCase {
 		$expected = '{{{}{}}}';
 		$actual = $matches[0][0];
 		$this->assertEquals($expected, $actual);
-		$source = ' {{{}{}}} ';
+		
+		$source = ' {{{}{}}} }';
+		
 		var_dump($matches);
 
 		
