@@ -29,6 +29,34 @@ class filesTest extends PHPUnit\Framework\TestCase {
 		$expected = '{{{d}d{d}}}';
 		$actual = $matches[0][0];
 		$this->assertEquals($expected, $actual);
+
+		$source = 'function source_code() {
+{
+{
+d
+}
+d
+{
+d
+}
+}
+}
+ outside}';
+		
+		preg_match_all($pattern, $source, $matches );
+		$expected = '{
+{
+{
+d
+}
+d
+{
+d
+}
+}
+}';
+		$actual = $matches[0][0];
+		$this->assertEquals($expected, $actual);
 		
 		var_dump($matches);
 
