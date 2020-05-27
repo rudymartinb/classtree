@@ -223,7 +223,27 @@ function test3() {
 		
 		
 	}
-
+	
+	function test_weid_1_line_2(){
+		$source = 'namespace test ; function sarsa() { return ; }';
+		
+		$finder = new namespace_finder( $source );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test", $finder->get_name() );
+		
+		
+		$expected  = "function sarsa() { return ; }";
+		
+		$body = $finder->get_body();
+		$this->assertEquals( $expected, $finder->get_body() );
+		$finder->next();
+		
+		$this->assertEquals( false, $finder->more_elements() );
+		
+		
+	}
+	
     
 }
 
