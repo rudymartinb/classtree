@@ -51,7 +51,7 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_preg_just_2_braces_with_something_2(){
-		$source = "{a}{}";
+		$source = "a{a}{}";
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
