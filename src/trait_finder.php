@@ -16,17 +16,13 @@ class trait_finder {
 		$this->pattern .= "(?:trait\s*)";
 		$this->pattern .= "(?<traitname>[0-9a-zA-Z_]+)";
 		
-		// extends always goes before implements
-		
-		$this->pattern .= "(\s*extends\s*(?<extends>[0-9a-zA-Z_]*))*";
-		
 		// end of the declaration line
 		$this->pattern .= "[^{]*)";
 		$this->pattern .= ")";
 		
 		// TODO: probably the correct way would be to search for nested {}
 		$this->pattern .= "(?<body>";
-		$this->pattern .= "((?!((?R)|interface )).)*";
+		$this->pattern .= "((?!((?R)|interface|class|namespace )).)*";
 		$this->pattern .= ")";
 		
 		// body business
