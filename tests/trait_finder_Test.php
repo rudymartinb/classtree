@@ -1,32 +1,10 @@
 <?php
 
-/**
- *  test case.
- */
-class trait_finder_Test extends PHPUnit_Framework_TestCase {
 
-	/**
-	 * Prepares the environment before running a test.
-	 */
-	protected function setUp() {
-		parent::setUp ();
-
-		// TODO Auto-generated trait_finder_Test::setUp()
+class trait_finder_Test extends PHPUnit\Framework\TestCase {
+	function test_nothing(){
+		$source = "";
+		$finder = new trait_finder($source);
 	}
-
-	/**
-	 * Cleans up the environment after running a test.
-	 */
-	protected function tearDown() {
-		// TODO Auto-generated trait_finder_Test::tearDown()
-		parent::tearDown ();
-	}
-
-	/**
-	 * Constructs the test case.
-	 */
-	public function __construct() {
-		// TODO Auto-generated constructor
-	}
+	
 }
-
