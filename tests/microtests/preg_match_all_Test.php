@@ -2,6 +2,127 @@
 
 
 class preg_match_all_Test extends PHPUnit\Framework\TestCase {
+	/*
+	 * this test is intended
+	 * to gather all the body of a class or function or anything
+	 */
+	private $pattern = "/(\{([^{}]*)\})|(\{(?R)\})/";
+	
+	// ok  private $pattern = "/({(.*)})|({(?R)})/";
+	
+	# "/[^{}]*\{(?R)\}/mx";
+	
+	function test_preg_just_2_braces(){
+		$source = "{}";
+		
+		$matches = [];
+		preg_match_all($this->pattern, $source, $matches );
+		$expected = '{}';
+		$actual = $matches[0][0];
+		$this->assertEquals($expected, $actual);
+	}
+	
+	function test_preg_just_3_braces(){
+		$source = "{}}";
+		
+		$matches = [];
+		preg_match_all($this->pattern, $source, $matches );
+		$expected = '{}';
+		$actual = $matches[0][0];
+		$this->assertEquals($expected, $actual);
+	}
+	
+	// 	function test_preg_just_2_braces_with_something(){
+	// 		$source = "{a}";
+	
+	// 		$matches = [];
+	// 		preg_match_all($this->pattern, $source, $matches );
+	// 		$expected = '{a}';
+	// 		$actual = $matches[0][0];
+	// 		$this->assertEquals($expected, $actual);
+	// 	}
+	
+	// 	function test_preg_more_braces(){
+	// 		$source = "{a{a}}";
+	
+	// 		$matches = [];
+	// 		preg_match_all($this->pattern, $source, $matches );
+	// 		$expected = '{a{a}}';
+	// 		$actual = $matches[0][0];
+	// 		$this->assertEquals($expected, $actual);
+	// 	}
+	
+	// 	function test_preg_a_lote_more_braces(){
+	// 		$source = "{{{{{{{a}}}}}}}";
+	
+	// 		$matches = [];
+	// 		preg_match_all($this->pattern, $source, $matches );
+	// 		$expected = '{{{{{{{a}}}}}}}';
+	// 		$actual = $matches[0][0];
+	// 		$this->assertEquals($expected, $actual);
+	// 	}
+	
+	// 	function test_with_junk(){
+	// 		$source = " asdf {a{a{a{a{a{{a}}a}a}a}a}} asdf";
+	
+	// 		$matches = [];
+	// 		preg_match_all($this->pattern, $source, $matches );
+	// 		$expected = '{a{a{a{a{a{{a}}a}a}a}a}}';
+	// 		$actual = $matches[0][0];
+	// 		$this->assertEquals($expected, $actual);
+	// 	}
+	
+	
+	// 	function test_preg_recursive(){
+	
+	
+	// 		$pattern  = '/';
+	
+	// 		$pattern .= '(?:';
+	// 		$pattern .= '(';
+	// // 		$pattern .= '(?![^{}]*)|';
+	// // 		$pattern .= '(?:(?C!"[^"]*").)|';
+	// 		$pattern .= '(\{(?R)\})*';
+	// 		$pattern .= ')*';
+	// 		$pattern .= ')*';
+	// 		$pattern .= '/mx';
+	
+	// // 		$pattern = '/(([^{}]*)|\{(?R)\})*/mx';
+	
+	// // 		$source = ' {{{}{}}} ';
+	
+	// 		$matches = [];
+	// // 		$source = '{{{"}"d}d{d}}} outside}';
+	// 		$source = '{{{d}d{d}}} outside}';
+	
+	// 		preg_match_all($pattern, $source, $matches );
+	// 		$expected = '{{{d}d{d}}}';
+	// 		$actual = $matches[0][0];
+	// 		$this->assertEquals($expected, $actual);
+	
+	
+	// // 		var_dump($matches);
+	
+	// // 		$source = 'discard {{{d}d{d}}} outside}';
+	// // 		preg_match_all($pattern, $source, $matches );
+	// // 		$expected = '{{{}{}}}';
+	// // 		$actual = $matches[0][0];
+	// // 		$this->assertEquals($expected, $actual);
+	
+	// 		// 		$source = 'discard {{{d}d{d}}} outside}';
+	
+	// 		// 		preg_match_all($pattern, $source, $matches );
+	// 		// 		$expected = '{{{d}d{d}}}';
+	// 		// 		$actual = $matches[0][0];
+	// 		// 		$this->assertEquals($expected, $actual);
+	
+	
+	
+	
+	// 	}
+	
+	
+	//
 	
 	function test_preg(){
 		$source =" mario a b c bros 2 3 1 ";
