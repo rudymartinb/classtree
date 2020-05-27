@@ -16,7 +16,6 @@
 namespace
 sarasa
 ;
-function sarsa()
-{
-	
+function sarsa() {
+	return ;
 }
