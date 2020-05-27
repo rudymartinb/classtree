@@ -5,8 +5,9 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 	/*
 	 * this test is intended
 	 * to gather all the body of a class or function or anything
-	 */
-	private $pattern = "/
+	 *
+	 * original:
+	 * 	private $pattern = "/
 \{
 (
 ((?R)*)
@@ -15,10 +16,11 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 )*
 \}
 /x";
+
+	 */
+
+	private $pattern = "/\{(((?R)*)|([^{}]*)*)*\}/x";
 	
-	// ok  private $pattern = "/({(.*)})|({(?R)})/";
-	
-	# "/[^{}]*\{(?R)\}/mx";
 	function run_grep_test( string $source, string $expected ){
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
