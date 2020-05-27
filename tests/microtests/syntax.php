@@ -18,9 +18,13 @@
  */
 namespace sarasa { function sarsa() { return ; } }
 
+
 namespace 
 sarasa2 
-{ 
+{
+	trait test1 {
+		
+	}
 	function 
 	sarasa
 	(
