@@ -12,27 +12,14 @@ use src\class_finder;
 
 class filesTest extends PHPUnit\Framework\TestCase {
 
-// 	function test_discard(){
-// 		$source = 'this is a "discard" test';
-		
-// 		$pattern  = '/(?<ori>(?!"discard").|(?R))*';
-// 		$pattern .= '/m';
-		
-// 		$matches = [];
-	
-// 		preg_match_all($pattern, $source, $matches );
-// 		$expected = 'this is a test';
-// 		$actual = $matches["ori"][0];
-// 		var_dump( $actual );
-// 		$this->assertEquals($expected, $actual);
-		
-// 	}
-	
 	/*
 	 * this test is intended 
 	 * to gather all the body of a class or function or anything
 	 */
-	private $pattern = "/({(.*)})|({(?R)})/"; 
+	private $pattern = "/({(.*)})|({(?R)})/";
+	
+	// ok  private $pattern = "/({(.*)})|({(?R)})/";
+	
 	# "/[(^{}]*\{(?R)\}/mx";
 	
 	function test_preg_just_2_braces(){
