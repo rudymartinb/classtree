@@ -63,6 +63,16 @@ class filesTest extends PHPUnit\Framework\TestCase {
 		$actual = $matches[0][0];
 		$this->assertEquals($expected, $actual);
 	}
+
+	function test_preg_a_lote_more_braces(){
+		$source = "{{{{{{{a}}}}}}}";
+		
+		$matches = [];
+		preg_match_all($this->pattern, $source, $matches );
+		$expected = '{{{{{{{a}}}}}}}';
+		$actual = $matches[0][0];
+		$this->assertEquals($expected, $actual);
+	}
 	
 	
 // 	function test_preg_recursive(){
