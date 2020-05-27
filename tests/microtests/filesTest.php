@@ -12,57 +12,95 @@ use src\class_finder;
 
 class filesTest extends PHPUnit\Framework\TestCase {
 
-	function test_preg_recursive(){
+// 	function test_discard(){
+// 		$source = 'this is a "discard" test';
 		
-		$pattern = '/\{(?:(([^{}]*)|(?R))*)\}/m';
+// 		$pattern  = '/(?<ori>(?!"discard").|(?R))*';
+// 		$pattern .= '/m';
 		
-		$source = ' {{{}{}}} ';
+// 		$matches = [];
+	
+// 		preg_match_all($pattern, $source, $matches );
+// 		$expected = 'this is a test';
+// 		$actual = $matches["ori"][0];
+// 		var_dump( $actual );
+// 		$this->assertEquals($expected, $actual);
 		
-		preg_match_all($pattern, $source, $matches );
-		$expected = '{{{}{}}}';
+// 	}
+	
+	/*
+	 * this test is intended 
+	 * to gather all the body of a class or function or anything
+	 */
+	private $pattern = "/{[^{}]*}/mx";
+	
+	function test_preg_just_2_braces(){
+		$source = "{}";
+		
+		$matches = [];
+		preg_match_all($this->pattern, $source, $matches );
+		$expected = '{}';
 		$actual = $matches[0][0];
 		$this->assertEquals($expected, $actual);
-		
-		$source = ' {{{d}d{d}}} outside}';
-
-		preg_match_all($pattern, $source, $matches );
-		$expected = '{{{d}d{d}}}';
-		$actual = $matches[0][0];
-		$this->assertEquals($expected, $actual);
-
-		$source = 'function source_code() {
-{
-{
-d
-}
-d
-{
-d
-}
-}
-}
- outside}';
-		
-		preg_match_all($pattern, $source, $matches );
-		$expected = '{
-{
-{
-d
-}
-d
-{
-d
-}
-}
-}';
-		$actual = $matches[0][0];
-		$this->assertEquals($expected, $actual);
-		
-		var_dump($matches);
-
-		
-		
 	}
+	function test_preg_just_2_braces_with_something(){
+		$source = "{a}";
+		
+		$matches = [];
+		preg_match_all($this->pattern, $source, $matches );
+		$expected = '{a}';
+		$actual = $matches[0][0];
+		$this->assertEquals($expected, $actual);
+	}
+	
+	
+// 	function test_preg_recursive(){
+
+		
+// 		$pattern  = '/';
+		
+// 		$pattern .= '(?:';
+// 		$pattern .= '(';
+// // 		$pattern .= '(?![^{}]*)|';
+// // 		$pattern .= '(?:(?C!"[^"]*").)|';
+// 		$pattern .= '(\{(?R)\})*';
+// 		$pattern .= ')*';
+// 		$pattern .= ')*';
+// 		$pattern .= '/mx';
+		
+// // 		$pattern = '/(([^{}]*)|\{(?R)\})*/mx';
+		
+// // 		$source = ' {{{}{}}} ';
+		
+// 		$matches = [];
+// // 		$source = '{{{"}"d}d{d}}} outside}';
+// 		$source = '{{{d}d{d}}} outside}';
+		
+// 		preg_match_all($pattern, $source, $matches );
+// 		$expected = '{{{d}d{d}}}';
+// 		$actual = $matches[0][0];
+// 		$this->assertEquals($expected, $actual);
+		
+		
+// // 		var_dump($matches);
+
+// // 		$source = 'discard {{{d}d{d}}} outside}';
+// // 		preg_match_all($pattern, $source, $matches );
+// // 		$expected = '{{{}{}}}';
+// // 		$actual = $matches[0][0];
+// // 		$this->assertEquals($expected, $actual);
+		
+// 		// 		$source = 'discard {{{d}d{d}}} outside}';
+		
+// 		// 		preg_match_all($pattern, $source, $matches );
+// 		// 		$expected = '{{{d}d{d}}}';
+// 		// 		$actual = $matches[0][0];
+// 		// 		$this->assertEquals($expected, $actual);
+		
+		
+		
+		
+// 	}
     
     
     /* this test uses fixed files on tests/dummy dir
