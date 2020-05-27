@@ -32,7 +32,8 @@ class filesTest extends PHPUnit\Framework\TestCase {
 	 * this test is intended 
 	 * to gather all the body of a class or function or anything
 	 */
-	private $pattern = "/\{([^{}]*|(?R))\}/mx";
+	private $pattern = "/({(.*)})|({(?R)})/"; 
+	# "/[(^{}]*\{(?R)\}/mx";
 	
 	function test_preg_just_2_braces(){
 		$source = "{}";
@@ -55,11 +56,11 @@ class filesTest extends PHPUnit\Framework\TestCase {
 	}
 	
 	function test_preg_more_braces(){
-		$source = "{{a}}";
+		$source = "{a{a}}";
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
-		$expected = '{{a}}';
+		$expected = '{a{a}}';
 		$actual = $matches[0][0];
 		$this->assertEquals($expected, $actual);
 	}
