@@ -16,3 +16,7 @@
 namespace
 sarasa
 ;
+function sarsa()
+{
+	
+}
