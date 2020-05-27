@@ -55,15 +55,15 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals($expected, $actual);
 	}
 	
-	// 	function test_preg_a_lote_more_braces(){
-	// 		$source = "{{{{{{{a}}}}}}}";
+		function test_preg_a_lote_more_braces(){
+			$source = "{{{{{{{a}}}}}}}";
 	
-	// 		$matches = [];
-	// 		preg_match_all($this->pattern, $source, $matches );
-	// 		$expected = '{{{{{{{a}}}}}}}';
-	// 		$actual = $matches[0][0];
-	// 		$this->assertEquals($expected, $actual);
-	// 	}
+			$matches = [];
+			preg_match_all($this->pattern, $source, $matches );
+			$expected = '{{{{{{{a}}}}}}}';
+			$actual = $matches[0][0];
+			$this->assertEquals($expected, $actual);
+		}
 	
 	// 	function test_with_junk(){
 	// 		$source = " asdf {a{a{a{a{a{{a}}a}a}a}a}} asdf";
