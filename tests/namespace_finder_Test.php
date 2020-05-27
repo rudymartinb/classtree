@@ -33,6 +33,7 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 
 	function test_just_1_namespace_with_body_1(){
 		$source = 'namespace test;
+
 function test() {
 }
 ';
