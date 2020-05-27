@@ -12,6 +12,15 @@ use src\class_finder;
 
 class filesTest extends PHPUnit\Framework\TestCase {
 
+	function test_preg_recursive(){
+		$source = ' {{{}{}}} ';
+		$pattern = '/{(?R)*}/m';
+		
+		preg_match_all($pattern, $source, $matches );
+		var_dump($matches);
+		
+		
+	}
     
     
     /* this test uses fixed files on tests/dummy dir
