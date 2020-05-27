@@ -7,8 +7,13 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 	 * to gather all the body of a class or function or anything
 	 */
 	private $pattern = "/
-(({(?R)*})|
-([^{}]*))
+\{
+(
+((?R)*)
+|
+([^{}]*)*
+)*
+\}
 /x";
 	
 	// ok  private $pattern = "/({(.*)})|({(?R)})/";
@@ -65,15 +70,15 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 			$this->assertEquals($expected, $actual);
 		}
 	
-	// 	function test_with_junk(){
-	// 		$source = " asdf {a{a{a{a{a{{a}}a}a}a}a}} asdf";
+		function test_with_junk(){
+			$source = " asdf {a{a{a{a{a{{a}}a}a}a}a}} asdf";
 	
-	// 		$matches = [];
-	// 		preg_match_all($this->pattern, $source, $matches );
-	// 		$expected = '{a{a{a{a{a{{a}}a}a}a}a}}';
-	// 		$actual = $matches[0][0];
-	// 		$this->assertEquals($expected, $actual);
-	// 	}
+			$matches = [];
+			preg_match_all($this->pattern, $source, $matches );
+			$expected = '{a{a{a{a{a{{a}}a}a}a}a}}';
+			$actual = $matches[0][0];
+			$this->assertEquals($expected, $actual);
+		}
 	
 	
 	// 	function test_preg_recursive(){
