@@ -19,8 +19,6 @@ refactoring get_tree() function to allow multiple interface implementations as p
 converting get_tree() into a class
 removing textoutput() and interfaces* class and tests
 refactoring helper functions
-
-TODO: converting grid() class's methods to use the data provided by Tree()
-TO FINISH: adding *class methods* information to Tree()
 namespace_finder: new methods as replacement of preg array iteration
-rewritting class_finder to make a good use of preg_match 
+rewritting class_finder to make a good use of preg_match
+fixing regex patterns to match some weird cases.

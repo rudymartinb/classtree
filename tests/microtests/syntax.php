@@ -13,6 +13,8 @@
  * since it loads from the test suite 
  * it won't affect the production code.
  * 
+ * again, just be careful about what you do.
+ * 
  */
 namespace sarasa { function sarsa() { return ; } }
 
