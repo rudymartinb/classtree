@@ -13,11 +13,17 @@ use src\class_finder;
 class filesTest extends PHPUnit\Framework\TestCase {
 
 	function test_preg_recursive(){
-		$source = ' {{{}{}}} ';
+		
 		$pattern = '/{(?R)*}/m';
 		
+		$source = ' {{{}{}}} ';
 		preg_match_all($pattern, $source, $matches );
+		$expected = '{{{}{}}}';
+		$actual = $matches[0][0];
+		$this->assertEquals($expected, $actual);
+		$source = ' {{{}{}}} ';
 		var_dump($matches);
+
 		
 		
 	}
