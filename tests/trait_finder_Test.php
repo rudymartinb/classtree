@@ -10,5 +10,14 @@ class trait_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertFalse( $finder->more_elements() );
 		
 	}
+
+	function test_name(){
+		$source = "trait test {}";
+		$finder = new trait_finder($source);
+		
+		$this->assertTrue( $finder->more_elements() );
+		$this->assertEquals( "test", $finder->get_name() );
+		
+	}
 	
 }

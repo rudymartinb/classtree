@@ -37,4 +37,10 @@ class trait_finder {
 		$this->matches($source);
 	}
 	
+	
+	function get_name() : string {
+		return $this->matches["traitname"][ $this->current_key ];
+	}
+	
+	
 }
