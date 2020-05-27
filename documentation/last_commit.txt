@@ -22,3 +22,4 @@ refactoring helper functions
 namespace_finder: new methods as replacement of preg array iteration
 rewritting class_finder to make a good use of preg_match
 fixing regex patterns to match some weird cases.
+adding trait_finder
