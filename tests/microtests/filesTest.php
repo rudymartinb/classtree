@@ -20,7 +20,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
 	
 	// ok  private $pattern = "/({(.*)})|({(?R)})/";
 	
-	# "/[(^{}]*\{(?R)\}/mx";
+	# "/[^{}]*\{(?R)\}/mx";
 	
 	function test_preg_just_2_braces(){
 		$source = "{}";
