@@ -1,6 +1,9 @@
 <?php
+namespace src;
 
 class trait_finder {
+	use finder;
+	
 	function __construct( string $source, string $namespace = "" ){
 		$this->namespace = $namespace;
 		
@@ -31,7 +34,7 @@ class trait_finder {
 		
 		$this->pattern .= "/ms";
 		
-// 		$this->matches($source);
+		$this->matches($source);
 	}
 	
 }

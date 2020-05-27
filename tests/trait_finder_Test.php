@@ -1,5 +1,7 @@
 <?php
 
+use src\trait_finder;
+
 class trait_finder_Test extends PHPUnit\Framework\TestCase {
 	function test_nothing(){
 		$source = "";
