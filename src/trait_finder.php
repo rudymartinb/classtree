@@ -22,7 +22,7 @@ class trait_finder {
 		
 		// TODO: probably the correct way would be to search for nested {}
 		$this->pattern .= "(?<body>";
-		$this->pattern .= "((?!((?R)|interface|class|namespace )).)*";
+		$this->pattern .= "((?!((?R)|interface |class |namespace )).)*";
 		$this->pattern .= ")";
 		
 		// body business
