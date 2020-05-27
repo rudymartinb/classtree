@@ -1,5 +1,7 @@
 <?php
 function include_project_files( string $path ){
+	require_once $path.'src/traits/finder.php';
+	
     require_once $path.'src/parameter_.php';
     require_once $path.'src/function_.php';
     require_once $path.'src/class_.php';

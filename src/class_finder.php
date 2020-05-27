@@ -11,10 +11,8 @@ namespace src;
  * 
  */
 class class_finder {
-    private $pattern;
-    
-    private $matches;
-    private $source = "";
+	use finder;
+	
     private $namespace = "";
     function __construct( string $source, string $namespace = "" ){
     	$this->namespace = $namespace;
@@ -51,14 +49,6 @@ class class_finder {
         $this->matches($source);
     }
     
-    private $current_key = 0;
-    function next(){
-    	$this->current_key ++;
-    }
-    function more_elements() : bool {
-    	return count( $this->matches[ 0 ] ) > $this->current_key;
-    }
-    
     function get_name() : string {
     	return $this->matches["classname"][ $this->current_key ];
     }
@@ -76,15 +66,6 @@ class class_finder {
     }
     function get_namespace() : string {
     	return $this->namespace;
-    }
-    
-
-    function matches( string $source ) : Array {
-    	$this->source = $source;
-    	$matches = [];
-    	preg_match_all($this->pattern, $source, $matches );
-    	$this->matches = $matches;
-    	return $matches;
     }
     
     function get_body() : string {
