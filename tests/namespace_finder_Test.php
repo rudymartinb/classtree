@@ -43,7 +43,7 @@ function test() {
 	$this->assertEquals( true, $finder->more_elements() );
 	$this->assertEquals( "test", $finder->get_name() );
 
-	/*  newline is not counted as preg match
+	/*  newline is not counted
 	 */
 	$expected = 'function test() {
 }
