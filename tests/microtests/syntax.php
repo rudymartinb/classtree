@@ -14,3 +14,16 @@
  * it won't affect the production code.
  */
 namespace sarasa { function sarsa() { return ; } }
+
+namespace 
+sarasa2 
+{ 
+	function 
+	sarsa
+	(
+			) 
+	{ 
+		return 
+		; 
+	} 
+}
