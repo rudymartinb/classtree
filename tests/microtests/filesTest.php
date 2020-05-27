@@ -17,12 +17,18 @@ class filesTest extends PHPUnit\Framework\TestCase {
 		$pattern = '/{(?R)*}/m';
 		
 		$source = ' {{{}{}}} ';
+		
 		preg_match_all($pattern, $source, $matches );
 		$expected = '{{{}{}}}';
 		$actual = $matches[0][0];
 		$this->assertEquals($expected, $actual);
 		
 		$source = ' {{{}{}}} }';
+
+		preg_match_all($pattern, $source, $matches );
+		$expected = '{{{}{}}}';
+		$actual = $matches[0][0];
+		$this->assertEquals($expected, $actual);
 		
 		var_dump($matches);
 
