@@ -5,7 +5,7 @@ namespace src;
 trait finder {
 	private $pattern;
 	private $source = "";
-	abstract function __construct( string $source );
+
 }
 class namespace_finder {
 	use finder;
