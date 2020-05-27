@@ -16,7 +16,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
 	 * this test is intended 
 	 * to gather all the body of a class or function or anything
 	 */
-	private $pattern = "/(\{(.*)\})|({(?R)})/";
+	private $pattern = "/(\{(.*)\})|(\{(?R)\})/";
 	
 	// ok  private $pattern = "/({(.*)})|({(?R)})/";
 	
