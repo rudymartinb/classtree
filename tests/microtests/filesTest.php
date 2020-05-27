@@ -32,7 +32,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
 	 * this test is intended 
 	 * to gather all the body of a class or function or anything
 	 */
-	private $pattern = "/{([^{}]*|(?R))}/mx";
+	private $pattern = "/\{([^{}]*|(?R))\}/mx";
 	
 	function test_preg_just_2_braces(){
 		$source = "{}";
