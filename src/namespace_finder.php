@@ -22,7 +22,7 @@ class namespace_finder {
         // the objective here is to include the semicolon if present
         // but exclude the brace if present.
         // its either one of them, can't be none or both.
-        $this->pattern .= "(?:([ ;]*)|([^{]*))"; 
+        $this->pattern .= "(?:([\s;]*)|([^{]*))"; 
         $this->pattern .= ")";
         
         /* rest of the namespace body is included

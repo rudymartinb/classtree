@@ -44,8 +44,7 @@ function test() {
 
 	/*  newline is not counted as preg match
 	 */
-	$expected = '
-function test() {
+	$expected = 'function test() {
 }
 ';
 // 	$body = $finder->get_body();
@@ -78,8 +77,7 @@ function test2() {
 		$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
 	
 		
-		$expected = '
-function test() {
+		$expected = 'function test() {
 }
 
 ';
@@ -90,8 +88,7 @@ function test() {
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "test2", $finder->get_name() );
 	
-		$expected = '
-function test2() {
+		$expected = 'function test2() {
 }';
 
 		$body = $finder->get_body();
@@ -128,8 +125,7 @@ function test3() {
 		$this->assertEquals( "test", $finder->get_name() );
 	
 	
-	$expected = '
-function test() {
+	$expected = 'function test() {
 }
 			
 ';
@@ -141,8 +137,7 @@ function test() {
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "test2", $finder->get_name() );
 		
-		$expected = '
-function test2() {
+		$expected = 'function test2() {
 }
 ';
 	
