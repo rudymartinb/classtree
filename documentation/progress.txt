@@ -112,4 +112,8 @@ not testing a file with no namespaces, should return the entire code.
 excellent! found a way to extract the lines of code that follows a pattern up to the next matching patter by recursive call.
 Now what's left is to apply it to class_, function_ and interface_
 
-
+20200526
+so far things are good. While updating README.md I thought it might be important to also work on traits, so when I start working on class methods I can also add the information obtained from traits.
+I have been reading a bit about heredocs and that could complicate things further. I considered creating a string remover from source extracted.
+Also I think using intermediates class_ and the other might be pointless since I could feed the final tree directly from the _finder classes 
+ 
