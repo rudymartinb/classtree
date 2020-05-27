@@ -75,7 +75,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_with_junk(){
-		$source = "{{{{{{{a}}}}}}} asdf";
+		$source = " asdf {{{{{{{a}}}}}}} asdf";
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
