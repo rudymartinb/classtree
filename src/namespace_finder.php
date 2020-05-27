@@ -2,10 +2,14 @@
 
 namespace src;
 
-class namespace_finder {
+trait finder {
+	private $pattern;
+	private $source = "";
 	
-    private $pattern;
-    private $source = "";
+}
+class namespace_finder {
+	use finder;
+	
     function __construct( string $source ){
     	$this->source = $source;
 
