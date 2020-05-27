@@ -14,7 +14,7 @@ class filesTest extends PHPUnit\Framework\TestCase {
 
 	function test_preg_recursive(){
 		
-		$pattern = '/{(?R)*}/m';
+		$pattern = '/\{(?:(([^{}]*)|(?R))*)\}/m';
 		
 		$source = ' {{{}{}}} ';
 		
@@ -23,10 +23,10 @@ class filesTest extends PHPUnit\Framework\TestCase {
 		$actual = $matches[0][0];
 		$this->assertEquals($expected, $actual);
 		
-		$source = ' {{{}{}}} }';
+		$source = ' {{{d}d{d}}} outside}';
 
 		preg_match_all($pattern, $source, $matches );
-		$expected = '{{{}{}}}';
+		$expected = '{{{d}d{d}}}';
 		$actual = $matches[0][0];
 		$this->assertEquals($expected, $actual);
 		
