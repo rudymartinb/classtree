@@ -19,7 +19,6 @@ class trait_finder {
 		// extends always goes before implements
 		
 		$this->pattern .= "(\s*extends\s*(?<extends>[0-9a-zA-Z_]*))*";
-		$this->pattern .= "(\s*implements\s*(?<implements>(\s*[0-9a-zA-Z_,]+)+))*";
 		
 		// end of the declaration line
 		$this->pattern .= "[^{]*)";
