@@ -1,6 +1,7 @@
 <?php
 
 use src\namespace_finder;
+use src\function_;
 
 class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 	function test_empty(){
@@ -176,7 +177,7 @@ function test2() {
 		$this->assertEquals( "test", $finder->get_name() );
 		
 		
-		$expected  = "\n";
+		$expected  = "{\n";
 		$expected .= "function test() {\n";
 		$expected .= "	}\n";
 		$expected .= "}\n";
@@ -189,7 +190,7 @@ function test2() {
 		$this->assertEquals( "test2", $finder->get_name() );
 		
 
-		$expected = "\n\n";
+		$expected = "{\n\n";
 		$expected .= "function test2() {\n";
 		$expected .= "	}\n";
 		$expected .= "}\n";
@@ -199,6 +200,32 @@ function test2() {
 		
 		$finder->next();
 		$this->assertEquals( false, $finder->more_elements() );
+	}
+
+	/*
+	 * while something like this may sound stupid
+	 * someone might have done it.
+	 * 
+	 * (at least, me, just for this test)
+	 */
+	function test_weid_1_line(){
+		$source = 'namespace test { function sarsa() { return ; } }';
+		
+		$finder = new namespace_finder( $source );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "test", $finder->get_name() );
+		
+		
+		$expected  = "{ function sarsa() { return ; } }";
+		
+		$body = $finder->get_body();
+		$this->assertEquals( $expected, $finder->get_body() );
+		$finder->next();
+		
+		$this->assertEquals( false, $finder->more_elements() );
+		
+		
 	}
 
     

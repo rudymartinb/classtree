@@ -15,9 +15,14 @@ class namespace_finder {
     	 * TODO: test this against a windows newline character file 
     	 */
         $this->pattern  = "/^";
-        $this->pattern .= "(?<original>[ ]*(?:namespace)[ ]+";
+        $this->pattern .= "(?<original>[ ]*(?:namespace )";
         $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
-        $this->pattern .= "(?:[^\n]*)"; // everything else up to the first newline 
+        
+        // everything else up to the character that ends the namespace declaration
+        // the objective here is to include the semicolon if present
+        // but exclude the brace if present.
+        // its either one of them, can't be none or both.
+        $this->pattern .= "(?:([ ;]*)|([^{]*))"; 
         $this->pattern .= ")";
         
         /* rest of the namespace body is included
@@ -25,8 +30,7 @@ class namespace_finder {
          * (IOW: just the code that follows up to the next namespace, 
          * that's what I call "body")
          * 
-         * will include the first newline
-         * previously excluded in the first part 
+         * will include everything previously excluded in the first part 
          */
         $this->pattern .= "(?<body>";
         $this->pattern .= "((?!(?R)).)*";
