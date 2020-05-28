@@ -3,6 +3,11 @@ namespace src;
 
 use function src\force_class;
 
+class tree2 {
+	function more_elements(){
+		return true;
+	}
+}
 /* from the array of classes
  * generate a new array of trees containing the class hierachy for each parent class
  * also it will calculate the width and height of each tree

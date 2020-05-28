@@ -10,7 +10,7 @@ function include_project_files( string $path ){
     require_once $path.'src/namespace_finder.php';
     
     require_once $path.'src/files.php';
-//     require_once $path.'src/Trees.php';
+    require_once $path.'src/Trees.php';
 //     require_once $path.'src/grid.php';
 
     
