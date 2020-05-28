@@ -21,8 +21,12 @@ class trait_finder {
 		$this->pattern .= ")";
 		
 		// TODO: probably the correct way would be to search for nested {}
+		/*
+		 * problem here is I can't search for the function keyword.
+		 * and it may even get ugly if an annonymous class in embebbed
+		 */
 		$this->pattern .= "(?<body>";
-		$this->pattern .= "((?!((?R)|interface |class |namespace )).)*";
+		$this->pattern .= "((?!((?R)|\s*interface\s*|\sclass |namespace )).)*";
 		$this->pattern .= ")";
 		
 		// body business
