@@ -49,6 +49,8 @@ trait test2 {
 function test2(){
 }
 }
+interface test{
+}
 class mytest_class {
 
 ";
