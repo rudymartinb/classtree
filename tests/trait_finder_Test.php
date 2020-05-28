@@ -19,6 +19,7 @@ class trait_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "test", $finder->get_name() );
 		
 	}
+
 	
 	function test_body(){
 		$source = "trait test {
@@ -75,3 +76,40 @@ function test2(){
 	
 	
 }
+
+	function test_body_with_namespace(){
+		$source = "trait test {
+function test1(){
+			
+}
+}
+trait test2 {
+function test2(){
+}
+}
+namespace mytest_class {
+			
+";
+		$finder = new trait_finder($source);
+		
+		$this->assertTrue( $finder->more_elements() );
+		
+		$expected = "{
+function test1(){
+			
+}
+}
+";
+		$this->assertEquals( $expected, $finder->get_body() );
+		
+		$finder->next();
+	$expected ="{
+function test2(){
+}
+}
+";
+		$this->assertEquals( $expected, $finder->get_body() );
+}
+
+
+
