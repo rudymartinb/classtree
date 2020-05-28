@@ -122,6 +122,10 @@ function test2(){
 interface mytest_class {
 				
 ";
+
+	}
+	
+	function run_test_2bodies( string $source ){
 		$finder = new trait_finder($source);
 		
 		$this->assertTrue( $finder->more_elements() );
@@ -141,6 +145,7 @@ function test2(){
 }
 ";
 		$this->assertEquals( $expected, $finder->get_body() );
+		
 	}
 	
 	
