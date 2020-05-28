@@ -17,7 +17,10 @@ class tree2_Test extends PHPUnit\Framework\TestCase {
 		
 		$tree->add_source( $source );
 		
-		$this->assertEquals( true, $tree->more_elements());
+		$this->assertEquals( true, $tree->more_elements() );
+				
+// 		$this->assertEquals( 0, count( $items ) );
+		
 	}
 	
 	
