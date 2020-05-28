@@ -122,7 +122,7 @@ function test2(){
 interface mytest_class {
 				
 ";
-
+		$this->run_test_2bodies($source);
 	}
 	
 	function run_test_2bodies( string $source ){
