@@ -49,6 +49,8 @@ trait test2 {
 function test2(){
 }
 }
+class mytest_class {
+
 ";
 		$finder = new trait_finder($source);
 		
