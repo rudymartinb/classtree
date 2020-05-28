@@ -20,4 +20,23 @@ class trait_finder_Test extends PHPUnit\Framework\TestCase {
 		
 	}
 	
+	function test_body(){
+		$source = "trait test {
+function test1(){
+
+}
+}";
+		$finder = new trait_finder($source);
+		
+		$this->assertTrue( $finder->more_elements() );
+		
+		$expected = "{
+function test1(){
+
+}
+}";
+		$this->assertEquals( $expected, $finder->get_body() );
+		
+	}
+	
 }
