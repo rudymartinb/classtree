@@ -36,6 +36,8 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
 
     public function __construct() {
         $this->setName('testsSuite');
+        
+        
         $this->addTestSuite('preg_match_all_Test');
 //         $this->addTestSuite('discard_Test');
         
