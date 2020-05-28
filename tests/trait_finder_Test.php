@@ -22,20 +22,17 @@ class trait_finder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_body(){
-		$source = "trait test {
+		$expected = "{
 function test1(){
-
+				
 }
 }";
+		$source = "trait test".$expected;
 		$finder = new trait_finder($source);
 		
 		$this->assertTrue( $finder->more_elements() );
 		
-		$expected = "{
-function test1(){
-
-}
-}";
+		
 		$this->assertEquals( $expected, $finder->get_body() );
 		
 	}
