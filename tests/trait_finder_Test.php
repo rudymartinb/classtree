@@ -31,10 +31,7 @@ function test1(){
 		$finder = new trait_finder($source);
 		
 		$this->assertTrue( $finder->more_elements() );
-		
-		
 		$this->assertEquals( $expected, $finder->get_body() );
-		
 	}
 	
 	function test_body_2(){
