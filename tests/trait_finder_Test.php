@@ -53,25 +53,7 @@ function test2(){
 class mytest_class {
 
 ";
-		$finder = new trait_finder($source);
-		
-		$this->assertTrue( $finder->more_elements() );
-		
-		$expected = "{
-function test1(){
-				
-}
-}
-";
-		$this->assertEquals( $expected, $finder->get_body() );
-	
-		$finder->next();
-		$expected ="{
-function test2(){
-}
-}
-";
-		$this->assertEquals( $expected, $finder->get_body() );
+		$this->run_test_2bodies($source);
 	}
 	
 	
@@ -88,25 +70,7 @@ function test2(){
 namespace mytest_class {
 				
 ";
-		$finder = new trait_finder($source);
-		
-		$this->assertTrue( $finder->more_elements() );
-		
-		$expected = "{
-function test1(){
-				
-}
-}
-";
-		$this->assertEquals( $expected, $finder->get_body() );
-		
-		$finder->next();
-		$expected ="{
-function test2(){
-}
-}
-";
-		$this->assertEquals( $expected, $finder->get_body() );
+		$this->run_test_2bodies($source);
 	}
 	
 	function test_body_with_interface(){
