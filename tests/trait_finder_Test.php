@@ -61,7 +61,14 @@ function test1(){
 }
 ";
 		$this->assertEquals( $expected, $finder->get_body() );
-		
+	
+		$finder->next();
+		$expected ="{
+function test2(){
+}
+}
+";
+		$this->assertEquals( $expected, $finder->get_body() );
 	}
 	
 	
