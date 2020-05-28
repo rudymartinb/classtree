@@ -73,56 +73,6 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 	}
 
 
-	// 	function test_preg_recursive(){
-	
-	
-	// 		$pattern  = '/';
-	
-	// 		$pattern .= '(?:';
-	// 		$pattern .= '(';
-	// // 		$pattern .= '(?![^{}]*)|';
-	// // 		$pattern .= '(?:(?C!"[^"]*").)|';
-	// 		$pattern .= '(\{(?R)\})*';
-	// 		$pattern .= ')*';
-	// 		$pattern .= ')*';
-	// 		$pattern .= '/mx';
-	
-	// // 		$pattern = '/(([^{}]*)|\{(?R)\})*/mx';
-	
-	// // 		$source = ' {{{}{}}} ';
-	
-	// 		$matches = [];
-	// // 		$source = '{{{"}"d}d{d}}} outside}';
-	// 		$source = '{{{d}d{d}}} outside}';
-	
-	// 		preg_match_all($pattern, $source, $matches );
-	// 		$expected = '{{{d}d{d}}}';
-	// 		$actual = $matches[0][0];
-	// 		$this->assertEquals($expected, $actual);
-	
-	
-	// // 		var_dump($matches);
-	
-	// // 		$source = 'discard {{{d}d{d}}} outside}';
-	// // 		preg_match_all($pattern, $source, $matches );
-	// // 		$expected = '{{{}{}}}';
-	// // 		$actual = $matches[0][0];
-	// // 		$this->assertEquals($expected, $actual);
-	
-	// 		// 		$source = 'discard {{{d}d{d}}} outside}';
-	
-	// 		// 		preg_match_all($pattern, $source, $matches );
-	// 		// 		$expected = '{{{d}d{d}}}';
-	// 		// 		$actual = $matches[0][0];
-	// 		// 		$this->assertEquals($expected, $actual);
-	
-	
-	
-	
-	// 	}
-	
-	
-	//
 	
 	function test_preg(){
 		$source =" mario a b c bros 2 3 1 ";

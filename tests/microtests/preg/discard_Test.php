@@ -23,14 +23,6 @@ class discard_Test extends PHPUnit\Framework\TestCase {
 		$expected = '"me""me""me"';
 		$this->run_grep_test($source, $expected);
 	}
-	
-
-// 	function test_do_not_discard_me(){
-// 		$source = "do not discard me!";
-		
-// 		$expected = 'do not !';
-// 		$this->run_grep_test($source, $expected);
-// 	}
 
 	
 	function run_grep_test( string $source, string $expected ){
