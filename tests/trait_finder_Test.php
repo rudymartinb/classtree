@@ -49,6 +49,7 @@ trait test2 {
 function test2(){
 }
 }
+namespace test;
 interface test{
 }
 class mytest_class {
