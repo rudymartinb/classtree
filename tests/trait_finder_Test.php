@@ -39,4 +39,30 @@ function test1(){
 		
 	}
 	
+	function test_body_2(){
+		$source = "trait test {
+function test1(){
+				
+}
+}
+trait test2 {
+function test2(){
+}
+}
+";
+		$finder = new trait_finder($source);
+		
+		$this->assertTrue( $finder->more_elements() );
+		
+		$expected = "{
+function test1(){
+				
+}
+}
+";
+		$this->assertEquals( $expected, $finder->get_body() );
+		
+	}
+	
+	
 }
