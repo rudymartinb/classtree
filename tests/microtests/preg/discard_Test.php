@@ -1,7 +1,7 @@
 <?php
 
 class discard_Test extends PHPUnit\Framework\TestCase {
-	private $pattern = '/".*"(?R)*/x';
+	private $pattern = '/^("[^"]*")$/mx';
 
 	function test_do_not(){
 		$source = '"do not"';
@@ -16,6 +16,14 @@ class discard_Test extends PHPUnit\Framework\TestCase {
 		$expected = '"me"';
 		$this->run_grep_test($source, $expected);
 	}
+	
+	function test_basic_2(){
+		$source = 'discard "me" after this "me" "me" ' ;
+		
+		$expected = '"me""me""me"';
+		$this->run_grep_test($source, $expected);
+	}
+	
 
 // 	function test_do_not_discard_me(){
 // 		$source = "do not discard me!";
