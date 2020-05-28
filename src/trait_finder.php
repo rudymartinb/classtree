@@ -26,7 +26,7 @@ class trait_finder {
 		 * and it may even get ugly if an annonymous class in embebbed
 		 */
 		$this->pattern .= "(?<body>";
-		$this->pattern .= "((?!((?R)|\s*interface\s*|\sclass |namespace )).)*";
+		$this->pattern .= "((?!((?R)|^\s*interface\s*|\s*(abstract|final)\s*class\s*|^\s*namespace\s*)).)*";
 		$this->pattern .= ")";
 		
 		// body business
