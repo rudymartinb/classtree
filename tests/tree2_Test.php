@@ -9,8 +9,6 @@ class tree2_Test extends PHPUnit\Framework\TestCase {
 		$source = "";
 		$tree = new tree2();
 		
-		
-		
-		$this->assertEquals( true, $tree->more_elements());
+		$this->assertEquals( false, $tree->more_elements());
 	}
 }
