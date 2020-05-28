@@ -109,7 +109,7 @@ function test2(){
 }
 ";
 		$this->assertEquals( $expected, $finder->get_body() );
-}
+	}
 
 
 
