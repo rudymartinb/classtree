@@ -14,6 +14,12 @@ class class_finder {
 	use finder;
 	
     private $namespace = "";
+    
+    /*
+     * TODO: use clause for traits:
+     * I guess I will have to look for it inside the body section.
+     * 
+     */
     function __construct( string $source, string $namespace = "" ){
     	$this->namespace = $namespace;
     	
