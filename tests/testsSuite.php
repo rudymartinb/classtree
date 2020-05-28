@@ -16,7 +16,7 @@ require_once 'tests/class_finder_Test.php';
 require_once 'tests/namespace_finder_Test.php';
 require_once 'tests/trait_finder_Test.php';
 
-require_once 'tests/trees_Test.php';
+require_once 'tests/tree2_Test.php';
 
 require_once 'tests/gridTest.php';
 
@@ -45,6 +45,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->addTestSuite('class_finder_Test');
         $this->addTestSuite('trait_finder_Test');
         
+        $this->addTestSuite('tree2_Test');
         
         $this->addTestSuite('filesTest');
 //         $this->addTestSuite('function_Test');
@@ -52,7 +53,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
 
 
         
-//         $this->addTestSuite('trees_Test');
+//         
         
 //         $this->addTestSuite('gridTest');
 
