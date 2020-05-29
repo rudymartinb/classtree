@@ -6,14 +6,15 @@ class preg_match_all_Test extends PHPUnit\Framework\TestCase {
 	/*
 	 * parameters
 	 */
-	function test_params(){
+	function test_params_0(){
 		$source = 'int $uno, string $dos';
+		
 		$pattern  = "/^(";
 		$pattern .= "((?<partype>[a-zA-Z0-9_]*) )\s*";
 		$pattern .= "(\$(?<parname>[a-zA-Z0-9_]*))\s*";
 		$pattern .= ",.)*";
-		
 		$pattern .= "/mxs";
+		
 		$matches = [];
 		preg_match_all($pattern, $source, $matches );
 		var_dump($matches[0]);
