@@ -24,6 +24,8 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "simple", $finder->get_name() );
+		
+		$this->assertEquals( false, $finder->more_parameters() );
 
 	}
 	

@@ -26,5 +26,8 @@ class function_finder {
 	function get_name(): string {
 		return $this->matches["name"][$this->current_key];
 	}
+	function more_parameters() : bool {
+		return false;
+	}
 	
 }
