@@ -15,7 +15,9 @@ class function_finder {
 		$this->pattern .= "(\s*function\s+)";
 		$this->pattern .= "(?<name>[a-zA-Z0-9_]*)";
 		$this->pattern .= "\(";
-		$this->pattern .= "\s*\)\s*";
+		$this->pattern .= "\s*(?<params>[a-zA-Z0-0_\$, ]*\s*.)*";
+// 		$this->pattern .= "\s*(?<parname>\$[a-zA-Z0-0_]*\s*.),*)*";
+		$this->pattern .= "\)\s*";
 		
 		
 		$this->pattern .= "/mxs";
@@ -23,11 +25,38 @@ class function_finder {
 		$this->matches($source);
 	}
 	
+	function next(){
+		$this->current_key ++;
+		$this->current_param = 0;
+	}
 	function get_name(): string {
 		return $this->matches["name"][$this->current_key];
 	}
-	function more_parameters() : bool {
-		return false;
+	private $current_param = 0;
+	function has_parameters() : bool {
+		return $this->matches["params"][$this->current_key] != "";
 	}
+
+	private $params_matches = [];
+	function get_parameters(){
+		$params = $this->matches["params"][$this->current_key];
+		
+		$pattern  = "/^(";
+		$pattern .= "((?<partype>[a-zA-Z0-9_]*) )\s*";
+		$pattern .= "(\$(?<parname>[a-zA-Z0-9_]*))\s*";
+		$pattern .= ",.)*";
+
+		$pattern .= "/mxs";
+		
+		$matches = [];
+		preg_match_all($pattern, $params, $matches );
+		$this->params_matches = $matches;
+	}
+	function get_pm() : Array {
+		return $this->params_matches;
+	}
+	
+	
+	
 	
 }
