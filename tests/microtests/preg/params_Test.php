@@ -20,6 +20,8 @@ class params_Test extends PHPUnit\Framework\TestCase {
 		preg_match_all($pattern, $source, $matches );
 		var_dump($matches[0]);
 		
+		$this->assertTrue( count( $this->matches ) > 0);
+		
 	}
 	
 	
