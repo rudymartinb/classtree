@@ -12,16 +12,26 @@ class params_Test extends PHPUnit\Framework\TestCase {
 		
 	}
 	
-	function test_params_0(){
+	function test_nothing(){
 		$source = '';
 		
+		
+		$matches = [];
+		preg_match_all($this->pattern, $source, $matches );
+// 		var_dump($matches[0]);
+		
+		$this->assertTrue( count( $matches ) > 0);
+	}
+
+	
+	function test_just_name(){
+		$source = '$sarasa';
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
 		var_dump($matches[0]);
 		
 		$this->assertTrue( count( $matches ) > 0);
-		
 	}
 	
 	
