@@ -12,7 +12,6 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 	function test_nothing(){
 		$source = "";
 		$finder = new function_finder( $source );
-		var_dump( $finder->matches($source) );
 		$this->assertEquals(false, $finder->more_elements() );
 	}
 
@@ -22,7 +21,7 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 		$source = "function simple()".$expected_body;
 		
 		$finder = new function_finder( $source );
-		var_dump( $finder->matches($source) );
+
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "simple", $finder->get_name() );
 
