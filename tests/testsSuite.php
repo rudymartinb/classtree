@@ -44,6 +44,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         
         $this->addTestSuite('preg_match_all_Test');
+        $this->addTestSuite('params_Test');
 //         $this->addTestSuite('discard_Test');
         
         $this->addTestSuite('namespace_finder_Test');

@@ -13,14 +13,14 @@ class params_Test extends PHPUnit\Framework\TestCase {
 	}
 	
 	function test_params_0(){
-		$source = 'int $uno, string $dos';
+		$source = '';
 		
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
 		var_dump($matches[0]);
 		
-		$this->assertTrue( count( $this->matches ) > 0);
+		$this->assertTrue( count( $matches ) > 0);
 		
 	}
 	
