@@ -1,32 +1,27 @@
 <?php
 
-/**
- *  test case.
- */
-class params_Test extends PHPUnit_Framework_TestCase {
-
-	/**
-	 * Prepares the environment before running a test.
-	 */
-	protected function setUp() {
-		parent::setUp ();
-
-		// TODO Auto-generated params_Test::setUp()
+class params_Test extends PHPUnit\Framework\TestCase {
+	
+	private $pattern;
+	function setUp(){
+		$this->pattern  = "/^";
+// 		$this->pattern .= "((?<partype>[a-zA-Z0-9_]*) )\s*";
+// 		$this->pattern .= "(\$(?<parname>[a-zA-Z0-9_]*))\s*";
+// 		$this->pattern .= ",.)*";
+		$this->pattern .= "/mxs";
+		
 	}
-
-	/**
-	 * Cleans up the environment after running a test.
-	 */
-	protected function tearDown() {
-		// TODO Auto-generated params_Test::tearDown()
-		parent::tearDown ();
+	
+	function test_params_0(){
+		$source = 'int $uno, string $dos';
+		
+		
+		$matches = [];
+		preg_match_all($pattern, $source, $matches );
+		var_dump($matches[0]);
+		
 	}
-
-	/**
-	 * Constructs the test case.
-	 */
-	public function __construct() {
-		// TODO Auto-generated constructor
-	}
+	
+	
 }
 
