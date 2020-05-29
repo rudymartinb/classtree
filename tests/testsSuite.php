@@ -5,6 +5,7 @@ include_project_files("./");
 /* microtests 
  */
 require_once 'microtests/preg/preg_match_all_Test.php';
+require_once 'microtests/preg/params_Test.php';
 require_once 'tests/microtests/preg/discard_Test.php';
 require_once 'tests/microtests/filesTest.php';
 

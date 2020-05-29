@@ -3,7 +3,7 @@
 class params_Test extends PHPUnit\Framework\TestCase {
 	
 	private $pattern;
-	function setUp(){
+	function setUp() : void {
 		$this->pattern  = "/^";
 // 		$this->pattern .= "((?<partype>[a-zA-Z0-9_]*) )\s*";
 // 		$this->pattern .= "(\$(?<parname>[a-zA-Z0-9_]*))\s*";
