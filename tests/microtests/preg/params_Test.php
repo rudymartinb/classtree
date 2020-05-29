@@ -22,7 +22,7 @@ class params_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_just_name(){
-		$source = 'sarasa';
+		$source = '$sarasa';
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
