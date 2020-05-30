@@ -42,7 +42,7 @@ class params_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_2_params(){
-		$source = 'int $sarasa, string $acanomas';
+		$source = ' int $sarasa , string $acanomas ';
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
