@@ -48,7 +48,29 @@ class params_Test extends PHPUnit\Framework\TestCase {
 		preg_match_all($this->pattern, $source, $matches );
 // 		var_dump($matches["partype"]);
 // 		var_dump($matches["parname"]);
-		var_dump($matches[0]);
+// 		var_dump($matches[0]);
+		
+		$this->assertEquals( "int", $matches["partype"][0] );
+		$this->assertEquals( "sarasa", $matches["parname"][0] );
+		$this->assertEquals( "string", $matches["partype"][1] );
+		$this->assertEquals( "acanomas", $matches["parname"][1] );
+		
+	}
+
+	function test_multiline(){
+		$source = ' 
+int 
+$sarasa 
+, 
+string 
+$acanomas 
+';
+		
+		$matches = [];
+		preg_match_all($this->pattern, $source, $matches );
+		// 		var_dump($matches["partype"]);
+		// 		var_dump($matches["parname"]);
+		// 		var_dump($matches[0]);
 		
 		$this->assertEquals( "int", $matches["partype"][0] );
 		$this->assertEquals( "sarasa", $matches["parname"][0] );
