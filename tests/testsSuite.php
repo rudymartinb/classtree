@@ -12,7 +12,7 @@ require_once 'tests/microtests/filesTest.php';
 // todo: review to see if they are still needed
 require_once 'tests/function_Test.php';
 require_once 'tests/class_Test.php';
-require_once 'tests/parameter_Test.php';
+require_once 'tests/parameter_finder_Test.php';
 require_once 'tests/gridTest.php';
 require_once 'tests/AppTest.php';
 

@@ -2,7 +2,7 @@
 
 use src\parameter_;
 
-class parameter_Test extends PHPUnit\Framework\TestCase {
+class parameter_finder_Test extends PHPUnit\Framework\TestCase {
     
     function test_get_mod1(){
         $param = new parameter_("");
