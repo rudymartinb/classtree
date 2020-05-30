@@ -45,20 +45,20 @@ class params_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "sarasa", $matches["parname"][0] );
 	}
 
-// 	function test_2_params(){
-// 		$source = 'int $sarasa, string $acanomas';
+	function test_2_params(){
+		$source = 'int $sarasa, string $acanomas';
 		
-// 		$matches = [];
-// 		preg_match_all($this->pattern, $source, $matches );
-// 		var_dump($matches["partype"]);
-// 		var_dump($matches["parname"]);
+		$matches = [];
+		preg_match_all($this->pattern, $source, $matches );
+		var_dump($matches["partype"]);
+		var_dump($matches["parname"]);
 		
-// 		$this->assertEquals( "int", $matches["partype"][0] );
-// 		$this->assertEquals( "sarasa", $matches["parname"][0] );
-// 		$this->assertEquals( "string", $matches["partype"][1] );
-// 		$this->assertEquals( "acanomas", $matches["parname"][1] );
+		$this->assertEquals( "int", $matches["partype"][0] );
+		$this->assertEquals( "sarasa", $matches["parname"][0] );
+		$this->assertEquals( "string", $matches["partype"][1] );
+		$this->assertEquals( "acanomas", $matches["parname"][1] );
 		
-// 	}
+	}
 	
 	
 }
