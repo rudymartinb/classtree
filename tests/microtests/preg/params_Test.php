@@ -1,6 +1,6 @@
 <?php
 
-class params_Test extends PHPUnit\Framework\TestCase {
+class parameters_Test extends PHPUnit\Framework\TestCase {
 	
 	private $pattern;
 	function setUp() : void {

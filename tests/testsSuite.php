@@ -12,13 +12,15 @@ require_once 'tests/microtests/filesTest.php';
 // todo: review to see if they are still needed
 require_once 'tests/function_Test.php';
 require_once 'tests/class_Test.php';
-require_once 'tests/parameter_finder_Test.php';
+
 require_once 'tests/gridTest.php';
 require_once 'tests/AppTest.php';
 
 
 /* test cases
  */
+require_once 'tests/parameters_finder_Test.php';
+
 require_once 'tests/function_finder_Test.php';
 require_once 'tests/class_finder_Test.php';
 require_once 'tests/namespace_finder_Test.php';
@@ -44,7 +46,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         
         $this->addTestSuite('preg_match_all_Test');
-        $this->addTestSuite('params_Test');
+        $this->addTestSuite('parameters_finder_Test');
 //         $this->addTestSuite('discard_Test');
         
         $this->addTestSuite('namespace_finder_Test');
