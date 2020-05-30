@@ -1,7 +1,7 @@
 <?php
 
 use src\function_;
-use src\parameter_;
+
 use src\class_finder;
 use function files\get_source;
 
