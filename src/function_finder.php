@@ -22,6 +22,22 @@ class function_finder {
 		
 		$this->pattern .= "/mxs";
 		
+		$pattern  = "/^";
+		$pattern .= "(";
+		$pattern .= "(?:[ ]*)";
+		$pattern .= "(?<fnmod>(static|private|public|final|))";
+		$pattern .= "(?:[ ]*)";
+		$pattern .= "(?<fntag>function)";
+		$pattern .= "(?:[ ]*)";
+		$pattern .= "(?<name>[0-9a-zA-Z_]+)[ ]*\(";
+		$pattern .= "(?:[ ]*)";
+		$pattern .= "(?<params>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
+		$pattern .= "((?:[ ]*\:[ ]*)(?<fnret>[0-9a-zA-Z_]*)[ ]*|)";
+		$pattern .= ")";
+		$pattern .= "/m";
+		
+		$this->pattern = $pattern;
+		
 		$this->matches($source);
 	}
 	
