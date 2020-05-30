@@ -4,13 +4,9 @@ class params_Test extends PHPUnit\Framework\TestCase {
 	
 	private $pattern;
 	function setUp() : void {
-// 		$this->pattern  = '/(((?<partype>[a-zA-Z0-9_]*) )\s*(\$*(?<parname>[a-zA-Z0-9_]*)\s*)\s*,\s*)*/ms';
-		
-// 		$this->pattern  = '/(((?:(?<partype>[a-zA-Z0-9_]*)\s{1})*(\$*(?<parname>[a-zA-Z0-9_]*)\s*)\s*[,]{0,1}\s*)*)*/mxs';
 		
 		$this->pattern  = '/(?<partype>[a-zA-Z0-9_]*)\s*';
 		$this->pattern .= '\$(?<parname>[a-zA-Z0-9_]*)/mxs';
-// 		$this->pattern  = '/(?<parname>[a-zA-Z0-9_]*)*/mxs';
 	}
 	
 	function test_nothing(){
@@ -38,8 +34,8 @@ class params_Test extends PHPUnit\Framework\TestCase {
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
 		
-		var_dump($matches[0]);
-		var_dump($matches["partype"]);
+// 		var_dump($matches[0]);
+// 		var_dump($matches["partype"]);
 		
 		$this->assertEquals( "int", $matches["partype"][0] );
 		$this->assertEquals( "sarasa", $matches["parname"][0] );
@@ -50,8 +46,8 @@ class params_Test extends PHPUnit\Framework\TestCase {
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );
-		var_dump($matches["partype"]);
-		var_dump($matches["parname"]);
+// 		var_dump($matches["partype"]);
+// 		var_dump($matches["parname"]);
 		
 		$this->assertEquals( "int", $matches["partype"][0] );
 		$this->assertEquals( "sarasa", $matches["parname"][0] );
