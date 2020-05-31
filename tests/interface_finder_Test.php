@@ -41,10 +41,8 @@ class interface_finder_Test extends PHPUnit\Framework\TestCase {
 
 	function test_body(){
 		$body = '{
-function something1(){
-}
-function something2(){
-}
+function something1();
+function something2();
 }';
 		$source = 'interface myif '.$body;
 		
@@ -54,6 +52,21 @@ function something2(){
 		$this->assertEquals( "myif", $finder->get_name() );
 		$this->assertEquals( $body, $finder->get_body() );
 	}
+
+	function test_functions(){
+		$body = '{
+function something1();
+function something2( int $ant, string $strong );
+}';
+		$source = 'interface myif '.$body;
+		
+		$finder = new interface_finder( $source );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "myif", $finder->get_name() );
+		$this->assertEquals( true, $finder->has_functions() );
+	}
+	
 	
 }
 

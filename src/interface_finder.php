@@ -34,4 +34,8 @@ class interface_finder {
 		return $this->matches["body"][$this->current_key];
 	}
 	
+	function has_functions() : bool {
+		return true;
+	}
+	
 }
