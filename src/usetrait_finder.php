@@ -8,7 +8,7 @@ class usetrait_finder {
 		$this->source = $source;
 		
 		$this->pattern  = "/";
-		$this->pattern .= "(\s*(?:(use\s+|,)\s*(?<traitname>[a-zA-Z0-9_]*)))";
+		$this->pattern .= "(?:(use\s+|,)\s*(?<traitname>[a-zA-Z0-9_]*))";
 		$this->pattern .= "";
 		$this->pattern .= "/ms";
 		
@@ -21,4 +21,5 @@ class usetrait_finder {
 	}
 	
 }
+
 ?>
