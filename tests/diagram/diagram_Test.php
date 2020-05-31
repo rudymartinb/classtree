@@ -20,6 +20,9 @@ class diagram_Test extends PHPUnit\Framework\TestCase {
 		$diagram = new diagram();
 		$diagram->add_source($source);
 		$this->assertEquals(1, $diagram->get_num_elements() );
+		
+		$element = $diagram->get_element_by_name( "myclass" );
+		$this->assertEquals("myclass", $element->get_name() );
 	}
 	
 }

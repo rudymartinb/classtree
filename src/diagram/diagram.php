@@ -17,6 +17,15 @@ class diagram {
 			$this->elements[] = $element;
 			$finder->next();
 		}
-		
 	}
+	
+	function get_element_by_name( string $name ) : element {
+		foreach( $this->elements as $element ){
+			if( $element->get_name() === $name ){
+				return $element;
+			}
+		}
+		return null;
+	}
+	
 }
