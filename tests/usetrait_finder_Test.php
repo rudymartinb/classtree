@@ -46,6 +46,19 @@ use someothertrait;";
 		
 	}
 	
+	function test_basic_2_on_1_line_body(){
+		$source = "use sometrait , someothertrait { anything }";
+		
+		$finder = new usetrait_finder( $source );
+		var_dump( $finder->matches($source)["traitname"] );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "sometrait", $finder->get_trait_name() );
+		$finder->next();
+		$this->assertEquals( "someothertrait", $finder->get_trait_name() );
+		
+	}
+	
 	
 }
 
