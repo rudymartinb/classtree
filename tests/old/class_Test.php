@@ -38,14 +38,12 @@ class class_Test extends PHPUnit\Framework\TestCase {
         $finder = new class_finder();
         $matches = $finder->matches($source );
 
-//      var_dump($matches);
-        
         $classes = $finder->separar_clases();
         
         $this->assertEquals( "interface sarasa_interface {", $matches[0][1] );
         $this->assertEquals( 4, count( $classes ) );
         $this->assertEquals( "interface", $classes[0]->get_type() );
-//      	var_dump( $classes[0] );
+
     }
     
     
