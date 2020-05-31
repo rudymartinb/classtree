@@ -45,7 +45,7 @@ class class_finder {
         
         // TODO: probably the correct way would be to search for nested {}
         $this->pattern .= "(?<body>";
-        $this->pattern .= "((?!((?R)|interface )).)*";
+        $this->pattern .= "((?!(?R)).)*";
         $this->pattern .= ")";
         
         // body business
