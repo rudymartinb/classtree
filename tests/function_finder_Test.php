@@ -72,7 +72,6 @@ function complex( int $ant, string& $strong ){
 		$finder = new function_finder( $source );
 		
 		$matches = $finder->matches($source);
-		var_dump($matches[0]);
 		
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "simple", $finder->get_name() );
@@ -84,6 +83,13 @@ function complex( int $ant, string& $strong ){
 		$this->assertEquals( "complex", $finder->get_name() );
 		
 		$this->assertEquals( true, $finder->has_parameters() );
+
+		$this->assertEquals( "int", $finder->get_parameter_type() );
+		$this->assertEquals( "ant", $finder->get_parameter_name() );
+		$finder->next_parameter();
+		$this->assertEquals( "string", $finder->get_parameter_type() );
+		$this->assertEquals( "strong", $finder->get_parameter_name() );
+		
 		
 		
 	}
