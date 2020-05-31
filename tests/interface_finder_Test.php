@@ -29,5 +29,15 @@ class interface_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "myif", $finder->get_name() );
 	}
 	
+	function test_extends(){
+		$source = 'interface myif extends mysuper {}';
+		
+		$finder = new interface_finder( $source );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "myif", $finder->get_name() );
+		$this->assertEquals( "mysuper", $finder->get_extends() );
+	}
+	
 }
 

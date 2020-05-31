@@ -25,5 +25,9 @@ class interface_finder {
 	function get_name() : string {
 		return $this->matches["ifname"][$this->current_key];
 	}
+
+	function get_extends() : string {
+		return $this->matches["extends"][$this->current_key];
+	}
 	
 }
