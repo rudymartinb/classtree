@@ -7,6 +7,8 @@ class usetrait_finder {
 	function __construct( string $source ){
 		$this->source = $source;
 		
+		// /(?:use\s+)(?<traitname>[a-zA-Z0-9_,\s]*)[^;{]*/mxs
+
 		$this->pattern  = "/";
 		$this->pattern .= "(?:use\s+)(?<traitname>[a-zA-Z0-9_,\s]*)";
 		$this->pattern .= "[^;{]*";
@@ -24,6 +26,7 @@ class usetrait_finder {
 		
 		$this->matches["traitname"] = $result;
 	}
+	
 	// HACK: overriding in case we had a single matches with commas
 	function more_elements() : bool {
 		return count( $this->matches[ "traitname" ] ) > $this->current_key;
