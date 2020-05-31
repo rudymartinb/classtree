@@ -34,8 +34,19 @@ class interface_finder {
 		return $this->matches["body"][$this->current_key];
 	}
 	
+	/*
+	 * functions section:
+	 * it should create a private function finder object
+	 * apply it to the body source
+
+	 */
+	private $function_finder;
 	function has_functions() : bool {
-		return true;
+		$body = $this->get_body();
+		
+		$this->function_finder = new function_finder($body);
+		
+		return $this->function_finder->more_elements();
 	}
 	
 }
