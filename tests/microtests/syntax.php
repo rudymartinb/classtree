@@ -27,7 +27,7 @@ sarasa2
 	}
 	function 
 	sarasa
-	( int& $sarasa 
+	( int $sarasa  
 			) 
 	{ 
 		return 
