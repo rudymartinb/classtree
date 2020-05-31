@@ -24,16 +24,16 @@ require_once 'tests/microtests/filesTest.php';
 
 /* test cases
  */
-require_once 'tests/parameters_finder_Test.php';
+require_once 'src/parameters_finder_Test.php';
 
-require_once 'tests/function_finder_Test.php';
-require_once 'tests/class_finder_Test.php';
-require_once 'tests/interface_finder_Test.php';
-require_once 'tests/namespace_finder_Test.php';
-require_once 'tests/trait_finder_Test.php';
-require_once 'tests/usetrait_finder_Test.php';
+require_once 'src/function_finder_Test.php';
+require_once 'src/class_finder_Test.php';
+require_once 'src/interface_finder_Test.php';
+require_once 'src/namespace_finder_Test.php';
+require_once 'src/trait_finder_Test.php';
+require_once 'src/usetrait_finder_Test.php';
 
-require_once 'tests/tree2_Test.php';
+require_once 'src/tree2_Test.php';
 
 
 
