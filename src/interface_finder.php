@@ -20,8 +20,6 @@ class interface_finder {
 		$this->pattern .= '/ms';
 		
 		$this->matches($source);
-		
-	
 	}
 	
 	function get_name() : string {
