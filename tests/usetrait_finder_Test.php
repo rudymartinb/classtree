@@ -19,6 +19,20 @@ class usetrait_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "sometrait", $finder->get_trait_name() );
 	}
+
+	function test_basic_2(){
+		$source = "use sometrait;
+use someothertrait;";
+		
+		$finder = new usetrait_finder( $source );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "sometrait", $finder->get_trait_name() );
+		$finder->next();
+		$this->assertEquals( "someothertrait", $finder->get_trait_name() );
+		
+	}
+	
 	
 }
 
