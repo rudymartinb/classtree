@@ -22,5 +22,15 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$this->assertFalse( $element->is_placed() );
 		
 	}
-	
+
+	function test_set_position(){
+		$element = new element();
+		
+		$element->set_type("class");
+		$element->set_name("class1");
+		$element->set_position(0,0);
+		
+		$this->assertTrue( $element->is_placed() );
+		
+	}
 }
