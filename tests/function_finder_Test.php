@@ -28,21 +28,21 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	
-// 	function test_next(){
-// 		$source = "function simple() {}
-// function complex(){
-// }";
+	function test_next(){
+		$source = "function simple() {}
+function complex(){
+}";
 		
-// 		$finder = new function_finder( $source );
+		$finder = new function_finder( $source );
 		
-// 		$this->assertEquals( true, $finder->more_elements() );
-// 		$this->assertEquals( "simple", $finder->get_name() );
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "simple", $finder->get_name() );
 		
-// 		$this->assertEquals( false, $finder->has_parameters() );
+		$this->assertEquals( false, $finder->has_parameters() );
 		
-// 		$finder->next();
-// 		$this->assertEquals( "complex", $finder->get_name() );
-// 	}
+		$finder->next();
+		$this->assertEquals( "complex", $finder->get_name() );
+	}
 	
 	
 // 	function test_function_1_parameter(){
