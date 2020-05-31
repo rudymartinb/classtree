@@ -43,8 +43,6 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "int", $finder->get_parameter_type() );
 		$this->assertEquals( "something", $finder->get_parameter_name() );
 		
-		
-		
 	}
 	
 	
