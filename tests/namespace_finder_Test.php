@@ -12,6 +12,8 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( '', $finder->get_name() );
 		$this->assertEquals( '', $finder->get_body() );
+		$finder->next();
+		$this->assertEquals( false, $finder->more_elements() );
 	}
 	
 	function test_something_else(){

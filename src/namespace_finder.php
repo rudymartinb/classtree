@@ -47,7 +47,8 @@ class namespace_finder {
      * by calling get_body we will get
      */
     function more_elements() : bool {
-    	if( count( $this->matches[ 0 ] ) == 0 )
+    	if( $this->current_key == 0 and 
+    			count( $this->matches[ 0 ] ) == 0 )
     		return true;
     	return count( $this->matches[ 0 ] ) > $this->current_key;
     }
