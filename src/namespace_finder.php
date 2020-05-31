@@ -53,7 +53,8 @@ class namespace_finder {
     }
     
     function get_name() : string {
-    	if( $this->matches["nsname"][ $this->current_key ] == null ){
+    	if( $this->more_elements() and 
+    			$this->matches["nsname"][ $this->current_key ] == null ){
     		return "";
     	}
     	return $this->matches["nsname"][ $this->current_key ];
