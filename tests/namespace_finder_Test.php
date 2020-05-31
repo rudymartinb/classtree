@@ -1,7 +1,6 @@
 <?php
 
 use src\namespace_finder;
-use src\function_;
 
 class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 	function test_empty(){
