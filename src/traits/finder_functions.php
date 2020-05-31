@@ -37,4 +37,19 @@ trait finder_functions {
 	function next_parameter(){
 		return $this->function_finder->next_parameter();
 	}
+	
+	// use traits
+	private $usetrait_finder;
+	function has_use_trait() : bool {
+		$body = $this->get_body();
+		
+		$this->usetrait_finder = new usetrait_finder($body);
+		
+		return $this->usetrait_finder->more_elements();
+	}
+	function get_trait_name() : string {
+		return $this->usetrait_finder->get_trait_name();
+	}
+	
+	
 }
