@@ -38,6 +38,22 @@ class interface_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "myif", $finder->get_name() );
 		$this->assertEquals( "mysuper", $finder->get_extends() );
 	}
+
+	function test_body(){
+		$body = '{
+function something1(){
+}
+function something2(){
+}
+}';
+		$source = 'interface myif '.$body;
+		
+		$finder = new interface_finder( $source );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "myif", $finder->get_name() );
+		$this->assertEquals( $body, $finder->get_body() );
+	}
 	
 }
 
