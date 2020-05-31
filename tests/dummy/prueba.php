@@ -42,4 +42,10 @@ class orphan implements sarasa_interface {
     public function algo() : string {
         
     }
+	public function algo2(father $father): string {
+	}
+
+	public function algo1(string $something): string {
+	}
+
 }

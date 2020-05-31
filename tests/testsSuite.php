@@ -10,11 +10,11 @@ require_once 'tests/microtests/preg/discard_Test.php';
 require_once 'tests/microtests/filesTest.php';
 
 // todo: review to see if they are still needed
-require_once 'tests/function_Test.php';
-require_once 'tests/class_Test.php';
+// require_once 'tests/function_Test.php';
+// require_once 'tests/class_Test.php';
 
-require_once 'tests/gridTest.php';
-require_once 'tests/AppTest.php';
+// require_once 'tests/gridTest.php';
+// require_once 'tests/AppTest.php';
 
 
 /* test cases

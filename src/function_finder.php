@@ -39,37 +39,39 @@ class function_finder {
 		$this->pattern = $pattern;
 		
 		$this->matches($source);
+
 	}
+	
+	private $params_finder;
 	
 	function next(){
 		$this->current_key ++;
-		$this->current_param = 0;
 	}
 	function get_name(): string {
 		return $this->matches["name"][$this->current_key];
 	}
-	private $current_param = 0;
+	
 	function has_parameters() : bool {
-		return $this->matches["params"][$this->current_key] != "";
+		$source = $this->matches["params"][$this->current_key];
+		$this->params_finder = new parameters_finder($source);
+		return $this->params_finder->more_elements();
+	}
+	
+	// todo: remove ?
+	function get_parameters() : string {
+		return $this->matches["params"][$this->current_key];
 	}
 
-	private $params_matches = [];
-	function get_parameters(){
-		$params = $this->matches["params"][$this->current_key];
-		
-		$pattern  = "/^(";
-		$pattern .= "((?<partype>[a-zA-Z0-9_]*) )\s*";
-		$pattern .= "(\$(?<parname>[a-zA-Z0-9_]*))\s*";
-		$pattern .= ",.)*";
-
-		$pattern .= "/mxs";
-		
-		$matches = [];
-		preg_match_all($pattern, $params, $matches );
-		$this->params_matches = $matches;
+	function get_parameter_name() : string {
+		return $this->params_finder->get_name();
 	}
+	
+	function get_parameter_type() : string {
+		return $this->params_finder->get_type();
+	}
+
 	function get_pm() : Array {
-		return $this->params_matches;
+		return $this->params_finder;
 	}
 	
 	
