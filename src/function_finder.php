@@ -6,25 +6,34 @@ class function_finder {
 	function __construct( string $source ){
 		$this->source = $source;
 		
+		$this->pattern  = "/^";
+		$this->pattern .= "(\s*function\s+)";
+		$this->pattern .= "(?<name>[a-zA-Z0-9_]*)";
+		$this->pattern .= "\(";
+		$this->pattern .= "\s*(?<params>[a-zA-Z0-0_\$, ]*\s*.)*";
+		// 		$this->pattern .= "\s*(?<parname>\$[a-zA-Z0-0_]*\s*.),*)*";
+		$this->pattern .= "\)\s*";
+		
 		/* for the namespace keyword
 		 * then add all the code up to the next keyword.
 		 *
 		 * TODO: test this against a windows newline character file
+		 * TODO: add function body ?
 		 */
 		
-		$pattern  = "/^";
-		$pattern .= "(";
-		$pattern .= "(?:[ ]*)";
-		$pattern .= "(?<fnmod>(static|private|public|final|))";
-		$pattern .= "(?:[ ]*)";
-		$pattern .= "(?<fntag>function)";
-		$pattern .= "(?:[ ]*)";
-		$pattern .= "(?<name>[0-9a-zA-Z_]+)[ ]*\(";
-		$pattern .= "(?:[ ]*)";
-		$pattern .= "(?<params>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
-		$pattern .= "((?:[ ]*\:[ ]*)(?<fnret>[0-9a-zA-Z_]*)[ ]*|)";
-		$pattern .= ")";
-		$pattern .= "/ms";
+		$pattern  = '/';
+		$pattern .= '(';
+		$pattern .= '\s*';
+		$pattern .= '(?<fnmod>(static|private|public|final|))';
+		$pattern .= '\s*';
+		$pattern .= '(?<fntag>function)';
+		$pattern .= '\s*';
+		$pattern .= '(?<name>[0-9a-zA-Z_]+)[ ]*\(';
+		$pattern .= '\s*';
+		$pattern .= '(?<params>[0-9a-zA-Z_\$ ,]*|)[ ]*\)';
+		$pattern .= '((?:\s*\:\s*)(?<fnret>[0-9a-zA-Z_]*)\s*|)';
+		$pattern .= ')[^\{;]*';
+		$pattern .= '/ms';
 		
 		$this->pattern = $pattern;
 		
