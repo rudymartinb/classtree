@@ -24,7 +24,7 @@ class usetrait_finder {
 		
 		$this->matches["traitname"] = $result;
 	}
-	
+	// HACK: overriding in case we had a single matches with commas
 	function more_elements() : bool {
 		return count( $this->matches[ "traitname" ] ) > $this->current_key;
 	}
