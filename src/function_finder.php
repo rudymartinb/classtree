@@ -57,10 +57,6 @@ class function_finder {
 		return $this->params_finder->more_elements();
 	}
 	
-	// todo: remove ?
-	function get_parameters() : string {
-		return $this->matches["params"][$this->current_key];
-	}
 
 	function get_parameter_name() : string {
 		return $this->params_finder->get_name();
