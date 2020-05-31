@@ -44,9 +44,6 @@ class function_finder {
 	
 	private $params_finder;
 	
-	function next(){
-		$this->current_key ++;
-	}
 	function get_name(): string {
 		return $this->matches["name"][$this->current_key];
 	}
@@ -65,12 +62,6 @@ class function_finder {
 	function get_parameter_type() : string {
 		return $this->params_finder->get_type();
 	}
-
-	function get_pm() : Array {
-		return $this->params_finder;
-	}
-	
-	
 	
 	
 }
