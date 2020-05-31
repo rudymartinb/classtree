@@ -12,9 +12,14 @@ class usetrait_finder {
 		$this->pattern .= "(?<traitname>[a-zA-Z0-9_]*)";
 		$this->pattern .= "\s*";
 		$this->pattern .= "/ms";
-	
+		
 		
 		$this->matches($source);
 	}
+	
+	function get_trait_name(): string {
+		return $this->matches["traitname"][$this->current_key];
+	}
+	
 }
 ?>

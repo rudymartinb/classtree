@@ -2,6 +2,10 @@
 namespace src;
 
 trait finder {
+	
+	// does this work?
+	abstract function __construct( string $source );
+	
 	private $pattern;
 	private $source = "";
 	
