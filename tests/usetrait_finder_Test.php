@@ -61,6 +61,25 @@ function test() {}";
 		
 	}
 
+	
+	function test_basic_3_on_1_line_body(){
+		$source = "use trait1,trait2,trait3 { anything }
+function test() {}";
+		
+		$finder = new usetrait_finder( $source );
+		// 		var_dump( $finder->matches($source)["traitname"] );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "trait1", $finder->get_trait_name() );
+		$finder->next();
+		$this->assertEquals( "trait2", $finder->get_trait_name() );
+		$finder->next();
+		$this->assertEquals( "trait3", $finder->get_trait_name() );
+		
+		
+	}
+	
+	
 	function test_weird(){
 		$source = "use 
 sometrait 
