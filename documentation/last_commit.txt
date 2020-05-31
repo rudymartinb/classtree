@@ -28,3 +28,4 @@ adding parameter_finder
 refactoring sources
 adding interface_finder()
 altering namespace_finder() to work on sources with no namespaces
+adding usetrait_finder()
