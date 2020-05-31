@@ -1,9 +1,6 @@
 <?php
 namespace files;
 
-
-use src\class_finder;
-
 function begins_with_dot( string $entry ) : bool {
     return substr( $entry, 0,1 ) == ".";
 }
