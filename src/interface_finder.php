@@ -21,6 +21,11 @@ class interface_finder {
 		
 		$this->matches($source);
 		
+	
+	}
+	
+	function get_name() : string {
+		return $this->matches["ifname"][$this->current_key];
 	}
 	
 }

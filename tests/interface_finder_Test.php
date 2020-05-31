@@ -26,6 +26,7 @@ class interface_finder_Test extends PHPUnit\Framework\TestCase {
 		$finder = new interface_finder( $source );
 		
 		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "myif", $finder->get_name() );
 	}
 	
 }
