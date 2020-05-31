@@ -20,7 +20,6 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$finder = new function_finder( $source );
 
-		var_dump($finder->matches($source)[0]);
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "simple", $finder->get_name() );
 
@@ -45,22 +44,22 @@ function complex(){
 	}
 	
 	
-// 	function test_function_1_parameter(){
-// 		$source = 'function simple( int $something ) {}';
+	function test_function_1_parameter(){
+		$source = 'function simple( int $something ) {}';
 		
-// 		$finder = new function_finder( $source );
-		
-		
-// 		$this->assertEquals( true, $finder->more_elements() );
-// 		$this->assertEquals( "simple", $finder->get_name() );
+		$finder = new function_finder( $source );
 		
 		
-// 		$this->assertEquals( true, $finder->has_parameters() );
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "simple", $finder->get_name() );
 		
-// 		$this->assertEquals( "int", $finder->get_parameter_type() );
-// 		$this->assertEquals( "something", $finder->get_parameter_name() );
 		
-// 	}
+		$this->assertEquals( true, $finder->has_parameters() );
+		
+		$this->assertEquals( "int", $finder->get_parameter_type() );
+		$this->assertEquals( "something", $finder->get_parameter_name() );
+		
+	}
 
 	
 // 	function test_2_params(){
