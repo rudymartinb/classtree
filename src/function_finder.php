@@ -48,7 +48,6 @@ class function_finder {
 	}
 	
 	/* parameters section
-	 * 
 	 */
 	private $params_finder;
 	function has_parameters() : bool {
