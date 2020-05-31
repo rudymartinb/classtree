@@ -28,10 +28,6 @@ class trait_finder {
 		$this->pattern .= "(?<body>";
 		$this->pattern .= "((?!((?R)|^\s*interface\s*|^(\s*(abstract|final|))\s*\s*class\s*|^\s*namespace\s*)).)*";
 		$this->pattern .= ")";
-		
-		// body business
-		// TODO: probably the correct way would be to search for nested {}
-		// update: I have created a regex pattern which allows to extract them
 
 		$this->pattern .= "/ms";
 		
