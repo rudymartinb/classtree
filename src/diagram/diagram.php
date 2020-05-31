@@ -25,6 +25,7 @@ class diagram {
 				return $element;
 			}
 		}
+		// this should throw an exception
 		return null;
 	}
 	
