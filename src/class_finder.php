@@ -44,6 +44,7 @@ class class_finder {
         $this->pattern .= ")";
         
         // TODO: probably the correct way would be to search for nested {}
+        // update: I have created a regex pattern which allows to extract them
         $this->pattern .= "(?<body>";
         $this->pattern .= "((?!(?R)).)*";
         $this->pattern .= ")";
