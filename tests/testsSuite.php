@@ -28,6 +28,7 @@ require_once 'tests/parameters_finder_Test.php';
 
 require_once 'tests/function_finder_Test.php';
 require_once 'tests/class_finder_Test.php';
+require_once 'tests/interface_finder_Test.php';
 require_once 'tests/namespace_finder_Test.php';
 require_once 'tests/trait_finder_Test.php';
 
