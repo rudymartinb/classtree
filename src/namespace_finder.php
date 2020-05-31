@@ -15,7 +15,7 @@ class namespace_finder {
     	 */
         $this->pattern  = "/^";
         $this->pattern .= "(?<original>[ ]*(?:namespace )";
-        $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]+)";
+        $this->pattern .= "(?<nsname>[0-9a-zA-Z_\\\\]*)";
         
         // everything else up to the character that ends the namespace declaration
         // the objective here is to include the semicolon if present
@@ -40,13 +40,19 @@ class namespace_finder {
         $this->matches($source);
     }
 
-    
+    function more_elements() : bool {
+    	if( count( $this->matches[ 0 ] ) == 0 )
+    		return true;
+    	return count( $this->matches[ 0 ] ) > $this->current_key;
+    }
     
     function get_name() : string {
     	return $this->matches["nsname"][ $this->current_key ];
     }
     
     function get_body() : string {
+    	if( $this->matches["body"][ $this->current_key ] === null )
+    		return $this->source;
     	return $this->matches["body"][ $this->current_key ];
     }
    

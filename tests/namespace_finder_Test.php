@@ -8,7 +8,9 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$finder = new namespace_finder( $source );
 
-		$this->assertEquals( false, $finder->more_elements() );
+		var_dump($finder->matches($source));
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( '', $finder->get_body() );
 	}
 	
 	function test_something_else(){
@@ -16,7 +18,8 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$finder = new namespace_finder( $source );
 		
-		$this->assertEquals( false, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( 'this is a test', $finder->get_body() );
 	}
 
 	function test_just_1_line(){
@@ -38,7 +41,7 @@ function test() {
 ';
 	
 	$finder = new namespace_finder( $source );
-	
+// 	var_dump($finder->matches($source));
 	$this->assertEquals( true, $finder->more_elements() );
 	$this->assertEquals( "test", $finder->get_name() );
 
