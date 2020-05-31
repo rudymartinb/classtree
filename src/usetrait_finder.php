@@ -11,10 +11,10 @@ class usetrait_finder {
 
 		$this->pattern  = "/";
 		$this->pattern .= "(?:use\s+)(?<traitname>[a-zA-Z0-9_,\s]*)";
-		$this->pattern .= "(?=;|\{)";
+// 		$this->pattern .= "(?=;|\{)";
 		$this->pattern .= "/mxs";
 		
-// 		$this->pattern = "/(\buse\b +?)(?<traitname>.*?)(?=;|\{)/ms";
+// 		$this->pattern = "/(\buse\b +?)(?<traitname>[a-zA-Z0-9_,\s]*)(?=;|\{)/ms";
 
 		/* HACK: split multiple trait names separated by commas
 		 */
