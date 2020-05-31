@@ -72,8 +72,10 @@ function test() {}";
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "trait1", $finder->get_trait_name() );
 		$finder->next();
+		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "trait2", $finder->get_trait_name() );
 		$finder->next();
+		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "trait3", $finder->get_trait_name() );
 		
 		

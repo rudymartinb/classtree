@@ -25,6 +25,10 @@ class usetrait_finder {
 		$this->matches["traitname"] = $result;
 	}
 	
+	function more_elements() : bool {
+		return count( $this->matches[ "traitname" ] ) > $this->current_key;
+	}
+	
 	function get_trait_name(): string {
 		return trim( $this->matches["traitname"][$this->current_key] );
 	}
