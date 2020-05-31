@@ -112,8 +112,9 @@ function other_function() {}
 }";
 		
 		$finder = new usetrait_finder( $source );
-		var_dump( $finder->get_matches()["traitname"] );
-		var_dump( $finder->get_matches()[0] );
+		
+// 		var_dump( $finder->get_matches()["traitname"] );
+// 		var_dump( $finder->get_matches()[0] );
 
 		
 		$this->assertEquals( true, $finder->more_elements() );
