@@ -214,6 +214,8 @@ function something2( int $ant, string $strong );
     	
     	$this->assertEquals( true, $finder->has_use_trait() );
     	$this->assertEquals( "sometrait", $finder->get_trait_name() );
+    	$finder->next_trait();
+    	$this->assertEquals( "sometrait2", $finder->get_trait_name() );
     	
     	
     	$this->assertEquals( true, $finder->has_functions() );
