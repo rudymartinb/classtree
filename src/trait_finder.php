@@ -30,7 +30,9 @@ class trait_finder {
 		$this->pattern .= ")";
 		
 		// body business
-		
+		// TODO: probably the correct way would be to search for nested {}
+		// update: I have created a regex pattern which allows to extract them
+
 		$this->pattern .= "/ms";
 		
 		$this->matches($source);
