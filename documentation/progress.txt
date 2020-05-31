@@ -121,4 +121,7 @@ Also I think using intermediates class_ and the other might be pointless since I
 what I did was fun so far. Replaced all the array keys references by methods calls. Most are just 1 line of code.
 Still I have to complete class_finder to add the same methods as interface_finder. Not sure what to do with namespace_finder, if apply the same treatment or leave it as is.
 
- 
+20200531 1729
+now I think I have all finders needed to gather the code information from source files.
+
+what's next ?
