@@ -26,7 +26,7 @@ require_once 'tests/microtests/filesTest.php';
  */
 require_once 'tests/src/parameters_finder_Test.php';
 
-require_once 'src/function_finder_Test.php';
+require_once 'tests/src/function_finder_Test.php';
 require_once 'src/class_finder_Test.php';
 require_once 'src/interface_finder_Test.php';
 require_once 'src/namespace_finder_Test.php';
