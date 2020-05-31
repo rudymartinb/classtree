@@ -28,5 +28,11 @@ class diagram {
 		// this should throw an exception
 		return null;
 	}
+	private $current_key = 0;
+	function place(){
+		$element = $this->elements[ $this->current_key ];
+		$element->set_position( 0, 0 );
+		
+	}
 	
 }

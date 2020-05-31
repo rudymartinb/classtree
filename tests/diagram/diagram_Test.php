@@ -24,6 +24,18 @@ class diagram_Test extends PHPUnit\Framework\TestCase {
 		$element = $diagram->get_element_by_name( "myclass" );
 		$this->assertEquals("myclass", $element->get_name() );
 	}
+
+	function test_class_place(){
+		$source = "class myclass {}";
+		$diagram = new diagram();
+		$diagram->add_source($source);
+		
+		$diagram->place();
+		
+		$element = $diagram->get_element_by_name( "myclass" );
+		
+		$this->assertEquals( true, $element->is_placed() );
+	}
 	
 }
 

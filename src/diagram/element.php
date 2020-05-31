@@ -1,8 +1,9 @@
 <?php
 namespace diagram;
 class element {
+	private $placed = false;
 	function is_placed() : bool{
-		return false;
+		return $this->placed;
 	}
 	
 	private $type = "";
@@ -27,5 +28,11 @@ class element {
 	}
 	function get_namespace() : string {
 		return $this->namespace;
+	}
+	private $x, $y;
+	function set_position( int $x, int $y ){
+		$this->x = $x;
+		$this->y = $y;
+		$this->placed = true;
 	}
 }
