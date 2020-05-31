@@ -117,3 +117,8 @@ so far things are good. While updating README.md I thought it might be important
 I have been reading a bit about heredocs and that could complicate things further. I considered creating a string remover from source extracted.
 Also I think using intermediates class_ and the other might be pointless since I could feed the final tree directly from the _finder classes 
  
+20200531
+what I did was fun so far. Replaced all the array keys references by methods calls. Most are just 1 line of code.
+Still I have to complete class_finder to add the same methods as interface_finder. Not sure what to do with namespace_finder, if apply the same treatment or leave it as is.
+
+ 

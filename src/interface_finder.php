@@ -38,7 +38,6 @@ class interface_finder {
 	 * functions section:
 	 * it should create a private function finder object
 	 * apply it to the body source
-
 	 */
 	private $function_finder;
 	function has_functions() : bool {
@@ -52,6 +51,11 @@ class interface_finder {
 	function get_function_name() : string {
 		return $this->function_finder->get_name();
 	}
+	function next_function(){
+		return $this->function_finder->next();
+	}
+	
+	// function parameters section
 	function has_parameters() : bool {
 		return $this->function_finder->has_parameters();
 	}
@@ -61,10 +65,7 @@ class interface_finder {
 	function get_parameter_type() : string {
 		return $this->function_finder->get_parameter_type();
 	}
-	function next_function(){
-		return $this->function_finder->next();
-	}
-	
+
 	function next_parameter(){
 		return $this->function_finder->next_parameter();
 	}
