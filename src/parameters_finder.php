@@ -5,7 +5,7 @@ class parameters_finder {
 	use finder;
 	function __construct( string $source ){
 		$this->pattern  = '/(?<partype>[a-zA-Z0-9_]*)\s*';
-		$this->pattern .= '\$(?<parname>[a-zA-Z0-9_]*)/mxs';
+		$this->pattern .= '\&{0,1}\$(?<parname>[a-zA-Z0-9_]*)/mxs';
 		
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );

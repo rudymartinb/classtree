@@ -41,6 +41,17 @@ class parameters_finder_Test extends PHPUnit\Framework\TestCase {
     	$this->assertEquals( 'string', $param->get_type()  );
     	$this->assertEquals( 'dos', $param->get_name()  );
     }
+
+    
+    function test_2_params_by_ref(){
+    	$param = new parameters_finder('int &$uno, string $dos');
+    	$this->assertEquals( true, $param->more_elements()  );
+    	$this->assertEquals( 'int', $param->get_type()  );
+    	$this->assertEquals( 'uno', $param->get_name()  );
+    	$param->next();
+    	$this->assertEquals( 'string', $param->get_type()  );
+    	$this->assertEquals( 'dos', $param->get_name()  );
+    }
     
     
 }
