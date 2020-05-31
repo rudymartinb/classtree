@@ -47,7 +47,8 @@ use someothertrait;";
 	}
 	
 	function test_basic_2_on_1_line_body(){
-		$source = "use sometrait , someothertrait { anything }";
+		$source = "use sometrait , someothertrait { anything }
+function test() {}";
 		
 		$finder = new usetrait_finder( $source );
 		var_dump( $finder->matches($source)["traitname"] );
