@@ -17,8 +17,10 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		
 		$this->assertEquals( "class", $element->get_type() );
 		$this->assertEquals( "class1", $element->get_name() );
+		$this->assertEquals( "", $element->get_namespace() );
 		
 		$this->assertFalse( $element->is_placed() );
+		
 	}
 	
 }
