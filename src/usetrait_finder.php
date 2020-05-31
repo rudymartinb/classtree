@@ -17,10 +17,12 @@ class usetrait_finder {
 		$result = [];
 		foreach ($matches["traitname"] as $match){
 			$arr = explode(",", $match );
-
-			$result += $arr;
+			var_dump($arr);
+			
+			$result = array_merge( $result, $arr );
+			var_dump( $result );
 		}
-// 		var_dump( $result );
+		
 		$this->matches["traitname"] = $result;
 	}
 	
