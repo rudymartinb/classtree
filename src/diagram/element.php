@@ -20,5 +20,12 @@ class element {
 	function get_name() : string {
 		return $this->name;
 	}
-	
+
+	private $namespace = "";
+	function set_namespace( string $namespace ){
+		$this->namespace  = $namespace;
+	}
+	function get_namespace() : string {
+		return $this->namespace;
+	}
 }
