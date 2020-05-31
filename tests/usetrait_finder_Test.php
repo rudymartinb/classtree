@@ -79,13 +79,14 @@ function test() {}";
 	}
 
 	
-	function test_valid(){
+	function test_valid_source(){
 		$source = "{ use
 sometrait
 ,
 someothertrait
 { anything }
-function test() {}";
+function test() {}
+}";
 		
 		$finder = new usetrait_finder( $source );
 		// 		var_dump( $finder->matches($source)["traitname"] );
