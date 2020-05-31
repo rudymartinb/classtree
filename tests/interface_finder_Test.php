@@ -11,6 +11,14 @@ class interface_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$this->assertEquals( false, $finder->more_elements() );
 	}
+
+	function test_nada(){
+		$source = 'nada';
+		
+		$finder = new interface_finder( $source );
+		
+		$this->assertEquals( false, $finder->more_elements() );
+	}
 	
 }
 
