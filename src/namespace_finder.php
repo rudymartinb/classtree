@@ -40,6 +40,12 @@ class namespace_finder {
         $this->matches($source);
     }
 
+    /*
+     * in this particular case,
+     * we might have no namespace tag on a source file.
+     * name should be "" and 
+     * by calling get_body we will get
+     */
     function more_elements() : bool {
     	if( count( $this->matches[ 0 ] ) == 0 )
     		return true;
