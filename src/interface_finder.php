@@ -58,5 +58,8 @@ class interface_finder {
 	function get_parameter_name() : string {
 		return $this->function_finder->get_parameter_name();
 	}
+	function get_parameter_type() : string {
+		return $this->function_finder->get_parameter_type();
+	}
 	
 }
