@@ -71,7 +71,6 @@ function complex( int $ant, string& $strong ){
 		
 		$finder = new function_finder( $source );
 		
-// 		$matches = $finder->matches($source);
 // 		$this->assertEquals( 2, count( $finder->get_matches()[0] ) );
 		
 		$this->assertEquals( true, $finder->more_elements() );
