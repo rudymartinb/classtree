@@ -37,7 +37,7 @@ use someothertrait;";
 		$source = "use sometrait , someothertrait;";
 		
 		$finder = new usetrait_finder( $source );
-		var_dump( $finder->matches($source)["traitname"] );
+// 		var_dump( $finder->matches($source)["traitname"] );
 		
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "sometrait", $finder->get_trait_name() );
@@ -51,7 +51,7 @@ use someothertrait;";
 function test() {}";
 		
 		$finder = new usetrait_finder( $source );
-		var_dump( $finder->matches($source)["traitname"] );
+// 		var_dump( $finder->matches($source)["traitname"] );
 		
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "sometrait", $finder->get_trait_name() );
@@ -69,7 +69,7 @@ someothertrait
 function test() {}";
 		
 		$finder = new usetrait_finder( $source );
-		var_dump( $finder->matches($source)["traitname"] );
+// 		var_dump( $finder->matches($source)["traitname"] );
 		
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "sometrait", $finder->get_trait_name() );
