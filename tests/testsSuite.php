@@ -33,7 +33,7 @@ require_once 'tests/src/namespace_finder_Test.php';
 require_once 'tests/src/trait_finder_Test.php';
 require_once 'tests/src/usetrait_finder_Test.php';
 
-// require_once 'src/tree2_Test.php';
+require_once 'diagram/element_Test.php';
 
 
 
@@ -55,7 +55,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->addTestSuite('usetrait_finder_Test');
         $this->addTestSuite('function_finder_Test');
         
-//         $this->addTestSuite('element_Test');
+        $this->addTestSuite('element_Test');
         
     }
 

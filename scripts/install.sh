@@ -17,7 +17,7 @@ echo "Installing ..."
 mkdir ~/bin 2>/dev/null
 
 # TODO: test if we really need to do this if installed twice
-echo "export PATH=$PATH:~/bin:" >>~/.bash_profile
+echo "export PATH=\$PATH:~/bin:" >>~/.bash_profile
 chmod +x ../bin/classtree.sh
 rm -f ~/bin/classtree
 cd ../bin

@@ -15,8 +15,8 @@ function include_project_files( string $path ){
     
     require_once $path.'src/files.php';
     
-    // tree2
-//     require_once $path.'src/Trees.php';
+    // diagrams
+    require_once $path.'src/diagram/element.php';
 
 }
 ?>
