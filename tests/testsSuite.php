@@ -33,7 +33,7 @@ require_once 'src/namespace_finder_Test.php';
 require_once 'src/trait_finder_Test.php';
 require_once 'src/usetrait_finder_Test.php';
 
-require_once 'src/tree2_Test.php';
+// require_once 'src/tree2_Test.php';
 
 
 
