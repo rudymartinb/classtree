@@ -30,9 +30,9 @@ class function_finder {
 		$pattern .= '\s*';
 		$pattern .= '(?<name>[0-9a-zA-Z_]+)[ ]*\(';
 		$pattern .= '\s*';
-		$pattern .= '(?<params>[0-9a-zA-Z_\$ ,]*|)[ ]*\)';
+		$pattern .= '(?<params>[0-9a-zA-Z_\$\& ,]*|)[ ]*\)';
 		$pattern .= '((?:\s*\:\s*)(?<fnret>[0-9a-zA-Z_]*)\s*|)';
-		$pattern .= ')[^\{;]*';
+		$pattern .= '[^\{;]*)';
 		$pattern .= '/ms';
 		
 		$this->pattern = $pattern;

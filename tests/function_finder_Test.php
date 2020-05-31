@@ -28,7 +28,8 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_next(){
-		$source = "function simple() {}
+		$source = "function simple() {
+}
 function complex(){
 }";
 		
@@ -62,27 +63,30 @@ function complex(){
 	}
 
 	
-// 	function test_2_params(){
-// 		$source = 'function simple() {
-// }
-// function complex( int $ant, string& $strong ){
-// }';
+	function test_2_params(){
+		$source = 'function simple() {
+}
+function complex( int $ant, string& $strong ){
+}';
 		
-// 		$finder = new function_finder( $source );
+		$finder = new function_finder( $source );
 		
-// 		$matches = $finder->matches($source);
-// 		var_dump($matches[0]);
+		$matches = $finder->matches($source);
+		var_dump($matches[0]);
 		
-// 		$this->assertEquals( true, $finder->more_elements() );
-// 		$this->assertEquals( "simple", $finder->get_name() );
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "simple", $finder->get_name() );
 		
-// 		$this->assertEquals( false, $finder->has_parameters() );
+		$this->assertEquals( false, $finder->has_parameters() );
 		
-// 		$finder->next();
-// 		$this->assertEquals( true, $finder->has_parameters() );
-// 		$this->assertEquals( "complex", $finder->get_name() );
+		$finder->next();
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "complex", $finder->get_name() );
 		
-// 	}
+		$this->assertEquals( true, $finder->has_parameters() );
+		
+		
+	}
 	
 	
 	
