@@ -13,7 +13,7 @@ class usetrait_finder {
 		$this->pattern .= "/mxs";
 		
 
-		/* HACK: split multiple trait names
+		/* HACK: split multiple trait names separated by commas
 		 */
 		$matches = $this->matches($source);
 		$result = [];
