@@ -49,6 +49,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         // test cases section
         $this->addTestSuite('namespace_finder_Test');
         $this->addTestSuite('class_finder_Test');
+        $this->addTestSuite('interface_finder_Test');
         $this->addTestSuite('trait_finder_Test');
         $this->addTestSuite('function_finder_Test');
         
