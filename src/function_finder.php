@@ -41,27 +41,26 @@ class function_finder {
 		$this->matches($source);
 
 	}
-	
-	private $params_finder;
+
 	
 	function get_name(): string {
 		return $this->matches["name"][$this->current_key];
 	}
 	
+	/* parameters section
+	 * 
+	 */
+	private $params_finder;
 	function has_parameters() : bool {
 		$source = $this->matches["params"][$this->current_key];
 		$this->params_finder = new parameters_finder($source);
 		return $this->params_finder->more_elements();
 	}
-	
-
 	function get_parameter_name() : string {
 		return $this->params_finder->get_name();
 	}
-	
 	function get_parameter_type() : string {
 		return $this->params_finder->get_type();
 	}
-	
 	
 }
