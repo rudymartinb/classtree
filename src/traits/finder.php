@@ -25,5 +25,9 @@ trait finder {
 		$this->matches = $matches;
 		return $matches;
 	}
+
+	function get_matches() : Array {
+		return $this->matches;
+	}
 	
 }
