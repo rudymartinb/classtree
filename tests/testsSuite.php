@@ -44,7 +44,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         // microtests section
         $this->addTestSuite('preg_match_all_Test');
-        $this->addTestSuite('parameters_finder_Test');
+        $this->addTestSuite('parameters_finder_Test'); 
         $this->addTestSuite('filesTest');
         
         // test cases section
