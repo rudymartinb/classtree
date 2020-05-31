@@ -49,4 +49,11 @@ class interface_finder {
 		return $this->function_finder->more_elements();
 	}
 	
+	function get_function_name() : string {
+		return $this->function_finder->get_name();
+	}
+	function has_parameters() : bool {
+		return $this->function_finder->has_parameters();
+	}
+	
 }
