@@ -14,5 +14,13 @@ class diagram_Test extends PHPUnit\Framework\TestCase {
 		$diagram->add_source($source);
 		$this->assertEquals(0, $diagram->get_num_elements() );
 	}
+	
+	function test_class(){
+		$source = "class myclass {}";
+		$diagram = new diagram();
+		$diagram->add_source($source);
+		$this->assertEquals(1, $diagram->get_num_elements() );
+	}
+	
 }
 
