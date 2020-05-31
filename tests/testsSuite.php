@@ -6,15 +6,10 @@ include_project_files("./");
  */
 require_once 'microtests/preg/preg_match_all_Test.php';
 require_once 'microtests/preg/params_Test.php';
-require_once 'tests/microtests/preg/discard_Test.php';
+
 require_once 'tests/microtests/filesTest.php';
 
 // todo: review to see if they are still needed
-// require_once 'tests/function_Test.php';
-// require_once 'tests/class_Test.php';
-
-// require_once 'tests/gridTest.php';
-// require_once 'tests/AppTest.php';
 
 
 /* test cases
@@ -44,10 +39,8 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
     public function __construct() {
         $this->setName('testsSuite');
         
-        
         $this->addTestSuite('preg_match_all_Test');
         $this->addTestSuite('parameters_finder_Test');
-//         $this->addTestSuite('discard_Test');
         
         $this->addTestSuite('namespace_finder_Test');
         $this->addTestSuite('class_finder_Test');
@@ -57,16 +50,6 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
         $this->addTestSuite('filesTest');
 		$this->addTestSuite('function_finder_Test');
-//         $this->addTestSuite('class_Test');
-
-
-        
-//         
-        
-//         $this->addTestSuite('gridTest');
-
-        
-//         $this->addTestSuite('AppTest');
         
     }
 
