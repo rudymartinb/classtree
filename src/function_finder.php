@@ -51,5 +51,9 @@ class function_finder {
 	function get_parameter_type() : string {
 		return $this->params_finder->get_type();
 	}
+	function next_parameter() {
+		return $this->params_finder->next();
+	}
+	
 	
 }
