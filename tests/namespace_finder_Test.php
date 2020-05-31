@@ -81,7 +81,7 @@ function test2() {
 	// 	var_dump( $finder->matches($source)["body"] );
 	// 	echo( "-----------------------------" );
 		
-		$this->assertEquals( 2, count( $finder->matches($source)[0] ) );
+		$this->assertEquals( 2, count( $finder->get_matches()[0] ) );
 	
 		
 		$expected = 'function test() {
@@ -127,7 +127,7 @@ function test3() {
 		// 	echo( "-----------------------------" );
 		// 	var_dump( $finder->matches($source)["body"] );
 		
-		$this->assertEquals( 3, count( $finder->matches($source)[0] ) );
+		$this->assertEquals( 3, count( $finder->get_matches()[0] ) );
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "test", $finder->get_name() );
 	
