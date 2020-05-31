@@ -11,16 +11,6 @@ class function_finder {
 		 *
 		 * TODO: test this against a windows newline character file
 		 */
-		$this->pattern  = "/^";
-		$this->pattern .= "(\s*function\s+)";
-		$this->pattern .= "(?<name>[a-zA-Z0-9_]*)";
-		$this->pattern .= "\(";
-		$this->pattern .= "\s*(?<params>[a-zA-Z0-0_\$, ]*\s*.)*";
-// 		$this->pattern .= "\s*(?<parname>\$[a-zA-Z0-0_]*\s*.),*)*";
-		$this->pattern .= "\)\s*";
-		
-		
-		$this->pattern .= "/mxs";
 		
 		$pattern  = "/^";
 		$pattern .= "(";
@@ -34,7 +24,7 @@ class function_finder {
 		$pattern .= "(?<params>[0-9a-zA-Z_\$ ,]*|)[ ]*\)";
 		$pattern .= "((?:[ ]*\:[ ]*)(?<fnret>[0-9a-zA-Z_]*)[ ]*|)";
 		$pattern .= ")";
-		$pattern .= "/m";
+		$pattern .= "/ms";
 		
 		$this->pattern = $pattern;
 		
