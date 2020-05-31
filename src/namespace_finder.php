@@ -51,8 +51,9 @@ class namespace_finder {
     }
     
     function get_body() : string {
-    	if( $this->matches["body"][ $this->current_key ] === null )
+    	if( $this->matches["body"][ $this->current_key ] === null ){
     		return $this->source;
+    	}
     	return $this->matches["body"][ $this->current_key ];
     }
    
