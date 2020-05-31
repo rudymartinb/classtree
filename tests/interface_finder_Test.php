@@ -67,6 +67,7 @@ function something2( int $ant, string $strong );
 		$this->assertEquals( true, $finder->has_functions() );
 		$this->assertEquals( "something1", $finder->get_function_name() );
 		$this->assertEquals( false, $finder->has_parameters() );
+		$this->assertEquals( "", $finder->get_parameter_name() );
 	}
 	
 	

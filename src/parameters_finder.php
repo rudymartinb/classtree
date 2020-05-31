@@ -14,6 +14,8 @@ class parameters_finder {
 			
 	}
 	function get_name() : string {
+		if( $this->matches["parname"][ $this->current_key ] === null )
+			return "";
 		return $this->matches["parname"][ $this->current_key ];
 	}
 	
