@@ -24,9 +24,25 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "simple", $finder->get_name() );
 
 		$this->assertEquals( false, $finder->has_parameters() );
-		
-
 	}
+
+	
+	function test_next(){
+		$source = "function simple() {}
+function complex(){
+}";
+		
+		$finder = new function_finder( $source );
+		
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "simple", $finder->get_name() );
+		
+		$this->assertEquals( false, $finder->has_parameters() );
+		
+		$finder->next();
+		$this->assertEquals( "complex", $finder->get_name() );
+	}
+	
 	
 	function test_function_1_parameter(){
 		$source = 'function simple( int $something ) {}';
@@ -44,6 +60,7 @@ class function_finder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "something", $finder->get_parameter_name() );
 		
 	}
+
 	
 	
 }
