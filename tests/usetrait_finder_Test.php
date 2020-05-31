@@ -37,7 +37,7 @@ use someothertrait;";
 		$source = "use sometrait , someothertrait;";
 		
 		$finder = new usetrait_finder( $source );
-		var_dump( $finder->matches($source) );
+		var_dump( $finder->matches($source)["traitname"] );
 		
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "sometrait", $finder->get_trait_name() );
