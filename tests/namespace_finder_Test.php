@@ -10,6 +10,7 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 
 		var_dump($finder->matches($source));
 		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( '', $finder->get_name() );
 		$this->assertEquals( '', $finder->get_body() );
 	}
 	
@@ -19,6 +20,7 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$finder = new namespace_finder( $source );
 		
 		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( '', $finder->get_name() );
 		$this->assertEquals( 'this is a test', $finder->get_body() );
 	}
 
