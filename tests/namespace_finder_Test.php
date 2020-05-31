@@ -216,7 +216,7 @@ function test3() {
 		$expected  = "{ function sarsa() { return ; } }";
 		
 		$body = $finder->get_body();
-		$this->assertEquals( $expected, $finder->get_body() );
+		$this->assertEquals( $expected, $body );
 		$finder->next();
 		
 		$this->assertEquals( false, $finder->more_elements() );
@@ -236,7 +236,7 @@ function test3() {
 		$expected  = "function sarsa() { return ; }";
 		
 		$body = $finder->get_body();
-		$this->assertEquals( $expected, $finder->get_body() );
+		$this->assertEquals( $expected, $body );
 		$finder->next();
 		
 		$this->assertEquals( false, $finder->more_elements() );
