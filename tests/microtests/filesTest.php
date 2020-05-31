@@ -8,7 +8,7 @@ use function files\get_clases;
 use function files\get_classes_from_sources;
 use function files\get_interfaces_from_sources;
 use function files\get_interfaces;
-use src\class_finder;
+
 
 class filesTest extends PHPUnit\Framework\TestCase {
 
