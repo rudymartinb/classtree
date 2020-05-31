@@ -113,7 +113,7 @@ function other_function() {}
 		
 		$finder = new usetrait_finder( $source );
 		var_dump( $finder->get_matches()["traitname"] );
-// 		var_dump( $finder->matches($source)[0] );
+
 		
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "sometrait", $finder->get_trait_name() );
