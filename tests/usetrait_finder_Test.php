@@ -113,7 +113,7 @@ function test() {}
 }";
 		
 		$finder = new usetrait_finder( $source );
-		var_dump( $finder->matches($source)[0] );
+// 		var_dump( $finder->matches($source)[0] );
 		
 		$this->assertEquals( false, $finder->more_elements() );
 		
