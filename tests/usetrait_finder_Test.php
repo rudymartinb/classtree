@@ -26,6 +26,7 @@ use someothertrait;";
 		
 		$finder = new usetrait_finder( $source );
 		
+		var_dump($finder->matches($source)[0]);
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "sometrait", $finder->get_trait_name() );
 		$finder->next();
@@ -101,22 +102,22 @@ function other_function() {}
 	/* commented out ATM 
 	 */
 	
-// 	// tag "use" must be preset at least once
-// 	function test_invalid_source_2(){
-// 		$source = "function sarasa( 
-// sometrait
-// ,
-// someothertrait )
-// { anything }
-// function test() {}
-// }";
+	// tag "use" must be preset at least once
+	function test_invalid_source_2(){
+		$source = "function sarasa( 
+sometrait
+,
+someothertrait )
+{ anything }
+function test() {}
+}";
 		
-// 		$finder = new usetrait_finder( $source );
-// 		var_dump( $finder->matches($source)[0] );
+		$finder = new usetrait_finder( $source );
+		var_dump( $finder->matches($source)[0] );
 		
-// 		$this->assertEquals( false, $finder->more_elements() );
+		$this->assertEquals( false, $finder->more_elements() );
 		
-// 	}
+	}
 	
 	
 }
