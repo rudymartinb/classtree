@@ -60,6 +60,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->addTestSuite('draw_text_Test');
         
         // diagram
+        $this->addTestSuite('draw_text_Test');
         $this->addTestSuite('diagram_Test');
         $this->addTestSuite('element_Test');
         
