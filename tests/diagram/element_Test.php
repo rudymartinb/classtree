@@ -14,10 +14,11 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		
 		$element->set_type("class");
 		$element->set_name("class1");
+		$element->set_namespace("nsname");
 		
 		$this->assertEquals( "class", $element->get_type() );
 		$this->assertEquals( "class1", $element->get_name() );
-		$this->assertEquals( "", $element->get_namespace() );
+		$this->assertEquals( "nsname", $element->get_namespace() );
 		
 		$this->assertFalse( $element->is_placed() );
 		
