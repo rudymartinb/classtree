@@ -61,4 +61,22 @@ class diagram {
 		
 	}
 	
+	/* TODO: calculate heigh based on the number of functions
+	 */
+	private function draw_class( string $name ){
+		$x = 10;
+		$y = 10;
+		$width = 100;
+		$height = 50;
+		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
+		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
+		
+		
+		$font = './fonts/courier.ttf';
+		$font = realpath($font) ;
+		$text = $name;
+		\imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $text);
+	}
+	
+	
 }
