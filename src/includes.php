@@ -20,4 +20,13 @@ function include_project_files( string $path ){
     require_once $path.'src/diagram/element.php';
 
 }
+
+
+// TODO: move this to the main script
+$testGD = get_extension_funcs("gd"); // Grab function list
+if (!$testGD){
+	echo "GD not even installed.";
+	return;
+}
+
 ?>
