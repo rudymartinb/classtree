@@ -25,7 +25,10 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "superclass", $element->get_extends() );
 		$this->assertEquals( "interface1,interface2", $element->get_implements() );
 		
+		// TODO: traits and functions
+		
 		$this->assertFalse( $element->is_placed() );
+		$this->assertEquals( 13+13+13+13+13, $element->get_height() );
 		
 	}
 

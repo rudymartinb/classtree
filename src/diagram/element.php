@@ -6,6 +6,10 @@ namespace diagram;
  */
 class element {
 	private $placed = false;
+	
+	function get_height() : int {
+		return 65;
+	}
 
 	function is_placed() : bool{
 		return $this->placed;
