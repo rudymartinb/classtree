@@ -6,6 +6,7 @@ namespace diagram;
  */
 class element {
 	private $placed = false;
+
 	function is_placed() : bool{
 		return $this->placed;
 	}
@@ -51,7 +52,23 @@ class element {
 		return $this->implements;
 	}
 	
+	private $usetraits = "";
+	function get_usetraits() {
+		return $this->usetraits;
+	}
+	function set_usetraits($usetraits) {
+		$this->usetraits = $usetraits;
+	}
 	
+	private $functions = [];
+	
+	function get_functions() {
+		return $this->functions;
+	}
+	
+	function set_functions($functions) {
+		$this->functions = $functions;
+	}
 	
 	private $x, $y;
 	function set_position( int $x, int $y ){
