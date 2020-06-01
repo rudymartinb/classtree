@@ -22,6 +22,8 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( "class", $element->get_type() );
 		$this->assertEquals( "class1", $element->get_name() );
 		$this->assertEquals( "nsname", $element->get_namespace() );
+		$this->assertEquals( "superclass", $element->get_extends() );
+		$this->assertEquals( "interface1,interface2", $element->get_implements() );
 		
 		$this->assertFalse( $element->is_placed() );
 		
