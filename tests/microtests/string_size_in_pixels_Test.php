@@ -45,6 +45,7 @@ class string_size_in_pixels_Test extends PHPUnit\Framework\TestCase {
 		
 		$textobj = new draw_text($text);
 		$this->assertEquals( 144, $textobj->get_width()  );
+		$this->assertEquals( 13, $textobj->get_height()  );
 	}
 }
 
