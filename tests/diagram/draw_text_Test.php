@@ -1,30 +1,8 @@
 <?php
-class draw_text {
-	private $text ;
-	private $height_px;
-	private $width_px;
 
-	function __construct( string $text  ){
-		$this->text = $text;
-		$font = './fonts/courier.ttf';
-		$font = realpath($font) ;
-		$arr = imagettfbbox(10, 0.0, $font, $text);
-		$this->height_px = $arr[1] - $arr[5];
-		$this->width_px = $arr[4] - $arr[0];
-		
-		
-	}
-	
-	function get_height( ) : int {
-		return $this->height_px;
-	}
-	
-	function get_width( ) : int {
-		return $this->width_px;
-	}
-	
-}
-class string_size_in_pixels_Test extends PHPUnit\Framework\TestCase {
+use diagram\draw_text;
+
+class draw_text_Test extends PHPUnit\Framework\TestCase {
 	function test_basic(){
 		/*
 		 * 0 	lower left corner, X position
