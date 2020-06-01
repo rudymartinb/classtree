@@ -20,7 +20,6 @@ class draw_text_Test extends PHPUnit\Framework\TestCase {
 		 * width : 0-4
 		 */
 		$text = "Sarasa estuvo aqui";
-		var_dump( $arr );
 		
 		$textobj = new draw_text( $text, 0,0 );
 		$this->assertEquals( 144, $textobj->get_width()  );
