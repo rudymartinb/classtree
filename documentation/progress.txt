@@ -125,3 +125,20 @@ Still I have to complete class_finder to add the same methods as interface_finde
 now I think I have all finders needed to gather the code information from source files.
 
 what's next ?
+
+20200601
+got an idea on how to assemble the graphics
+I call an "element" a box with information on it:
+it could be class, interface, trait o another thing that could come later.
+
+once I have the tree of elements to be placed on diagram, I need to evaluate the maximum height and width for each element.
+
+on each horizontal level, I need to evaluate the maximum height for all elements
+on vertical levels, I need to evaluate the maximum width for all elements.
+all I need then is to establish some % of spaces between them.
+
+then and only then I can place the items on the diagram
+
+tree calculations remains almost the same. I need to find all parents first then all childs for each class. Then calculate maximum width for each tree. That will give me the numbers of columns needed for each tree.
+
+interfaces is another problem. I'm thinking about placing them on top of classes, lowest rank interfaces first from bottom to top./
