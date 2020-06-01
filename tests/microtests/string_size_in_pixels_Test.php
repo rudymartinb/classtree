@@ -13,7 +13,12 @@ class draw_text {
 		
 		
 	}
-	function text_width( ) : int {
+	
+	function get_height( ) : int {
+		return $this->height_px;
+	}
+	
+	function get_width( ) : int {
 		return $this->width_px;
 	}
 	
@@ -39,7 +44,7 @@ class string_size_in_pixels_Test extends PHPUnit\Framework\TestCase {
 		var_dump( $arr );
 		
 		$textobj = new draw_text($text);
-		$this->assertEquals( 144, $textobj->text_width()  );
+		$this->assertEquals( 144, $textobj->get_width()  );
 	}
 }
 
