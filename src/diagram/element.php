@@ -1,5 +1,9 @@
 <?php
 namespace diagram;
+
+/*
+ * element = class, interface or trait
+ */
 class element {
 	private $placed = false;
 	function is_placed() : bool{
@@ -29,6 +33,26 @@ class element {
 	function get_namespace() : string {
 		return $this->namespace;
 	}
+
+	private $extends = "";
+	function set_extends( string $extends ){
+		$this->extends = $extends;
+	}
+	function get_extends() : string {
+		return $this->extends;
+	}
+
+	// string of comma separated interfaces
+	private $implements = "";
+	function set_implements( string $implements ){
+		$this->implements = $implements;
+	}
+	function get_implements() : string {
+		return $this->implements;
+	}
+	
+	
+	
 	private $x, $y;
 	function set_position( int $x, int $y ){
 		$this->x = $x;

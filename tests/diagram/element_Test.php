@@ -15,6 +15,9 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$element->set_type("class");
 		$element->set_name("class1");
 		$element->set_namespace("nsname");
+		$element->set_extends("superclass");
+		$element->set_implements("interface1,interface2");
+
 		
 		$this->assertEquals( "class", $element->get_type() );
 		$this->assertEquals( "class1", $element->get_name() );

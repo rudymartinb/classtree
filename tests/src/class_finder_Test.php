@@ -52,7 +52,7 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_class_extends_and_implements(){
-		$source = 'class test extends one implements something, else';
+		$source = 'class test extends one implements something, else {';
 		$finder = new class_finder( $source );
 		
 		$this->assertEquals( true, $finder->more_elements() );
@@ -64,46 +64,42 @@ class class_finder_Test extends PHPUnit\Framework\TestCase {
 	
 	
     function test_body_1_class(){
-        $source = 'class test 
-{
+    	$expected_body = '{
 function test1(){
 }
 }';
+    	
+        $source = 'class test '.$expected_body;
         
         $finder = new class_finder($source);
 
         $this->assertEquals( true, $finder->more_elements() );
         $this->assertEquals( "test", $finder->get_name() );
         
-        $expected = '{
-function test1(){
-}
-}';
-        $this->assertEquals( $expected, $finder->get_body() );
+        $this->assertEquals( $expected_body, $finder->get_body() );
     }
 
     function test_body_2_classes(){
-    	$source = 'class test {
+    	$expected_body1 = '{
 function test1(){
 }
 }
-class test2 {
+';
+    	$expected_body2 = '{
 function test2(){
 }
 }';
-    	
+    	$source = 'class test '.$expected_body1;
+    	$source .= 'class test2 '.$expected_body2;
     	$finder = new class_finder($source);
     	
     	$this->assertEquals( true, $finder->more_elements() );
     	$this->assertEquals( "test", $finder->get_name() );
     	$finder->next();
     	
-    	$expected = '{
-function test2(){
-}
-}';
+    	
 //     	var_dump($finder->matches($source)[0]);
-    	$this->assertEquals( $expected, $finder->get_body() );
+    	$this->assertEquals( $expected_body2, $finder->get_body() );
     	$this->assertEquals( "test2", $finder->get_name() );
     	
     	
