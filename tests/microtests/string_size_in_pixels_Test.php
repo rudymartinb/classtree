@@ -3,6 +3,7 @@ class draw_text {
 	private $text ;
 	private $height_px;
 	private $width_px;
+
 	function __construct( string $text  ){
 		$this->text = $text;
 		$font = './fonts/courier.ttf';
@@ -43,7 +44,7 @@ class string_size_in_pixels_Test extends PHPUnit\Framework\TestCase {
 		$text = "Sarasa estuvo aqui";
 		var_dump( $arr );
 		
-		$textobj = new draw_text($text);
+		$textobj = new draw_text( $text, 0,0 );
 		$this->assertEquals( 144, $textobj->get_width()  );
 		$this->assertEquals( 13, $textobj->get_height()  );
 	}
