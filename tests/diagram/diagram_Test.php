@@ -35,6 +35,9 @@ class diagram_Test extends PHPUnit\Framework\TestCase {
 		$element = $diagram->get_element_by_name( "myclass" );
 		
 		$this->assertEquals( true, $element->is_placed() );
+		
+		$diagram->draw();
+		
 	}
 	
 }
