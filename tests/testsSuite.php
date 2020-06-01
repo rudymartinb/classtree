@@ -20,6 +20,7 @@ require_once 'microtests/preg/preg_match_all_Test.php';
 require_once 'microtests/preg/params_Test.php';
 
 require_once 'tests/microtests/filesTest.php';
+require_once 'tests/microtests/string_size_in_pixels_Test.php';
 
 
 /* test cases
@@ -56,6 +57,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->addTestSuite('trait_finder_Test');
         $this->addTestSuite('usetrait_finder_Test');
         $this->addTestSuite('function_finder_Test');
+        $this->addTestSuite('string_size_in_pixels_Test');
         
         // diagram
         $this->addTestSuite('diagram_Test');

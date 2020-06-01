@@ -29,4 +29,6 @@ if (!$testGD){
 	return;
 }
 
+putenv('GDFONTPATH=' . realPath('fonts'));
+
 ?>
