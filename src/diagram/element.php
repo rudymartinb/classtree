@@ -62,7 +62,7 @@ class element {
 	private function draw_class( ){
 		$x = $this->x;
 		$y = $this->y;
-		$width = $this->get_width()+20;
+		$width = $this->get_width()+10;
 		$height = $this->get_width();
 		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
 		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
