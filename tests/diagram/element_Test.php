@@ -9,7 +9,7 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$this->assertFalse( $element->is_placed() );
 	}
 
-	function test_height_name(){
+	function test_just_name(){
 		$element = new element();
 		
 		$element->set_type("class");
@@ -17,12 +17,29 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$element->set_position(10, 10);
 		
 		
+// 		$element->draw();
+		
+		$this->assertEquals( 48, $element->get_width() );
+		$this->assertEquals( 13, $element->get_height() );
+		
+	}
+
+	
+	function test_interface_name(){
+		$element = new element();
+		
+		$element->set_type("interface");
+		$element->set_name("class1");
+		$element->set_position(10, 10);
+		
 		$element->draw();
 		
 		$this->assertEquals( 48, $element->get_width() );
 		$this->assertEquals( 13, $element->get_height() );
 		
 	}
+	
+	
 	function test_attributes(){
 		$element = new element();
 		
