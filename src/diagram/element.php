@@ -48,6 +48,11 @@ class element {
 		$this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
 		
 		$this->set_colors();
+		$this->set_canvas();
+		
+		
+		
+		
 		imageantialias ( $this->img, true );
 		
 		\imagepng($this->img,"/var/www/htdocs/salida.png");
@@ -78,6 +83,9 @@ class element {
 		
 		$this->color["gray"]   = imagecolorallocate($this->img, 240,   240,  240);
 		
+	}
+	function set_canvas(){
+		imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
 	}
 	
 }
