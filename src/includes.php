@@ -19,6 +19,8 @@ function include_project_files( string $path ){
     require_once $path.'src/diagram/draw_text.php';
     
     require_once $path.'src/diagram/diagram.php';
+    
+    require_once $path.'src/diagram/properties/element_properties.php';
     require_once $path.'src/diagram/element.php';
 
 }
