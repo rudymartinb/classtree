@@ -60,7 +60,7 @@ class element {
 		$this->draw_class();
 		imagepng($this->img,"/var/www/htdocs/salida.png");
 	}
-	
+	private $layout = [];
 	function do_layout(){
 		$vertical = [];
 		if( $this->type != "class"){
@@ -68,6 +68,8 @@ class element {
 			$vertical[] = $this->type_draw;
 		}
 		$vertical[] = $this->name_draw;
+		
+		$this->layout = $vertical;
 	}
 	private function draw_class( ){
 		$x = $this->x;
@@ -76,8 +78,9 @@ class element {
 		$height = $this->get_width();
 		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
 		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
-		if( $this->type != "class" )
+		if( $this->type != "class" ){
 			$this->draw_type();
+		}
 		$this->draw_class_name();
 	}
 
