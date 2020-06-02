@@ -66,7 +66,12 @@ class element {
 		$height = $this->get_width();
 		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
 		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
-		
+		$this->draw_class_name();
+	}
+	
+	private function draw_class_name(){
+		$x = $this->x;
+		$y = $this->y;
 		putenv('GDFONTPATH=' . realPath('fonts'));
 		$font = './fonts/courier.ttf';
 		$font = realpath($font) ;
