@@ -14,8 +14,6 @@ class draw_text {
 		$arr = imagettfbbox(10, 0.0, $font, $text);
 		$this->height_px = $arr[1] - $arr[5];
 		$this->width_px = $arr[4] - $arr[0];
-		
-		
 	}
 	
 	function get_height( ) : int {
