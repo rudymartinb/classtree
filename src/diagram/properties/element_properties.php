@@ -33,8 +33,10 @@ trait element_properties {
 	}
 	
 	private $extends = "";
+	private $extends_draw;
 	function set_extends( string $extends ){
 		$this->extends = $extends;
+		$this->extends_draw = new draw_text($extends);
 	}
 	function get_extends() : string {
 		return $this->extends;
@@ -42,21 +44,24 @@ trait element_properties {
 	
 	// string of comma separated interfaces
 	private $implements = "";
+	private $implements_draw;
 	function set_implements( string $implements ){
 		$this->implements = $implements;
+		$this->implements_draw = new draw_text($implements);
 	}
 	function get_implements() : string {
 		return $this->implements;
 	}
 	
 	private $usetraits = "";
+	private $usetraits_draw = "";
+	function set_usetraits($usetraits) {
+		$this->usetraits = $usetraits;
+		$this->usetraits_draw = new draw_text($usetraits);
+	}
 	function get_usetraits() {
 		return $this->usetraits;
 	}
-	function set_usetraits($usetraits) {
-		$this->usetraits = $usetraits;
-	}
-	
 	private $functions = [];
 	
 	function get_functions() {
