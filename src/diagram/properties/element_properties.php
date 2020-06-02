@@ -3,16 +3,20 @@ namespace diagram;
 
 trait element_properties {
 	private $type = "";
+	private $type_draw;
 	function set_type( string $type ){
 		$this->type = $type;
+		$this->type_draw = new draw_text($type);
 	}
 	function get_type() : string {
 		return $this->type;
 	}
 	
 	private $name = "";
+	private $name_draw = "";
 	function set_name( string $name ){
 		$this->name = $name;
+		$this->name_draw = new draw_text($name);
 	}
 	function get_name() : string {
 		return $this->name;
