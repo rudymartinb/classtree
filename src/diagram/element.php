@@ -1,20 +1,7 @@
 <?php
 namespace diagram;
 
-/*
- * element = class, interface or trait
- */
-class element {
-	private $placed = false;
-	
-	function get_height() : int {
-		return 65;
-	}
-
-	function is_placed() : bool{
-		return $this->placed;
-	}
-	
+trait element_properties {
 	private $type = "";
 	function set_type( string $type ){
 		$this->type = $type;
@@ -30,7 +17,7 @@ class element {
 	function get_name() : string {
 		return $this->name;
 	}
-
+	
 	private $namespace = "";
 	function set_namespace( string $namespace ){
 		$this->namespace  = $namespace;
@@ -38,7 +25,7 @@ class element {
 	function get_namespace() : string {
 		return $this->namespace;
 	}
-
+	
 	private $extends = "";
 	function set_extends( string $extends ){
 		$this->extends = $extends;
@@ -46,7 +33,7 @@ class element {
 	function get_extends() : string {
 		return $this->extends;
 	}
-
+	
 	// string of comma separated interfaces
 	private $implements = "";
 	function set_implements( string $implements ){
@@ -72,6 +59,22 @@ class element {
 	
 	function set_functions($functions) {
 		$this->functions = $functions;
+	}
+	
+}
+/*
+ * element = class, interface or trait
+ */
+class element {
+	use element_properties;
+	
+	private $placed = false;
+	function get_height() : int {
+		return 65;
+	}
+
+	function is_placed() : bool{
+		return $this->placed;
 	}
 	
 	private $x, $y;
