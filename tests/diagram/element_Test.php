@@ -15,9 +15,12 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$element->set_type("class");
 		$element->set_name("class1");
 		$element->set_position(10, 10);
-		$this->assertEquals( 13, $element->get_height() );
+		
 		
 		$element->draw();
+		
+		$this->assertEquals( 48, $element->get_width() );
+		$this->assertEquals( 13, $element->get_height() );
 		
 	}
 	function test_attributes(){

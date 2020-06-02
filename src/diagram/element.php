@@ -20,7 +20,11 @@ class element {
 		$total = $this->name_draw->get_height();
 		return $total;
 	}
-
+	function get_width() : int {
+		$total = $this->name_draw->get_width();
+		return $total;
+	}
+	
 	function is_placed() : bool{
 		return $this->placed;
 	}
