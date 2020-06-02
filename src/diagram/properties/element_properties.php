@@ -13,7 +13,7 @@ trait element_properties {
 	}
 	
 	private $name = "";
-	private $name_draw = "";
+	private $name_draw;
 	function set_name( string $name ){
 		$this->name = $name;
 		$this->name_draw = new draw_text($name);
@@ -23,8 +23,10 @@ trait element_properties {
 	}
 	
 	private $namespace = "";
+	private $namespace_draw;
 	function set_namespace( string $namespace ){
 		$this->namespace  = $namespace;
+		$this->namespace_draw = new draw_text($namespace);
 	}
 	function get_namespace() : string {
 		return $this->namespace;
