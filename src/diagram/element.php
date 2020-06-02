@@ -66,7 +66,19 @@ class element {
 		$height = $this->get_width();
 		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
 		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
+		if( $this->type != "class" )
+			$this->draw_type();
 		$this->draw_class_name();
+	}
+
+	private function draw_type(){
+		$x = $this->x;
+		$y = $this->y;
+		putenv('GDFONTPATH=' . realPath('fonts'));
+		$font = './fonts/courier.ttf';
+		$font = realpath($font) ;
+		$text = "<<".$this->type.">>" ;
+		\imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $text);
 	}
 	
 	private function draw_class_name(){
@@ -80,16 +92,9 @@ class element {
 	}
 	
 	function set_colors(){
-		/* background color
-		 */
 		$this->color["white"] = imagecolorallocate($this->img, 255,   255,  255);
-		
-		/* boxes
-		 */
 		$this->color["black"] = imagecolorallocate($this->img, 0,   0,  0);
-		
 		$this->color["gray"]   = imagecolorallocate($this->img, 240,   240,  240);
-		
 	}
 	
 	function set_canvas(){
