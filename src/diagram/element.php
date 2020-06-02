@@ -36,6 +36,7 @@ class element {
 		$this->placed = true;
 	}
 	
+	
 	private $img;
 	private $colors = [];
 	function draw() {
@@ -58,6 +59,15 @@ class element {
 		
 		$this->draw_class();
 		imagepng($this->img,"/var/www/htdocs/salida.png");
+	}
+	
+	function do_layout(){
+		$vertical = [];
+		if( $this->type != "class"){
+			$this->type_draw = new draw_text( "<<".$this->type.">>" );
+			$vertical[] = $this->type_draw;
+		}
+		$vertical[] = $this->name_draw;
 	}
 	private function draw_class( ){
 		$x = $this->x;
