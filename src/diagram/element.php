@@ -17,7 +17,8 @@ class element {
 	
 	private $placed = false;
 	function get_height() : int {
-		return 65;
+		$total = $this->name_draw->get_height();
+		return $total;
 	}
 
 	function is_placed() : bool{
