@@ -86,6 +86,7 @@ class element {
 	function set_canvas(){
 		// border
 		imagerectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["black"]);
+		// background
 		imagefilledrectangle($this->img, 1,1,$this->maxwidth-2, $this->maxheight-2, $this->color["white"]);
 	}
 	
