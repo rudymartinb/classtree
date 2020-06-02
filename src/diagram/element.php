@@ -50,14 +50,12 @@ class element {
 		$this->set_colors();
 		$this->set_canvas();
 		
-		
-		
-		
 		imageantialias ( $this->img, true );
 		
-		\imagepng($this->img,"/var/www/htdocs/salida.png");
+		$this->draw_class();
+		imagepng($this->img,"/var/www/htdocs/salida.png");
 	}
-	private function draw_class( string $name, Array $class ){
+	private function draw_class( ){
 		$x = $this->x;
 		$y = $this->y;
 		$width = 100;
@@ -68,7 +66,7 @@ class element {
 		putenv('GDFONTPATH=' . realPath('fonts'));
 		$font = './fonts/courier.ttf';
 		$font = realpath($font) ;
-		$text = $name ." ". $class["x"]." ".$class["y"];
+		$text = $this->name ;
 		\imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $text);
 	}
 	
