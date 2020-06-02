@@ -63,6 +63,7 @@ trait element_properties {
 		return $this->usetraits;
 	}
 	private $functions = [];
+	private $functions_draw = [];
 	function get_functions() : Array {
 		return $this->functions;
 	}
