@@ -23,6 +23,8 @@ require_once 'tests/microtests/filesTest.php';
 require_once 'diagram/draw_text_Test.php';
 
 
+
+
 /* test cases
  */
 require_once 'tests/src/parameters_finder_Test.php';
@@ -35,6 +37,8 @@ require_once 'tests/src/trait_finder_Test.php';
 require_once 'tests/src/usetrait_finder_Test.php';
 
 // diagram
+require_once 'tests/diagram/doubles/draw_text_mock.php';
+
 require_once 'tests/diagram/VerticalLayout_Test.php';
 require_once 'tests/diagram/element_Test.php';
 require_once 'tests/diagram/diagram_Test.php';

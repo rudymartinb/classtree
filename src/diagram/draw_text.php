@@ -3,9 +3,9 @@ namespace diagram;
 
 
 class draw_text implements component {
-	private $text ;
-	private $height_px;
-	private $width_px;
+	protected $text ;
+	protected $height_px;
+	protected $width_px;
 	
 	function __construct( string $text  ){
 		$this->text = $text;
