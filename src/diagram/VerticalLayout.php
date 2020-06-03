@@ -26,4 +26,16 @@ class VerticalLayout {
 		}
 		return $height + 10;
 	}
+	
+	function get_max_width() : int {
+		$max_width = 0;
+		foreach( $this->components as $component ){
+			$component = force_component($component);
+			$width = $component->get_width();
+			if( $width > $max_width ){
+				$max_width = $width;	
+			}
+		}
+		return $max_width + 10;
+	}
 }

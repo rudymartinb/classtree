@@ -16,6 +16,7 @@ class VerticalLayout_Test extends PHPUnit\Framework\TestCase {
 		
 		$this->assertEquals( 1, $layout->get_num_components() );
 		$this->assertEquals( 23, $layout->get_max_height() );
+		$this->assertEquals( 162, $layout->get_max_width() );
 		
 		
 	}
