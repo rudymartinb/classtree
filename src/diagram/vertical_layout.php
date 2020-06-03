@@ -11,7 +11,7 @@ function force_component( component $component ) : \diagram\component {
 	return $component;
 }
 
-class VerticalLayout {
+class vertical_layout {
 	
 	private $components = [];
 	function add( component $component ){

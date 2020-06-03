@@ -1,11 +1,11 @@
 <?php
 
-use diagram\VerticalLayout;
+use diagram\vertical_layout;
 use diagram\draw_text;
 
-class VerticalLayout_Test extends PHPUnit\Framework\TestCase {
+class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 	function test_basic(){
-		$layout = new VerticalLayout();
+		$layout = new vertical_layout();
 		$this->assertEquals( 0, $layout->get_num_components() );
 	}
 
@@ -16,7 +16,7 @@ class VerticalLayout_Test extends PHPUnit\Framework\TestCase {
 	 * TODO: create a mock to avoid this
 	 */
 	function test_1(){
-		$layout = new VerticalLayout();
+		$layout = new vertical_layout();
 		$mytext = new DrawTextMock("something goes here",  100, 20 );
 		$layout->add( $mytext );
 		

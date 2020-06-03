@@ -16,7 +16,7 @@ function include_project_files( string $path ){
     require_once $path.'src/files.php';
     
     // diagrams
-    require_once $path.'src/diagram/VerticalLayout.php';
+    require_once $path.'src/diagram/vertical_layout.php';
     require_once $path.'src/diagram/draw_text.php';
     
     require_once $path.'src/diagram/diagram.php';
