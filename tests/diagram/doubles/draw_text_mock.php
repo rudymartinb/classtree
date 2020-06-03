@@ -1,8 +1,8 @@
 <?php
-use diagram\component;
+
 use diagram\draw_text;
 
-class DrawTextMock extends draw_text implements component {
+class DrawTextMock extends draw_text {
 	
 	function __construct( string $text, int $width, int $height ) {
 		$this->text = $text;
