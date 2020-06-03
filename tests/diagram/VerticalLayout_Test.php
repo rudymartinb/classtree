@@ -12,6 +12,8 @@ class VerticalLayout_Test extends PHPUnit\Framework\TestCase {
 	/*
 	 * this tests depends on draw_text style of text
 	 * if font and/or size is changed, it will fail.
+	 * 
+	 * TODO: create a mock to avoid this
 	 */
 	function test_1(){
 		$layout = new VerticalLayout();
