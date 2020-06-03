@@ -2,7 +2,7 @@
 namespace diagram;
 
 
-class draw_text {
+class draw_text implements component {
 	private $text ;
 	private $height_px;
 	private $width_px;
