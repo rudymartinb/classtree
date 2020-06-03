@@ -18,7 +18,7 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		
 		$element->do_layout();
 		
-// 		$element->draw();
+		$element->draw();
 		
 		$this->assertEquals( 58, $element->get_width() );
 		$this->assertEquals( 23, $element->get_height() );
