@@ -4,6 +4,9 @@ interface component {
 	function get_width() : int;
 	function get_height() : int;
 }
+
+
+// this hack is just to force Eclipse IDE to recognize the propper type
 function force_component( component $component ) : \diagram\component {
 	return $component;
 }
