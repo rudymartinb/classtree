@@ -23,5 +23,12 @@ class draw_text implements component {
 	function get_width( ) : int {
 		return $this->width_px;
 	}
+	private $x = 0;
+	private $y = 0;
+	function set_xy(int $x, int $y) {
+		$this->x = $x;
+		$this->y = $y;
+	}
+
 	
 }

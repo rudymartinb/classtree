@@ -3,6 +3,7 @@ namespace diagram;
 interface component {
 	function get_width() : int;
 	function get_height() : int;
+	function set_xy( int $x, int $y );
 }
 
 
