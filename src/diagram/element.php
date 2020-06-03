@@ -17,11 +17,11 @@ class element {
 	
 	private $placed = false;
 	function get_height() : int {
-		$total = $this->name_draw->get_height();
+		$total = $this->name_draw->get_height()+10;
 		return $total;
 	}
 	function get_width() : int {
-		$total = $this->name_draw->get_width();
+		$total = $this->name_draw->get_width()+10;
 		return $total;
 	}
 	
@@ -60,22 +60,38 @@ class element {
 		$this->draw_class();
 		imagepng($this->img,"/var/www/htdocs/salida.png");
 	}
+	
 	private $layout = [];
 	function do_layout(){
 		$vertical = [];
-		if( $this->type != "class"){
-			$this->type_draw = new draw_text( "<<".$this->type.">>" );
-			$vertical[] = $this->type_draw;
-		}
+// 		if( $this->type != "class"){
+// 			$this->type_draw = new draw_text( "<<".$this->type.">>" );
+// 			$vertical[] = $this->type_draw;
+// 		}
+		
 		$vertical[] = $this->name_draw;
 		
 		$this->layout = $vertical;
+		
+		/*
+		 * x and y are just the starting point
+		 * from the upper left corner.
+		 * 
+		 * now I need to figure out 
+		 * how to place the components from the relative position.
+		 */
+		$width = $this->get_width()+10;
+		$height = $this->get_height()+10;
+		
+		
 	}
+	
+	
 	private function draw_class( ){
 		$x = $this->x;
 		$y = $this->y;
 		$width = $this->get_width()+10;
-		$height = $this->get_width();
+		$height = $this->get_height();
 		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
 		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
 		if( $this->type != "class" ){

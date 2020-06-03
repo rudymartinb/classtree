@@ -16,13 +16,16 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$element->set_name("class1");
 		$element->set_position(10, 10);
 		
+		$element->do_layout();
 		
 // 		$element->draw();
 		
-		$this->assertEquals( 48, $element->get_width() );
-		$this->assertEquals( 13, $element->get_height() );
+		$this->assertEquals( 58, $element->get_width() );
+		$this->assertEquals( 23, $element->get_height() );
 		
 	}
+	
+	
 
 	
 // 	function test_interface_name(){
