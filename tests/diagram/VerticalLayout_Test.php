@@ -9,6 +9,10 @@ class VerticalLayout_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 0, $layout->get_num_components() );
 	}
 
+	/*
+	 * this tests depends on draw_text style of text
+	 * if font and/or size is changed, it will fail.
+	 */
 	function test_1(){
 		$layout = new VerticalLayout();
 		$mytext = new draw_text("something goes here");
