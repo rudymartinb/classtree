@@ -18,7 +18,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$layout->add( $mytext );
 		$layout->do_layout();
 		$this->assertEquals( 1, $layout->get_num_components() );
-		$this->assertEquals( 30, $layout->get_max_height() );
+		$this->assertEquals( 33, $layout->get_max_height() );
 		$this->assertEquals( 110, $layout->get_max_width() );
 		
 		
@@ -27,7 +27,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		// margin 5
 		// equals 25 for x and y
 		$this->assertEquals( 25, $mytext->get_x() );
-		$this->assertEquals( 25, $mytext->get_y() );
+		$this->assertEquals( 48, $mytext->get_y() );
 	}
 
 	
@@ -41,11 +41,11 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$layout->add( $mytext );
 		$layout->do_layout();
 		$this->assertEquals( 2, $layout->get_num_components() );
-		$this->assertEquals( 50, $layout->get_max_height() );
+		$this->assertEquals( 56, $layout->get_max_height() );
 		$this->assertEquals( 110, $layout->get_max_width() );
 		
 		$this->assertEquals( 25, $mytext->get_x() );
-		$this->assertEquals( 48, $mytext->get_y() );
+		$this->assertEquals( 71, $mytext->get_y() );
 	}
 
 	function test_draw(){
