@@ -91,7 +91,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		
 		$layout->add( new draw_text( "something goes here" ) );
 		$layout->add( new draw_line() );
-		$layout->add( new draw_text( "something goes here" ) );
+		$layout->add( new draw_text( "something goes there" ) );
 		
 		$layout->do_layout();
 		
