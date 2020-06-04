@@ -45,7 +45,7 @@ trait element_properties {
 	
 	// string of comma separated interfaces
 	private $implements = "";
-	private $implements_draw;
+	private $implements_draw = [];
 	function set_implements( string $implements ){
 		$this->implements = $implements;
 		$this->implements_draw = new draw_text($implements);

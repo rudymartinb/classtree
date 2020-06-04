@@ -52,6 +52,14 @@ class element {
 			$layout->add( $this->type_draw );
 		}
 		$layout->add(new draw_text($this->name));
+		if( $this->extends != "" ){
+			$layout->add( $this->extends_draw );
+		}
+		foreach( $this->implements_draw as $implements ){
+			$layout->add( $implements );
+		}
+		
+		$layout->add(new draw_text($this->name));
 		
 		
 		$this->maxwidth = 1024;
