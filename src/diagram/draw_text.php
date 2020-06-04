@@ -16,8 +16,6 @@ class draw_text implements component {
 		if( $this->img === null ){
 			return;
 		}
-		$x = $this->x;
-		$y = $this->y;
 		putenv('GDFONTPATH=' . realPath('fonts'));
 		$font = './fonts/courier.ttf';
 		$font = realpath($font) ;
