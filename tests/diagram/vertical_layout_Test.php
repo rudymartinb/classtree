@@ -53,7 +53,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$layout->set_xy( 20,20 );
 		$mytext = new DrawTextMock("something goes here",  100, 20 );
 		$mytext->set_draw_function(
-				function() { $this->assertTrue(); }
+				function() { $this->assertTrue( true ); }
 				);
 		$layout->add( $mytext );
 		$layout->do_layout();

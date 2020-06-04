@@ -13,7 +13,8 @@ class draw_text implements component {
 	}
 	
 	function draw( $img ){
-		if( $this->img === null ){
+		
+		if( $img === null ){
 			return;
 		}
 		
