@@ -47,10 +47,11 @@ class vertical_layout {
 	}
 	
 	function draw( $img ) {
-		echo "about to draw!". $img;
+		
 		if( !$this->layout_done ){
 			$this->do_layout();
 		}
+		echo "about to draw!". $img;
 		foreach( $this->components as $component ){
 			$component = force_component($component);
 			$component->draw($img);
