@@ -12,8 +12,10 @@ class element_Test extends PHPUnit\Framework\TestCase {
 	function test_just_name(){
 		$element = new element();
 		
-		$element->set_type("interface");
+		$element->set_type("class");
 		$element->set_name("class1");
+		$element->set_extends("super");
+		$element->set_usetraits("trait1");
 		$element->set_position(10, 10);
 		
 		
