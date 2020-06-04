@@ -7,7 +7,31 @@ class draw_text implements component {
 	protected $height_px;
 	protected $width_px;
 	
+	private $draw_function;
+	function set_draw_function( Callable $function ){
+		$this->draw_function = $function;
+	}
+	
+	function draw( $img ){
+		if( $this->img === null ){
+			return;
+		}
+		$x = $this->x;
+		$y = $this->y;
+		putenv('GDFONTPATH=' . realPath('fonts'));
+		$font = './fonts/courier.ttf';
+		$font = realpath($font) ;
+		$function = $this->draw_function;
+		$function( $img, $font );
+
+	}
+	
+	
 	function __construct( string $text  ){
+		$this->draw_function = function( $img, $font ){
+			\imagettftext($img, 10,0.0, $this->x, $this->y, $this->color["black"] , $font, $this->text);
+		};
+		
 		$this->text = $text;
 		$font = './fonts/courier.ttf';
 		$font = realpath($font) ;

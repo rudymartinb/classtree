@@ -43,14 +43,24 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 50, $layout->get_max_height() );
 		$this->assertEquals( 110, $layout->get_max_width() );
 		
-		
-		// just one element
-		// grid at 20,20
-		// margin 5
-		// equals 25 for x and y
 		$this->assertEquals( 25, $mytext->get_x() );
 		$this->assertEquals( 45, $mytext->get_y() );
 	}
+
+	function test_draw(){
+		$layout = new vertical_layout();
+		$layout->set_margin(5);
+		$layout->set_xy( 20,20 );
+		$mytext = new DrawTextMock("something goes here",  100, 20 );
+		$mytext->set_draw_function(
+				function() { $this->assertTrue(); }
+				);
+		$layout->add( $mytext );
+		$layout->do_layout();
+		
+		$layout->draw( null );
+	}
+	
 	
 }
 

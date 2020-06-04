@@ -6,6 +6,7 @@ interface component {
 	function set_xy( int $x, int $y );
 	function get_x() : int;
 	function get_y() : int;
+	function draw( $img );
 }
 
 
@@ -34,7 +35,7 @@ class vertical_layout {
 		$this->y = $y;
 	}
 
-	
+	private $layout_done = false;
 	function do_layout() {
 		$new_y = $this->y+$this->margin_all;
 		foreach( $this->components as $component ){
@@ -43,6 +44,18 @@ class vertical_layout {
 			$new_y += $component->get_height();
 		}
 	}
+	
+	function draw( $img ) {
+		if( !$this->layout_done ){
+			$this->do_layout();
+		}
+		foreach( $this->components as $component ){
+			$component = force_component($component);
+			$component->draw($img);
+
+		}
+	}
+	
 	
 	
 	function get_max_height() : int {
