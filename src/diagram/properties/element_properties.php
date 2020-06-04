@@ -7,7 +7,7 @@ trait element_properties {
 	private $type_draw;
 	function set_type( string $type ){
 		$this->type = $type;
-		$this->type_draw = new draw_text($type);
+		$this->type_draw = new draw_text("<<".$type.">>");
 		$this->draw_text_list[] = $this->type_draw;
 	}
 	function get_type() : string {
