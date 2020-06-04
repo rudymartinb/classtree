@@ -22,11 +22,21 @@ class draw_line implements component {
 	
 	
 	function __construct(){
+		
 		$this->draw_function = function( $img  ){
 			// TODO: replace with the actual function all
+			$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
+			$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
+			$this->color["gray"]   = imagecolorallocate($img, 240,   240,  240);
+			
+			imagerectangle($img, $this->x, $this->y, $this->x+$this->width, $this->y, $this->color["black"] );
 		};
 	}
 	
+	private $width = 0;
+	function set_width( int $width ){
+		$this->width = $width;
+	}
 	function get_width(): int {
 	}
 
@@ -37,6 +47,8 @@ class draw_line implements component {
 	}
 
 	function set_xy(int $x, int $y) {
+		$this->x = $x;
+		$this->y = $y;
 	}
 
 	function get_height(): int {
