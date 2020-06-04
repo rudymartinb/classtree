@@ -99,6 +99,14 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$this->maxheight = 768;
 		
 		$img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
+		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
+		$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
+		$this->color["gray"]   = imagecolorallocate($img, 240,   240,  240);
+		// black border
+		imagerectangle($img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["black"]);
+		// white background
+		imagefilledrectangle($img, 1,1,$this->maxwidth-2, $this->maxheight-2, $this->color["white"]);
+		
 		
 		$layout->draw( $img );
 		imagepng($img,"/var/www/htdocs/salida.png");
