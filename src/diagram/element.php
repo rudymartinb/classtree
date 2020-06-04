@@ -58,8 +58,10 @@ class element {
 		foreach( $this->implements_draw as $implements ){
 			$layout->add( $implements );
 		}
-		
-// 		$layout->add(new draw_text($this->name));
+		foreach ($this->functions_draw as $function ){
+			$layout->add( $function );
+		}
+// 		
 		
 		
 		$this->maxwidth = 1024;
