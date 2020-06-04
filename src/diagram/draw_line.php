@@ -29,7 +29,7 @@ class draw_line implements component {
 			$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
 			$this->color["gray"]   = imagecolorallocate($img, 240,   240,  240);
 			
-			imagerectangle($img, $this->x, $this->y-5, $this->x+$this->width, $this->y-5, $this->color["black"] );
+			imagerectangle($img, $this->x, $this->y-3, $this->x+$this->width, $this->y-3, $this->color["black"] );
 		};
 	}
 	

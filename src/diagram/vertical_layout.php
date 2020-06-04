@@ -38,6 +38,7 @@ class vertical_layout {
 		$this->y = $y;
 	}
 
+	private $internal_margin = 3;
 	private $layout_done = false;
 	function do_layout() {
 		$width = $this->get_max_width();
@@ -46,7 +47,7 @@ class vertical_layout {
 			$component = force_component($component);
 			$component->set_xy( $this->x+$this->margin_all, $new_y );
 			$component->set_width($width);
-			$new_y += $component->get_height();
+			$new_y += $component->get_height() + $this->internal_margin;
 		}
 		$this->layout_done = true;
 	}
