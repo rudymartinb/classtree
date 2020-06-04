@@ -21,11 +21,6 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 33, $layout->get_max_height() );
 		$this->assertEquals( 110, $layout->get_max_width() );
 		
-		
-		// just one element
-		// grid at 20,20
-		// margin 5
-		// equals 25 for x and y
 		$this->assertEquals( 25, $mytext->get_x() );
 		$this->assertEquals( 48, $mytext->get_y() );
 	}
@@ -83,38 +78,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$layout->draw( 1 );
 	}
 
-	
-// 	function test_lets_draw(){
-// 		$layout = new vertical_layout();
-// 		$layout->set_margin(5);
-// 		$layout->set_xy( 20,20 );
-		
-// 		$layout->add( new draw_text( "something goes here" ) );
-// 		$layout->add( new draw_line() );
-// 		$layout->add( new draw_text( "something goes there" ) );
-// 		$layout->add( new draw_text( "this is" ) );
-// 		$layout->add( new draw_text( "a test" ) );
-		
-// 		$layout->do_layout();
-		
-// 		$this->maxwidth = 1024;
-// 		$this->maxheight = 768;
-		
-// 		$img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
-// 		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
-// 		$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
-// 		$this->color["gray"]   = imagecolorallocate($img, 240,   240,  240);
-// 		// black border
-// 		imagerectangle($img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["black"]);
-// 		// white background
-// 		imagefilledrectangle($img, 1,1,$this->maxwidth-2, $this->maxheight-2, $this->color["white"]);
-		
-		
-// 		$layout->draw( $img );
-// 		imagepng($img,"/var/www/htdocs/salida.png");
-		
-// 		$this->assertTrue(true);
-// 	}
+
 	
 	
 }
