@@ -48,7 +48,7 @@ class element {
 		
 		$layout = new vertical_layout();
 		$layout->set_xy($this->x, $this->y);
-		if( $this->type != "" ){
+		if( $this->type != "class" ){
 			$layout->add( $this->type_draw );
 		}
 		$layout->add(new draw_text($this->name));
