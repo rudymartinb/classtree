@@ -103,6 +103,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$layout->draw( $this->img );
 		imagepng($this->img,"/var/www/htdocs/salida.png");
 		
+		$this->assertTrue(true);
 	}
 	
 	
