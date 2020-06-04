@@ -78,18 +78,18 @@ class element {
 	}
 	
 	
-	private function draw_class( ){
-		$x = $this->x;
-		$y = $this->y;
-		$width = $this->get_width()+10;
-		$height = $this->get_height();
-		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
-		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
-		if( $this->type != "class" ){
-			$this->draw_type();
-		}
-		$this->draw_class_name();
-	}
+// 	private function draw_class( ){
+// 		$x = $this->x;
+// 		$y = $this->y;
+// 		$width = $this->get_width()+10;
+// 		$height = $this->get_height();
+// 		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
+// 		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
+// 		if( $this->type != "class" ){
+// 			$this->draw_type();
+// 		}
+// 		$this->draw_class_name();
+// 	}
 
 	
 	function set_colors(){
