@@ -47,6 +47,7 @@ class vertical_layout {
 	}
 	
 	function draw( $img ) {
+		echo "about to draw!". $img;
 		if( !$this->layout_done ){
 			$this->do_layout();
 		}
