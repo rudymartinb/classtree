@@ -42,7 +42,7 @@ class vertical_layout {
 		$new_y = $this->y+$this->margin_all;
 		foreach( $this->components as $component ){
 			$component = force_component($component);
-			$component->set_xy($this->x+$this->margin_all, $new_y );
+			$component->set_xy( $this->x+$this->margin_all, $new_y );
 			$new_y += $component->get_height();
 		}
 		$this->layout_done = true;
