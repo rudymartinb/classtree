@@ -29,6 +29,15 @@ class draw_text implements component {
 		$this->x = $x;
 		$this->y = $y;
 	}
+	
+	function get_x(): int {
+		return $this->x;
+	}
+	
+	function get_y(): int {
+		return $this->y;
+	}
+	
 
 	
 }

@@ -9,6 +9,7 @@ class DrawTextMock extends draw_text {
 		$this->height_px = $height;
 		$this->width_px = $width;
 	}
+
 	
 	
 }
