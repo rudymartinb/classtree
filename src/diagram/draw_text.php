@@ -20,6 +20,7 @@ class draw_text implements component {
 		$font = './fonts/courier.ttf';
 		$font = realpath($font) ;
 		$function = $this->draw_function;
+		echo "about to draw!";
 		$function( $img, $font );
 
 	}
