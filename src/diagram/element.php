@@ -63,6 +63,14 @@ class element {
 		$this->set_canvas();
 		
 		imageantialias ( $this->img, true );
+
+		$x = $this->x;
+		$y = $this->y;
+		$width = $layout->get_max_width();
+		$height = $layout->get_max_height();
+		
+		imagefilledrectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["white"] );
+		imagerectangle($this->img, $x, $y, $x+$width, $y+$height, $this->color["black"] );
 		
 		$layout->draw( $this->img );
 // 		$this->draw_class();
