@@ -59,7 +59,7 @@ class element {
 			$layout->add( $implements );
 		}
 		
-		$layout->add(new draw_text($this->name));
+// 		$layout->add(new draw_text($this->name));
 		
 		
 		$this->maxwidth = 1024;
