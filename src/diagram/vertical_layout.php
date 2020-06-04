@@ -40,10 +40,12 @@ class vertical_layout {
 
 	private $layout_done = false;
 	function do_layout() {
+		$width = $this->get_max_width();
 		$new_y = $this->y+$this->margin_all;
 		foreach( $this->components as $component ){
 			$component = force_component($component);
 			$component->set_xy( $this->x+$this->margin_all, $new_y );
+			$component->set_width($width);
 			$new_y += $component->get_height();
 		}
 		$this->layout_done = true;

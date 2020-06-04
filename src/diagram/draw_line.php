@@ -37,7 +37,9 @@ class draw_line implements component {
 	function set_width( int $width ){
 		$this->width = $width;
 	}
+	
 	function get_width(): int {
+		return $this->width;
 	}
 
 	function get_x(): int {
