@@ -61,31 +61,6 @@ class element {
 		imagepng($this->img,"/var/www/htdocs/salida.png");
 	}
 	
-	private $layout = [];
-	function do_layout(){
-		$vertical = [];
-// 		if( $this->type != "class"){
-// 			$this->type_draw = new draw_text( "<<".$this->type.">>" );
-// 			$vertical[] = $this->type_draw;
-// 		}
-		
-		$vertical[] = $this->name_draw;
-		
-		$this->layout = $vertical;
-		
-		/*
-		 * x and y are just the starting point
-		 * from the upper left corner.
-		 * 
-		 * now I need to figure out 
-		 * how to place the components from the relative position.
-		 */
-		$width = $this->get_width()+10;
-		$height = $this->get_height()+10;
-		
-		
-	}
-	
 	
 	private function draw_class( ){
 		$x = $this->x;
@@ -100,25 +75,6 @@ class element {
 		$this->draw_class_name();
 	}
 
-	private function draw_type(){
-		$x = $this->x;
-		$y = $this->y;
-		putenv('GDFONTPATH=' . realPath('fonts'));
-		$font = './fonts/courier.ttf';
-		$font = realpath($font) ;
-		$text = "<<".$this->type.">>" ;
-		\imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $text);
-	}
-	
-	private function draw_class_name(){
-		$x = $this->x;
-		$y = $this->y;
-		putenv('GDFONTPATH=' . realPath('fonts'));
-		$font = './fonts/courier.ttf';
-		$font = realpath($font) ;
-		$text = $this->name ;
-		\imagettftext($this->img, 10,0.0, $x+5, $y+15, $this->color["black"] , $font, $text);
-	}
 	
 	function set_colors(){
 		$this->color["white"] = imagecolorallocate($this->img, 255,   255,  255);
