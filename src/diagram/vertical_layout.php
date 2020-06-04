@@ -13,9 +13,9 @@ function force_component( component $component ) : \diagram\component {
 }
 
 class vertical_layout {
-	private $margin;
+	private $margin_all;
 	function set_margin( int $margin ){
-		$this->margin = $margin;
+		$this->margin_all = $margin;
 	}
 	private $components = [];
 	function add( component $component ){
@@ -31,7 +31,7 @@ class vertical_layout {
 			$component = force_component($component);
 			$height += $component->get_height();
 		}
-		return $height + 10;
+		return $height + ( $this->margin_all * 2 );
 	}
 	
 	function get_max_width() : int {
@@ -43,6 +43,6 @@ class vertical_layout {
 				$max_width = $width;	
 			}
 		}
-		return $max_width + 10;
+		return $max_width + ( $this->margin_all * 2 );
 	}
 }
