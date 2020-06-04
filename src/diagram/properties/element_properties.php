@@ -18,7 +18,6 @@ trait element_properties {
 	function set_name( string $name ){
 		$this->name = $name;
 		$this->name_draw = new draw_text($name);
-		$this->draw_text_list[] = $this->name_draw;
 	}
 	function get_name() : string {
 		return $this->name;
