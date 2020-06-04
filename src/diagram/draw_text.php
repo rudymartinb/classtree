@@ -13,6 +13,7 @@ class draw_text implements component {
 	}
 	
 	function draw( $img ){
+		echo "about to draw!";
 		if( $this->img === null ){
 			return;
 		}
@@ -20,7 +21,7 @@ class draw_text implements component {
 		$font = './fonts/courier.ttf';
 		$font = realpath($font) ;
 		$function = $this->draw_function;
-		echo "about to draw!";
+		
 		$function( $img, $font );
 
 	}
