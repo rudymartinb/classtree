@@ -52,7 +52,7 @@ class draw_line implements component {
 	}
 
 	function get_height(): int {
-		return 1;
+		return 11;
 	}
 
 	
