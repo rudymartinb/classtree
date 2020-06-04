@@ -98,10 +98,10 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$this->maxwidth = 1024;
 		$this->maxheight = 768;
 		
-		$this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
+		$img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
 		
-		$layout->draw( $this->img );
-		imagepng($this->img,"/var/www/htdocs/salida.png");
+		$layout->draw( $img );
+		imagepng($img,"/var/www/htdocs/salida.png");
 		
 		$this->assertTrue(true);
 	}
