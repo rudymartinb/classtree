@@ -6,6 +6,8 @@ interface component {
 	function set_xy( int $x, int $y );
 	function get_x() : int;
 	function get_y() : int;
+	
+	function set_draw_function( Callable $function );
 	function draw( $img );
 }
 

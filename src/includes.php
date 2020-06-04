@@ -18,6 +18,7 @@ function include_project_files( string $path ){
     // diagrams
     require_once $path.'src/diagram/vertical_layout.php';
     require_once $path.'src/diagram/draw_text.php';
+    require_once $path.'src/diagram/draw_line.php';
     
     require_once $path.'src/diagram/diagram.php';
     
