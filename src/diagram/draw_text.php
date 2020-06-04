@@ -18,6 +18,7 @@ class draw_text implements component {
 		$this->draw_function = $function;
 	}
 	
+	// TODO: replace $img with an object
 	function draw( $img ){
 		
 		if( $img === null ){
