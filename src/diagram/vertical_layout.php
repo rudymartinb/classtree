@@ -54,7 +54,7 @@ class vertical_layout {
 		
 		foreach( $this->components as $component ){
 			$component = force_component($component);
-			echo "about to draw!". $img;
+			
 			$component->draw($img);
 
 		}
