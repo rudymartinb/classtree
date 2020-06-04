@@ -82,6 +82,28 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		
 		$layout->draw( 1 );
 	}
+
+	
+	function test_lets_draw(){
+		$layout = new vertical_layout();
+		$layout->set_margin(5);
+		$layout->set_xy( 20,20 );
+		
+		$layout->add( new draw_text( "something goes here" ) );
+		$layout->add( new draw_line() );
+		$layout->add( new draw_text( "something goes here" ) );
+		
+		$layout->do_layout();
+		
+		$this->maxwidth = 1024;
+		$this->maxheight = 768;
+		
+		$this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
+		
+		$layout->draw( $this->img );
+		imagepng($this->img,"/var/www/htdocs/salida.png");
+		
+	}
 	
 	
 }
