@@ -17,7 +17,12 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$element->set_extends("super");
 		$element->set_usetraits("trait1");
 		$element->set_position(10, 10);
-		
+		$functions = [];
+		for( $i=1;$i<10;$i++){
+			$functions[] = "function".$i."()";
+			
+		}
+		$element->set_functions($functions);
 		
 // 		$element->do_layout();
 		
