@@ -7,6 +7,12 @@ class draw_text implements component {
 	protected $height_px;
 	protected $width_px;
 	
+	
+	private $width = 0;
+	function set_width( int $width ){
+		$this->width = $width;
+	}
+	
 	private $draw_function;
 	function set_draw_function( Callable $function ){
 		$this->draw_function = $function;

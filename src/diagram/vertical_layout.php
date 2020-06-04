@@ -1,6 +1,7 @@
 <?php
 namespace diagram;
 interface component {
+	function set_width( int $width );
 	function get_width() : int;
 	function get_height() : int;
 	function set_xy( int $x, int $y );
