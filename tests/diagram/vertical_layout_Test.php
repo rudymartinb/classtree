@@ -58,7 +58,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$layout->add( $mytext );
 		$layout->do_layout();
 		
-		$layout->draw( null );
+		$layout->draw( 1 );
 	}
 	
 	
