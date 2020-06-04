@@ -13,7 +13,10 @@ function force_component( component $component ) : \diagram\component {
 }
 
 class vertical_layout {
-	
+	private $margin;
+	function set_margin( int $margin ){
+		$this->margin = $margin;
+	}
 	private $components = [];
 	function add( component $component ){
 		$this->components[] = $component;
