@@ -13,10 +13,11 @@ class draw_text implements component {
 	}
 	
 	function draw( $img ){
-		echo "about to draw!";
+		
 		if( $this->img === null ){
 			return;
 		}
+		echo "about to draw!";
 		putenv('GDFONTPATH=' . realPath('fonts'));
 		$font = './fonts/courier.ttf';
 		$font = realpath($font) ;
