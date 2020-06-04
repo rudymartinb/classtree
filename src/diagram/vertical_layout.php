@@ -43,6 +43,7 @@ class vertical_layout {
 			$component->set_xy($this->x+$this->margin_all, $new_y );
 			$new_y += $component->get_height();
 		}
+		$this->layout_done = true;
 	}
 	
 	function draw( $img ) {
