@@ -17,9 +17,9 @@ class element_Test extends PHPUnit\Framework\TestCase {
 		$element->set_position(10, 10);
 		
 		
-		$element->do_layout();
+// 		$element->do_layout();
 		
-		$element->draw();
+		$element->draw( 0);
 		
 		$this->assertEquals( 5+48+5, $element->get_width() );
 		$this->assertEquals( 5+13+5, $element->get_height() );

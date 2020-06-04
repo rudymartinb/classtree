@@ -39,12 +39,19 @@ class element {
 	
 	private $img;
 	private $colors = [];
-	function draw() {
+	function draw( $img ) {
 		$testGD = get_extension_funcs("gd"); // Grab function list
 		if (!$testGD){
 			echo "GD not even installed.";
 			return;
 		}
+		
+		$layout = new vertical_layout();
+		$layout->set_xy($this->x, $this->y);
+		if( $this->type != "" ){
+			$layout->add(new draw_text($this->type));
+		}
+		$layout->add(new draw_text($this->name));
 		
 		
 		$this->maxwidth = 1024;
@@ -57,7 +64,8 @@ class element {
 		
 		imageantialias ( $this->img, true );
 		
-		$this->draw_class();
+		$layout->draw( $this->img );
+// 		$this->draw_class();
 		imagepng($this->img,"/var/www/htdocs/salida.png");
 	}
 	
