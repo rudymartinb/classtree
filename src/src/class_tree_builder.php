@@ -101,16 +101,18 @@ class class_tree_builder extends tree_builder {
 			$nsfinder->next();
 		}
 		if( !$found ){
-			$finder = new class_finder($source);
-			while( $finder->more_elements() ){
-				$class = [];
-				$class["name"] = $finder->get_name();
-				$class["extends"] = $finder->get_extends();
-				$class["namespace"] = "";
-				$this->classes[] = $class;
-				$finder->next();
-			}
+			$this->add_class($source);
 		}
-
+	}
+	private function add_class( string $source ){
+		$finder = new class_finder($source);
+		while( $finder->more_elements() ){
+			$class = [];
+			$class["name"] = $finder->get_name();
+			$class["extends"] = $finder->get_extends();
+			$class["namespace"] = "";
+			$this->classes[] = $class;
+			$finder->next();
+		}
 	}
 }
