@@ -190,10 +190,8 @@ function something2( int $ant, string $strong ) : Array ;
     	$this->assertEquals( "ant", $finder->get_parameter_name() );
     	$this->assertEquals( "Array", $finder->get_function_return_type() );
     	
-    	
-    	
-    	
     }
+    
 
     function test_use_trait(){
     	$body = '{
