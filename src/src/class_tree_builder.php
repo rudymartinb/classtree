@@ -1,11 +1,14 @@
 <?php
 namespace src;
 
+abstract class tree_builder {
+	
+}
 /*
  * the intended goal of this class is to generate 
  * the virtual tree of classes and interfaces
  */
-class class_tree_builder {
+class class_tree_builder extends tree_builder {
 
 	private $classes = [] ;
 	function get_num_classes() : int {
