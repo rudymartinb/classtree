@@ -8,7 +8,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals(0, $tree->get_num_classes() );
 	}
 
-	function test_max_width(){
+	function test_size(){
 		$source = 'class someclass {
 }';
 		
@@ -16,6 +16,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree->add_source( $source );
 
 		$this->assertEquals( 1, $tree->get_max_width() );
+		$this->assertEquals( 1, $tree->get_max_height() );
 	}
 
 	

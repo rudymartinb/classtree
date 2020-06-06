@@ -15,6 +15,9 @@ class tree_builder {
 	function get_max_width(): int{
 		return 1;
 	}
+	function get_max_height(): int{
+		return 1;
+	}
 	
 
 	function add_source( string $source ){
