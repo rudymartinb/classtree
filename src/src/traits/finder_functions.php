@@ -12,6 +12,7 @@ trait finder_functions {
 		if( $this->function_finder === null ){
 			$body = $this->get_body();
 			$this->function_finder = new function_finder($body);
+			
 		}
 		
 		return $this->function_finder->more_elements();

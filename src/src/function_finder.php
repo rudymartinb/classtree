@@ -38,9 +38,17 @@ class function_finder {
 		$this->pattern = $pattern;
 		
 		$this->matches($source);
+		
 
 	}
-
+	
+	function next(){
+		$this->current_key ++;
+		if( $this->more_elements() ){
+			$source = $this->matches["params"][$this->current_key];
+			$this->params_finder = new parameters_finder($source);
+		}
+	}
 	
 	function get_name(): string {
 		return $this->matches["name"][$this->current_key];
@@ -53,8 +61,10 @@ class function_finder {
 	 */
 	private $params_finder;
 	function more_parameters() : bool {
-		$source = $this->matches["params"][$this->current_key];
-		$this->params_finder = new parameters_finder($source);
+		if( $this->params_finder === null ){
+			$source = $this->matches["params"][$this->current_key];
+			$this->params_finder = new parameters_finder($source);
+		}
 		return $this->params_finder->more_elements();
 	}
 	function get_parameter_name() : string {

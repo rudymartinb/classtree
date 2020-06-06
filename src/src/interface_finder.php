@@ -23,6 +23,16 @@ class interface_finder {
 		$this->matches($source);
 	}
 	
+	
+	function next(){
+		$this->current_key ++;
+		if( $this->more_elements() ){
+			$source = $this->matches["params"][$this->current_key];
+			$this->params_finder = new parameters_finder($source);
+		}
+	}
+	
+	
 	function get_name() : string {
 		return $this->matches["ifname"][$this->current_key];
 	}

@@ -100,11 +100,17 @@ function something2( int $ant, string $strong );
 		$this->assertEquals( false, $finder->more_parameters() );
 		$finder->next_function();
 		$this->assertEquals( "something2", $finder->get_function_name() );
-		$finder->next_parameter();
+		
 		$this->assertEquals( true, $finder->more_parameters() );
 		$this->assertEquals( "int", $finder->get_parameter_type() );
 		$this->assertEquals( "ant", $finder->get_parameter_name() );
-		
+		$finder->next_parameter();
+		$this->assertEquals( "string", $finder->get_parameter_type() );
+		$this->assertEquals( "strong", $finder->get_parameter_name() );
+		$finder->next_parameter();
+		$this->assertEquals( false, $finder->more_parameters() );
+		$finder->next();
+		$this->assertEquals( false, $finder->more_elements() );
 	}
 	
 	
