@@ -71,7 +71,23 @@ class someclass2 extends someclass {}' );
 		$this->assertEquals( "src", $tree->get_namespace( "someclass" ) );
 		$this->assertEquals( "src", $tree->get_namespace( "someclass2" ) );
 		$this->assertEquals( "", $tree->get_namespace( "someclass3" ) );
+	}
+
+	
+	function test_2_namespace(){
+		$tree = new class_tree_builder();
+		$tree->add_source( 'namespace src1 {
+class someclass {}
+}
+namespace src2 {
+class someclass2 extends someclass {
+}' );
 		
+		$tree->resolve_class_hierarchy();
+		
+		$this->assertEquals( "src1", $tree->get_namespace( "someclass" ) );
+		$this->assertEquals( "src2", $tree->get_namespace( "someclass2" ) );
+
 	}
 	
 	
