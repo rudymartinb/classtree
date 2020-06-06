@@ -78,7 +78,7 @@ class class_finder {
     
     // use traits
     private $usetrait_finder;
-    function has_use_trait() : bool {
+    function more_traits() : bool {
     	$body = $this->get_body();
     	
     	$this->usetrait_finder = new usetrait_finder($body);

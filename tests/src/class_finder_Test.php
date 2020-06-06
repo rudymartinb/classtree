@@ -208,7 +208,7 @@ function something2( int $ant, string $strong );
     	// function something1
     	$this->assertEquals( true, $finder->more_elements() );
     	
-    	$this->assertEquals( true, $finder->has_use_trait() );
+    	$this->assertEquals( true, $finder->more_traits() );
     	$this->assertEquals( "sometrait", $finder->get_trait_name() );
     	$finder->next_trait();
     	$this->assertEquals( "sometrait2", $finder->get_trait_name() );
