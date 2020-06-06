@@ -89,28 +89,20 @@ class class_tree_builder extends tree_builder {
 			$found = true;
 			$namespace = $nsfinder->get_name();
 			$body = $nsfinder->get_body();
-			$finder = new class_finder($body);
-			while( $finder->more_elements() ){
-				$class = [];
-				$class["name"] = $finder->get_name();
-				$class["extends"] = $finder->get_extends();
-				$class["namespace"] = $namespace;
-				$this->classes[] = $class;
-				$finder->next();
-			}
+			$this->add_class( $body, $namespace );
 			$nsfinder->next();
 		}
 		if( !$found ){
-			$this->add_class($source);
+			$this->add_class($source );
 		}
 	}
-	private function add_class( string $source ){
+	private function add_class( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
 			$class = [];
 			$class["name"] = $finder->get_name();
 			$class["extends"] = $finder->get_extends();
-			$class["namespace"] = "";
+			$class["namespace"] = $namespace;
 			$this->classes[] = $class;
 			$finder->next();
 		}
