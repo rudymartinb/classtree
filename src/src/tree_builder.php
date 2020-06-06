@@ -112,10 +112,14 @@ class tree_builder {
 			$extends = $class["extends"];
 			
 			if( $parent !== "" ){
+				/* we are looking for specific children
+				 */
 				if( $extends != $parent ) {
 					continue;
 				}
 			} else {
+				/* we are looking for parents classes only
+				 */
 				if( $extends !== "" ){
 					continue;
 				}
