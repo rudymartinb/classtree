@@ -8,7 +8,7 @@ trait finder_functions {
 	 * apply it to the body source
 	 */
 	private $function_finder;
-	function has_functions() : bool {
+	function more_functions() : bool {
 		$body = $this->get_body();
 		
 		$this->function_finder = new function_finder($body);

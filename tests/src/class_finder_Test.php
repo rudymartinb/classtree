@@ -180,7 +180,7 @@ function something2( int $ant, string $strong );
     	// function something1
     	$this->assertEquals( true, $finder->more_elements() );
     	$this->assertEquals( "myif", $finder->get_name() );
-    	$this->assertEquals( true, $finder->has_functions() );
+    	$this->assertEquals( true, $finder->more_functions() );
     	$this->assertEquals( "something1", $finder->get_function_name() );
     	$this->assertEquals( false, $finder->has_parameters() );
     	$finder->next_function();
@@ -214,7 +214,7 @@ function something2( int $ant, string $strong );
     	$this->assertEquals( "sometrait2", $finder->get_trait_name() );
     	
     	
-    	$this->assertEquals( true, $finder->has_functions() );
+    	$this->assertEquals( true, $finder->more_functions() );
     	$this->assertEquals( "something1", $finder->get_function_name() );
     	$this->assertEquals( false, $finder->has_parameters() );
     	$finder->next_function();
