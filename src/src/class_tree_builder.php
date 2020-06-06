@@ -5,7 +5,7 @@ namespace src;
  * the intended goal of this class is to generate 
  * the virtual tree of classes and interfaces
  */
-class tree_builder {
+class class_tree_builder {
 
 	private $classes = [] ;
 	function get_num_classes() : int {

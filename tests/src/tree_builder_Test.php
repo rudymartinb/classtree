@@ -1,10 +1,10 @@
 <?php
 
-use src\tree_builder;
+use src\class_tree_builder;
 
 class tree_builder_Test extends PHPUnit\Framework\TestCase {
 	function test_basic(){
-		$tree = new tree_builder();
+		$tree = new class_tree_builder();
 		$this->assertEquals(0, $tree->get_num_classes() );
 	}
 
@@ -12,7 +12,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$source = 'class someclass {
 }';
 		
-		$tree = new tree_builder();
+		$tree = new class_tree_builder();
 		$tree->add_source( $source );
 
 		$tree->resolve_class_hierarchy();
@@ -23,7 +23,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_size_2(){
-		$tree = new tree_builder();
+		$tree = new class_tree_builder();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 {}' );
 		
@@ -34,7 +34,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_size_3(){
-		$tree = new tree_builder();
+		$tree = new class_tree_builder();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		
@@ -46,7 +46,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_size_1_2(){
-		$tree = new tree_builder();
+		$tree = new class_tree_builder();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		$tree->add_source( 'class someclass3 extends someclass {}' );
