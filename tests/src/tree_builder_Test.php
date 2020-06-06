@@ -95,7 +95,7 @@ class someclass2 extends someclass {
 
 	}
 
-	// @small
+	
 // 	function test_class_and_function(){
 // 		$tree = new class_tree_builder();
 // 		$tree->add_source( '
