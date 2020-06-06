@@ -11,8 +11,8 @@ class tree_builder {
 	function get_num_classes() : int {
 		return count( $this->classes );
 	}
+	
 	function search_class( string $name ) : int {
-		var_dump($this->classes);
 		foreach( $this->classes as $key => $class ){
 			if( $class["name"] === $name ){
 				return $key;
