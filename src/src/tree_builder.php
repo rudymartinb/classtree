@@ -13,7 +13,7 @@ class tree_builder {
 	}
 
 	function get_max_width(): int{
-		return 1;
+		return count( $this->classes );
 	}
 	function get_max_height(): int{
 		return 1;
