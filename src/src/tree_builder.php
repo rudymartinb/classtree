@@ -102,7 +102,7 @@ class tree_builder {
 	
 	
 	private $tree = [];
-	function resolve_dependencies( string $parent = "" ) {
+	function resolve_class_hierarchy( string $parent = "" ) {
 		$this->tree = $this->resolve();
 	}
 	private function resolve( string $parent = "" ) : Array {
