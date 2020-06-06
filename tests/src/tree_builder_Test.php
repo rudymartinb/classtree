@@ -96,26 +96,26 @@ class someclass2 extends someclass {
 	}
 
 	
-// 	function test_class_and_function(){
-// 		$tree = new class_tree_builder();
-// 		$tree->add_source( '
-// class someclass {}
-// 	function fn1(){
-// 	}
-// 	function fn2( int $something ){
-// 	}
-// 	function fn3() : string {
-// 	}
-// }
-// ' );
+	function test_class_and_function(){
+		$tree = new class_tree_builder();
+		$tree->add_source( '
+class someclass {}
+	function fn1(){
+	}
+	function fn2( int $something ){
+	}
+	function fn3() : string {
+	}
+}
+' );
 		
-// // 		$tree->resolve_class_hierarchy();
+// 		$tree->resolve_class_hierarchy();
 		
-// 		$tree->select_class( "someclass" );
-// // 		$this->assertEquals( "fn1", $tree->get_function_name() );
+		$tree->select_class( "someclass" );
+		$this->assertEquals( "fn1", $tree->get_function_name() );
 
 		
-// 	}
+	}
 	
 	
 
