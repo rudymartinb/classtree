@@ -74,10 +74,12 @@ class class_tree_builder extends tree_builder {
 	}
 	
 	private $class_index = null;
+	private $function_index = null;
 	function select_class( string $classname  ){
 		foreach( $this->classes as $key => $class ){
 			if( $class["name"] == $classname ){
 				$this->class_index = $key;
+				$this->function_index = 0;
 				return; 
 			}
 		}
