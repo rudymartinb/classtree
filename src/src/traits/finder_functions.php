@@ -9,9 +9,10 @@ trait finder_functions {
 	 */
 	private $function_finder;
 	function more_functions() : bool {
-		$body = $this->get_body();
-		
-		$this->function_finder = new function_finder($body);
+		if( $this->function_finder === null ){
+			$body = $this->get_body();
+			$this->function_finder = new function_finder($body);
+		}
 		
 		return $this->function_finder->more_elements();
 	}

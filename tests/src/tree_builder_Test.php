@@ -95,26 +95,27 @@ class someclass2 extends someclass {
 
 	}
 
-	
-// 	function test_class_and_function(){
-// 		$tree = new class_tree_builder();
-// 		$tree->add_source( '
-// class someclass {}
-// 	function fn1(){
-// 	}
-// 	function fn2( int $something ){
-// 	}
-// 	function fn3() : string {
-// 	}
-// }
-// ' );
+	// @small
+	function test_class_and_function(){
+		$tree = new class_tree_builder();
+		$tree->add_source( '
+class someclass {}
+	function fn1(){
+	}
+	function fn2( int $something ){
+	}
+	function fn3() : string {
+	}
+}
+' );
 		
 // 		$tree->resolve_class_hierarchy();
 		
-// 		$this->assertEquals( "src1", $tree->get_namespace( "someclass" ) );
-// 		$this->assertEquals( "src2", $tree->get_namespace( "someclass2" ) );
+		$tree->select_class( "someclass" );
+// 		$this->assertEquals( "fn1", $tree->get_function_name() );
+
 		
-// 	}
+	}
 	
 	
 

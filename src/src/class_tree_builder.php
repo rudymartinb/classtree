@@ -85,6 +85,11 @@ class class_tree_builder extends tree_builder {
 		}
 		$this->class_index = null;
 	}
+
+	function get_function_name() : string {
+		return $this->classes[ $this->class_index ][ $this->function_index ][ "fnname"];
+	}
+	
 	
 	function get_namespace() : string {
 		return $this->classes[ $this->class_index ]["namespace"];
@@ -104,6 +109,8 @@ class class_tree_builder extends tree_builder {
 			$this->add_class($source );
 		}
 	}
+	
+
 	private function add_class( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
@@ -112,10 +119,15 @@ class class_tree_builder extends tree_builder {
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
 			$class["functions"] = [];
-// 			while( $finder->more_functions() ){
-// // 				$func = [ "fnname" => $finder->get_function_name(), "fnretval" => $finder-> ];
-// // 				$class["functions"][] = $func;   
-// 			}
+			while( $finder->more_functions() ){
+				$func = [ "fnname" => $finder->get_function_name(), "fnretval" => $finder->get_function_return_type(), "params" => [] ];
+				while( $finder->more_parameters() ){
+					$func["params"] = [ "param_type" => $finder->get_parameter_type(), "param_name" => $finder->get_parameter_name() ];
+					$finder->next_parameter();
+				}
+				$class["functions"][] = $func;
+				$finder->next_function();
+			}
 			$this->classes[] = $class;
 			$finder->next();
 		}
