@@ -35,7 +35,7 @@ abstract class tree_builder {
 	}
 	
 	abstract protected function resolve();
-	
+	abstract function add_source( string $source );
 }
 
 class class_tree_builder extends tree_builder {
