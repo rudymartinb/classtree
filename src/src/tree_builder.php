@@ -1,9 +1,15 @@
 <?php
 namespace src;
 
+/*
+ * the intended goal of this class is to generate 
+ * the virtual tree of classes and interfaces
+ */
 class tree_builder {
 
 	private $classes = [] ;
+	
+
 	function add_source( string $source ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
