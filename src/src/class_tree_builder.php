@@ -73,13 +73,19 @@ class class_tree_builder extends tree_builder {
 		return $tree;
 	}
 	
-	function get_namespace( string $classname ) : string {
-		foreach ($this->classes as $class ){
+	private $class_index = null;
+	function select_class( string $classname  ){
+		foreach( $this->classes as $key => $class ){
 			if( $class["name"] == $classname ){
-				return $class["namespace"];
+				$this->class_index = $key;
+				return; 
 			}
 		}
-		return "";
+		$this->class_index = null;
+	}
+	
+	function get_namespace() : string {
+		return $this->classes[ $this->class_index ]["namespace"];
 	}
 
 	function add_source( string $source ){

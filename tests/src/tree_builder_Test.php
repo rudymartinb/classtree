@@ -68,8 +68,11 @@ class someclass2 extends someclass {}' );
 		
 		$tree->resolve_class_hierarchy();
 		
+		$tree->select_class( "someclass" );
 		$this->assertEquals( "src", $tree->get_namespace( "someclass" ) );
+		$tree->select_class( "someclass2" );
 		$this->assertEquals( "src", $tree->get_namespace( "someclass2" ) );
+		$tree->select_class( "someclass3" );
 		$this->assertEquals( "", $tree->get_namespace( "someclass3" ) );
 	}
 
@@ -85,8 +88,10 @@ class someclass2 extends someclass {
 		
 		$tree->resolve_class_hierarchy();
 		
-		$this->assertEquals( "src1", $tree->get_namespace( "someclass" ) );
-		$this->assertEquals( "src2", $tree->get_namespace( "someclass2" ) );
+		$tree->select_class( "someclass" );
+		$this->assertEquals( "src1", $tree->get_namespace() );
+		$tree->select_class( "someclass2" );
+		$this->assertEquals( "src2", $tree->get_namespace() );
 
 	}
 
