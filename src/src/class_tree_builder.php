@@ -45,7 +45,6 @@ class class_tree_builder extends tree_builder {
 		return count( $this->classes );
 	}
 	
-	
 	protected function resolve( string $parent = "" ) : Array {
 		$tree = [];
 		foreach( $this->classes as $class ){
