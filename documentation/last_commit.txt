@@ -31,4 +31,5 @@ altering namespace_finder() to work on sources with no namespaces
 adding usetrait_finder()
 adding traits to class_finder()
 adding VerticalLayout()
-cleanup and  adding diagram element()
+TODO: cleanup and  adding diagram element()
+adding tree_builder() 
