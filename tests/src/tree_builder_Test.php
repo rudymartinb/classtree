@@ -56,6 +56,20 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 2, $tree->get_max_width() );
 		$this->assertEquals( 2, $tree->get_max_height() );
 	}
+
+	
+	function test_namespace(){
+		$tree = new class_tree_builder();
+		$tree->add_source( 'namespace src;
+class someclass {}' );
+		$tree->add_source( 'class someclass2 extends someclass {}' );
+		$tree->add_source( 'class someclass3 extends someclass {}' );
+		
+		$tree->resolve_class_hierarchy();
+		
+		$this->assertEquals( 2, $tree->get_max_width() );
+		$this->assertEquals( 2, $tree->get_max_height() );
+	}
 	
 	
 
