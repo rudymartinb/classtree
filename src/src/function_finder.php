@@ -45,6 +45,9 @@ class function_finder {
 	function get_name(): string {
 		return $this->matches["name"][$this->current_key];
 	}
+	function get_return_type(): string {
+		return $this->matches["fnret"][$this->current_key];
+	}
 	
 	/* parameters section
 	 */

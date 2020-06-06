@@ -66,7 +66,7 @@ function complex(){
 	function test_2_params(){
 		$source = 'function simple() {
 }
-function complex( int $ant, string& $strong ){
+function complex( int $ant, string& $strong ) : Array {
 }';
 		
 		$finder = new function_finder( $source );
@@ -90,6 +90,7 @@ function complex( int $ant, string& $strong ){
 		$this->assertEquals( "string", $finder->get_parameter_type() );
 		$this->assertEquals( "strong", $finder->get_parameter_name() );
 		
+		$this->assertEquals( "Array", $finder->get_return_type() );
 		
 		
 	}

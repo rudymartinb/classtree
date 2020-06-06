@@ -171,7 +171,7 @@ other_class {
     function test_functions(){
     	$body = '{
 function something1();
-function something2( int $ant, string $strong );
+function something2( int $ant, string $strong ) : Array ;
 }';
     	$source = 'class myif '.$body;
     	
@@ -183,12 +183,15 @@ function something2( int $ant, string $strong );
     	$this->assertEquals( true, $finder->more_functions() );
     	$this->assertEquals( "something1", $finder->get_function_name() );
     	$this->assertEquals( false, $finder->more_parameters() );
+    	$this->assertEquals( "", $finder->get_function_return_type() );
     	$finder->next_function();
     	$this->assertEquals( "something2", $finder->get_function_name() );
     	$finder->next_parameter();
     	$this->assertEquals( true, $finder->more_parameters() );
     	$this->assertEquals( "int", $finder->get_parameter_type() );
     	$this->assertEquals( "ant", $finder->get_parameter_name() );
+    	$this->assertEquals( "Array", $finder->get_function_return_type() );
+    	
     	
     	
     	
