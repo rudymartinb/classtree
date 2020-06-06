@@ -22,59 +22,6 @@ class class_tree_builder extends tree_builder {
 		return $this->tree[0]["height"];
 	}
 	
-	private function get_tree( Array $classes, string $parent = "" ){
-		$tree = [];
-		
-		foreach( $classes as $class ){
-
-			
-			if( $parent !== "" ){
-				if( ! $class->is_child_of( $parent ) ){
-					continue;
-				}
-			} else {
-				// this is necessary to avoid adding subclases
-				// to the top of the tree
-				// as if they were parent clases
-				if( $class->is_child() ){
-					continue;
-				}
-			}
-			
-			/* generate new element to be added to the tree
-			 * by doing a recursive call,
-			 * we ensure the bottom order is then analized to the top
-			 */
-			$name = $class->get_name();
-			$type = $class->get_type();
-			
-			$children = $this->get_tree( $classes, $name );
-			
-			$extends = $class->get_extends();
-			$implements = $class->get_implements();
-			$abstract = $class->get_abstract();
-			$final = $class->get_final();
-			$namespace = $class->get_namespace();
-			
-			$tree[] = [
-					"name" => $name,
-					"type" => $type,
-					"extends" => $extends,
-					"childrens" => $children,
-					"width" => max( $this->max_width( $children ), 1 ),
-					"height" => $this->max_height( $children )+1,
-					"implements" => $implements,
-					"abstract" => $abstract,
-					"final" => $final,
-					"namespace" => $namespace
-			];
-		}
-		return  $tree;
-	}
-	
-// 	function total_width() : int {
-// 		return $this->max_width($this->trees);
-// 	}
 	
 	private function max_width( Array $trees ) : int {
 		$actual = 0;
@@ -83,13 +30,6 @@ class class_tree_builder extends tree_builder {
 		}
 		return $actual;
 	}
-	
-	
-	/* the maximum height of all parent tree
-	 */
-// 	function total_height() : int {
-// 		return $this->max_height($this->trees);
-// 	}
 	
 	private function max_height( Array $trees ) : int {
 		$maxheight = 0;
