@@ -80,8 +80,6 @@ class class_tree_builder extends tree_builder {
 			$class = [];
 			$class["name"] = $finder->get_name();
 			$class["extends"] = $finder->get_extends();
-			$class["width"] = 1;
-			$class["height"] = 1;
 			$this->classes[] = $class;
 			$finder->next();
 		}
