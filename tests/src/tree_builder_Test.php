@@ -62,12 +62,15 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree = new class_tree_builder();
 		$tree->add_source( 'namespace src;
 class someclass {}' );
-		$tree->add_source( 'class someclass2 extends someclass {}' );
+		$tree->add_source( 'namespace src;
+class someclass2 extends someclass {}' );
 		$tree->add_source( 'class someclass3 extends someclass {}' );
 		
 		$tree->resolve_class_hierarchy();
 		
 		$this->assertEquals( "src", $tree->get_namespace( "someclass" ) );
+		$this->assertEquals( "src", $tree->get_namespace( "someclass2" ) );
+		$this->assertEquals( "", $tree->get_namespace( "someclass3" ) );
 		
 	}
 	
