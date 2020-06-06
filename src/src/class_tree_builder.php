@@ -109,6 +109,11 @@ class class_tree_builder extends tree_builder {
 			$class["name"] = $finder->get_name();
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
+			$class["functions"] = [];
+// 			while( $finder->more_functions() ){
+// // 				$func = [ "fnname" => $finder->get_function_name(), "fnretval" => $finder-> ];
+// // 				$class["functions"][] = $func;   
+// 			}
 			$this->classes[] = $class;
 			$finder->next();
 		}
