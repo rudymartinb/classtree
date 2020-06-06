@@ -30,7 +30,13 @@ abstract class tree_builder {
 		}
 		return $maxheight;
 	}
+
 	
+	function resolve_class_hierarchy( string $parent = "" ) {
+		$this->tree = $this->resolve();
+	}
+	
+	abstract protected function resolve();
 	
 }
 /*
@@ -43,14 +49,9 @@ class class_tree_builder extends tree_builder {
 	function get_num_classes() : int {
 		return count( $this->classes );
 	}
-
-
 	
 	
-	function resolve_class_hierarchy( string $parent = "" ) {
-		$this->tree = $this->resolve();
-	}
-	private function resolve( string $parent = "" ) : Array {
+	protected function resolve( string $parent = "" ) : Array {
 		$tree = [];
 		foreach( $this->classes as $class ){
 			$name = $class["name"];
