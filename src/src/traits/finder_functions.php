@@ -26,7 +26,7 @@ trait finder_functions {
 	
 	// function parameters section
 	function more_parameters() : bool {
-		return $this->function_finder->has_parameters();
+		return $this->function_finder->more_parameters();
 	}
 	function get_parameter_name() : string {
 		return $this->function_finder->get_parameter_name();

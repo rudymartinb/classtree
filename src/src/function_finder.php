@@ -52,7 +52,7 @@ class function_finder {
 	/* parameters section
 	 */
 	private $params_finder;
-	function has_parameters() : bool {
+	function more_parameters() : bool {
 		$source = $this->matches["params"][$this->current_key];
 		$this->params_finder = new parameters_finder($source);
 		return $this->params_finder->more_elements();
