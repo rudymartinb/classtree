@@ -11,7 +11,6 @@ abstract class tree_builder {
 		return $this->tree[0]["height"];
 	}
 	
-	
 	protected function max_width( Array $trees ) : int {
 		$actual = 0;
 		foreach( $trees as $tree ){
@@ -30,7 +29,6 @@ abstract class tree_builder {
 		}
 		return $maxheight;
 	}
-
 	
 	function resolve_class_hierarchy( string $parent = "" ) {
 		$this->tree = $this->resolve();
@@ -39,10 +37,7 @@ abstract class tree_builder {
 	abstract protected function resolve();
 	
 }
-/*
- * the intended goal of this class is to generate 
- * the virtual tree of classes and interfaces
- */
+
 class class_tree_builder extends tree_builder {
 
 	private $classes = [] ;
@@ -58,21 +53,16 @@ class class_tree_builder extends tree_builder {
 			$extends = $class["extends"];
 			
 			if( $parent !== "" ){
-				/* we are looking for specific children
-				 */
 				if( $extends != $parent ) {
 					continue;
 				}
 			} else {
-				/* we are looking for parents classes only
-				 */
 				if( $extends !== "" ){
 					continue;
 				}
 			}
 			
 			$children = $this->resolve( $name );
-			
 			$tree[] = [
 					"name" => $name,
 					"extends" => $extends,
@@ -80,16 +70,10 @@ class class_tree_builder extends tree_builder {
 					"width" => max( $this->max_width( $children ), 1 ),
 					"height" => $this->max_height( $children )+1
 			];
-			
 		}
 		return $tree;
-
 	}
 
-	/* I just realized there's 
-	 * no point in adding extra info to the tree structure
-	 * we can just look into $classes for that
-	 */
 	function add_source( string $source ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
