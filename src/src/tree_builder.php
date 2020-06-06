@@ -11,14 +11,9 @@ class tree_builder {
 	function get_num_classes() : int {
 		return count( $this->classes );
 	}
-	
-	function search_class( string $name ) : int {
-		foreach( $this->classes as $key => $class ){
-			if( $class["name"] === $name ){
-				return $key;
-			}
-		}
-		return -1;
+
+	function get_max_width(): int{
+		return 1;
 	}
 	
 
