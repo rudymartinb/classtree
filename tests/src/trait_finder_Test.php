@@ -97,11 +97,11 @@ function something2( int $ant, string $strong );
 		$this->assertEquals( "myif", $finder->get_name() );
 		$this->assertEquals( true, $finder->more_functions() );
 		$this->assertEquals( "something1", $finder->get_function_name() );
-		$this->assertEquals( false, $finder->has_parameters() );
+		$this->assertEquals( false, $finder->more_parameters() );
 		$finder->next_function();
 		$this->assertEquals( "something2", $finder->get_function_name() );
 		$finder->next_parameter();
-		$this->assertEquals( true, $finder->has_parameters() );
+		$this->assertEquals( true, $finder->more_parameters() );
 		$this->assertEquals( "int", $finder->get_parameter_type() );
 		$this->assertEquals( "ant", $finder->get_parameter_name() );
 		
