@@ -67,8 +67,8 @@ class someclass {}' );
 		
 		$tree->resolve_class_hierarchy();
 		
-		$this->assertEquals( 2, $tree->get_max_width() );
-		$this->assertEquals( 2, $tree->get_max_height() );
+		$this->assertEquals( "src", $tree->get_namespace( "someclass" ) );
+		
 	}
 	
 	

@@ -48,7 +48,7 @@ class class_tree_builder extends tree_builder {
 	protected function resolve( string $parent = "" ) : Array {
 		$tree = [];
 		foreach( $this->classes as $class ){
-			$name = $class["name"];
+			$classname = $class["name"];
 			$extends = $class["extends"];
 			
 			if( $parent !== "" ){
@@ -61,9 +61,9 @@ class class_tree_builder extends tree_builder {
 				}
 			}
 			
-			$children = $this->resolve( $name );
+			$children = $this->resolve( $classname );
 			$tree[] = [
-					"name" => $name,
+					"name" => $classname,
 					"extends" => $extends,
 					"children" => $children,
 					"width" => max( $this->max_width( $children ), 1 ),
@@ -72,15 +72,45 @@ class class_tree_builder extends tree_builder {
 		}
 		return $tree;
 	}
+	
+	function get_namespace( string $classname ) : string {
+		foreach ($this->classes as $class ){
+			if( $class["name"] == $classname ){
+				return $class["namespace"];
+			}
+		}
+		return "";
+	}
 
 	function add_source( string $source ){
-		$finder = new class_finder($source);
-		while( $finder->more_elements() ){
-			$class = [];
-			$class["name"] = $finder->get_name();
-			$class["extends"] = $finder->get_extends();
-			$this->classes[] = $class;
-			$finder->next();
+		$nsfinder = new namespace_finder($source);
+		$found = false;
+		while($nsfinder->more_elements()){
+			$found = true;
+			$namespace = $nsfinder->get_name();
+			$body = $nsfinder->get_body();
+			$finder = new class_finder($body);
+			while( $finder->more_elements() ){
+				$class = [];
+				$class["name"] = $finder->get_name();
+				$class["extends"] = $finder->get_extends();
+				$class["namespace"] = $namespace;
+				$this->classes[] = $class;
+				$finder->next();
+			}
+			$nsfinder->next();
 		}
+		if( !$found ){
+			$finder = new class_finder($source);
+			while( $finder->more_elements() ){
+				$class = [];
+				$class["name"] = $finder->get_name();
+				$class["extends"] = $finder->get_extends();
+				$class["namespace"] = "";
+				$this->classes[] = $class;
+				$finder->next();
+			}
+		}
+
 	}
 }
