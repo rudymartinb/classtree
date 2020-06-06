@@ -36,6 +36,8 @@ require_once 'tests/src/namespace_finder_Test.php';
 require_once 'tests/src/trait_finder_Test.php';
 require_once 'tests/src/usetrait_finder_Test.php';
 
+require_once 'tests/src/tree_builder_Test.php';
+
 // diagram
 require_once 'tests/diagram/doubles/draw_text_mock.php';
 
@@ -67,7 +69,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         // diagram
         $this->addTestSuite('vertical_layout_Test');
         $this->addTestSuite('draw_text_Test');
-        $this->addTestSuite('diagram_Test');
+//         $this->addTestSuite('diagram_Test');
         $this->addTestSuite('element_Test');
         
     }
