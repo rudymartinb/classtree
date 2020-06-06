@@ -113,6 +113,8 @@ class someclass {}
 		
 		$tree->select_class( "someclass" );
 		$this->assertEquals( "fn1", $tree->get_function_name() );
+		$tree->next_function();
+		$this->assertEquals( "fn2", $tree->get_function_name() );
 
 		
 	}

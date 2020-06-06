@@ -89,6 +89,9 @@ class class_tree_builder extends tree_builder {
 	function get_function_name() : string {
 		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "fnname"];
 	}
+	function next_function(){
+		$this->function_index ++; 
+	}
 	
 	
 	function get_namespace() : string {
