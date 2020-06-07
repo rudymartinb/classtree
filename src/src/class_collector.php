@@ -8,6 +8,9 @@ abstract class collector {
 	function get() : Array {
 		return $this->data[$this->current_key];
 	}
+	function get_count() : int {
+		return count( $this->data );
+	}
 	
 	protected $current_key = 0;
 	function next(){
@@ -30,9 +33,6 @@ class class_collector extends collector {
 		return $this->data[$this->current_key]["extends"];
 	}
 	
-	function get_count() : int {
-		return count( $this->data );
-	}
 	
 	function add_classes( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
