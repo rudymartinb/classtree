@@ -116,17 +116,11 @@ function test2(){
     }
 
     function test_namespace_1(){
-    	$source = "
-abstract class afinalclass extends other_class {
-}";
+    	$source = "class afinalclass {}";
     	
     	$namespace = "nstest1";
     	$finder = new class_finder( $source, $namespace );
-    	$this->assertEquals( "afinalclass", $finder->get_name() );
-    	$this->assertEquals( "other_class", $finder->get_extends() );
-    	$this->assertEquals( "abstract", $finder->get_abstract() );
     	$this->assertEquals( "nstest1", $finder->get_namespace() );
-    	$this->assertEquals( "", $finder->get_final() );
     }
     
     
