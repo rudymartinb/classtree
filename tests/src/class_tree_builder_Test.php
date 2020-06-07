@@ -102,9 +102,9 @@ class someclass2 extends \src1\someclass {
 		$tree->resolve_hierarchy();
 		
 		$collector = $tree->get_collector();
-		var_dump( $collector->get_data() );
-		var_dump( $collector->get_index() );
-		var_dump( $collector->select( "someclass" ) );
+// 		var_dump( $collector->get_data() );
+// 		var_dump( $collector->get_index() );
+		$collector->select( "someclass" );
 		$this->assertEquals( "src1", $collector->get_namespace() );
 		$collector->select( "someclass2" );
 		$this->assertEquals( "src2", $collector->get_namespace() );
