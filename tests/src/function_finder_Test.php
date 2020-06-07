@@ -95,7 +95,7 @@ function complex( int $ant, string& $strong ) : Array {
 		
 	}
 
-	function test_2_functions(){
+	function test_2_functions_with_parameters(){
 		$source = 'function simple() {
 }
 function complex( int $ant, string& $strong ) : Array {
@@ -103,14 +103,8 @@ function complex( int $ant, string& $strong ) : Array {
 		
 		$finder = new function_finder( $source );
 		
-		// 		$this->assertEquals( 2, count( $finder->get_matches()[0] ) );
-		
-		$this->assertEquals( true, $finder->more_elements() );
-		$this->assertEquals( "simple", $finder->get_name() );
-		
-		$this->assertEquals( false, $finder->more_parameters() );
-		
-		$finder->next();
+		// skip the first one
+		$finder->next(); 
 		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "complex", $finder->get_name() );
 		
