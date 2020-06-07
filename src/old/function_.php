@@ -73,7 +73,7 @@ class function_ {
         $pattern .= ")";
         $pattern .= "/m";
         
-        $finder = new class_finder();
+        $finder = new interface_finder();
         $finder->set_pattern($pattern);
         $matches = $finder->matches( $source );
         return $matches;

@@ -64,7 +64,7 @@ class App {
     function generate_classes(){
         $classes = [];
         foreach ($this->php_sources as $source ){
-            $finder = new class_finder();
+            $finder = new interface_finder();
             $finder->matches($source );
             $tmp = $finder->separar_clases();
             

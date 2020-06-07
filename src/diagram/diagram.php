@@ -1,6 +1,6 @@
 <?php
 namespace diagram;
-use src\class_finder;
+use src\interface_finder;
 
 class diagram {
 	function get_num_elements() : int {
@@ -9,7 +9,7 @@ class diagram {
 	
 	private $elements = [];
 	function add_source( string $source ){
-		$finder = new class_finder($source);
+		$finder = new interface_finder($source);
 		while( $finder->more_elements() ){
 			$element = new element();
 			$element->set_name($finder->get_name());
