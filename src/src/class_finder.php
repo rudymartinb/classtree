@@ -19,7 +19,7 @@ class class_finder {
     function __construct( string $source, string $namespace = "" ){
     	$this->namespace = $namespace;
     	
-        $this->pattern  = "/^(?<original>";
+        $this->pattern  = "/^\s*(?<original>";
         $this->pattern .= "(";
         
         // the extra enclosed subpattern 
