@@ -11,5 +11,4 @@ class class_tree_builder_SPY extends class_tree_builder {
 		return $this->collector->get_count();
 	}
 	
-	
 }
