@@ -78,7 +78,7 @@ class class_tree_builder extends tree_builder {
 		$nsfinder = new namespace_finder($source);
 // 		$found = false;
 		while($nsfinder->more_elements()){
-			$found = true;
+// 			$found = true;
 			$namespace = $nsfinder->get_name();
 			$body = $nsfinder->get_body();
 			$this->add_class( $body, $namespace );
@@ -97,6 +97,7 @@ class class_tree_builder extends tree_builder {
 			$class["name"] = $finder->get_name();
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
+			
 			$class["functions"] = [];
 			while( $finder->more_functions() ){
 				$func = [ "fnname" => $finder->get_function_name(), "fnretval" => $finder->get_function_return_type(), "params" => [] ];
@@ -107,6 +108,10 @@ class class_tree_builder extends tree_builder {
 				$class["functions"][] = $func;
 				$finder->next_function();
 			}
+			
+			$class["usetrait"] = [];
+// 			while( )
+			
 			$this->classes[] = $class;
 			$finder->next();
 		}
