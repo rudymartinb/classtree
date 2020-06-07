@@ -77,23 +77,25 @@ class someclass2 extends someclass {}' );
 	}
 
 	
-// 	function test_2_namespace(){
-// 		$tree = new class_tree_builder_SPY();
-// 		$tree->add_source( 'namespace src1 {
-// class someclass {}
-// }
-// namespace src2 {
-// class someclass2 extends someclass {
-// }' );
+	function test_2_namespace(){
+		$tree = new class_tree_builder_SPY();
+		$tree->add_source( 'namespace src1 {
+class someclass {}
+}
+namespace src2 {
+class someclass2 extends someclass {
+}' );
 		
-// 		$tree->resolve_class_hierarchy();
+		$tree->resolve_class_hierarchy();
 		
-// 		$tree->select_class( "someclass" );
-// 		$this->assertEquals( "src1", $tree->get_namespace() );
-// 		$tree->select_class( "someclass2" );
-// 		$this->assertEquals( "src2", $tree->get_namespace() );
-
-// 	}
+		$collector = $tree->get_collector();
+		
+		$collector->select_class( "someclass" );
+		$this->assertEquals( "src1", $collector->get_namespace( "someclass" ) );
+		$collector->select_class( "someclass2" );
+		$this->assertEquals( "src2", $collector->get_namespace( "someclass2" ) );
+		
+	}
 
 	
 // 	function test_class_and_function(){
