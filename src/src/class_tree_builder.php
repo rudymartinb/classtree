@@ -9,14 +9,12 @@ class class_tree_builder extends tree_builder {
 	}
 
 	protected function resolve( string $parent = "" ) : Array {
-		$tree = [];
-
 		// by doing this we keep the internal pointer
 		// separated on each recursive call.
 		$collector = new class_collector( $this->collector );
 		
+		$tree = [];
 		while( $collector->more_elements() ){
-			
 			$classname = $collector->get_name();
 			$extends = $collector->get_extends();
 			
@@ -44,10 +42,9 @@ class class_tree_builder extends tree_builder {
 		return $tree;
 	}
 
-
 	function add_source( string $source ){
 		$nsfinder = new namespace_finder($source);
-		while($nsfinder->more()){
+		while( $nsfinder->more() ){
 			$namespace = $nsfinder->get_name();
 			$body = $nsfinder->get_body();
 			$this->collector->add_source( $body, $namespace );
