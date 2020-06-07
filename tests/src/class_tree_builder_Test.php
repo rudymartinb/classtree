@@ -122,9 +122,9 @@ class someclass {}
 		
 		$collector->next_function();
 		$this->assertEquals( "abstract", $collector->get_function_keyword() );
-		
+
+		// functions parameters and return values 
 		$collector->select_class( "someclass" );
-		
 		$this->assertEquals( "fn1", $collector->get_function_name() );
 		$this->assertEquals( "", $collector->get_function_return_type() );
 		$collector->next_function();
