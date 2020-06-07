@@ -66,7 +66,10 @@ class class_collector {
 	 * SPY
 	 * 
 	 */
-	
+	function get_namespace() : string {
+		return $this->classes[ $this->class_index ]["namespace"];
+	}
+
 
 	
 }
