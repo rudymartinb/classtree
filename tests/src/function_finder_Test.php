@@ -135,22 +135,24 @@ function complex( int $ant, string& $strong ) : Array {
 		$this->assertEquals( "private", $finder->get_access_modifier() );
 		
 	}
+	function test_protected(){
+		$source = 'protected function simple() {} ';
+		$finder = new function_finder( $source );
+		$this->assertEquals( "protected", $finder->get_access_modifier() );
+	}
 	
 	function test_static(){
 		$source = 'static function simple() {} ';
 		$finder = new function_finder( $source );
 // 		var_dump( $finder->get_matches() );
-		$this->assertEquals( "", $finder->get_access_modifier() );
 		$this->assertEquals( true, $finder->is_static() );
-		
 	}
 	
-	function test_protected(){
-		$source = 'protected function simple() {} ';
-		
+	function test_final(){
+		$source = 'final function simple() {} ';
 		$finder = new function_finder( $source );
-		$this->assertEquals( "protected", $finder->get_access_modifier() );
-		
+		// 		var_dump( $finder->get_matches() );
+		$this->assertEquals( true, $finder->is_final() );
 	}
 	
 	
