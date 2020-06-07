@@ -128,7 +128,7 @@ function complex( int $ant, string& $strong ) : Array {
 	}
 
 	
-	function test_private_static_protected(){
+	function test_private(){
 		$source = 'private function simple() {} ';
 		
 		$finder = new function_finder( $source );
@@ -138,7 +138,6 @@ function complex( int $ant, string& $strong ) : Array {
 	
 	function test_static(){
 		$source = 'static function simple() {} ';
-		
 		$finder = new function_finder( $source );
 // 		var_dump( $finder->get_matches() );
 		$this->assertEquals( "", $finder->get_access_modifier() );
