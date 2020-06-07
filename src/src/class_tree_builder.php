@@ -21,10 +21,10 @@ class class_collector {
 	function get() : Array {
 		return $this->classes[$this->current_key];
 	}
-	function get_name() : Array {
+	function get_name() : string {
 		return $this->classes[$this->current_key]["name"];
 	}
-	function get_extends() : Array {
+	function get_extends() : string  {
 		return $this->classes[$this->current_key]["extends"];
 	}
 	
@@ -87,9 +87,9 @@ class class_tree_builder extends tree_builder {
 		$collector = new class_collector( $this->collector );
 		
 		while( $collector->more_elements() ){
-			$class = $collector->get();
-			$classname = $class["name"];
-			$extends = $class["extends"];
+			
+			$classname = $collector->get_name();
+			$extends = $collector->get_extends();
 			
 			if( $parent !== "" ){
 				if( $extends != $parent ) {
