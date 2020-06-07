@@ -50,8 +50,6 @@ class class_tree_builder_SPY extends class_tree_builder {
 	function get_usetrait_name() : string {
 		return $this->classes[ $this->class_index ][ "usetraits"][$this->usetrait_index]["usetrait_name"];
 	}
-	function next_trait() {
-		$this->usetrait_index ++;
-	}
+
 	
 }
