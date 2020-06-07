@@ -104,9 +104,9 @@ class someclass2 extends someclass {
 class someclass {}
 	function fn1(){
 	}
-	function fn2( int $something, string $strong ){
+	static private function fn2( int $something, string $strong ){
 	}
-	function fn3() : string {
+	abstract static function fn3() : string {
 	}
 }
 ' );
@@ -140,9 +140,9 @@ class someclass {
 	use trait1, trait2;
 	function fn1(){
 	}
-	function fn2( int $something, string $strong ){
+	static private function fn2( int $something, string $strong ){
 	}
-	function fn3() : string {
+	abstract static function fn3() : string {
 	}
 }
 ' );
