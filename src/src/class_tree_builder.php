@@ -40,7 +40,7 @@ abstract class tree_builder {
 
 class class_tree_builder extends tree_builder {
 
-	private $classes = [] ;
+	protected $classes = [] ;
 	function get_num_classes() : int {
 		return count( $this->classes );
 	}
@@ -76,9 +76,9 @@ class class_tree_builder extends tree_builder {
 	/*
 	 * TODO: move all non-production code to a subclass and test from there
 	 */
-	private $class_index = null;
-	private $function_index = null;
-	private $param_index = null;
+	protected $class_index = null;
+	protected $function_index = null;
+	protected $param_index = null;
 	function select_class( string $classname  ){
 		foreach( $this->classes as $key => $class ){
 			if( $class["name"] == $classname ){
@@ -112,10 +112,6 @@ class class_tree_builder extends tree_builder {
 		$this->param_index = 0;
 	}
 	
-	
-	function get_namespace() : string {
-		return $this->classes[ $this->class_index ]["namespace"];
-	}
 
 	function add_source( string $source ){
 		$nsfinder = new namespace_finder($source);
@@ -157,5 +153,9 @@ class class_tree_builder extends tree_builder {
 }
 
 class class_tree_builder_SPY extends class_tree_builder {
+	
+	function get_namespace() : string {
+		return $this->classes[ $this->class_index ]["namespace"];
+	}
 	
 }
