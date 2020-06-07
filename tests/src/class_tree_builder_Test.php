@@ -90,7 +90,7 @@ class someclass2 extends someclass {}' );
 		$tree = $this->mysetup();
 		$tree->add_source( 'namespace src1 {
 
-class someclass {
+	class someclass {
 		
 }
 }
@@ -116,7 +116,7 @@ class someclass2 extends \src1\someclass {
 	function test_class_and_function(){
 		$tree = $this->mysetup();
 		$tree->add_source( '
-	class someclass {}
+class someclass {}
 	function fn1(){
 	}
 	static private function fn2( int $something, string $strong ){
