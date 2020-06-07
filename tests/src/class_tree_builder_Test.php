@@ -123,6 +123,21 @@ class someclass {}
 		$collector->next_function();
 		$this->assertEquals( "abstract", $collector->get_function_keyword() );
 		
+		$collector->select_class( "someclass" );
+		
+		$this->assertEquals( "fn1", $collector->get_function_name() );
+		$this->assertEquals( "", $collector->get_function_return_type() );
+		$collector->next_function();
+		$this->assertEquals( "fn2", $collector->get_function_name() );
+		$this->assertEquals( true, $collector->more_parameters() );
+		$this->assertEquals( "int", $collector->get_function_parameter_type() );
+		$this->assertEquals( "something", $collector->get_function_parameter_name() );
+		$this->assertEquals( "", $collector->get_function_return_type() );
+		$collector->next_function();
+		$this->assertEquals( "fn3", $collector->get_function_name() );
+		$this->assertEquals( "string", $collector->get_function_return_type() );
+
+		
 		
 	}
 
