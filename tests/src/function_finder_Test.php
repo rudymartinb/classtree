@@ -160,6 +160,7 @@ function complex( int $ant, string& $strong ) : Array {
 		$source = 'abstract function simple() {} ';
 		$finder = new function_finder( $source );
 		$this->assertEquals( true, $finder->is_abstract() );
+		$this->assertEquals( "abstract", $finder->get_keyword() );
 	}
 	
 	
