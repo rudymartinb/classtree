@@ -13,6 +13,7 @@ function include_project_files( string $path ){
     require_once $path.'src/src/usetrait_finder.php';
     require_once $path.'src/src/namespace_finder.php';
     
+    require_once $path.'src/src/collector.php';
     require_once $path.'src/src/class_collector.php';
     require_once $path.'src/src/tree_builder.php';
     require_once $path.'src/src/class_tree_builder.php';
