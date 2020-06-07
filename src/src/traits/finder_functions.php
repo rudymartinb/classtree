@@ -2,6 +2,7 @@
 namespace src;
 
 use src\function_finder;
+
 trait finder_functions {
 	/*
 	 * functions section:

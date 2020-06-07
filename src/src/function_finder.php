@@ -24,6 +24,10 @@ class function_finder {
 		$pattern  = '/';
 		$pattern .= '(';
 		$pattern .= '\s*';
+		$pattern .= '(?<fnfinal>(final|))';
+		$pattern .= '\s*';
+		$pattern .= '(?<fnstatic>(static|))';
+		$pattern .= '\s*';
 		$pattern .= '(?<fnmod>(static|private|public|protected|abstract|))';
 		$pattern .= '\s*';
 		$pattern .= '(?<fntag>function)';
@@ -56,6 +60,13 @@ class function_finder {
 	function get_return_type(): string {
 		return $this->matches["fnret"][$this->current_key];
 	}
+	function is_final() : bool {
+		return $this->matches["fnfinal"][$this->current_key] === "final";
+	}
+	function is_static() : bool {
+		return $this->matches["fnstatic"][$this->current_key] === "static";
+	}
+	
 	function get_access_modifier() : string {
 		return $this->matches["fnmod"][$this->current_key];
 	}

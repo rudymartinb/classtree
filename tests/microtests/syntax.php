@@ -18,6 +18,6 @@
  */
 namespace sarasa { 
 	class sarasa {
-	final static protected function sarsa() { return ; }
+	final static private function sarsa() { return ; }
 	}
 }

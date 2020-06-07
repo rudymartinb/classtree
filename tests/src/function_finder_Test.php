@@ -140,7 +140,8 @@ function complex( int $ant, string& $strong ) : Array {
 		$source = 'static function simple() {} ';
 		
 		$finder = new function_finder( $source );
-		$this->assertEquals( "static", $finder->get_access_modifier() );
+		$this->assertEquals( "", $finder->get_access_modifier() );
+		$this->assertEquals( "", $finder->is_final() );
 		
 	}
 	
