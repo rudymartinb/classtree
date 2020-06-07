@@ -32,8 +32,6 @@ class class_collector {
 		return count( $this->classes );
 	}
 	
-	
-	
 	function add_classes( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
