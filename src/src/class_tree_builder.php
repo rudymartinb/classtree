@@ -12,7 +12,9 @@ class class_tree_builder extends tree_builder {
 
 	protected function resolve( string $parent = "" ) : Array {
 		$tree = [];
-		
+
+		// by doing this we keep the internal pointer
+		// separated on each recursive call.
 		$collector = new class_collector( $this->collector );
 		
 		while( $collector->more_elements() ){
