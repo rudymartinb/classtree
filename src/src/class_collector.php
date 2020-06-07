@@ -1,6 +1,9 @@
 <?php
 namespace src;
-class class_collector {
+abstract class collector {
+	
+}
+class class_collector extends collector {
 	
 	function __construct( class_collector $previous = null ){
 		if( $previous !== null ){
