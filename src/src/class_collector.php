@@ -17,7 +17,7 @@ class class_collector extends collector {
 	
 	private $classes = [];
 	
-	private $matches = [];
+	
 	function more_elements() : bool {
 		return count( $this->classes ) > $this->current_key;
 	}
