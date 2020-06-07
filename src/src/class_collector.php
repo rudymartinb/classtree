@@ -75,8 +75,8 @@ class class_collector extends collector {
 	}
 	
 	/*
-	 * SPY
-	 *
+	 * SPY section for testing
+	 * TODO: move to another class
 	 */
 	
 	function get_namespace() : string {
@@ -119,9 +119,16 @@ class class_collector extends collector {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_name"];
 	}
 
+	private $usetrait_index = 0;
+	function more_usetraits() : bool {
+		return count( $this->data[ $this->class_index ][ "usetraits"] ) > $this->usetrait_index;
+	}
+	function get_usetrait_name() : string {
+		return $this->data[ $this->class_index ][ "usetraits"][$this->usetrait_index]["usetrait_name"];
+	}
+	function next_usetrait() {
+		return $this->usetrait_index ++;
+	}
 
 
-
-
-	
 }

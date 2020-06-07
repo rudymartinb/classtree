@@ -12,17 +12,4 @@ class class_tree_builder_SPY extends class_tree_builder {
 	}
 	
 	
-	
-// 	private $usetrait_index = 0;
-// 	function more_usetraits() : bool {
-// 		return count( $this->classes[ $this->class_index ][ "usetraits"] ) > $this->usetrait_index;
-// 	}
-// 	function get_usetrait_name() : string {
-// 		return $this->classes[ $this->class_index ][ "usetraits"][$this->usetrait_index]["usetrait_name"];
-// 	}
-// 	function next_usetrait() {
-// 		return $this->usetrait_index ++;
-// 	}
-	
-	
 }
