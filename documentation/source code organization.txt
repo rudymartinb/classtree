@@ -1,0 +1,29 @@
+-----------------------------
+from the root of the project:
+
+bin: contains classtree.php and running script.
+src: contains all the production code
+tests: test suite and tests cases
+scripts: install and test suite runner scripts. testphp.sh is a generic script while runtests.sh is intended to be run from the root dir of the project.
+fonts: just some basic fonts avaliable on the net.
+documentation: 
+	last_commit.txt is used when the runtests.sh commits to git.
+	progress.txt: some of my thoughts
+
+-----------------------------
+from root/src:
+
+src: classes which handle source code scanning and data tree building
+diagram: classes to handle graphic generation 
+include.php: contains all the require_once() directives used by the test suite and classtree.php
+permutation.php: Not used yet but I might use it later when dealing with classes and interfaces to find the minimum optimal distance among them to avoid lots of lines crossing each other.
+
+-----------------------------
+from root/tests:
+
+diagram: tests for the classes under diagram namespace
+src: tests for the classes under src namespace
+microtests: a bunch of small scope tests. special mention is syntax.php which allows you to test php code while running the tests with runtests.sh (on scripts dir)
+
+dummy: some .php example files left for specific tests
+   
