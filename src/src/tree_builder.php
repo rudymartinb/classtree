@@ -4,9 +4,6 @@ namespace src;
 abstract class tree_builder {
 	protected $tree = [];
 	
-	function __construct(){
-		
-	}
 	function get_max_width(): int{
 		return $this->max_width( $this->tree );
 	}
