@@ -113,9 +113,15 @@ class someclass {}
 		
 		$tree->select_class( "someclass" );
 		$this->assertEquals( "fn1", $tree->get_function_name() );
+		$this->assertEquals( "", $tree->get_function_return_type() );
 		$tree->next_function();
 		$this->assertEquals( "fn2", $tree->get_function_name() );
-
+		$this->assertEquals( true, $tree->more_parameters() );
+		$this->assertEquals( "", $tree->get_function_return_type() );
+		$tree->next_function();
+		$this->assertEquals( "fn3", $tree->get_function_name() );
+		$this->assertEquals( "string", $tree->get_function_return_type() );
+		
 		
 	}
 	

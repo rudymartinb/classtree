@@ -75,11 +75,13 @@ class class_tree_builder extends tree_builder {
 	
 	private $class_index = null;
 	private $function_index = null;
+	private $param_index = null;
 	function select_class( string $classname  ){
 		foreach( $this->classes as $key => $class ){
 			if( $class["name"] == $classname ){
 				$this->class_index = $key;
 				$this->function_index = 0;
+				$this->param_index = 0;
 				return; 
 			}
 		}
@@ -89,6 +91,13 @@ class class_tree_builder extends tree_builder {
 	function get_function_name() : string {
 		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "fnname"];
 	}
+	function get_function_return_type() : string {
+		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "fnretval"];
+	}
+	function more_parameters() : string {
+		return count( $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "params"] ) > 0;
+	}
+	
 	function next_function(){
 		$this->function_index ++; 
 	}
