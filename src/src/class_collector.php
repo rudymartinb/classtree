@@ -134,7 +134,7 @@ class class_collector extends collector {
 		return $this->thisparam( "param_type" );
 	}
 	function get_function_parameter_name() : string {
-		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_name"];
+		return $this->thisparam( "param_name" );
 	}
 
 	// USE TRAITS section
