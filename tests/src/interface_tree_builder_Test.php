@@ -67,6 +67,47 @@ interface someinterface2 ' );
 	}
 	
 	
+	function test_class_and_function(){
+		$tree = new interface_tree_builder_SPY();
+		$tree->add_source( '
+interface someinterface {
+	function fn1(){
+	}
+	static function fn2( int $something, string $strong ){
+	}
+	abstract static function fn3() : string {
+	}
+}
+' );
+		
+		// 		$tree->resolve_class_hierarchy();
+		
+		$collector = $tree->get_collector();
+		
+		$collector->select( "someinterface" );
+		
+		$collector->next_function();
+		$this->assertEquals( "static", $collector->get_function_static() );
+		
+		// functions parameters and return values
+		$collector->select( "someinterface" );
+		$this->assertEquals( "fn1", $collector->get_function_name() );
+		$this->assertEquals( "", $collector->get_function_return_type() );
+		$collector->next_function();
+		$this->assertEquals( "fn2", $collector->get_function_name() );
+		$this->assertEquals( true, $collector->more_parameters() );
+		$this->assertEquals( "int", $collector->get_function_parameter_type() );
+		$this->assertEquals( "something", $collector->get_function_parameter_name() );
+		$this->assertEquals( "", $collector->get_function_return_type() );
+		$collector->next_function();
+		$this->assertEquals( "fn3", $collector->get_function_name() );
+		$this->assertEquals( "string", $collector->get_function_return_type() );
+		
+		
+		
+	}
+	
+	
 	
 }
 
