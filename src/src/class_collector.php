@@ -97,18 +97,20 @@ class class_collector extends collector {
 		}
 		$this->class_index = null;
 	}
-	
+
+	// FUNCTIONS section
 	function get_function_name() : string {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnname"];
 	}
 	function get_function_return_type() : string {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnretval"];
 	}
-	
 	function next_function(){
 		$this->function_index ++;
 		$this->param_index = 0;
 	}
+	
+	// FUNCTIONS parameters section
 	function more_parameters() : bool {
 		return count( $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"] ) > $this->param_index;
 	}
@@ -119,6 +121,7 @@ class class_collector extends collector {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_name"];
 	}
 
+	// USE TRAITS section
 	private $usetrait_index = 0;
 	function more_usetraits() : bool {
 		return count( $this->data[ $this->class_index ][ "usetraits"] ) > $this->usetrait_index;
@@ -130,5 +133,6 @@ class class_collector extends collector {
 		return $this->usetrait_index ++;
 	}
 
+	// INTERFACES section
 
 }
