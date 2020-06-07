@@ -72,10 +72,6 @@ class class_tree_builder extends tree_builder {
 		}
 		return $tree;
 	}
-	
-	/*
-	 * TODO: move all non-production code to a subclass and test from there
-	 */
 
 
 	function add_source( string $source ){
