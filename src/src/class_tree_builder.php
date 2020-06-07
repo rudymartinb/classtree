@@ -7,8 +7,6 @@ class class_tree_builder extends tree_builder {
 	function __construct(){
 		$this->collector = new class_collector();
 	}
-	
-	protected $classes = [] ;
 
 	protected function resolve( string $parent = "" ) : Array {
 		$tree = [];
