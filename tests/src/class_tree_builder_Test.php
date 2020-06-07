@@ -3,7 +3,7 @@ use src\class_collector;
 use src\tree_builder;
 
 class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
-	function mysetup() : tree_builder {
+	function mysetup() : class_tree_builder_SPY {
 		$tree = new class_tree_builder_SPY();
 		return $tree;
 	}
