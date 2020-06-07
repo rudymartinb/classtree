@@ -16,18 +16,13 @@
  * again, just be careful about what you do.
  * 
  */
-namespace sarasa {
-
-	interface if1 {
+namespace src1 {
+	class someclass {
 		
 	}
-	interface someinterface extends if1 {
-		function fn1();
-		static function fn2( int $something, string $strong );
-		function fn3() : string ;
-	}
-	
-	class sarasa {
-	final static private function sarsa() { return ; }
+}
+
+namespace src2 {
+	class someclass extends \src1\someclass {
 	}
 }
