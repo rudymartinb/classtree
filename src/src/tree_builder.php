@@ -8,7 +8,7 @@ abstract class tree_builder {
 		return $this->max_width($this->tree);
 	}
 	function get_max_height(): int{
-		return $this->tree[0]["height"];
+		return $this->max_height( $this->tree );
 	}
 	
 	protected function max_width( Array $trees ) : int {
