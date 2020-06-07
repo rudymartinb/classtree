@@ -56,6 +56,9 @@ class function_finder {
 	function get_return_type(): string {
 		return $this->matches["fnret"][$this->current_key];
 	}
+	function get_access_modifier() : string {
+		return $this->matches["fnmod"][$this->current_key];
+	}
 	
 	/* parameters section
 	 */
