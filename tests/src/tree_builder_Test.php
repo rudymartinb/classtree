@@ -1,6 +1,7 @@
 <?php
 
 use src\class_tree_builder;
+use src\class_tree_builder_SPY;
 
 class tree_builder_Test extends PHPUnit\Framework\TestCase {
 	function test_basic(){
@@ -97,7 +98,7 @@ class someclass2 extends someclass {
 
 	
 	function test_class_and_function(){
-		$tree = new class_tree_builder();
+		$tree = new class_tree_builder_SPY();
 		$tree->add_source( '
 class someclass {}
 	function fn1(){
