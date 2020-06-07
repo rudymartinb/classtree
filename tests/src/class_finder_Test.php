@@ -125,7 +125,7 @@ function test2(){
     
     function test_2_namespaces(){
     	$source = 'namespace src1 {
-class someclass {
+	class someclass {
 		
 }
 }
