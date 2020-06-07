@@ -61,7 +61,9 @@ interface someinterface2 ' );
 		$this->assertEquals( "src1", $collector->get_namespace() );
 		$collector->select( "someinterface2" );
 		$this->assertEquals( "src2", $collector->get_namespace() );
-		
+
+		$this->assertEquals( 2, $tree->get_max_width() );
+		$this->assertEquals( 1, $tree->get_max_height() );
 	}
 	
 	
