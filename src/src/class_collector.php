@@ -1,6 +1,10 @@
 <?php
 namespace src;
 abstract class collector {
+	protected $current_key = 0;
+	function next(){
+		$this->current_key ++;
+	}
 	
 }
 class class_collector extends collector {
@@ -13,10 +17,6 @@ class class_collector extends collector {
 	
 	private $classes = [];
 	
-	private $current_key = 0;
-	function next(){
-		$this->current_key ++;
-	}
 	private $matches = [];
 	function more_elements() : bool {
 		return count( $this->classes ) > $this->current_key;
