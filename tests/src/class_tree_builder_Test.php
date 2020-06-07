@@ -1,9 +1,14 @@
 <?php
 use src\class_collector;
+use src\tree_builder;
 
 class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
-	function test_basic(){
+	function mysetup() : tree_builder {
 		$tree = new class_tree_builder_SPY();
+		return $tree;
+	}
+	function test_basic(){
+		$tree = $this->mysetup();
 		$this->assertEquals(0, $tree->get_num_classes() );
 	}
 
