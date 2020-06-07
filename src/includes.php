@@ -18,6 +18,9 @@ function include_project_files( string $path ){
     require_once $path.'src/src/tree_builder.php';
     require_once $path.'src/src/class_tree_builder.php';
     
+    require_once $path.'src/src/interface_tree_builder.php';
+    
+    // misc functions
     require_once $path.'src/files.php';
     
     // diagrams

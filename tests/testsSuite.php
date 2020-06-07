@@ -38,6 +38,7 @@ require_once 'tests/src/trait_finder_Test.php';
 require_once 'tests/src/usetrait_finder_Test.php';
 
 require_once 'tests/src/class_tree_builder_Test.php';
+require_once 'tests/src/interface_tree_builder_Test.php';
 
 // diagram
 require_once 'tests/diagram/doubles/draw_text_mock.php';
