@@ -123,6 +123,23 @@ function test2(){
     	$this->assertEquals( "nstest1", $finder->get_namespace() );
     }
     
+    function test_2_namespaces(){
+    	$source = 'namespace src1 {
+class someclass {
+		
+}
+}
+
+namespace src2 {
+class someclass2 extends \src1\someclass {
+	}
+}';
+    	$namespace = "src1";
+    	$finder = new class_finder( $source, $namespace );
+    	$this->assertEquals( $namespace, $finder->get_namespace() );
+    	
+    }
+    
     
     function test_very_weird(){
     	$source = "final 
