@@ -60,6 +60,10 @@ class function_finder {
 	function get_return_type(): string {
 		return $this->matches["fnret"][$this->current_key];
 	}
+	function get_keyword(): string {
+		return $this->matches["fnkeyword"][$this->current_key];
+	}
+	
 	function is_final() : bool {
 		return $this->matches["fnkeyword"][$this->current_key] === "final" ;
 	}
