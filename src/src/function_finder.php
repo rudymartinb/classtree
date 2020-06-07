@@ -24,11 +24,11 @@ class function_finder {
 		$pattern  = '/';
 		$pattern .= '(';
 		$pattern .= '\s*';
-		$pattern .= '(?<fnfinal>(final|))';
+		$pattern .= '(?<fnkeyword>(final|abstract|))';
 		$pattern .= '\s*';
 		$pattern .= '(?<fnstatic>(static|))';
 		$pattern .= '\s*';
-		$pattern .= '(?<fnmod>(static|private|public|protected|abstract|))';
+		$pattern .= '(?<fnmod>(private|public|protected|))';
 		$pattern .= '\s*';
 		$pattern .= '(?<fntag>function)';
 		$pattern .= '\s*';
@@ -61,10 +61,10 @@ class function_finder {
 		return $this->matches["fnret"][$this->current_key];
 	}
 	function is_final() : bool {
-		return $this->matches["fnfinal"][$this->current_key] === "final";
+		return $this->matches["fnkeyword"][$this->current_key] === "final" ;
 	}
 	function is_static() : bool {
-		return $this->matches["fnstatic"][$this->current_key] === "static";
+		return $this->matches["fnstatic"][$this->current_key];
 	}
 	
 	function get_access_modifier() : string {
