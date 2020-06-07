@@ -13,7 +13,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree = new class_tree_builder_SPY();
 		$tree->add_source( $source );
 
-		$tree->resolve_class_hierarchy();
+		$tree->resolve_hierarchy();
 		
 		$this->assertEquals( 1, $tree->get_max_width() );
 		$this->assertEquals( 1, $tree->get_max_height() );
@@ -25,7 +25,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 {}' );
 		
-		$tree->resolve_class_hierarchy();
+		$tree->resolve_hierarchy();
 		
 		$this->assertEquals( 2, $tree->get_max_width() );
 		$this->assertEquals( 1, $tree->get_max_height() );
@@ -36,7 +36,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		
-		$tree->resolve_class_hierarchy();
+		$tree->resolve_hierarchy();
 		
 		$this->assertEquals( 1, $tree->get_max_width() );
 		$this->assertEquals( 2, $tree->get_max_height() );
@@ -49,7 +49,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		$tree->add_source( 'class someclass3 extends someclass {}' );
 		
-		$tree->resolve_class_hierarchy();
+		$tree->resolve_hierarchy();
 		
 		$this->assertEquals( 2, $tree->get_max_width() );
 		$this->assertEquals( 2, $tree->get_max_height() );
@@ -64,7 +64,7 @@ class someclass {}' );
 class someclass2 extends someclass {}' );
 		$tree->add_source( 'class someclass3 extends someclass {}' );
 		
-		$tree->resolve_class_hierarchy();
+		$tree->resolve_hierarchy();
 		
 		$collector = $tree->get_collector();
 		
@@ -86,7 +86,7 @@ namespace src2 {
 class someclass2 extends someclass {
 }' );
 		
-		$tree->resolve_class_hierarchy();
+		$tree->resolve_hierarchy();
 		
 		$collector = $tree->get_collector();
 		

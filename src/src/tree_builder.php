@@ -30,7 +30,7 @@ abstract class tree_builder {
 		return $maxheight;
 	}
 	
-	function resolve_class_hierarchy() {
+	function resolve_hierarchy() {
 		$this->tree = $this->resolve();
 	}
 	
