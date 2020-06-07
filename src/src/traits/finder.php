@@ -26,6 +26,9 @@ trait finder {
 		return $matches;
 	}
 
+	/*
+	 * used for debugging tests
+	 */
 	function get_matches() : Array {
 		return $this->matches;
 	}
