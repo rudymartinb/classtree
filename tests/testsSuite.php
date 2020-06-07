@@ -68,6 +68,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->addTestSuite('function_finder_Test');
         
         $this->addTestSuite('class_tree_builder_Test');
+        $this->addTestSuite('interface_tree_builder_Test');
         
         $this->addTestSuite('draw_text_Test');
         
