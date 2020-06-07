@@ -3,7 +3,6 @@ namespace src;
 abstract class collector {
 	protected $data = [];
 	
-	
 	function __construct( collector $previous = null ){
 		if( $previous !== null ){
 			$this->data = $previous->data;
@@ -79,6 +78,7 @@ class class_collector extends collector {
 	 * SPY
 	 *
 	 */
+	
 	function get_namespace() : string {
 		return $this->data[ $this->class_index ]["namespace"];
 	}
@@ -97,5 +97,31 @@ class class_collector extends collector {
 		}
 		$this->class_index = null;
 	}
+	
+	function get_function_name() : string {
+		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnname"];
+	}
+	function get_function_return_type() : string {
+		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnretval"];
+	}
+	
+	function next_function(){
+		$this->function_index ++;
+		$this->param_index = 0;
+	}
+	function more_parameters() : bool {
+		return count( $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"] ) > $this->param_index;
+	}
+	function get_function_parameter_type() : string {
+		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_type"];
+	}
+	function get_function_parameter_name() : string {
+		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_name"];
+	}
+
+
+
+
+
 	
 }

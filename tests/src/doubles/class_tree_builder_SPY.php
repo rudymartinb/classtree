@@ -12,26 +12,6 @@ class class_tree_builder_SPY extends class_tree_builder {
 	}
 	
 	
-// 	function get_function_name() : string {
-// 		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "fnname"];
-// 	}
-// 	function get_function_return_type() : string {
-// 		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "fnretval"];
-// 	}
-// 	function more_parameters() : bool {
-// 		return count( $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "params"] ) > $this->param_index;
-// 	}
-// 	function get_function_parameter_type() : string {
-// 		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_type"];
-// 	}
-// 	function get_function_parameter_name() : string {
-// 		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_name"];
-// 	}
-	
-// 	function next_function(){
-// 		$this->function_index ++;
-// 		$this->param_index = 0;
-// 	}
 	
 // 	private $usetrait_index = 0;
 // 	function more_usetraits() : bool {

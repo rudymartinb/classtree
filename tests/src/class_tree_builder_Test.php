@@ -98,36 +98,39 @@ class someclass2 extends someclass {
 	}
 
 	
-// 	function test_class_and_function(){
-// 		$tree = new class_tree_builder_SPY();
-// 		$tree->add_source( '
-// class someclass {}
-// 	function fn1(){
-// 	}
-// 	function fn2( int $something, string $strong ){
-// 	}
-// 	function fn3() : string {
-// 	}
-// }
-// ' );
+	function test_class_and_function(){
+		$tree = new class_tree_builder_SPY();
+		$tree->add_source( '
+class someclass {}
+	function fn1(){
+	}
+	function fn2( int $something, string $strong ){
+	}
+	function fn3() : string {
+	}
+}
+' );
 		
-// // 		$tree->resolve_class_hierarchy();
+// 		$tree->resolve_class_hierarchy();
+
+		$collector = $tree->get_collector();
 		
-// 		$tree->select_class( "someclass" );
-// 		$this->assertEquals( "fn1", $tree->get_function_name() );
-// 		$this->assertEquals( "", $tree->get_function_return_type() );
-// 		$tree->next_function();
-// 		$this->assertEquals( "fn2", $tree->get_function_name() );
-// 		$this->assertEquals( true, $tree->more_parameters() );
-// 		$this->assertEquals( "int", $tree->get_function_parameter_type() );
-// 		$this->assertEquals( "something", $tree->get_function_parameter_name() );
-// 		$this->assertEquals( "", $tree->get_function_return_type() );
-// 		$tree->next_function();
-// 		$this->assertEquals( "fn3", $tree->get_function_name() );
-// 		$this->assertEquals( "string", $tree->get_function_return_type() );
+		$collector->select_class( "someclass" );
+		
+		$this->assertEquals( "fn1", $collector->get_function_name() );
+		$this->assertEquals( "", $collector->get_function_return_type() );
+		$collector->next_function();
+		$this->assertEquals( "fn2", $collector->get_function_name() );
+		$this->assertEquals( true, $collector->more_parameters() );
+		$this->assertEquals( "int", $collector->get_function_parameter_type() );
+		$this->assertEquals( "something", $collector->get_function_parameter_name() );
+		$this->assertEquals( "", $collector->get_function_return_type() );
+		$collector->next_function();
+		$this->assertEquals( "fn3", $collector->get_function_name() );
+		$this->assertEquals( "string", $collector->get_function_return_type() );
 		
 		
-// 	}
+	}
 
 	
 // 	function test_class_and_usetrait(){
