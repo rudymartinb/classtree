@@ -50,7 +50,7 @@ class class_tree_builder extends tree_builder {
 		while($nsfinder->more_elements()){
 			$namespace = $nsfinder->get_name();
 			$body = $nsfinder->get_body();
-			$this->collector->add_classes( $body, $namespace );
+			$this->collector->add_source( $body, $namespace );
 			$nsfinder->next();
 		}
 	}

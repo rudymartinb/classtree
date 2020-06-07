@@ -11,7 +11,7 @@ class class_collector extends collector {
 	}
 	
 	
-	function add_classes( string $source, string $namespace = "" ){
+	function add_source( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
 			$class = [];
