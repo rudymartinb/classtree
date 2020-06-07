@@ -5,7 +5,7 @@ abstract class tree_builder {
 	protected $tree = [];
 	
 	function get_max_width(): int{
-		return $this->max_width($this->tree);
+		return $this->max_width( $this->tree );
 	}
 	function get_max_height(): int{
 		return $this->max_height( $this->tree );
