@@ -1,7 +1,6 @@
 <?php
 
 use src\class_tree_builder;
-use src\class_tree_builder_SPY;
 
 class tree_builder_Test extends PHPUnit\Framework\TestCase {
 	function test_basic(){

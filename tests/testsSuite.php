@@ -24,6 +24,7 @@ require_once 'diagram/draw_text_Test.php';
 
 
 
+require_once 'tests/src/doubles/class_tree_builder_SPY.php';
 
 /* test cases
  */
