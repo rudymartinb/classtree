@@ -43,6 +43,9 @@ trait finder_functions {
 	function get_function_static() : string {
 		return $this->function_finder->get_static();
 	}
+	function get_function_keyword() : string {
+		return $this->function_finder->get_keyword();
+	}
 	
 	function next_parameter(){
 		return $this->function_finder->next_parameter();

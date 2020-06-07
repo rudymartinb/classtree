@@ -19,6 +19,7 @@ class class_collector extends collector {
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
 			$class["abstract"] = $finder->get_abstract();
+			
 			$class["final"] = $finder->get_final();
 			
 			// implements is a comma separated string
@@ -35,6 +36,7 @@ class class_collector extends collector {
 				$func = [ "fnname" => $finder->get_function_name(), 
 						"fnretval" => $finder->get_function_return_type(),
 						"fnstatic" => $finder->get_function_static(),
+						"fnkeyword" => $finder->get_function_keyword(),
 						"params" => [] 
 						
 				];
@@ -97,6 +99,9 @@ class class_collector extends collector {
 	}
 	function get_function_static() : string {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnstatic"];
+	}
+	function get_function_keyword() : string {
+		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnkeyword"];
 	}
 	
 	function get_function_return_type() : string {
