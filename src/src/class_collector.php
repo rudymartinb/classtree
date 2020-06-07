@@ -113,7 +113,7 @@ class class_collector extends collector {
 	}
 	
 	function get_function_return_type() : string {
-		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnretval"];
+		return $this->thisfn("fnretval");
 	}
 	function next_function(){
 		$this->function_index ++;
