@@ -105,30 +105,6 @@ class class_tree_builder extends tree_builder {
 			];
 			$collector->next();
 		}
-		
-// 		foreach( $this->classes as $class ){
-// 			$classname = $class["name"];
-// 			$extends = $class["extends"];
-			
-// 			if( $parent !== "" ){
-// 				if( $extends != $parent ) {
-// 					continue;
-// 				}
-// 			} else {
-// 				if( $extends !== "" ){
-// 					continue;
-// 				}
-// 			}
-			
-// 			$children = $this->resolve( $classname );
-// 			$tree[] = [
-// 					"name" => $classname,
-// 					"extends" => $extends,
-// 					"children" => $children,
-// 					"width" => max( $this->max_width( $children ), 1 ),
-// 					"height" => $this->max_height( $children )+1
-// 			];
-// 		}
 		return $tree;
 	}
 
