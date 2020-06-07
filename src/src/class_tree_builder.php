@@ -111,7 +111,7 @@ class class_tree_builder extends tree_builder {
 			
 			$class["usetraits"] = [];
 			while( $finder->more_traits() ){
-				$class["usetraits"][] = $finder->get_trait_name();
+				$class["usetraits"][] = [ "usetrait_name" => $finder->get_trait_name() ];
 				$finder->next_trait();
 			}
 			
