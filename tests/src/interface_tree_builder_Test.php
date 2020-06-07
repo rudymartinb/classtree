@@ -22,5 +22,17 @@ class interface_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 1, $tree->get_max_height() );
 	}
 	
+	
+	function test_size_2(){
+		$tree = new interface_tree_builder_SPY();
+		$tree->add_source( 'interface someinterface {}' );
+		$tree->add_source( 'interface someinterface2 {}' );
+		
+		$tree->resolve_hierarchy();
+		
+		$this->assertEquals( 2, $tree->get_max_width() );
+		$this->assertEquals( 1, $tree->get_max_height() );
+	}
+	
 }
 
