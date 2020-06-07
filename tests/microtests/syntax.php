@@ -17,10 +17,13 @@
  * 
  */
 namespace sarasa {
-	interface someinterface {
+	interface if1 {
+		
+	}
+	interface someinterface extends if1 {
 		function fn1();
 		static function fn2( int $something, string $strong );
-		static function fn3() : string ;
+		function fn3() : string ;
 	}
 	
 	class sarasa {
