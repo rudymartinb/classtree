@@ -109,8 +109,11 @@ class class_tree_builder extends tree_builder {
 				$finder->next_function();
 			}
 			
-			$class["usetrait"] = [];
-// 			while( )
+			$class["usetraits"] = [];
+			while( $finder->more_traits() ){
+				$class["usetraits"][] = $finder->get_trait_name();
+				$finder->next_trait();
+			}
 			
 			$this->classes[] = $class;
 			$finder->next();

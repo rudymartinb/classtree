@@ -79,9 +79,10 @@ class class_finder {
     // use traits
     private $usetrait_finder;
     function more_traits() : bool {
-    	$body = $this->get_body();
-    	
-    	$this->usetrait_finder = new usetrait_finder($body);
+    	if( $this->usetrait_finder === null ){
+    		$body = $this->get_body();
+    		$this->usetrait_finder = new usetrait_finder($body);
+    	}
     	
     	return $this->usetrait_finder->more_elements();
     }

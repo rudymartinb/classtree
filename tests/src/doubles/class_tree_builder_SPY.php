@@ -43,4 +43,9 @@ class class_tree_builder_SPY extends class_tree_builder {
 		$this->param_index = 0;
 	}
 	
+	private $usetrait_index;
+	function more_usetraits() : bool {
+		return count( $this->classes[ $this->class_index ][ "usetraits"] ) > $this->usetrait_index;
+	}
+	
 }

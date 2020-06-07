@@ -126,6 +126,29 @@ class someclass {}
 		
 		
 	}
+
+	
+	function test_class_and_usetrait(){
+		$tree = new class_tree_builder_SPY();
+		$tree->add_source( '
+class someclass {}
+	use trait1;
+	function fn1(){
+	}
+	function fn2( int $something, string $strong ){
+	}
+	function fn3() : string {
+	}
+}
+' );
+		
+		// 		$tree->resolve_class_hierarchy();
+		
+		$tree->select_class( "someclass" );
+		$this->assertEquals( true, $tree->more_usetraits() );
+		
+		
+	}
 	
 	
 
