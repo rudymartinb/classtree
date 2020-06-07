@@ -1,7 +1,6 @@
 <?php
 namespace src;
 
-
 class class_tree_builder extends tree_builder {
 
 	protected $classes = [] ;
