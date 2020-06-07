@@ -76,13 +76,13 @@ class class_tree_builder extends tree_builder {
 		while($nsfinder->more_elements()){
 			$namespace = $nsfinder->get_name();
 			$body = $nsfinder->get_body();
-			$this->add_class( $body, $namespace );
+			$this->add_classes( $body, $namespace );
 			$nsfinder->next();
 		}
 	}
 	
 
-	private function add_class( string $source, string $namespace = "" ){
+	private function add_classes( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
 			$class = [];
