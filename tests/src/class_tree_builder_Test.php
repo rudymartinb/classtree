@@ -130,7 +130,7 @@ class someclass {}
 		$this->assertEquals( "static", $collector->get_function_static() );
 		
 		$collector->next_function();
-		$this->assertEquals( "abstract", $collector->get_function_keyword() );
+		$this->assertEquals( "abstract", $collector->get_function_access() );
 
 		// functions parameters and return values 
 		$collector->select( "someclass" );

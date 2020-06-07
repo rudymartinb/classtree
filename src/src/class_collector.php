@@ -104,7 +104,7 @@ class class_collector extends collector {
 		return $this->thisfn("fnstatic");
 	}
 	
-	function get_function_keyword() : string {
+	function get_function_access() : string {
 		return $this->thisfn("fnkeyword");
 	}
 	
