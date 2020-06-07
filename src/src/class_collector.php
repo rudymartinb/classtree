@@ -33,7 +33,8 @@ class class_collector extends collector {
 			$class["functions"] = [];
 			while( $finder->more_functions() ){
 				$func = [ "fnname" => $finder->get_function_name(), 
-						"fnretval" => $finder->get_function_return_type(), 
+						"fnretval" => $finder->get_function_return_type(),
+						"fnstatic" => $finder->get_function_static(),
 						"params" => [] 
 						
 				];
@@ -94,6 +95,10 @@ class class_collector extends collector {
 	function get_function_name() : string {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnname"];
 	}
+	function get_function_static() : string {
+		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnstatic"];
+	}
+	
 	function get_function_return_type() : string {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnretval"];
 	}

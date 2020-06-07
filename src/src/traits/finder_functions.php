@@ -40,6 +40,9 @@ trait finder_functions {
 	function get_function_return_type() : string {
 		return $this->function_finder->get_return_type();
 	}
+	function get_function_static() : string {
+		return $this->function_finder->get_static();
+	}
 	
 	function next_parameter(){
 		return $this->function_finder->next_parameter();

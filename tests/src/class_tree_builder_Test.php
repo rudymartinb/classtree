@@ -121,6 +121,7 @@ class someclass {}
 		$this->assertEquals( "", $collector->get_function_return_type() );
 		$collector->next_function();
 		$this->assertEquals( "fn2", $collector->get_function_name() );
+		$this->assertEquals( "static", $collector->get_function_static() );
 		$this->assertEquals( true, $collector->more_parameters() );
 		$this->assertEquals( "int", $collector->get_function_parameter_type() );
 		$this->assertEquals( "something", $collector->get_function_parameter_name() );

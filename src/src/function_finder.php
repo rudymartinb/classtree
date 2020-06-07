@@ -71,7 +71,7 @@ class function_finder {
 		return $this->matches["fnkeyword"][$this->current_key] === "abstract" ;
 	}
 	
-	function is_static() : bool {
+	function get_static() : string {
 		return $this->matches["fnstatic"][$this->current_key];
 	}
 	
