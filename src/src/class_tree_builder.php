@@ -143,12 +143,10 @@ class class_tree_builder extends tree_builder {
 			$class["functions"] = [];
 			while( $finder->more_functions() ){
 				$func = [ "fnname" => $finder->get_function_name(), "fnretval" => $finder->get_function_return_type(), "params" => [] ];
-				
 				while( $finder->more_parameters() ){
 					$func["params"][] = [ "param_type" => $finder->get_parameter_type(), "param_name" => $finder->get_parameter_name() ];
 					$finder->next_parameter();
 				}
-				var_dump( $func );
 				$class["functions"][] = $func;
 				$finder->next_function();
 			}
