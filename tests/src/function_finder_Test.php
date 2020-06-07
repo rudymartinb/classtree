@@ -138,7 +138,7 @@ function complex( int $ant, string& $strong ) : Array {
 	function test_static(){
 		$source = 'static function simple() {} ';
 		$finder = new function_finder( $source );
-		var_dump( $finder->get_matches() );
+// 		var_dump( $finder->get_matches() );
 		$this->assertEquals( true, $finder->is_static() );
 	}
 	
