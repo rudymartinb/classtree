@@ -115,6 +115,7 @@ class class_collector extends collector {
 	function get_function_return_type() : string {
 		return $this->thisfn("fnretval");
 	}
+	
 	function next_function(){
 		$this->function_index ++;
 		$this->param_index = 0;
@@ -124,8 +125,13 @@ class class_collector extends collector {
 	function more_parameters() : bool {
 		return count( $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"] ) > $this->param_index;
 	}
+	
+	private function thisparam( string $tag ) : string {
+		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ][ $tag ];
+	}
+
 	function get_function_parameter_type() : string {
-		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_type"];
+		return $this->thisparam( "param_type" );
 	}
 	function get_function_parameter_name() : string {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_name"];
