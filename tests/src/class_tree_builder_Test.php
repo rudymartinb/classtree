@@ -184,6 +184,19 @@ abstract class someclass  {
 		
 		$this->assertEquals( true, $collector->is_abstract() );
 	}
+
+	
+	function test_final(){
+		$tree = new class_tree_builder_SPY();
+		$tree->add_source( '
+final class someclass  {
+}
+' );
+		$collector = $tree->get_collector();
+		$collector->select_class( "someclass" );
+		
+		$this->assertEquals( true, $collector->is_final() );
+	}
 	
 	
 
