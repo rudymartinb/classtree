@@ -56,23 +56,25 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	
-// 	function test_namespace(){
-// 		$tree = new class_tree_builder_SPY();
-// 		$tree->add_source( 'namespace src;
-// class someclass {}' );
-// 		$tree->add_source( 'namespace src;
-// class someclass2 extends someclass {}' );
-// 		$tree->add_source( 'class someclass3 extends someclass {}' );
+	function test_namespace(){
+		$tree = new class_tree_builder_SPY();
+		$tree->add_source( 'namespace src;
+class someclass {}' );
+		$tree->add_source( 'namespace src;
+class someclass2 extends someclass {}' );
+		$tree->add_source( 'class someclass3 extends someclass {}' );
 		
-// 		$tree->resolve_class_hierarchy();
+		$tree->resolve_class_hierarchy();
 		
-// 		$tree->select_class( "someclass" );
-// 		$this->assertEquals( "src", $tree->get_namespace( "someclass" ) );
-// 		$tree->select_class( "someclass2" );
-// 		$this->assertEquals( "src", $tree->get_namespace( "someclass2" ) );
-// 		$tree->select_class( "someclass3" );
-// 		$this->assertEquals( "", $tree->get_namespace( "someclass3" ) );
-// 	}
+		$collector = $tree->get_collector();
+		
+		$collector->select_class( "someclass" );
+		$this->assertEquals( "src", $collector->get_namespace( "someclass" ) );
+		$collector->select_class( "someclass2" );
+		$this->assertEquals( "src", $collector->get_namespace( "someclass2" ) );
+		$collector->select_class( "someclass3" );
+		$this->assertEquals( "", $collector->get_namespace( "someclass3" ) );
+	}
 
 	
 // 	function test_2_namespace(){
