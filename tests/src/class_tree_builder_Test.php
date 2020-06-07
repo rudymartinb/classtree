@@ -78,31 +78,36 @@ class someclass2 extends someclass {}' );
 		$collector = $tree->get_collector();
 		
 		$collector->select( "someclass" );
-		$this->assertEquals( "src", $collector->get_namespace( "someclass" ) );
+		$this->assertEquals( "src", $collector->get_namespace( ) );
 		$collector->select( "someclass2" );
-		$this->assertEquals( "src", $collector->get_namespace( "someclass2" ) );
+		$this->assertEquals( "src", $collector->get_namespace( ) );
 		$collector->select( "someclass3" );
-		$this->assertEquals( "", $collector->get_namespace( "someclass3" ) );
+		$this->assertEquals( "", $collector->get_namespace( ) );
 	}
 
 	
 	function test_2_namespace(){
 		$tree = $this->mysetup();
 		$tree->add_source( 'namespace src1 {
-class someclass {}
+class someclass {
+		
 }
+}
+
 namespace src2 {
-class someclass2 extends someclass {
+class someclass2 extends \src1\someclass {
+	}
 }' );
 		
 		$tree->resolve_hierarchy();
 		
 		$collector = $tree->get_collector();
-		
-		$collector->select( "someclass" );
-		$this->assertEquals( "src1", $collector->get_namespace( "someclass" ) );
+		var_dump( $collector->get_data() );
+		var_dump( $collector->get_index() );
+		var_dump( $collector->select( "someclass" ) );
+		$this->assertEquals( "src1", $collector->get_namespace() );
 		$collector->select( "someclass2" );
-		$this->assertEquals( "src2", $collector->get_namespace( "someclass2" ) );
+		$this->assertEquals( "src2", $collector->get_namespace() );
 		
 	}
 

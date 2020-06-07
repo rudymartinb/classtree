@@ -9,6 +9,9 @@ class class_collector extends collector {
 	function get_extends() : string  {
 		return $this->data[$this->current_key]["extends"];
 	}
+	function get_data() : Array {
+		return $this->data;
+	}
 	
 	private $index_array = [];
 	function add_source( string $source, string $namespace = "" ){
@@ -61,10 +64,14 @@ class class_collector extends collector {
 			
 			$this->data[] = $class;
 			$this->index_array[ $name ] = count( $this->data )-1;
+			
 			$finder->next();
 		}
 	}
 	
+	function get_index() : Array {
+		return $this->index_array;
+	}
 	
 	/*
 	 * SPY section for testing
@@ -77,10 +84,11 @@ class class_collector extends collector {
 	protected $class_index = null;
 	protected $function_index = null;
 	protected $param_index = null;
-	function select( string $classname  ){
+	function select( string $classname  ) : int {
 		$this->class_index = $this->index_array[ $classname ];
 		$this->function_index = 0;
 		$this->param_index = 0;
+		return $this->class_index;
 	}
 	function is_final(): bool{
 		return $this->data[ $this->class_index ]["final"] === "final";

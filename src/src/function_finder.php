@@ -61,7 +61,7 @@ class function_finder {
 		return $this->matches["fnret"][$this->current_key];
 	}
 	
-	function get_keyword(): string {
+	function get_access(): string {
 		return $this->matches["fnkeyword"][$this->current_key];
 	}
 	

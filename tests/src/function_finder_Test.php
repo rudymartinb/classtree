@@ -146,7 +146,7 @@ function complex( int $ant, string& $strong ) : Array {
 		$source = 'final function simple() {} ';
 		$finder = new function_finder( $source );
 		$this->assertEquals( true, $finder->is_final() );
-		$this->assertEquals( "final", $finder->get_keyword() );
+		$this->assertEquals( "final", $finder->get_access() );
 		
 	}
 
@@ -154,7 +154,7 @@ function complex( int $ant, string& $strong ) : Array {
 		$source = 'abstract function simple() {} ';
 		$finder = new function_finder( $source );
 		$this->assertEquals( true, $finder->is_abstract() );
-		$this->assertEquals( "abstract", $finder->get_keyword() );
+		$this->assertEquals( "abstract", $finder->get_access() );
 	}
 	
 	

@@ -23,6 +23,11 @@ namespace src1 {
 }
 
 namespace src2 {
-	class someclass extends \src1\someclass {
+	use \src1\someclass as sm1;
+	use \src1\someclass as sm2;
+	class someclass extends sm1 {
+		function one() : sm2{
+			
+		}
 	}
 }
