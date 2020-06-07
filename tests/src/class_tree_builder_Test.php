@@ -9,6 +9,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 	function mysetup() : class_tree_builder_SPY {
 		return $this->create();
 	}
+	
 	function test_basic(){
 		$tree = $this->mysetup();
 		$this->assertEquals(0, $tree->get_num_classes() );
