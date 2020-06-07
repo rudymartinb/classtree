@@ -16,21 +16,8 @@
  * again, just be careful about what you do.
  * 
  */
-namespace sarasa { function sarsa() { return ; } }
-
-
-namespace 
-sarasa2 
-{
-	trait test1 {
-		
+namespace sarasa { 
+	class sarasa {
+	final protected function sarsa() { return ; }
 	}
-	function 
-	sarasa
-	( int $sarasa  
-			) 
-	{ 
-		return 
-		; 
-	} 
 }
