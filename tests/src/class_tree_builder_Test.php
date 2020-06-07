@@ -77,11 +77,11 @@ class someclass2 extends someclass {}' );
 		
 		$collector = $tree->get_collector();
 		
-		$collector->select_class( "someclass" );
+		$collector->select( "someclass" );
 		$this->assertEquals( "src", $collector->get_namespace( "someclass" ) );
-		$collector->select_class( "someclass2" );
+		$collector->select( "someclass2" );
 		$this->assertEquals( "src", $collector->get_namespace( "someclass2" ) );
-		$collector->select_class( "someclass3" );
+		$collector->select( "someclass3" );
 		$this->assertEquals( "", $collector->get_namespace( "someclass3" ) );
 	}
 
@@ -99,9 +99,9 @@ class someclass2 extends someclass {
 		
 		$collector = $tree->get_collector();
 		
-		$collector->select_class( "someclass" );
+		$collector->select( "someclass" );
 		$this->assertEquals( "src1", $collector->get_namespace( "someclass" ) );
-		$collector->select_class( "someclass2" );
+		$collector->select( "someclass2" );
 		$this->assertEquals( "src2", $collector->get_namespace( "someclass2" ) );
 		
 	}
@@ -124,7 +124,7 @@ class someclass {}
 
 		$collector = $tree->get_collector();
 		
-		$collector->select_class( "someclass" );
+		$collector->select( "someclass" );
 		
 		$collector->next_function();
 		$this->assertEquals( "static", $collector->get_function_static() );
@@ -133,7 +133,7 @@ class someclass {}
 		$this->assertEquals( "abstract", $collector->get_function_keyword() );
 
 		// functions parameters and return values 
-		$collector->select_class( "someclass" );
+		$collector->select( "someclass" );
 		$this->assertEquals( "fn1", $collector->get_function_name() );
 		$this->assertEquals( "", $collector->get_function_return_type() );
 		$collector->next_function();
@@ -165,7 +165,7 @@ class someclass {
 }
 ' );
 		$collector = $tree->get_collector();
-		$collector->select_class( "someclass" );
+		$collector->select( "someclass" );
 		$this->assertEquals( true, $collector->more_usetraits() );
 		$this->assertEquals( "trait1", $collector->get_usetrait_name() );
 		$collector->next_usetrait();
@@ -182,7 +182,7 @@ class someclass implements interface1, interface2  {
 }
 ' );
 		$collector = $tree->get_collector();
-		$collector->select_class( "someclass" );
+		$collector->select( "someclass" );
 		
 		$this->assertEquals( true, $collector->more_interfaces() );
 		$collector->next_interface();
@@ -198,7 +198,7 @@ abstract class someclass  {
 }
 ' );
 		$collector = $tree->get_collector();
-		$collector->select_class( "someclass" );
+		$collector->select( "someclass" );
 		
 		$this->assertEquals( true, $collector->is_abstract() );
 	}
@@ -211,7 +211,7 @@ final class someclass  {
 }
 ' );
 		$collector = $tree->get_collector();
-		$collector->select_class( "someclass" );
+		$collector->select( "someclass" );
 		
 		$this->assertEquals( true, $collector->is_final() );
 	}
