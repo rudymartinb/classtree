@@ -126,6 +126,7 @@ abstract class afinalclass extends other_class {
     	$this->assertEquals( "other_class", $finder->get_extends() );
     	$this->assertEquals( "abstract", $finder->get_abstract() );
     	$this->assertEquals( "nstest1", $finder->get_namespace() );
+    	$this->assertEquals( "", $finder->get_final() );
     }
     
     
