@@ -44,7 +44,13 @@ class class_collector extends collector {
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
 
-			$class["implements"] = $finder->get_implements();
+			// implements is a comma separated string
+			$implements = $finder->get_implements();
+			$array = explode( "," , $implements );
+			foreach( $array as $key => $implements ){
+				$array[ $key ] = [ "ifname" => trim( $implements ) ];
+			}
+			$class["implements"] = $array;
 			
 			
 			$class["functions"] = [];
@@ -138,8 +144,16 @@ class class_collector extends collector {
 
 	// INTERFACES section
 	private $implements_index = 0;
-	function get_implements() : string {
-		return $this->data[ $this->class_index ][ "implements"] ;
+	function more_interfaces() : bool {
+		return count( $this->data[ $this->class_index ][ "implements"] ) >$this->implements_index ;
 	}
+	function next_interface(){
+		$this->implements_index ++;
+	}
+	function get_interface_name() : string {
+		return $this->data[ $this->class_index ][ "implements"][ $this->implements_index ]["ifname"];
+	}
+	
+	
 	
 }

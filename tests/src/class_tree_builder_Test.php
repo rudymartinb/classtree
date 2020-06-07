@@ -165,12 +165,12 @@ class someclass implements interface1, interface2  {
 ' );
 		$collector = $tree->get_collector();
 		$collector->select_class( "someclass" );
-// 		$this->assertEquals( true, $collector->more_interfaces() );
-		$this->assertEquals( "interface1, interface2", $collector->get_implements() );
-// 		$collector->next_interface();
-// 		$this->assertEquals( "interface2", $collector->get_interface_name() );
-// 		$collector->next_interface();
-// 		$this->assertEquals( false, $collector->more_interfaces() );
+		
+		$this->assertEquals( true, $collector->more_interfaces() );
+		$collector->next_interface();
+		$this->assertEquals( "interface2", $collector->get_interface_name() );
+		$collector->next_interface();
+		$this->assertEquals( false, $collector->more_interfaces() );
 
 		
 	}

@@ -54,5 +54,6 @@ class class_tree_builder extends tree_builder {
 			$nsfinder->next();
 		}
 	}
+
 	
 }
