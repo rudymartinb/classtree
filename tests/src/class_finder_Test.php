@@ -103,8 +103,6 @@ function test2(){
 }";
         
         $finder = new class_finder( $source );
-        $this->assertEquals( "Caso00_Builder", $finder->get_name() );
-        $this->assertEquals( "builder_interface, builder_getcaso", $finder->get_implements() );
         $this->assertEquals( "abstract", $finder->get_abstract() );
     }
 
