@@ -41,10 +41,7 @@ abstract class tree_builder {
 class class_tree_builder extends tree_builder {
 
 	protected $classes = [] ;
-	function get_num_classes() : int {
-		return count( $this->classes );
-	}
-	
+
 	protected function resolve( string $parent = "" ) : Array {
 		$tree = [];
 		foreach( $this->classes as $class ){

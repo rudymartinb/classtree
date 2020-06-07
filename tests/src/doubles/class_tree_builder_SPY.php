@@ -2,6 +2,9 @@
 use src\class_tree_builder;
 
 class class_tree_builder_SPY extends class_tree_builder {
+	function get_num_classes() : int {
+		return count( $this->classes );
+	}
 	
 	function get_namespace() : string {
 		return $this->classes[ $this->class_index ]["namespace"];

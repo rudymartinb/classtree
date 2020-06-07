@@ -4,7 +4,7 @@ use src\class_tree_builder;
 
 class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 	function test_basic(){
-		$tree = new class_tree_builder();
+		$tree = new class_tree_builder_SPY();
 		$this->assertEquals(0, $tree->get_num_classes() );
 	}
 
