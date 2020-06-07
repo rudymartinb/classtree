@@ -102,7 +102,6 @@ class class_collector extends collector {
 	}
 	function get_function_static() : string {
 		return $this->thisfn("fnstatic");
-		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnstatic"];
 	}
 	function get_function_keyword() : string {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnkeyword"];
