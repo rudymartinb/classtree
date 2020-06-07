@@ -1,51 +1,33 @@
 <?php
 namespace src;
+class class_collector {
 
-class class_tree_builder extends tree_builder {
-
-	protected $classes = [] ;
-
-	protected function resolve( string $parent = "" ) : Array {
-		$tree = [];
-		foreach( $this->classes as $class ){
-			$classname = $class["name"];
-			$extends = $class["extends"];
-			
-			if( $parent !== "" ){
-				if( $extends != $parent ) {
-					continue;
-				}
-			} else {
-				if( $extends !== "" ){
-					continue;
-				}
-			}
-			
-			$children = $this->resolve( $classname );
-			$tree[] = [
-					"name" => $classname,
-					"extends" => $extends,
-					"children" => $children,
-					"width" => max( $this->max_width( $children ), 1 ),
-					"height" => $this->max_height( $children )+1
-			];
-		}
-		return $tree;
-	}
-
-
-	function add_source( string $source ){
-		$nsfinder = new namespace_finder($source);
-		while($nsfinder->more_elements()){
-			$namespace = $nsfinder->get_name();
-			$body = $nsfinder->get_body();
-			$this->add_classes( $body, $namespace );
-			$nsfinder->next();
+	function __construct( class_collector $previous = null ){
+		if( $previous !== null ){
+			$this->classes = $previous->classes;
 		}
 	}
 	
+	private $classes = [];
 
-	private function add_classes( string $source, string $namespace = "" ){
+	private $current_key = 0;
+	function next(){
+		$this->current_key ++;
+	}
+	private $matches = [];
+	function more_elements() : bool {
+		return count( $this->classes ) > $this->current_key;
+	}
+	function get() : Array {
+		return $this->classes[$this->current_key];
+	}
+	function get_count() : int {
+		return count( $this->classes );
+	}
+	
+	
+	
+	function add_classes( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
 			$class = [];
@@ -74,4 +56,91 @@ class class_tree_builder extends tree_builder {
 			$finder->next();
 		}
 	}
+	
+	/*
+	 * SPY
+	 * 
+	 */
+	
+
+	
+}
+class class_tree_builder extends tree_builder {
+
+	protected $collector;
+	function __construct(){
+		$this->collector = new class_collector();
+	}
+	
+	protected $classes = [] ;
+
+	protected function resolve( string $parent = "" ) : Array {
+		$tree = [];
+		
+		$collector = new class_collector( $this->collector );
+		
+		while( $collector->more_elements() ){
+			$class = $collector->get();
+			$classname = $class["name"];
+			$extends = $class["extends"];
+			
+			if( $parent !== "" ){
+				if( $extends != $parent ) {
+					$collector->next();
+					continue;
+				}
+			} else {
+				if( $extends !== "" ){
+					$collector->next();
+					continue;
+				}
+			}
+			$children = $this->resolve( $classname );
+			$tree[] = [
+					"name" => $classname,
+					"extends" => $extends,
+					"children" => $children,
+					"width" => max( $this->max_width( $children ), 1 ),
+					"height" => $this->max_height( $children )+1
+			];
+			$collector->next();
+		}
+		
+// 		foreach( $this->classes as $class ){
+// 			$classname = $class["name"];
+// 			$extends = $class["extends"];
+			
+// 			if( $parent !== "" ){
+// 				if( $extends != $parent ) {
+// 					continue;
+// 				}
+// 			} else {
+// 				if( $extends !== "" ){
+// 					continue;
+// 				}
+// 			}
+			
+// 			$children = $this->resolve( $classname );
+// 			$tree[] = [
+// 					"name" => $classname,
+// 					"extends" => $extends,
+// 					"children" => $children,
+// 					"width" => max( $this->max_width( $children ), 1 ),
+// 					"height" => $this->max_height( $children )+1
+// 			];
+// 		}
+		return $tree;
+	}
+
+
+	function add_source( string $source ){
+		$nsfinder = new namespace_finder($source);
+		while($nsfinder->more_elements()){
+			$namespace = $nsfinder->get_name();
+			$body = $nsfinder->get_body();
+			$this->collector->add_classes( $body, $namespace );
+			$nsfinder->next();
+		}
+	}
+	
 }
