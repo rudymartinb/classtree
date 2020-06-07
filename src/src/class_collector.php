@@ -10,7 +10,7 @@ class class_collector extends collector {
 		return $this->data[$this->current_key]["extends"];
 	}
 	
-	
+	private $index_array = [];
 	function add_source( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
@@ -60,6 +60,7 @@ class class_collector extends collector {
 			}
 			
 			$this->data[] = $class;
+			$this->index_array[ $name ] = count( $this->data )-1;
 			$finder->next();
 		}
 	}
@@ -77,15 +78,18 @@ class class_collector extends collector {
 	protected $function_index = null;
 	protected $param_index = null;
 	function select( string $classname  ){
-		foreach( $this->data as $key => $class ){
-			if( $class["name"] == $classname ){
-				$this->class_index = $key;
-				$this->function_index = 0;
-				$this->param_index = 0;
-				return;
-			}
-		}
-		$this->class_index = null;
+// 		foreach( $this->data as $key => $class ){
+// 			if( $class["name"] == $classname ){
+// 				$this->class_index = $key;
+// 				$this->function_index = 0;
+// 				$this->param_index = 0;
+// 				return;
+// 			}
+// 		}
+// 		$this->class_index = null;
+		$this->class_index = $this->index_array[ $classname ];
+		$this->function_index = 0;
+		$this->param_index = 0;
 	}
 	function is_final(): bool{
 		return $this->data[ $this->class_index ]["final"] === "final";
