@@ -6,13 +6,13 @@ class function_finder {
 	function __construct( string $source ){
 		$this->source = $source;
 		
-		$this->pattern  = "/^";
-		$this->pattern .= "(\s*function\s+)";
-		$this->pattern .= "(?<name>[a-zA-Z0-9_]*)";
-		$this->pattern .= "\(";
-		$this->pattern .= "\s*(?<params>[a-zA-Z0-0_\$, ]*\s*.)*";
-		// 		$this->pattern .= "\s*(?<parname>\$[a-zA-Z0-0_]*\s*.),*)*";
-		$this->pattern .= "\)\s*";
+// 		$this->pattern  = "/^";
+// 		$this->pattern .= "(\s*function\s+)";
+// 		$this->pattern .= "(?<name>[a-zA-Z0-9_]*)";
+// 		$this->pattern .= "\(";
+// 		$this->pattern .= "\s*(?<params>[a-zA-Z0-0_\$, ]*\s*.)*";
+// 		// 		$this->pattern .= "\s*(?<parname>\$[a-zA-Z0-0_]*\s*.),*)*";
+// 		$this->pattern .= "\)\s*";
 		
 		/* for the namespace keyword
 		 * then add all the code up to the next keyword.
