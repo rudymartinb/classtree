@@ -46,6 +46,25 @@ class interface_tree_builder_Test extends PHPUnit\Framework\TestCase {
 	}
 	
 	
+	function test_2_namespace(){
+		$tree = new interface_tree_builder_SPY();
+		$tree->add_source( 'namespace src1; 
+interface someinterface {}' );
+		$tree->add_source( 'namespace src2;
+interface someinterface2 extends someinterface {} ' );
+		
+		$tree->resolve_hierarchy();
+		
+		$collector = $tree->get_collector();
+		
+		$collector->select_class( "someinterface" );
+		$this->assertEquals( "src1", $collector->get_namespace() );
+		$collector->select_class( "someinterface2" );
+		$this->assertEquals( "src2", $collector->get_namespace() );
+		
+	}
+	
+	
 	
 }
 
