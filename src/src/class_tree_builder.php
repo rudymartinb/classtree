@@ -155,3 +155,7 @@ class class_tree_builder extends tree_builder {
 		}
 	}
 }
+
+class class_tree_builder_SPY extends class_tree_builder {
+	
+}
