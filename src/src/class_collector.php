@@ -78,15 +78,6 @@ class class_collector extends collector {
 	protected $function_index = null;
 	protected $param_index = null;
 	function select( string $classname  ){
-// 		foreach( $this->data as $key => $class ){
-// 			if( $class["name"] == $classname ){
-// 				$this->class_index = $key;
-// 				$this->function_index = 0;
-// 				$this->param_index = 0;
-// 				return;
-// 			}
-// 		}
-// 		$this->class_index = null;
 		$this->class_index = $this->index_array[ $classname ];
 		$this->function_index = 0;
 		$this->param_index = 0;
