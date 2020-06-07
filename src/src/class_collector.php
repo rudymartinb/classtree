@@ -43,6 +43,9 @@ class class_collector extends collector {
 			$class["name"] = $finder->get_name();
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
+
+			$class["implements"] = $finder->get_implements();
+			
 			
 			$class["functions"] = [];
 			while( $finder->more_functions() ){
@@ -134,5 +137,9 @@ class class_collector extends collector {
 	}
 
 	// INTERFACES section
-
+	private $implements_index = 0;
+	function get_implements() : string {
+		return $this->data[ $this->class_index ][ "implements"] ;
+	}
+	
 }

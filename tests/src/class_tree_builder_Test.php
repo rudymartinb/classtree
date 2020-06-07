@@ -160,23 +160,18 @@ class someclass {
 	function test_interfaces(){
 		$tree = new class_tree_builder_SPY();
 		$tree->add_source( '
-class someclass implements {}
-	use trait1, trait2;
-	function fn1(){
-	}
-	function fn2( int $something, string $strong ){
-	}
-	function fn3() : string {
-	}
+class someclass implements interface1, interface2  {
 }
 ' );
 		$collector = $tree->get_collector();
 		$collector->select_class( "someclass" );
-		$this->assertEquals( true, $collector->more_usetraits() );
-		$this->assertEquals( "trait1", $collector->get_usetrait_name() );
-		$collector->next_usetrait();
-		$this->assertEquals( true, $collector->more_usetraits() );
-		$this->assertEquals( "trait2", $collector->get_usetrait_name() );
+// 		$this->assertEquals( true, $collector->more_interfaces() );
+		$this->assertEquals( "interface1, interface2", $collector->get_implements() );
+// 		$collector->next_interface();
+// 		$this->assertEquals( "interface2", $collector->get_interface_name() );
+// 		$collector->next_interface();
+// 		$this->assertEquals( false, $collector->more_interfaces() );
+
 		
 	}
 	
