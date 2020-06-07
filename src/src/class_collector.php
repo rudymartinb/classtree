@@ -59,7 +59,7 @@ class class_collector extends collector {
 				$finder->next_trait();
 			}
 			
-			$this->data[ ] = $class;
+			$this->data[] = $class;
 			$finder->next();
 		}
 	}

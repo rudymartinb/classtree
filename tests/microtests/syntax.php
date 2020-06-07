@@ -17,6 +17,7 @@
  * 
  */
 namespace sarasa {
+
 	interface if1 {
 		
 	}
