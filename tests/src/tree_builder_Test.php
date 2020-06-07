@@ -13,7 +13,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$source = 'class someclass {
 }';
 		
-		$tree = new class_tree_builder();
+		$tree = new class_tree_builder_SPY();
 		$tree->add_source( $source );
 
 		$tree->resolve_class_hierarchy();
@@ -24,7 +24,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_size_2(){
-		$tree = new class_tree_builder();
+		$tree = new class_tree_builder_SPY();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 {}' );
 		
@@ -35,7 +35,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_size_3(){
-		$tree = new class_tree_builder();
+		$tree = new class_tree_builder_SPY();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		
@@ -47,7 +47,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_size_1_2(){
-		$tree = new class_tree_builder();
+		$tree = new class_tree_builder_SPY();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		$tree->add_source( 'class someclass3 extends someclass {}' );
@@ -60,7 +60,7 @@ class tree_builder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_namespace(){
-		$tree = new class_tree_builder();
+		$tree = new class_tree_builder_SPY();
 		$tree->add_source( 'namespace src;
 class someclass {}' );
 		$tree->add_source( 'namespace src;
@@ -79,7 +79,7 @@ class someclass2 extends someclass {}' );
 
 	
 	function test_2_namespace(){
-		$tree = new class_tree_builder();
+		$tree = new class_tree_builder_SPY();
 		$tree->add_source( 'namespace src1 {
 class someclass {}
 }
