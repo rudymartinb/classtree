@@ -3,7 +3,7 @@ namespace src;
 
 class class_tree_builder extends tree_builder {
 
-	protected static $collector;
+	protected $collector;
 	function __construct(){
 		$this->collector = new class_collector();
 	}
