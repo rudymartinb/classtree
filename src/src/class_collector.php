@@ -11,28 +11,27 @@ class class_collector extends collector {
 	
 	function __construct( class_collector $previous = null ){
 		if( $previous !== null ){
-			$this->classes = $previous->classes;
+			$this->data = $previous->data;
 		}
 	}
 	
-	private $classes = [];
-	
+	private $data = [];
 	
 	function more_elements() : bool {
-		return count( $this->classes ) > $this->current_key;
+		return count( $this->data ) > $this->current_key;
 	}
 	function get() : Array {
-		return $this->classes[$this->current_key];
+		return $this->data[$this->current_key];
 	}
 	function get_name() : string {
-		return $this->classes[$this->current_key]["name"];
+		return $this->data[$this->current_key]["name"];
 	}
 	function get_extends() : string  {
-		return $this->classes[$this->current_key]["extends"];
+		return $this->data[$this->current_key]["extends"];
 	}
 	
 	function get_count() : int {
-		return count( $this->classes );
+		return count( $this->data );
 	}
 	
 	function add_classes( string $source, string $namespace = "" ){
@@ -68,7 +67,7 @@ class class_collector extends collector {
 				$finder->next_trait();
 			}
 			
-			$this->classes[] = $class;
+			$this->data[] = $class;
 			$finder->next();
 		}
 	}
@@ -78,14 +77,14 @@ class class_collector extends collector {
 	 *
 	 */
 	function get_namespace() : string {
-		return $this->classes[ $this->class_index ]["namespace"];
+		return $this->data[ $this->class_index ]["namespace"];
 	}
 	
 	protected $class_index = null;
 	protected $function_index = null;
 	protected $param_index = null;
 	function select_class( string $classname  ){
-		foreach( $this->classes as $key => $class ){
+		foreach( $this->data as $key => $class ){
 			if( $class["name"] == $classname ){
 				$this->class_index = $key;
 				$this->function_index = 0;
