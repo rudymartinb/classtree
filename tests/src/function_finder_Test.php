@@ -128,35 +128,18 @@ function complex( int $ant, string& $strong ) : Array {
 	}
 
 	
-	function test_2_private(){
+	function test_2_private_static_protected(){
 		$source = 'private function simple() {
 }
-function complex( int $ant, string& $strong ) : Array {
-}';
+static function complex1( int $ant, string& $strong ) : Array {
+}
+protected function complex2( int $ant, string& $strong ) : Array {
+}
+
+';
 		
 		$finder = new function_finder( $source );
-		
-		// 		$this->assertEquals( 2, count( $finder->get_matches()[0] ) );
-		
-		$this->assertEquals( true, $finder->more_elements() );
 		$this->assertEquals( "private", $finder->get_access_modifier() );
-		
-		$this->assertEquals( false, $finder->more_parameters() );
-		
-		$finder->next();
-		$this->assertEquals( true, $finder->more_elements() );
-		$this->assertEquals( "complex", $finder->get_name() );
-		
-		$this->assertEquals( true, $finder->more_parameters() );
-		
-		$this->assertEquals( "int", $finder->get_parameter_type() );
-		$this->assertEquals( "ant", $finder->get_parameter_name() );
-		$finder->next_parameter();
-		$this->assertEquals( "string", $finder->get_parameter_type() );
-		$this->assertEquals( "strong", $finder->get_parameter_name() );
-		
-		$this->assertEquals( "Array", $finder->get_return_type() );
-		
 		
 	}
 	
