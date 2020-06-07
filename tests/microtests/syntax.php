@@ -16,7 +16,13 @@
  * again, just be careful about what you do.
  * 
  */
-namespace sarasa { 
+namespace sarasa {
+	interface someinterface {
+		function fn1();
+		static function fn2( int $something, string $strong );
+		static function fn3() : string ;
+	}
+	
 	class sarasa {
 	final static private function sarsa() { return ; }
 	}
