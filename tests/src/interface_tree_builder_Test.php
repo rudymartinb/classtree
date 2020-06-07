@@ -57,9 +57,9 @@ interface someinterface2 extends someinterface {} ' );
 		
 		$collector = $tree->get_collector();
 		
-		$collector->select_class( "someinterface" );
+		$collector->select( "someinterface" );
 		$this->assertEquals( "src1", $collector->get_namespace() );
-		$collector->select_class( "someinterface2" );
+		$collector->select( "someinterface2" );
 		$this->assertEquals( "src2", $collector->get_namespace() );
 		
 	}
