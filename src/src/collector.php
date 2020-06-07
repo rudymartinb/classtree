@@ -1,12 +1,17 @@
 <?php
 namespace src;
+
 abstract class collector {
 	protected $data = [];
-	
 	function __construct( collector $previous = null ){
 		if( $previous !== null ){
 			$this->data = $previous->data;
 		}
+	}
+	
+	protected $current_key = 0;
+	function next(){
+		$this->current_key ++;
 	}
 	
 	function more_elements() : bool {
@@ -19,9 +24,5 @@ abstract class collector {
 		return count( $this->data );
 	}
 	
-	protected $current_key = 0;
-	function next(){
-		$this->current_key ++;
-	}
 	
 }
