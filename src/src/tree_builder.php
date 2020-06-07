@@ -34,6 +34,6 @@ abstract class tree_builder {
 		$this->tree = $this->resolve();
 	}
 	
-	abstract protected function resolve();
+	abstract protected function resolve( string $parent = "" );
 	abstract function add_source( string $source );
 }
