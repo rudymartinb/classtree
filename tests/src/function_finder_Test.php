@@ -128,18 +128,27 @@ function complex( int $ant, string& $strong ) : Array {
 	}
 
 	
-	function test_2_private_static_protected(){
-		$source = 'private function simple() {
-}
-static function complex1( int $ant, string& $strong ) : Array {
-}
-protected function complex2( int $ant, string& $strong ) : Array {
-}
-
-';
+	function test_private_static_protected(){
+		$source = 'private function simple() {} ';
 		
 		$finder = new function_finder( $source );
 		$this->assertEquals( "private", $finder->get_access_modifier() );
+		
+	}
+	
+	function test_static(){
+		$source = 'static function simple() {} ';
+		
+		$finder = new function_finder( $source );
+		$this->assertEquals( "static", $finder->get_access_modifier() );
+		
+	}
+	
+	function test_protected(){
+		$source = 'protected function simple() {} ';
+		
+		$finder = new function_finder( $source );
+		$this->assertEquals( "protected", $finder->get_access_modifier() );
 		
 	}
 	
