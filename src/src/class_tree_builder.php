@@ -73,6 +73,9 @@ class class_tree_builder extends tree_builder {
 		return $tree;
 	}
 	
+	/*
+	 * TODO: move all non-production code to a subclass and test from there
+	 */
 	private $class_index = null;
 	private $function_index = null;
 	private $param_index = null;
@@ -94,12 +97,19 @@ class class_tree_builder extends tree_builder {
 	function get_function_return_type() : string {
 		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "fnretval"];
 	}
-	function more_parameters() : string {
-		return count( $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "params"] ) > 0;
+	function more_parameters() : bool {
+		return count( $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "params"] ) > $this->param_index;
+	}
+	function get_function_parameter_type() : string {
+		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_type"];
+	}
+	function get_function_parameter_name() : string {
+		return $this->classes[ $this->class_index ]["functions"][ $this->function_index ][ "params"][ $this->param_index ]["param_name"];
 	}
 	
 	function next_function(){
-		$this->function_index ++; 
+		$this->function_index ++;
+		$this->param_index = 0;
 	}
 	
 	
@@ -133,10 +143,12 @@ class class_tree_builder extends tree_builder {
 			$class["functions"] = [];
 			while( $finder->more_functions() ){
 				$func = [ "fnname" => $finder->get_function_name(), "fnretval" => $finder->get_function_return_type(), "params" => [] ];
+				
 				while( $finder->more_parameters() ){
-					$func["params"] = [ "param_type" => $finder->get_parameter_type(), "param_name" => $finder->get_parameter_name() ];
+					$func["params"][] = [ "param_type" => $finder->get_parameter_type(), "param_name" => $finder->get_parameter_name() ];
 					$finder->next_parameter();
 				}
+				var_dump( $func );
 				$class["functions"][] = $func;
 				$finder->next_function();
 			}
