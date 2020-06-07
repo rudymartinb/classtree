@@ -3,9 +3,11 @@ use src\class_collector;
 use src\tree_builder;
 
 class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
+	function create() : tree_builder {
+		return new class_tree_builder_SPY();
+	}
 	function mysetup() : class_tree_builder_SPY {
-		$tree = new class_tree_builder_SPY();
-		return $tree;
+		return $this->create();
 	}
 	function test_basic(){
 		$tree = $this->mysetup();
