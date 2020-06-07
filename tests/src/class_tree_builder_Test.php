@@ -19,7 +19,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$source = 'class someclass {
 }';
 		
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( $source );
 
 		$tree->resolve_hierarchy();
@@ -30,7 +30,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_size_2(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 {}' );
 		
@@ -41,7 +41,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_size_3(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		
@@ -53,7 +53,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_size_1_2(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( 'class someclass {}' );
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		$tree->add_source( 'class someclass3 extends someclass {}' );
@@ -66,7 +66,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 
 	
 	function test_namespace(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( 'namespace src;
 class someclass {}' );
 		$tree->add_source( 'namespace src;
@@ -87,7 +87,7 @@ class someclass2 extends someclass {}' );
 
 	
 	function test_2_namespace(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( 'namespace src1 {
 class someclass {}
 }
@@ -108,7 +108,7 @@ class someclass2 extends someclass {
 
 	
 	function test_class_and_function(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( '
 class someclass {}
 	function fn1(){
@@ -152,7 +152,7 @@ class someclass {}
 
 	
 	function test_class_and_usetrait(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( '
 class someclass {
 	use trait1, trait2;
@@ -176,7 +176,7 @@ class someclass {
 
 	
 	function test_interfaces(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( '
 class someclass implements interface1, interface2  {
 }
@@ -192,7 +192,7 @@ class someclass implements interface1, interface2  {
 	}
 
 	function test_abstract(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( '
 abstract class someclass  {
 }
@@ -205,7 +205,7 @@ abstract class someclass  {
 
 	
 	function test_final(){
-		$tree = new class_tree_builder_SPY();
+		$tree = $this->mysetup();
 		$tree->add_source( '
 final class someclass  {
 }
