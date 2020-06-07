@@ -15,7 +15,8 @@ class class_collector extends collector {
 		$finder = new class_finder($source);
 		while( $finder->more_elements() ){
 			$class = [];
-			$class["name"] = $finder->get_name();
+			$name = $finder->get_name();
+			$class["name"] = $name;
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
 			$class["abstract"] = $finder->get_abstract();
@@ -58,7 +59,7 @@ class class_collector extends collector {
 				$finder->next_trait();
 			}
 			
-			$this->data[] = $class;
+			$this->data[ ] = $class;
 			$finder->next();
 		}
 	}
