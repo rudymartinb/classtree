@@ -66,7 +66,7 @@ class class_collector extends collector {
 	
 	/*
 	 * SPY section for testing
-	 * TODO: move to another class
+	 * TODO: move to another class ?
 	 */
 	function get_namespace() : string {
 		return $this->data[ $this->class_index ]["namespace"];
