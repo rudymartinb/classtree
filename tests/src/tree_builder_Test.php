@@ -142,8 +142,6 @@ class someclass {}
 }
 ' );
 		
-		// 		$tree->resolve_class_hierarchy();
-		
 		$tree->select_class( "someclass" );
 		$this->assertEquals( true, $tree->more_usetraits() );
 		$this->assertEquals( "trait1", $tree->get_usetrait_name() );
