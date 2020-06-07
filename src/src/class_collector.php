@@ -43,6 +43,7 @@ class class_collector extends collector {
 			$class["name"] = $finder->get_name();
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
+			$class["abstract"] = $finder->get_abstract();
 
 			// implements is a comma separated string
 			$implements = $finder->get_implements();
@@ -106,7 +107,13 @@ class class_collector extends collector {
 		}
 		$this->class_index = null;
 	}
-
+	function is_final(): bool{
+		return $this->data[ $this->class_index ]["final"] === "final";
+	}
+	function is_abstract(): bool{
+		return $this->data[ $this->class_index ]["abstract"] === "abstract";
+	}
+	
 	// FUNCTIONS section
 	function get_function_name() : string {
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnname"];

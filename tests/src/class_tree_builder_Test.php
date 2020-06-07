@@ -171,8 +171,18 @@ class someclass implements interface1, interface2  {
 		$this->assertEquals( "interface2", $collector->get_interface_name() );
 		$collector->next_interface();
 		$this->assertEquals( false, $collector->more_interfaces() );
+	}
 
+	function test_abstract(){
+		$tree = new class_tree_builder_SPY();
+		$tree->add_source( '
+abstract class someclass  {
+}
+' );
+		$collector = $tree->get_collector();
+		$collector->select_class( "someclass" );
 		
+		$this->assertEquals( true, $collector->is_abstract() );
 	}
 	
 	
