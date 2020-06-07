@@ -46,7 +46,7 @@ class namespace_finder {
      * name should be "" and 
      * by calling get_body we will get
      */
-    function more_elements() : bool {
+    function more() : bool {
     	if( $this->current_key == 0 and 
     			count( $this->matches[ 0 ] ) == 0 )
     		return true;
@@ -54,7 +54,7 @@ class namespace_finder {
     }
     
     function get_name() : string {
-    	if( $this->more_elements() and 
+    	if( $this->more() and 
     			$this->matches["nsname"][ $this->current_key ] == null ){
     		return "";
     	}
@@ -62,7 +62,7 @@ class namespace_finder {
     }
     
     function get_body() : string {
-    	if( $this->more_elements() and 
+    	if( $this->more() and 
     			$this->matches["body"][ $this->current_key ] === null ){
     		return $this->source;
     	}

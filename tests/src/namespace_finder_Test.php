@@ -9,11 +9,11 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		$finder = new namespace_finder( $source );
 
 // 		var_dump($finder->matches($source));
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( '', $finder->get_name() );
 		$this->assertEquals( '', $finder->get_body() );
 		$finder->next();
-		$this->assertEquals( false, $finder->more_elements() );
+		$this->assertEquals( false, $finder->more() );
 	}
 	
 	function test_something_else(){
@@ -21,7 +21,7 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$finder = new namespace_finder( $source );
 		
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( '', $finder->get_name() );
 		$this->assertEquals( 'this is a test', $finder->get_body() );
 	}
@@ -31,10 +31,10 @@ class namespace_finder_Test extends PHPUnit\Framework\TestCase {
 		
 		$finder = new namespace_finder( $source );
 		
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( "test", $finder->get_name() );
 		$finder->next();
-		$this->assertEquals( false, $finder->more_elements() );
+		$this->assertEquals( false, $finder->more() );
 	}
 
 	function test_just_1_namespace_with_body_1(){
@@ -46,7 +46,7 @@ function test() {
 	
 	$finder = new namespace_finder( $source );
 // 	var_dump($finder->matches($source));
-	$this->assertEquals( true, $finder->more_elements() );
+	$this->assertEquals( true, $finder->more() );
 	$this->assertEquals( "test", $finder->get_name() );
 
 	/*  newline is not counted
@@ -57,7 +57,7 @@ function test() {
 // 	$body = $finder->get_body();
 	$this->assertEquals( $expected, $finder->get_body() );
 	$finder->next();
-	$this->assertEquals( false, $finder->more_elements() );
+	$this->assertEquals( false, $finder->more() );
 }
 
 	
@@ -92,7 +92,7 @@ function test2() {
 		
 		$finder->next();
 	
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( "test2", $finder->get_name() );
 	
 		$expected = 'function test2() {
@@ -102,7 +102,7 @@ function test2() {
 		$this->assertEquals( $expected, $body );
 		
 		$finder->next();
-		$this->assertEquals( false, $finder->more_elements() );
+		$this->assertEquals( false, $finder->more() );
 	}
 	
 
@@ -128,7 +128,7 @@ function test3() {
 		// 	var_dump( $finder->matches($source)["body"] );
 		
 		$this->assertEquals( 3, count( $finder->get_matches()[0] ) );
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( "test", $finder->get_name() );
 	
 	
@@ -141,7 +141,7 @@ function test3() {
 		
 		$finder->next();
 		
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( "test2", $finder->get_name() );
 		
 		$expected = 'function test2() {
@@ -152,7 +152,7 @@ function test3() {
 		$this->assertEquals( $expected, $body );
 		
 		$finder->next();
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		
 		// todo: the rest ?
 	}
@@ -175,7 +175,7 @@ function test3() {
 	
 		$finder = new namespace_finder( $source );
 		
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( "test", $finder->get_name() );
 		
 		
@@ -188,7 +188,7 @@ function test3() {
 		$this->assertEquals( $expected, $finder->get_body() );
 		$finder->next();
 		
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( "test2", $finder->get_name() );
 		
 
@@ -201,7 +201,7 @@ function test3() {
 		$this->assertEquals( $expected, $body );
 		
 		$finder->next();
-		$this->assertEquals( false, $finder->more_elements() );
+		$this->assertEquals( false, $finder->more() );
 	}
 
 	/*
@@ -215,7 +215,7 @@ function test3() {
 		
 		$finder = new namespace_finder( $source );
 		
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( "test", $finder->get_name() );
 		
 		
@@ -225,7 +225,7 @@ function test3() {
 		$this->assertEquals( $expected, $body );
 		$finder->next();
 		
-		$this->assertEquals( false, $finder->more_elements() );
+		$this->assertEquals( false, $finder->more() );
 		
 		
 	}
@@ -235,7 +235,7 @@ function test3() {
 		
 		$finder = new namespace_finder( $source );
 		
-		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( true, $finder->more() );
 		$this->assertEquals( "test", $finder->get_name() );
 		
 		
@@ -245,7 +245,7 @@ function test3() {
 		$this->assertEquals( $expected, $body );
 		$finder->next();
 		
-		$this->assertEquals( false, $finder->more_elements() );
+		$this->assertEquals( false, $finder->more() );
 		
 		
 	}
