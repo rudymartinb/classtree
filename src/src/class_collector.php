@@ -44,7 +44,7 @@ class class_collector extends collector {
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
 			$class["abstract"] = $finder->get_abstract();
-
+			
 			// implements is a comma separated string
 			$implements = $finder->get_implements();
 			$array = explode( "," , $implements );
