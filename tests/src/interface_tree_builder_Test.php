@@ -51,7 +51,7 @@ class interface_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree->add_source( 'namespace src1; 
 interface someinterface {}' );
 		$tree->add_source( 'namespace src2;
-interface someinterface2 extends someinterface {} ' );
+interface someinterface2 ' );
 		
 		$tree->resolve_hierarchy();
 		
