@@ -21,6 +21,13 @@ class class_collector {
 	function get() : Array {
 		return $this->classes[$this->current_key];
 	}
+	function get_name() : Array {
+		return $this->classes[$this->current_key]["name"];
+	}
+	function get_extends() : Array {
+		return $this->classes[$this->current_key]["extends"];
+	}
+	
 	function get_count() : int {
 		return count( $this->classes );
 	}
