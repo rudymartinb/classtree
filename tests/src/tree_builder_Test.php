@@ -132,7 +132,7 @@ class someclass {}
 		$tree = new class_tree_builder_SPY();
 		$tree->add_source( '
 class someclass {}
-	use trait1;
+	use trait1, trait2;
 	function fn1(){
 	}
 	function fn2( int $something, string $strong ){
@@ -147,7 +147,9 @@ class someclass {}
 		$tree->select_class( "someclass" );
 		$this->assertEquals( true, $tree->more_usetraits() );
 		$this->assertEquals( "trait1", $tree->get_usetrait_name() );
-		
+		$tree->next_usetrait();
+		$this->assertEquals( true, $tree->more_usetraits() );
+		$this->assertEquals( "trait2", $tree->get_usetrait_name() );
 		
 	}
 
