@@ -63,6 +63,10 @@ class function_finder {
 	function is_final() : bool {
 		return $this->matches["fnkeyword"][$this->current_key] === "final" ;
 	}
+	function is_abstract() : bool {
+		return $this->matches["fnkeyword"][$this->current_key] === "abstract" ;
+	}
+	
 	function is_static() : bool {
 		return $this->matches["fnstatic"][$this->current_key];
 	}

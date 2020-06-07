@@ -151,8 +151,13 @@ function complex( int $ant, string& $strong ) : Array {
 	function test_final(){
 		$source = 'final function simple() {} ';
 		$finder = new function_finder( $source );
-		// 		var_dump( $finder->get_matches() );
 		$this->assertEquals( true, $finder->is_final() );
+	}
+
+	function test_abstract(){
+		$source = 'abstract function simple() {} ';
+		$finder = new function_finder( $source );
+		$this->assertEquals( true, $finder->is_abstract() );
 	}
 	
 	
