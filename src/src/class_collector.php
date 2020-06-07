@@ -94,13 +94,14 @@ class class_collector extends collector {
 	}
 	
 	private function thisfn( string $tag ){
-		$this->data[ $this->class_index ]["functions"][ $this->function_index ][ $tag ];
+		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ $tag ];
 	}
 	// FUNCTIONS section
 	function get_function_name() : string {
 		return $this->thisfn( "fnname" );
 	}
 	function get_function_static() : string {
+		return $this->thisfn("fnstatic");
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ "fnstatic"];
 	}
 	function get_function_keyword() : string {
