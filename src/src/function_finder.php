@@ -24,7 +24,7 @@ class function_finder {
 		$pattern  = '/';
 		$pattern .= '(';
 		$pattern .= '\s*';
-		$pattern .= '(?<fnmod>(static|private|public|final|protected|))';
+		$pattern .= '(?<fnmod>(static|private|public|protected|abstract|))';
 		$pattern .= '\s*';
 		$pattern .= '(?<fntag>function)';
 		$pattern .= '\s*';
