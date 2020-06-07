@@ -106,7 +106,7 @@ function test2() {
 	}
 	
 
-	function test_3_namespaces_with_body(){
+	function test_3_namespaces_without_body(){
 		$source = 'namespace test;
 function test() {
 }
@@ -163,7 +163,7 @@ function test3() {
 	
 	function test_2_namespaces_with_body_2(){
 		$source = "namespace test{\n";
-		$source .= "function test() {\n";
+		$source .= "	function test() {\n";
 		$source .= "	}\n";
 		$source .= "}\n";
 		$source .= "namespace test2{\n";
@@ -180,7 +180,7 @@ function test3() {
 		
 		
 		$expected  = "{\n";
-		$expected .= "function test() {\n";
+		$expected .= "	function test() {\n";
 		$expected .= "	}\n";
 		$expected .= "}\n";
 		

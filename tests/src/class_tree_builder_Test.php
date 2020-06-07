@@ -89,7 +89,6 @@ class someclass2 extends someclass {}' );
 	function test_2_namespace(){
 		$tree = $this->mysetup();
 		$tree->add_source( 'namespace src1 {
-
 class someclass {
 		
 }
