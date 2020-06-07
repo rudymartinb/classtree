@@ -112,8 +112,6 @@ function test2(){
 }";
     	
     	$finder = new class_finder( $source );
-    	$this->assertEquals( "afinalclass", $finder->get_name() );
-    	$this->assertEquals( "other_class", $finder->get_extends() );
     	$this->assertEquals( "final", $finder->get_final() );
     }
 
