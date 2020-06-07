@@ -1,6 +1,11 @@
 <?php
 namespace src;
 
+// fool IDE into use the propper type for autocompletion.
+function force_class( $class ) : class_ {
+	return $class;
+}
+
 /*
  * purpose:
  * 
@@ -100,10 +105,5 @@ class class_ {
     
 
     
-}
-
-// fool IDE into use the propper type for autocompletion.
-function force_class( $class ) : class_ {
-    return $class;
 }
 
