@@ -99,7 +99,7 @@ class someclass2 extends \src1\someclass {
 	}
 }' );
 		
-		$tree->resolve_hierarchy();
+// 		$tree->resolve_hierarchy();
 		
 		$collector = $tree->get_collector();
 // 		var_dump( $collector->get_data() );
