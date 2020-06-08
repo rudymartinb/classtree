@@ -7,9 +7,12 @@ namespace tree;
  * main objective: avoid having to walk into an array of arrays
  */
 class tree {
-	
+	private $data;
+	function __construct( Array $data_tree ){
+		$this->data = $data_tree;
+	}
 	function get_width(){
-		return 0;
+		return count( $this->data );
 	}
 	
 }
