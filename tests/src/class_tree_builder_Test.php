@@ -73,7 +73,7 @@ class someclass {}' );
 class someclass2 extends someclass {}' );
 		$tree->add_source( 'class someclass3 extends someclass {}' );
 		
-		$tree->resolve_hierarchy();
+// 		$tree->resolve_hierarchy();
 		
 		$collector = $tree->get_collector();
 		
