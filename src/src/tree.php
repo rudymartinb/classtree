@@ -23,8 +23,14 @@ interface tree_interface {
  */
 class tree implements tree_interface {
 	private $data;
-	function __construct( Array $data_tree ){
-		$this->data = $data_tree;
+	private $name;
+	private $namespace;
+	private $children;
+	private $width;
+	private $height;
+	function __construct( string $name, string $namespace ){
+		$this->name = $name;
+		$this->namespace = $namespace;
 	}
 	function get_width() : int {
 		return count( $this->data );
