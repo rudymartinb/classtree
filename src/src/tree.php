@@ -44,7 +44,15 @@ class tree {
 	}
 	function get_namespace(): string {
 	}
-
+	
+	private $extends;
+	function set_extends(string $extends) {
+		$this->extends = $extends;
+	}
+	function get_extends(): string {
+		return $this->extends;
+	}
+	
 	function set_children(array $tree) {
 	}
 	function get_children(): array {
