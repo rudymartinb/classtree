@@ -31,6 +31,10 @@ class tree {
 		$this->name = $name;
 	}
 	
+	function get_name(): string {
+		return $this->name;
+	}
+	
 	function set_width( int $width ) {
 		$this->width = $width;
 	}
@@ -38,11 +42,7 @@ class tree {
 		return $this->width;
 	}
 	
-	function get_name(): string {
-		return $this->name;
-	}
-	
-	function set_namespace(string $name) {
+	function set_namespace( string $name) {
 	}
 	function get_namespace(): string {
 	}
