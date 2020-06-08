@@ -12,9 +12,8 @@ interface tree_interface {
 	function get_children(): Array;
 	function get_width(): int;
 	function get_height(): int;
-	
-	
 }
+
 class class_tree_builder extends tree_builder {
 
 	protected $collector;
