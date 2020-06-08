@@ -70,17 +70,17 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         
 //         $this->addTestSuite('tree_Test');
         $this->addTestSuite('class_tree_builder_Test');
-        $this->addTestSuite('interface_tree_builder_Test');
+//         $this->addTestSuite('interface_tree_builder_Test');
         
         // graphics
         $this->addTestSuite('draw_text_Test');
         
         // diagram
-        $this->addTestSuite('vertical_layout_Test');
-        $this->addTestSuite('diagram_Test');
+//         $this->addTestSuite('vertical_layout_Test');
+//         $this->addTestSuite('diagram_Test');
         
-        $this->addTestSuite('draw_text_Test');
-        $this->addTestSuite('element_Test');
+//         $this->addTestSuite('draw_text_Test');
+//         $this->addTestSuite('element_Test');
         
     }
 

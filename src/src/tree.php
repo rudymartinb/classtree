@@ -22,6 +22,7 @@ namespace tree;
  */
 class tree {
 	private $data;
+	
 	private $name;
 	private $children;
 	private $width;
@@ -29,10 +30,11 @@ class tree {
 	function __construct( string $name ){
 		$this->name = $name;
 	}
-	function get_width() : int {
-		return count( $this->data );
-	}
 	function set_width( int $width ) {
+		$this->width = $width;
+	}
+	function get_width() : int {
+		return $this->width;
 	}
 	
 	function set_name(string $name) {
@@ -59,8 +61,10 @@ class tree {
 	}
 
 	function set_height(int $height) {
+		$this->height = $height;
 	}
 	function get_height(): int {
+		return $this->height;
 	}
 
 	
