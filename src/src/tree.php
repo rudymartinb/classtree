@@ -55,10 +55,10 @@ class tree {
 		return $this->extends;
 	}
 	
-	function set_children(array $tree) {
+	function set_children( Array $tree ) {
 		$this->children = $tree;
 	}
-	function get_children(): array {
+	function get_children(): Array {
 		return $this->children;
 	}
 
