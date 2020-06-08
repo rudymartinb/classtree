@@ -1,6 +1,20 @@
 <?php
 namespace src;
+interface tree_interface {
+	function set_name( string $name );
+	function set_namespace( string $name );
+	function set_children( Array $tree );
+	function set_width( int $width );
+	function set_height( int $height );
 
+	function get_name(): string;
+	function get_namespace(): string ;
+	function get_children(): Array ;
+	function get_width(): int ;
+	function get_height(): int ;
+	
+	
+}
 class class_tree_builder extends tree_builder {
 
 	protected $collector;
