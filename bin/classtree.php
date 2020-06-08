@@ -9,7 +9,7 @@
  */
 use src\App;
 
-global $argv; // TODO: is this really needed?
+global $argv;
 
 $main_script = realpath(dirname($argv[0]));
 $project_dir = resolve_project_dir($main_script);

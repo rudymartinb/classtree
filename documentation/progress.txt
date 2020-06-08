@@ -142,3 +142,11 @@ then and only then I can place the items on the diagram
 tree calculations remains almost the same. I need to find all parents first then all childs for each class. Then calculate maximum width for each tree. That will give me the numbers of columns needed for each tree.
 
 interfaces is another problem. I'm thinking about placing them on top of classes, lowest rank interfaces first from bottom to top./
+
+
+20200607
+had to go back and foward many times. Last thing I have discovered is the use clause of a class may have many aliases. Nasty. 
+
+Decided to keep things simple ATM. No duplicated classes even on different namespaces.
+
+  

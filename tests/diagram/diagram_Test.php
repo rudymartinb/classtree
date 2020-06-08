@@ -14,31 +14,45 @@ class diagram_Test extends PHPUnit\Framework\TestCase {
 		$diagram->add_source($source);
 		$this->assertEquals(0, $diagram->get_num_elements() );
 	}
-	
+
 	function test_class_getname(){
 		$source = "class myclass {}";
 		$diagram = new diagram();
 		$diagram->add_source($source);
 		$this->assertEquals(1, $diagram->get_num_elements() );
 		
+		$this->assertEquals(1, $diagram->get_width() );
+		$this->assertEquals(1, $diagram->get_height() );
+
 		$element = $diagram->get_element_by_name( "myclass" );
 		$this->assertEquals("myclass", $element->get_name() );
 	}
 
-	function test_class_place(){
-		$source = "class myclass {}";
-		$diagram = new diagram();
-		$diagram->add_source($source);
+	
+// 	function test_class_getname(){
+// 		$source = "class myclass {}";
+// 		$diagram = new diagram();
+// 		$diagram->add_source($source);
+// 		$this->assertEquals(1, $diagram->get_num_elements() );
 		
-		$diagram->place();
+// 		$element = $diagram->get_element_by_name( "myclass" );
+// 		$this->assertEquals("myclass", $element->get_name() );
+// 	}
+
+// 	function test_class_place(){
+// 		$source = "class myclass {}";
+// 		$diagram = new diagram();
+// 		$diagram->add_source($source);
 		
-		$element = $diagram->get_element_by_name( "myclass" );
+// 		$diagram->place();
 		
-		$this->assertEquals( true, $element->is_placed() );
+// 		$element = $diagram->get_element_by_name( "myclass" );
 		
-// 		$diagram->draw();
+// 		$this->assertEquals( true, $element->is_placed() );
 		
-	}
+// // 		$diagram->draw();
+		
+// 	}
 	
 }
 
