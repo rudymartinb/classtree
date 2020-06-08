@@ -8,10 +8,10 @@ interface tree_interface {
 	function set_height( int $height );
 
 	function get_name(): string;
-	function get_namespace(): string ;
-	function get_children(): Array ;
-	function get_width(): int ;
-	function get_height(): int ;
+	function get_namespace(): string;
+	function get_children(): Array;
+	function get_width(): int;
+	function get_height(): int;
 	
 	
 }
