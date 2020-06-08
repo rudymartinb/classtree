@@ -31,7 +31,7 @@ class class_tree_builder extends tree_builder {
 					continue;
 				}
 			}
-			$tree_item = new tree( $classname, $extends );
+			$tree_item = new tree( $classname );
 			$children = $this->resolve( $classname );
 			$tree[] = [
 					"name" => $classname,

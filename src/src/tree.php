@@ -9,7 +9,6 @@ interface tree_interface {
 	function set_height( int $height );
 	
 	function get_name(): string;
-	function get_namespace(): string;
 	function get_children(): Array;
 	function get_width(): int;
 	function get_height(): int;
@@ -24,13 +23,11 @@ interface tree_interface {
 class tree implements tree_interface {
 	private $data;
 	private $name;
-	private $namespace;
 	private $children;
 	private $width;
 	private $height;
-	function __construct( string $name, string $namespace ){
+	function __construct( string $name ){
 		$this->name = $name;
-		$this->namespace = $namespace;
 	}
 	function get_width() : int {
 		return count( $this->data );
