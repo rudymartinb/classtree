@@ -1,18 +1,18 @@
 <?php
 namespace tree;
 
-interface tree_interface {
-	function set_name( string $name );
-	function set_namespace( string $name );
-	function set_children( Array $tree );
-	function set_width( int $width ) ;
-	function set_height( int $height );
+// interface tree_interface {
+// 	function set_name( string $name );
+// 	function set_namespace( string $name );
+// 	function set_children( Array $tree );
+// 	function set_width( int $width ) ;
+// 	function set_height( int $height );
 	
-	function get_name(): string;
-	function get_children(): Array;
-	function get_width(): int;
-	function get_height(): int;
-}
+// 	function get_name(): string;
+// 	function get_children(): Array;
+// 	function get_width(): int;
+// 	function get_height(): int;
+// }
 
 /* 
  * I need a class to hold the info of just one tree of classes
@@ -20,7 +20,7 @@ interface tree_interface {
  * 
  * main objective: avoid having to walk into an array of arrays
  */
-class tree implements tree_interface {
+class tree {
 	private $data;
 	private $name;
 	private $children;
