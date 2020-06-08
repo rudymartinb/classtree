@@ -22,7 +22,6 @@ abstract class tree_builder {
 	protected function max_height( Array $trees ) : int {
 		$maxheight = 0;
 		foreach( $trees as $tree ){
-			var_dump( $tree );
 			$actual = $tree->get_height();
 			if( $actual > $maxheight ){
 				$maxheight = $actual;
