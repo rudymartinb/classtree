@@ -95,11 +95,11 @@ class class_collector extends collector {
 		while( $finder->more_elements() ){
 			$class = [];
 			$name = $finder->get_name();
-			
+			$extends = $finder->get_extends();
 			$class_ = new class_( $name );
 			
 			$class["name"] = $name;
-			$class["extends"] = $finder->get_extends();
+			$class["extends"] = $extends;
 			$class["namespace"] = $namespace;
 			$class["abstract"] = $finder->get_abstract();
 			
