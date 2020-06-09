@@ -14,7 +14,7 @@ abstract class tree_builder {
 		return $this->max_height( $this->tree );
 	}
 	
-	protected function max_width( Array $trees ) : int {
+	private function max_width( Array $trees ) : int {
 		$actual = 0;
 		foreach( $trees as $tree ){
 			$actual += $tree->get_width();
