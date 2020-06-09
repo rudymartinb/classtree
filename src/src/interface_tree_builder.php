@@ -1,6 +1,8 @@
 <?php
 namespace src;
 
+use tree\tree;
+
 class interface_tree_builder extends tree_builder {
 	protected $collector;
 	function __construct(){
@@ -31,13 +33,13 @@ class interface_tree_builder extends tree_builder {
 				}
 			}
 			$children = $this->resolve( $interfacename );
-			$tree[] = [
-					"name" => $interfacename,
-					"extends" => $extends,
-					"children" => $children,
-					"width" => max( $this->max_width( $children ), 1 ),
-					"height" => $this->max_height( $children )+1
-			];
+			
+			$node = new tree( $interfacename );
+			$node->set_extends($extends);
+			$node->set_children($children);
+			$node->set_width( max( $this->max_width( $children ), 1 ) );
+			$node->set_height( $this->max_height( $children )+1 );
+			$tree[] = $node;
 			$collector->next();
 		}
 		return $tree;
