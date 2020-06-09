@@ -4,7 +4,6 @@ namespace src;
 use tree\tree;
 
 class interface_tree_builder extends tree_builder {
-	protected $collector;
 	
 	private $newcollector;
 	function __construct(){
