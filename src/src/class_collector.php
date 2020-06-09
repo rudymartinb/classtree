@@ -100,6 +100,7 @@ class class_collector extends collector {
 			$final = $finder->get_final();
 			
 			$class_ = new class_( $name );
+			$class_->set_extends($extends);
 			
 			$class["name"] = $name;
 			$class["extends"] = $extends;
