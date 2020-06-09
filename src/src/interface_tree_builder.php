@@ -14,46 +14,11 @@ class interface_tree_builder extends tree_builder {
 		};
 	}
 	
-	private function get_new_collector() : interface_collector {
+	function get_new_collector() : collector {
 		$func = $this->newcollector;
 		return $func(); 
 	}
-	
-	protected function resolve(string $parent = "") {
-		$tree = [];
-		
-		// by doing this we keep the internal pointer
-		// separated on each recursive call.
-		$collector = $this->get_new_collector();
-		
-		while( $collector->more_elements() ){
-			
-			$node_name = $collector->get_name();
-			$extends = $collector->get_extends();
-			
-			if( $parent !== "" ){
-				if( $extends != $parent ) {
-					$collector->next();
-					continue;
-				}
-			} else {
-				if( $extends !== "" ){
-					$collector->next();
-					continue;
-				}
-			}
-			$children = $this->resolve( $node_name );
-			
-			$node = new tree( $node_name );
-			$node->set_extends($extends);
-			$node->set_children($children);
-			$node->set_width( max( $this->max_width( $children ), 1 ) );
-			$node->set_height( $this->max_height( $children )+1 );
-			$tree[] = $node;
-			$collector->next();
-		}
-		return $tree;
-	}
+ 
 
 	public function add_source(string $source) {
 		$nsfinder = new namespace_finder($source);
