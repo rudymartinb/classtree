@@ -28,7 +28,7 @@ class interface_tree_builder extends tree_builder {
 		
 		while( $collector->more_elements() ){
 			
-			$interfacename = $collector->get_name();
+			$node_name = $collector->get_name();
 			$extends = $collector->get_extends();
 			
 			if( $parent !== "" ){
@@ -42,9 +42,9 @@ class interface_tree_builder extends tree_builder {
 					continue;
 				}
 			}
-			$children = $this->resolve( $interfacename );
+			$children = $this->resolve( $node_name );
 			
-			$node = new tree( $interfacename );
+			$node = new tree( $node_name );
 			$node->set_extends($extends);
 			$node->set_children($children);
 			$node->set_width( max( $this->max_width( $children ), 1 ) );
