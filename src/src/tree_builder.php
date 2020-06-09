@@ -22,7 +22,7 @@ abstract class tree_builder {
 		return $actual;
 	}
 	
-	protected function max_height( Array $trees ) : int {
+	private function max_height( Array $trees ) : int {
 		$maxheight = 0;
 		foreach( $trees as $tree ){
 			$actual = $tree->get_height();
