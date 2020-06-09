@@ -55,15 +55,5 @@ class class_tree_builder extends tree_builder {
 		return $tree;
 	}
 
-	function add_source( string $source ){
-		$nsfinder = new namespace_finder($source);
-		while( $nsfinder->more() ){
-			$namespace = $nsfinder->get_name();
-			$body = $nsfinder->get_body();
-			$this->collector->add_source( $body, $namespace );
-			$nsfinder->next();
-		}
-	}
-
 	
 }
