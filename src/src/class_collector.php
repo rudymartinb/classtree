@@ -8,6 +8,10 @@ class class_ {
 	private $implements = "";
 	private $functions = [];
 	private $usetraits = [];
+	private $namespace = "";
+	function set_namespace( string $namespace ){
+		$this->namespace = $namespace;
+	}
 	function get_name() : string {
 		return $this->name;
 	}
@@ -84,6 +88,9 @@ class class_collector extends collector {
 		while( $finder->more_elements() ){
 			$class = [];
 			$name = $finder->get_name();
+			
+			$class_ = new class_( $name );
+			
 			$class["name"] = $name;
 			$class["extends"] = $finder->get_extends();
 			$class["namespace"] = $namespace;
