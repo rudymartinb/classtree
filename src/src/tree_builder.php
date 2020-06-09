@@ -39,7 +39,7 @@ abstract class tree_builder {
 	
 	abstract function get_new_collector() : collector ;
 	
-	protected function resolve(string $parent = "") {
+	private function resolve(string $parent = "") {
 		$tree = [];
 		
 		// by doing this we keep the internal pointer
