@@ -24,7 +24,7 @@ class interface_tree_builder extends tree_builder {
 		
 		// by doing this we keep the internal pointer
 		// separated on each recursive call.
-		$collector = new interface_collector( $this->collector );
+		$collector = $this->get_new_collector();
 		
 		while( $collector->more_elements() ){
 			
