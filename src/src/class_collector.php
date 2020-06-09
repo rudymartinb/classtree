@@ -1,84 +1,6 @@
 <?php
 namespace src;
-use src\class_;
 
-// class class_ {
-// 	private $name = "";
-// 	private $extends = "";
-// 	private $abstract = "";
-// 	private $final = "";
-// 	private $implements = "";
-// 	private $functions = [];
-// 	private $usetraits = [];
-// 	private $namespace = "";
-// 	function __construct( string $name ){
-// 		$this->name = $name;
-// 	}
-// 	function set_namespace( string $namespace ){
-// 		$this->namespace = $namespace;
-// 	}
-// 	function get_namespace() : string {
-// 		return $this->namespace;
-// 	}
-	
-// 	function get_name() : string {
-// 		return $this->name;
-// 	}
-
-	
-// 	function set_extends( string $extends) {
-// 		$this->extends = $extends;
-// 	}
-// 	function get_extends() : string {
-// 		return $this->extends;
-// 	}
-
-// 	function get_abstract() : string {
-// 		return $this->abstract;
-// 	}
-
-// 	function get_final() : string {
-// 		return $this->final;
-// 	}
-
-// 	function get_implements() : string {
-// 		return $this->implements;
-// 	}
-
-// 	function get_functions() : Array {
-// 		return $this->functions;
-// 	}
-
-// 	function get_usetraits() : Array {
-// 		return $this->usetraits;
-// 	}
-
-// 	function set_name( string $name) {
-// 		$this->name = $name;
-// 	}
-
-// 	function set_abstract( string $abstract) {
-// 		$this->abstract = $abstract;
-// 	}
-
-// 	function set_final( string $final) {
-// 		$this->final = $final;
-// 	}
-
-// 	function set_implements( string $implements) {
-// 		$this->implements = $implements;
-// 	}
-
-// 	function set_functions($functions) {
-// 		$this->functions = $functions;
-// 	}
-
-// 	function set_usetraits($usetraits) {
-// 		$this->usetraits = $usetraits;
-// 	}
-
-	
-// }
 class class_collector extends collector {
 	
 	function get_name() : string {
@@ -100,7 +22,6 @@ class class_collector extends collector {
 			$extends = $finder->get_extends();
 			$abstract = $finder->get_abstract();
 			$final = $finder->get_final();
-			
 			
 			$class["name"] = $name;
 			$class["extends"] = $extends;
