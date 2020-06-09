@@ -8,14 +8,10 @@ class class_tree_builder extends tree_builder {
 	
 	function __construct(){
 		$this->collector = new class_collector();
-		$this->newcollector = function(){
-			return new class_collector( $this->collector );
-		};
 	}
 	
 	function get_new_collector() : collector {
-		$func = $this->newcollector;
-		return $func();
+		return new class_collector( $this->collector );
 	}
 
 	
