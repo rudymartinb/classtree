@@ -36,8 +36,6 @@ abstract class tree_builder {
 		$this->tree = $this->resolve();
 	}
 	
-// 	abstract protected function resolve( string $parent = "" );
-	abstract function add_source( string $source );
 	abstract function get_new_collector() : collector ;
 	
 	protected function resolve(string $parent = "") {
@@ -75,5 +73,17 @@ abstract class tree_builder {
 		}
 		return $tree;
 	}
+	
+	function add_source(string $source) {
+		$nsfinder = new namespace_finder($source);
+		while($nsfinder->more()){
+			$namespace = $nsfinder->get_name();
+			$body = $nsfinder->get_body();
+			$this->collector->add_classes( $body, $namespace );
+			$nsfinder->next();
+		}
+	}
+	
+	
 	
 }
