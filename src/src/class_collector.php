@@ -12,6 +12,10 @@ class class_ {
 	function set_namespace( string $namespace ){
 		$this->namespace = $namespace;
 	}
+	function get_namespace() : string {
+		return $this->namespace;
+	}
+	
 	function get_name() : string {
 		return $this->name;
 	}
