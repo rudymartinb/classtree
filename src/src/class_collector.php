@@ -23,6 +23,10 @@ class class_ {
 		return $this->name;
 	}
 
+	
+	function set_extends( string $extends) {
+		$this->extends = $extends;
+	}
 	function get_extends() : string {
 		return $this->extends;
 	}
@@ -49,10 +53,6 @@ class class_ {
 
 	function set_name( string $name) {
 		$this->name = $name;
-	}
-
-	function set_extends( string $extends) {
-		$this->extends = $extends;
 	}
 
 	function set_abstract( string $abstract) {
