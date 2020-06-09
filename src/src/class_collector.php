@@ -96,14 +96,17 @@ class class_collector extends collector {
 			$class = [];
 			$name = $finder->get_name();
 			$extends = $finder->get_extends();
+			$abstract = $finder->get_abstract();
+			$final = $finder->get_final();
+			
 			$class_ = new class_( $name );
 			
 			$class["name"] = $name;
 			$class["extends"] = $extends;
 			$class["namespace"] = $namespace;
-			$class["abstract"] = $finder->get_abstract();
+			$class["abstract"] = $abstract;
 			
-			$class["final"] = $finder->get_final();
+			$class["final"] = $final;
 			
 			// implements is a comma separated string
 			$implements = $finder->get_implements();
