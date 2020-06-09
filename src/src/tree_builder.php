@@ -79,7 +79,7 @@ abstract class tree_builder {
 		while($nsfinder->more()){
 			$namespace = $nsfinder->get_name();
 			$body = $nsfinder->get_body();
-			$this->collector->add_classes( $body, $namespace );
+			$this->collector->add_source( $body, $namespace );
 			$nsfinder->next();
 		}
 	}

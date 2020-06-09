@@ -24,5 +24,7 @@ abstract class collector {
 		return count( $this->data );
 	}
 	
+	abstract function add_source( string $source );
+	
 	
 }
