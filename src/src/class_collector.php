@@ -9,6 +9,9 @@ class class_ {
 	private $functions = [];
 	private $usetraits = [];
 	private $namespace = "";
+	function __construct( string $name ){
+		$this->name = $name;
+	}
 	function set_namespace( string $namespace ){
 		$this->namespace = $namespace;
 	}
