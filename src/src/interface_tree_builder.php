@@ -14,6 +14,11 @@ class interface_tree_builder extends tree_builder {
 		};
 	}
 	
+	private function get_new_collector() : interface_collector {
+		$func = $this->newcollector;
+		return $func(); 
+	}
+	
 	protected function resolve(string $parent = "") {
 		$tree = [];
 		
