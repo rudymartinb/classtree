@@ -1,8 +1,6 @@
 <?php
 namespace src;
 
-use tree\tree;
-
 /* now
  * we could entirely make this file disappear 
  * by passing the collector class to the constructor
