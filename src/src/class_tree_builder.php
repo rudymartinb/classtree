@@ -33,13 +33,6 @@ class class_tree_builder extends tree_builder {
 			}
 
 			$children = $this->resolve( $classname );
-// 			$tree[] = [
-// 					"name" => $classname,
-// 					"extends" => $extends,
-// 					"children" => $children,
-// 					"width" => max( $this->max_width( $children ), 1 ),
-// 					"height" => $this->max_height( $children )+1
-// 			];
 			
 			$tree_item = new tree( $classname );
 			$tree_item->set_extends($extends);
