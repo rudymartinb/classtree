@@ -100,24 +100,24 @@ class class_collector extends collector {
 	
 
 	// FUNCTIONS section
-	private function thisfn( string $tag ){
+	private function data_key( string $tag ){
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ $tag ];
 	}
 	
 	function get_function_name() : string {
-		return $this->thisfn( "fnname" );
+		return $this->data_key( "fnname" );
 	}
 	
 	function get_function_static() : string {
-		return $this->thisfn("fnstatic");
+		return $this->data_key("fnstatic");
 	}
 	
 	function get_function_access() : string {
-		return $this->thisfn("fnkeyword");
+		return $this->data_key("fnkeyword");
 	}
 	
 	function get_function_return_type() : string {
-		return $this->thisfn("fnretval");
+		return $this->data_key("fnretval");
 	}
 	
 	function next_function(){
