@@ -4,7 +4,7 @@ namespace src;
 use tree\tree;
 
 abstract class tree_builder {
-	protected $tree = [];
+	private $tree = [];
 	protected $collector;
 	
 	function get_max_width(): int{
