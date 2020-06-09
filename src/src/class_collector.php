@@ -120,6 +120,8 @@ class class_collector extends collector {
 			}
 			$class["implements"] = $array;
 			
+			$class_->set_implements($implements);
+			
 			
 			$class["functions"] = [];
 			while( $finder->more_functions() ){
