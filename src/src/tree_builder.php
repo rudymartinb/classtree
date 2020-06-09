@@ -7,6 +7,8 @@ abstract class tree_builder {
 	private $tree = [];
 	protected $collector;
 	
+	abstract function get_new_collector() : collector ;
+	
 	function get_max_width(): int{
 		return $this->max_width( $this->tree );
 	}
@@ -36,8 +38,6 @@ abstract class tree_builder {
 	function resolve_hierarchy() {
 		$this->tree = $this->resolve();
 	}
-	
-	abstract function get_new_collector() : collector ;
 	
 	private function resolve(string $parent = "") {
 		$tree = [];
