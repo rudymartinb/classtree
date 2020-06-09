@@ -101,9 +101,6 @@ class class_collector extends collector {
 			$abstract = $finder->get_abstract();
 			$final = $finder->get_final();
 			
-			$class_ = new class_( $name );
-			$class_->set_extends($extends);
-			$class_->set_namespace($extends);
 			
 			$class["name"] = $name;
 			$class["extends"] = $extends;
@@ -119,8 +116,6 @@ class class_collector extends collector {
 				$array[ $key ] = [ "ifname" => trim( $implements ) ];
 			}
 			$class["implements"] = $array;
-			
-			$class_->set_implements($implements);
 			
 			
 			$class["functions"] = [];
