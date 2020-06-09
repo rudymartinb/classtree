@@ -5,6 +5,7 @@ use tree\tree;
 
 abstract class tree_builder {
 	protected $tree = [];
+	protected $collector;
 	
 	function get_max_width(): int{
 		return $this->max_width( $this->tree );
