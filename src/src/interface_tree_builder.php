@@ -14,8 +14,8 @@ class interface_tree_builder extends tree_builder {
 	}
 	
 	function get_new_collector() : collector {
-		$func = $this->newcollector;
-		return $func(); 
+// 		$func = $this->newcollector;
+		return new interface_collector( $this->collector );
 	}
  
 
