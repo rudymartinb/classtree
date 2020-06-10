@@ -62,8 +62,6 @@ abstract class tree_builder {
 				return $ret;
 			}
 		}
-		foreach( $this->tree as $tree ){
-		}
 		return -1;
 	}
 	
