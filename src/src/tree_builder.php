@@ -31,42 +31,6 @@ abstract class tree_builder {
 		return $this->get_relative_inner_column2($classname, $this->tree );
 	}
 	
-	private function get_relative_column2( string $classname, Array $trees ) : int {
-		return $this->scan_tree( $classname, $trees, 
-				function( tree $tree ){ 
-					return $tree->get_relcol(); 
-				} );
-	}
-
-	
-	private function get_relative_inner_column2( string $classname, Array $trees ) : float {
-		return $this->scan_tree( $classname, $trees,
-				function( tree $tree ){
-					return $tree->get_relcol()+(($tree->get_width()-1)/2);
-				} );
-	}
-	
-	private function get_relative_row2( string $classname, Array $trees ) : int {
-		return $this->scan_tree( $classname, $trees,
-				function( tree $tree ){
-					return $tree->get_relrow();
-				} );
-	}
-	
-	private function scan_tree( $classname, Array $trees, Callable $return ) : float {
-		foreach( $trees as $tree ){
-			if( $tree->get_name() == $classname ){
-				return $return( $tree );
-			}
-			$ret = $this->scan_tree( $classname, $tree->get_children(), $return );
-			if( $ret != -1 ){
-				return $ret;
-			}
-		}
-		// classname not found
-		return -1;
-		
-	}
 	
 	private function calculate_relative_positions( Array $trees, int $col_offset = 0, int $row_offset = 0 ){
 		$actual_column = $col_offset;
