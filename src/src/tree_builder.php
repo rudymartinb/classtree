@@ -98,15 +98,15 @@ abstract class tree_builder {
 		}
 	}
 	
-	private function calculate_relative_positions( Array $trees, int $offset = 0, int $rowoffset = 0 ){
-		$actual = $offset;
+	private function calculate_relative_positions( Array $trees, int $coloffset = 0, int $rowoffset = 0 ){
+		$actual_column = $coloffset;
 		foreach( $trees as $tree ){
 			$tree = force_tree( $tree );
-			$this->calculate_relative_positions( $tree->get_children(), $actual, $rowoffset+1 );
-			$tree->set_relcol( $actual );
+			$this->calculate_relative_positions( $tree->get_children(), $actual_column, $rowoffset+1 );
+			$tree->set_relcol( $actual_column );
 			$tree->set_relrow( $rowoffset );
 			$width = $tree->get_width();
-			$actual += $width;
+			$actual_column += $width;
 		}
 	}
 	
