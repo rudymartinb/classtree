@@ -98,8 +98,8 @@ abstract class tree_builder {
 		}
 	}
 	
-	private function calculate_relative_positions( Array $trees, int $coloffset = 0, int $rowoffset = 0 ){
-		$actual_column = $coloffset;
+	private function calculate_relative_positions( Array $trees, int $col_offset = 0, int $rowoffset = 0 ){
+		$actual_column = $col_offset;
 		foreach( $trees as $tree ){
 			$tree = force_tree( $tree );
 			$this->calculate_relative_positions( $tree->get_children(), $actual_column, $rowoffset+1 );
