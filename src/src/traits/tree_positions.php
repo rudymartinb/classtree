@@ -1,7 +1,7 @@
 <?php
 namespace src;
 
-use scr\tree;
+use scr\node;
 use function scr\force_tree;
 
 trait tree_positions {
@@ -29,7 +29,7 @@ trait tree_positions {
 	
 	private function get_relative_column2( string $classname, Array $trees ) : int {
 		return $this->scan_tree( $classname, $trees,
-				function( tree $tree ){
+				function( node $tree ){
 					return $tree->get_relcol();
 				} );
 	}
@@ -37,14 +37,14 @@ trait tree_positions {
 	
 	private function get_relative_inner_column2( string $classname, Array $trees ) : float {
 		return $this->scan_tree( $classname, $trees,
-				function( tree $tree ){
+				function( node $tree ){
 					return $tree->get_relcol()+(($tree->get_width()-1)/2);
 				} );
 	}
 	
 	private function get_relative_row2( string $classname, Array $trees ) : int {
 		return $this->scan_tree( $classname, $trees,
-				function( tree $tree ){
+				function( node $tree ){
 					return $tree->get_relrow();
 				} );
 	}

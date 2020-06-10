@@ -1,7 +1,7 @@
 <?php
 namespace src;
 
-use scr\tree;
+use scr\node;
 use function scr\force_tree;
 
 abstract class tree_builder {
@@ -63,7 +63,7 @@ abstract class tree_builder {
 			}
 			$children = $this->resolve( $node_name );
 			
-			$node = new tree( $node_name );
+			$node = new node( $node_name );
 			$node->set_extends($extends);
 			$node->set_children($children);
 			$node->set_width( max( $this->max_width( $children ), 1 ) );

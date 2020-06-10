@@ -9,10 +9,10 @@ namespace scr;
  * main objective: avoid having to walk into an array of arrays
  */
 
-function force_tree( tree $tree ) : tree {
+function force_tree( node $tree ) : node {
 	return $tree;
 }
-class tree {
+class node {
 	private $name = "";
 	private $children = [];
 	private $width = 0;
