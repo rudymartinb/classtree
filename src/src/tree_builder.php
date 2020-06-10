@@ -86,14 +86,15 @@ abstract class tree_builder {
 		
 	}
 	
-	private $relative_pos_evaluated = false;
+// 	private $relative_pos_evaluated = false;
 	
-	private function evaluate_positions(){
-		if( ! $this->relative_pos_evaluated ){
-			$this->calculate_relative_positions( $this->tree );
-			$this->relative_pos_evaluated = true;
-		}
-	}
+// 	private function evaluate_positions(){
+// 		if( ! $this->relative_pos_evaluated ){
+// 			$this->calculate_relative_positions( $this->tree );
+// 			$this->relative_pos_evaluated = true;
+// 		}
+// 	}
+
 	
 	private function calculate_relative_positions( Array $trees, int $col_offset = 0, int $row_offset = 0 ){
 		$actual_column = $col_offset;
@@ -110,7 +111,7 @@ abstract class tree_builder {
 	
 	function resolve_hierarchy() {
 		$this->tree = $this->resolve();
-		$this->evaluate_positions();
+		$this->calculate_relative_positions( $this->tree );
 	}
 	
 	private function resolve( string $parent = "" ) {
