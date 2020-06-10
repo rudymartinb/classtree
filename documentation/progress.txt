@@ -150,3 +150,6 @@ had to go back and foward many times. Last thing I have discovered is the use cl
 Decided to keep things simple ATM. No duplicated classes even on different namespaces.
 
   
+20200609
+the most simple operation I can implement now is to separate all trees from the tree builder.
+From there I can take each head and place it on a virtual diagram  

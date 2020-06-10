@@ -22,6 +22,9 @@ class diagram_Test extends PHPUnit\Framework\TestCase {
 		
 		$this->assertEquals(1, $diagram->get_width() );
 		$this->assertEquals(1, $diagram->get_height() );
+		
+		
+		
 
 	}
 
