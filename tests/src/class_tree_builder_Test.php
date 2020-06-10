@@ -109,6 +109,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 1, $tree->get_relative_column( "someclass3" ) );
 		$this->assertEquals( 1, $tree->get_relative_inner_column( "someclass3" ) );
 		$this->assertEquals( 2, $tree->get_relative_column( "someclassP1" ) );
+		$this->assertEquals( 2.5, $tree->get_relative_inner_column( "someclassP1" ) );
 		$this->assertEquals( 2, $tree->get_relative_column( "someclassP11" ) );
 		$this->assertEquals( 3, $tree->get_relative_column( "someclassP12" ) );
 		
