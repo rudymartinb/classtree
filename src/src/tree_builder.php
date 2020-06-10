@@ -74,12 +74,12 @@ abstract class tree_builder {
 				} );
 	}
 	
-	private function scan_tree( string $classname, Array $trees, Callable $return ) : float {
+	private function scan_tree( $classname, Array $trees, Callable $return ) : float {
 		foreach( $trees as $tree ){
 			if( $tree->get_name() == $classname ){
 				return $return( $tree );
 			}
-			$ret = $this->scan_tree($classname, $tree->get_children(), $return );
+			$ret = $this->scan_tree( $classname, $tree->get_children(), $return );
 			if( $ret != -1 ){
 				return $ret;
 			}
