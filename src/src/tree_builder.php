@@ -42,12 +42,10 @@ abstract class tree_builder {
 	}
 
 	function get_relative_row( string $classname, Array $trees = null ) : int {
-// 		$this->evaluate_positions();
 		return $this->get_relative_row2($classname, $this->tree );
 	}
 
 	function get_relative_inner_column( string $classname, Array $trees = null ) : float {
-// 		$this->evaluate_positions();
 		return $this->get_relative_inner_column2($classname, $this->tree );
 	}
 	
