@@ -37,22 +37,12 @@ abstract class tree_builder {
 		return $maxheight;
 	}
 	
-	private function calculate_rel_cols( Array $trees, int $offset = 0 ){
-		$actual = $offset;
-		foreach( $trees as $tree ){
-			$this->calculate_rel_cols( $tree->get_children(), $actual );
-			$tree->set_relcol( $actual );
-			$width = $tree->get_width();
-			$actual += $width;
-		}
-	}
-	
 	function get_relative_column( string $classname, Array $trees = null ) : int {
 		$this->calculate_rel_cols( $this->tree );
 		return $this->get_relative_column2($classname, $this->tree );
 	}
 	
-	function get_relative_column2( string $classname, Array $trees ) : int {
+	private function get_relative_column2( string $classname, Array $trees ) : int {
 		foreach( $trees as $tree ){
 			if( $tree->get_name() == $classname ){
 				return $tree->get_relcol();
@@ -64,6 +54,17 @@ abstract class tree_builder {
 		}
 		return -1;
 	}
+	
+	private function calculate_rel_cols( Array $trees, int $offset = 0 ){
+		$actual = $offset;
+		foreach( $trees as $tree ){
+			$this->calculate_rel_cols( $tree->get_children(), $actual );
+			$tree->set_relcol( $actual );
+			$width = $tree->get_width();
+			$actual += $width;
+		}
+	}
+	
 	
 	function resolve_hierarchy() {
 		$this->tree = $this->resolve();
