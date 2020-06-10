@@ -45,6 +45,14 @@ abstract class tree_builder {
 		}
 		return $this->get_relative_column2($classname, $this->tree );
 	}
+
+	function get_relative_row( string $classname, Array $trees = null ) : int {
+		if( ! $this->relative_col_evaluated ){
+			$this->calculate_rel_cols( $this->tree );
+			$this->relative_col_evaluated = true;
+		}
+		return $this->get_relative_row2($classname, $this->tree );
+	}
 	
 	private function get_relative_column2( string $classname, Array $trees ) : int {
 		foreach( $trees as $tree ){
@@ -60,12 +68,28 @@ abstract class tree_builder {
 		return -1;
 	}
 	
-	private function calculate_rel_cols( Array $trees, int $offset = 0 ){
+	private function get_relative_row2( string $classname, Array $trees ) : int {
+		foreach( $trees as $tree ){
+			if( $tree->get_name() == $classname ){
+				return $tree->get_relrow();
+			}
+			$ret = $this->get_relative_row2($classname, $tree->get_children());
+			if( $ret != -1 ){
+				return $ret;
+			}
+		}
+		// classname not found
+		return -1;
+	}
+	
+	
+	private function calculate_rel_cols( Array $trees, int $offset = 0, int $rowoffset = 0 ){
 		$actual = $offset;
 		foreach( $trees as $tree ){
 			$tree = force_tree( $tree );
-			$this->calculate_rel_cols( $tree->get_children(), $actual );
+			$this->calculate_rel_cols( $tree->get_children(), $actual, $rowoffset+1 );
 			$tree->set_relcol( $actual );
+			$tree->set_relrow( $rowoffset );
 			$width = $tree->get_width();
 			$actual += $width;
 		}
