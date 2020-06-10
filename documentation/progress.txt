@@ -152,4 +152,8 @@ Decided to keep things simple ATM. No duplicated classes even on different names
   
 20200609
 the most simple operation I can implement now is to separate all trees from the tree builder.
-From there I can take each head and place it on a virtual diagram  
+
+From there I can take each head and place it on a virtual diagram as a new column
+
+there's another idea, create a single image per tree  
+
