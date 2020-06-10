@@ -37,22 +37,29 @@ abstract class tree_builder {
 		return $maxheight;
 	}
 	
-	private $relative_pos_evaluated = false; 
-	function get_relative_column( string $classname, Array $trees = null ) : int {
+	private $relative_pos_evaluated = false;
+	
+	function evaluate_positions(){
 		if( ! $this->relative_pos_evaluated ){
 			$this->calculate_relative_positions( $this->tree );
 			$this->relative_pos_evaluated = true;
 		}
+	}
+	function get_relative_column( string $classname, Array $trees = null ) : int {
+		$this->evaluate_positions();
 		return $this->get_relative_column2($classname, $this->tree );
 	}
 
 	function get_relative_row( string $classname, Array $trees = null ) : int {
-		if( ! $this->relative_pos_evaluated ){
-			$this->calculate_relative_positions( $this->tree );
-			$this->relative_pos_evaluated = true;
-		}
+		$this->evaluate_positions();
 		return $this->get_relative_row2($classname, $this->tree );
 	}
+
+	function get_relative_inner_column( string $classname, Array $trees = null ) : int {
+		$this->evaluate_positions();
+		return $this->get_relative_inner_column2($classname, $this->tree );
+	}
+	
 	
 	private function get_relative_column2( string $classname, Array $trees ) : int {
 		foreach( $trees as $tree ){
@@ -67,6 +74,22 @@ abstract class tree_builder {
 		// classname not found
 		return -1;
 	}
+
+	
+	private function get_relative_inner_column2( string $classname, Array $trees ) : int {
+		foreach( $trees as $tree ){
+			if( $tree->get_name() == $classname ){
+				return $tree->get_relcol()+(($tree->get_width()-1)/2);
+			}
+			$ret = $this->get_relative_inner_column2($classname, $tree->get_children());
+			if( $ret != -1 ){
+				return $ret;
+			}
+		}
+		// classname not found
+		return -1;
+	}
+	
 	
 	private function get_relative_row2( string $classname, Array $trees ) : int {
 		foreach( $trees as $tree ){
