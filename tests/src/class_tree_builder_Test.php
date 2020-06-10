@@ -73,20 +73,27 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass2" ) );
 		$this->assertEquals( 1, $tree->get_relative_column( "someclass3" ) );
 		
-		$this->assertEquals( -1, $tree->get_relative_column( "someclassX" ) );
-		
 	}
 
 	
-// 	function test_relative_cols(){
-// 		$tree = $this->mysetup();
-// 		$tree->add_source( 'class someclass {}' );
-// 		$tree->add_source( 'class someclass2 extends someclass {}' );
-// 		$tree->add_source( 'class someclass3 extends someclass {}' );
-
-// 		$tree->resolve_hierarchy();
-// // 		$collector = $tree->get_collector();
-// 	}
+	function test_size_2_2(){
+		$tree = $this->mysetup();
+		$tree->add_source( 'class someclass {}' );
+		$tree->add_source( 'class someclass2 extends someclass {}' );
+		$tree->add_source( 'class someclass3 extends someclass {}' );
+		$tree->add_source( 'class someclassP1 {}' );
+		
+		$tree->resolve_hierarchy();
+		
+		$this->assertEquals( 3, $tree->get_max_width() );
+		$this->assertEquals( 2, $tree->get_max_height() );
+		$this->assertEquals( 0, $tree->get_relative_column( "someclass" ) );
+		$this->assertEquals( 0, $tree->get_relative_column( "someclass2" ) );
+		$this->assertEquals( 1, $tree->get_relative_column( "someclass3" ) );
+		$this->assertEquals( 2, $tree->get_relative_column( "someclassP1" ) );
+		
+	}
+	
 	
 	
 	
