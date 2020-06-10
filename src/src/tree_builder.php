@@ -36,15 +36,7 @@ abstract class tree_builder {
 		}
 		return $maxheight;
 	}
-	
-	private $relative_pos_evaluated = false;
-	
-	private function evaluate_positions(){
-		if( ! $this->relative_pos_evaluated ){
-			$this->calculate_relative_positions( $this->tree );
-			$this->relative_pos_evaluated = true;
-		}
-	}
+
 	function get_relative_column( string $classname, Array $trees = null ) : int {
 		$this->evaluate_positions();
 		return $this->get_relative_column2($classname, $this->tree );
@@ -97,9 +89,14 @@ abstract class tree_builder {
 		
 	}
 	
+	private $relative_pos_evaluated = false;
 	
-
-	
+	private function evaluate_positions(){
+		if( ! $this->relative_pos_evaluated ){
+			$this->calculate_relative_positions( $this->tree );
+			$this->relative_pos_evaluated = true;
+		}
+	}
 	
 	private function calculate_relative_positions( Array $trees, int $offset = 0, int $rowoffset = 0 ){
 		$actual = $offset;
