@@ -59,9 +59,7 @@ abstract class tree_builder {
 		$this->evaluate_positions();
 		return $this->get_relative_inner_column2($classname, $this->tree );
 	}
-	
-	/* this function may return an int or a float
-	 */
+
 	private function dive_tree( string $classname, Array $trees, Callable $return ) : float {
 		foreach( $trees as $tree ){
 			if( $tree->get_name() == $classname ){
@@ -90,18 +88,6 @@ abstract class tree_builder {
 				function( tree $tree ){
 					return $tree->get_relcol()+(($tree->get_width()-1)/2);
 				} );
-		
-		foreach( $trees as $tree ){
-			if( $tree->get_name() == $classname ){
-				return $tree->get_relcol()+(($tree->get_width()-1)/2);
-			}
-			$ret = $this->get_relative_inner_column2($classname, $tree->get_children());
-			if( $ret != -1 ){
-				return $ret;
-			}
-		}
-		// classname not found
-		return -1;
 	}
 	
 	private function get_relative_row2( string $classname, Array $trees ) : int {
