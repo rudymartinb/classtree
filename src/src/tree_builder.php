@@ -37,8 +37,12 @@ abstract class tree_builder {
 		return $maxheight;
 	}
 	
+	private $relative_col_evaluated = false; 
 	function get_relative_column( string $classname, Array $trees = null ) : int {
-		$this->calculate_rel_cols( $this->tree );
+		if( ! $this->relative_col_evaluated ){
+			$this->calculate_rel_cols( $this->tree );
+			$this->relative_col_evaluated = true;
+		}
 		return $this->get_relative_column2($classname, $this->tree );
 	}
 	
@@ -52,6 +56,7 @@ abstract class tree_builder {
 				return $ret;
 			}
 		}
+		// classname not found
 		return -1;
 	}
 	
