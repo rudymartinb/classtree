@@ -37,19 +37,19 @@ abstract class tree_builder {
 		return $maxheight;
 	}
 	
-	private $relative_col_evaluated = false; 
+	private $relative_pos_evaluated = false; 
 	function get_relative_column( string $classname, Array $trees = null ) : int {
-		if( ! $this->relative_col_evaluated ){
+		if( ! $this->relative_pos_evaluated ){
 			$this->calculate_relative_positions( $this->tree );
-			$this->relative_col_evaluated = true;
+			$this->relative_pos_evaluated = true;
 		}
 		return $this->get_relative_column2($classname, $this->tree );
 	}
 
 	function get_relative_row( string $classname, Array $trees = null ) : int {
-		if( ! $this->relative_col_evaluated ){
+		if( ! $this->relative_pos_evaluated ){
 			$this->calculate_relative_positions( $this->tree );
-			$this->relative_col_evaluated = true;
+			$this->relative_pos_evaluated = true;
 		}
 		return $this->get_relative_row2($classname, $this->tree );
 	}
