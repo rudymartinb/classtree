@@ -82,15 +82,19 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree->add_source( 'class someclass2 extends someclass {}' );
 		$tree->add_source( 'class someclass3 extends someclass {}' );
 		$tree->add_source( 'class someclassP1 {}' );
+		$tree->add_source( 'class someclassP11 extends someclassP1 {}' );
+		$tree->add_source( 'class someclassP12 extends someclassP1 {}' );
 		
 		$tree->resolve_hierarchy();
 		
-		$this->assertEquals( 3, $tree->get_max_width() );
+		$this->assertEquals( 4, $tree->get_max_width() );
 		$this->assertEquals( 2, $tree->get_max_height() );
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass" ) );
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass2" ) );
 		$this->assertEquals( 1, $tree->get_relative_column( "someclass3" ) );
 		$this->assertEquals( 2, $tree->get_relative_column( "someclassP1" ) );
+		$this->assertEquals( 2, $tree->get_relative_column( "someclassP11" ) );
+		$this->assertEquals( 3, $tree->get_relative_column( "someclassP12" ) );
 		
 	}
 	
