@@ -40,7 +40,7 @@ abstract class tree_builder {
 	private $relative_col_evaluated = false; 
 	function get_relative_column( string $classname, Array $trees = null ) : int {
 		if( ! $this->relative_col_evaluated ){
-			$this->calculate_rel_cols( $this->tree );
+			$this->calculate_relative_positions( $this->tree );
 			$this->relative_col_evaluated = true;
 		}
 		return $this->get_relative_column2($classname, $this->tree );
@@ -48,7 +48,7 @@ abstract class tree_builder {
 
 	function get_relative_row( string $classname, Array $trees = null ) : int {
 		if( ! $this->relative_col_evaluated ){
-			$this->calculate_rel_cols( $this->tree );
+			$this->calculate_relative_positions( $this->tree );
 			$this->relative_col_evaluated = true;
 		}
 		return $this->get_relative_row2($classname, $this->tree );
@@ -83,11 +83,11 @@ abstract class tree_builder {
 	}
 	
 	
-	private function calculate_rel_cols( Array $trees, int $offset = 0, int $rowoffset = 0 ){
+	private function calculate_relative_positions( Array $trees, int $offset = 0, int $rowoffset = 0 ){
 		$actual = $offset;
 		foreach( $trees as $tree ){
 			$tree = force_tree( $tree );
-			$this->calculate_rel_cols( $tree->get_children(), $actual, $rowoffset+1 );
+			$this->calculate_relative_positions( $tree->get_children(), $actual, $rowoffset+1 );
 			$tree->set_relcol( $actual );
 			$tree->set_relrow( $rowoffset );
 			$width = $tree->get_width();
