@@ -76,8 +76,10 @@ abstract class tree_builder {
 	}
 	
 	private function get_relative_column2( string $classname, Array $trees ) : int {
-		
-		return $this->dive_tree( $classname, $trees, function( tree $tree ){ return $tree->get_relcol(); } );
+		return $this->dive_tree( $classname, $trees, 
+				function( tree $tree ){ 
+					return $tree->get_relcol(); 
+				} );
 	}
 
 	
