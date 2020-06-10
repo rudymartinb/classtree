@@ -40,6 +40,9 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		
 		$this->assertEquals( 2, $tree->get_max_width() );
 		$this->assertEquals( 1, $tree->get_max_height() );
+		
+		$this->assertEquals( 0, $tree->get_relative_column( "someclass" ) );
+		$this->assertEquals( 1, $tree->get_relative_column( "someclass2" ) );
 	}
 
 	function test_size_3(){

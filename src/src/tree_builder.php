@@ -2,6 +2,7 @@
 namespace src;
 
 use tree\tree;
+use function tree\force_tree;
 
 abstract class tree_builder {
 	private $tree = [];
@@ -27,6 +28,7 @@ abstract class tree_builder {
 	private function max_height( Array $trees ) : int {
 		$maxheight = 0;
 		foreach( $trees as $tree ){
+			$tree = force_tree( $tree );
 			$actual = $tree->get_height();
 			if( $actual > $maxheight ){
 				$maxheight = $actual;
@@ -34,7 +36,20 @@ abstract class tree_builder {
 		}
 		return $maxheight;
 	}
+	private function calculate_rel_cols(){
+		$actual = 0;
+		foreach( $this->tree as $key => $tree ){
+			$this->tree[$key]->set_relcol( $actual );
+			$actual += $tree->get_width();
+		}
+	}
 	function get_relative_column( string $classname ) : int {
+		$tree = $this->tree;
+		$this->calculate_rel_cols();
+		foreach( $this->tree as $tree ){
+			if( $tree->get_name() == $classname )
+				return $tree->get_relcol();
+		}
 		return 0;
 	}
 	

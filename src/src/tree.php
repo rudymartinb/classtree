@@ -8,6 +8,10 @@ namespace tree;
  * 
  * main objective: avoid having to walk into an array of arrays
  */
+
+function force_tree( tree $tree ) : tree {
+	return $tree;
+}
 class tree {
 	private $name = "";
 	private $children = [];
@@ -55,5 +59,13 @@ class tree {
 		return $this->height;
 	}
 
+	private $relcol;
+	function set_relcol( int $relcol ) {
+		$this->relcol = $relcol;
+	}
+	function get_relcol(): int {
+		return $this->relcol;
+	}
+	
 	
 }
