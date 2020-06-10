@@ -55,7 +55,7 @@ abstract class tree_builder {
 		return $this->get_relative_row2($classname, $this->tree );
 	}
 
-	function get_relative_inner_column( string $classname, Array $trees = null ) : int {
+	function get_relative_inner_column( string $classname, Array $trees = null ) : float {
 		$this->evaluate_positions();
 		return $this->get_relative_inner_column2($classname, $this->tree );
 	}
@@ -76,7 +76,7 @@ abstract class tree_builder {
 	}
 
 	
-	private function get_relative_inner_column2( string $classname, Array $trees ) : int {
+	private function get_relative_inner_column2( string $classname, Array $trees ) : float {
 		foreach( $trees as $tree ){
 			if( $tree->get_name() == $classname ){
 				return $tree->get_relcol()+(($tree->get_width()-1)/2);
