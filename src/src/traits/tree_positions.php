@@ -1,7 +1,8 @@
 <?php
 namespace src;
-use function tree\force_tree;
-use tree\tree;
+
+use scr\tree;
+use function scr\force_tree;
 
 trait tree_positions {
 	

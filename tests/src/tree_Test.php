@@ -1,6 +1,6 @@
 <?php
 
-use tree\tree;
+use scr\tree;
 
 class tree_Test extends PHPUnit\Framework\TestCase {
 	

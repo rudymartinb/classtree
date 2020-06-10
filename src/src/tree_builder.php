@@ -1,8 +1,8 @@
 <?php
 namespace src;
 
-use tree\tree;
-use function tree\force_tree;
+use scr\tree;
+use function scr\force_tree;
 
 abstract class tree_builder {
 	use tree_positions;
