@@ -86,16 +86,6 @@ abstract class tree_builder {
 		
 	}
 	
-// 	private $relative_pos_evaluated = false;
-	
-// 	private function evaluate_positions(){
-// 		if( ! $this->relative_pos_evaluated ){
-// 			$this->calculate_relative_positions( $this->tree );
-// 			$this->relative_pos_evaluated = true;
-// 		}
-// 	}
-
-	
 	private function calculate_relative_positions( Array $trees, int $col_offset = 0, int $row_offset = 0 ){
 		$actual_column = $col_offset;
 		foreach( $trees as $tree ){
