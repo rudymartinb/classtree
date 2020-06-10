@@ -63,6 +63,7 @@ abstract class tree_builder {
 	private function calculate_rel_cols( Array $trees, int $offset = 0 ){
 		$actual = $offset;
 		foreach( $trees as $tree ){
+			$tree = force_tree( $tree );
 			$this->calculate_rel_cols( $tree->get_children(), $actual );
 			$tree->set_relcol( $actual );
 			$width = $tree->get_width();
