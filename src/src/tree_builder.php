@@ -36,21 +36,35 @@ abstract class tree_builder {
 		}
 		return $maxheight;
 	}
-	private function calculate_rel_cols(){
-		$actual = 0;
-		foreach( $this->tree as $key => $tree ){
-			$this->tree[$key]->set_relcol( $actual );
-			$actual += $tree->get_width();
+	
+	private function calculate_rel_cols( Array $trees, int $offset = 0 ){
+		$actual = $offset;
+		foreach( $trees as $tree ){
+			$this->calculate_rel_cols( $tree->get_children() );
+			$tree->set_relcol( $actual );
+			$width = $tree->get_width();
+			$actual += $width;
 		}
 	}
-	function get_relative_column( string $classname ) : int {
-		$tree = $this->tree;
-		$this->calculate_rel_cols();
-		foreach( $this->tree as $tree ){
-			if( $tree->get_name() == $classname )
+	
+	function get_relative_column( string $classname, Array $trees = null ) : int {
+		$this->calculate_rel_cols( $this->tree );
+		return $this->get_relative_column2($classname, $this->tree );
+	}
+	
+	function get_relative_column2( string $classname, Array $trees ) : int {
+		foreach( $trees as $tree ){
+			if( $tree->get_name() == $classname ){
 				return $tree->get_relcol();
+			}
+			$ret = $this->get_relative_column2($classname, $tree->get_children());
+			if( $ret != -1 ){
+				return $ret;
+			}
 		}
-		return 0;
+		foreach( $this->tree as $tree ){
+		}
+		return -1;
 	}
 	
 	function resolve_hierarchy() {
