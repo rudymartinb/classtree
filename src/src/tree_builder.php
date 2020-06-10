@@ -39,7 +39,7 @@ abstract class tree_builder {
 	
 	private $relative_pos_evaluated = false;
 	
-	function evaluate_positions(){
+	private function evaluate_positions(){
 		if( ! $this->relative_pos_evaluated ){
 			$this->calculate_relative_positions( $this->tree );
 			$this->relative_pos_evaluated = true;
