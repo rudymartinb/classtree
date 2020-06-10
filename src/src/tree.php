@@ -66,6 +66,15 @@ class tree {
 	function get_relcol(): int {
 		return $this->relcol;
 	}
+
+	
+	private $relrow;
+	function set_relrow( int $relrow ) {
+		$this->relrow = $relrow;
+	}
+	function get_relrow(): int {
+		return $this->relrow;
+	}
 	
 	
 }
