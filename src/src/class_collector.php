@@ -88,6 +88,7 @@ class class_collector extends collector {
 	protected $class_index = null;
 	protected $function_index = null;
 	protected $param_index = null;
+	
 	function select( string $classname  ) : int {
 		$this->class_index = $this->index_array[ $classname ];
 		$this->function_index = 0;
