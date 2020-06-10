@@ -34,6 +34,9 @@ abstract class tree_builder {
 		}
 		return $maxheight;
 	}
+	function get_relative_column( string $classname ) : int {
+		return 0;
+	}
 	
 	function resolve_hierarchy() {
 		$this->tree = $this->resolve();
