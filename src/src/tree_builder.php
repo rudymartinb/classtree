@@ -60,6 +60,20 @@ abstract class tree_builder {
 		return $this->get_relative_inner_column2($classname, $this->tree );
 	}
 	
+	private function dive_tree( string $classname, Array $trees, Callable $return ){
+		foreach( $trees as $tree ){
+			if( $tree->get_name() == $classname ){
+				return $return();
+			}
+			$ret = $this->get_relative_column2($classname, $tree->get_children());
+			if( $ret != -1 ){
+				return $ret;
+			}
+		}
+		// classname not found
+		return -1;
+		
+	}
 	
 	private function get_relative_column2( string $classname, Array $trees ) : int {
 		foreach( $trees as $tree ){
