@@ -23,7 +23,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 
 		$this->img = imagecreatetruecolor( $layout->get_max_width() *2, $layout->get_max_height() * 2 );
 		imageantialias ( $this->img, true );
-		$layout->draw($this->img);
+		$layout->draw($this->img );
 		
 // 		$this->assertEquals( 25, $mytext->get_x() );
 // 		$this->assertEquals( 48, $mytext->get_y() );
