@@ -37,31 +37,31 @@ class diagram {
 		
 // 	}
 	
-// 	function draw(){
+	function draw(){
 		
 		
-// 		$this->maxwidth = 1024;
-// 		$this->maxheight = 768;
+		$this->maxwidth = 1024;
+		$this->maxheight = 768;
 		
-// 		$this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
-// 		imageantialias ( $this->img, true );
+		$this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
+		imageantialias ( $this->img, true );
 		
-// 		/* background color
-// 		 */
-// 		$this->color["white"] = imagecolorallocate($this->img, 255,   255,  255);
+		/* background color
+		 */
+		$this->color["white"] = imagecolorallocate($this->img, 255,   255,  255);
 		
-// 		/* boxes
-// 		 */
-// 		$this->color["black"] = imagecolorallocate($this->img, 0,   0,  0);
+		/* boxes
+		 */
+		$this->color["black"] = imagecolorallocate($this->img, 0,   0,  0);
 		
-// 		$this->color["gray"]   = imagecolorallocate($this->img, 240,   240,  240);
+		$this->color["gray"]   = imagecolorallocate($this->img, 240,   240,  240);
 		
 		
-// 		/* canvas
-// 		 */
-// 		imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
+		/* canvas
+		 */
+		imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
 		
-// 	}
+	}
 	
 // 	/* TODO: calculate heigh based on the number of functions
 // 	 */
