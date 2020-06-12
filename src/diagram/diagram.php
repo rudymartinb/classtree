@@ -44,13 +44,6 @@ class diagram {
 		imageantialias ( $this->img, true );
 		
 		$this->class_tree->draw( $this->img );
-		$layout = new vertical_layout();
-		$layout->set_margin(5);
-		$layout->add_text( "something goes here" );
-		$layout->do_layout();
-		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
-		$layout->do_layout();
-		$layout->draw( $this->img );
 		
 		\imagepng($this->img,"/var/www/htdocs/salida.png");
 		
