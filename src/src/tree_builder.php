@@ -91,13 +91,11 @@ abstract class tree_builder {
 
 	}
 	
-	private function draw_tree( Array $trees ) : float {
+	private function draw_tree( Array $trees ) {
 		foreach( $trees as $tree ){
 			$this->draw_node( $tree );
 			$this->draw_tree( $tree->get_children() );
 		}
-		// classname not found
-		return -1;
 	}
 	private function draw_node( node $node ){
 		$layout = new vertical_layout();
