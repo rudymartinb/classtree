@@ -71,7 +71,7 @@ class vertical_layout {
 			$component = force_component($component);
 			$component->draw($img);
 		}
-// 		imagerectangle( $img, $this->x, $this->y, $this->get_max_width()+$this->x, $this->get_max_height()+$this->y, $this->color["black"]);
+		imagerectangle( $img, $this->x, $this->y, $this->get_max_width()+$this->x, $this->get_max_height()+$this->y, $this->color["black"]);
 	}
 	
 	
