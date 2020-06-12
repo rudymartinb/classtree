@@ -3,6 +3,7 @@ namespace src;
 
 use scr\node;
 use function scr\force_tree;
+use diagram\vertical_layout;
 
 abstract class tree_builder {
 	use tree_positions;
@@ -83,6 +84,31 @@ abstract class tree_builder {
 			$nsfinder->next();
 		}
 	}
+	
+	function draw( $img ) {
+		$this->img = $img;
+		$this->draw_tree( $this->tree );
+
+	}
+	
+	private function draw_tree( Array $trees ) : float {
+		foreach( $trees as $tree ){
+			$this->draw_node( $tree );
+			$this->draw_tree( $tree->get_children() );
+		}
+		// classname not found
+		return -1;
+	}
+	private function draw_node( node $node ){
+		$layout = new vertical_layout();
+		$layout->set_margin(5);
+		$layout->add_text( $node->get_name() );
+		$layout->do_layout();
+		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
+		$layout->do_layout();
+		$layout->draw( $this->img );
+	}
+	
 	
 	
 	
