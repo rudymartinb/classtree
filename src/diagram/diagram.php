@@ -12,13 +12,17 @@ class diagram {
 	function add_source( string $source ){
 		
 		$this->class_tree->add_source($source);
-		$this->class_tree->resolve_hierarchy();
+		
+		
 	}
 	function get_width() : int {
 		return $this->class_tree->get_max_width();
 	}
 	function get_height() : int {
 		return $this->class_tree->get_max_height();
+	}
+	function resolve_hiearchy(){
+		$this->class_tree->resolve_hierarchy();
 	}
 	
 // 	function get_element_by_name( string $name ) : element {
