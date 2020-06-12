@@ -27,6 +27,11 @@ class vertical_layout {
 	function add( component $component ){
 		$this->components[] = $component;
 	}
+	function add_text( string $text ){
+		$dt = new draw_text($text);
+		$this->add($dt);
+	}
+	
 	function get_num_components() : int {
 		return count( $this->components );
 	}

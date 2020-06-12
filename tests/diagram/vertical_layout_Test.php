@@ -1,8 +1,6 @@
 <?php
 
 use diagram\vertical_layout;
-use diagram\draw_text;
-use diagram\draw_line;
 
 class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 	function test_basic(){
@@ -14,16 +12,15 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$layout = new vertical_layout();
 		$layout->set_margin(5);
 		$layout->set_xy( 20,20 );
-		$mytext = new DrawTextMock("something goes here",  100, 20 );
-// 		$layout->add( $mytext );
 		$layout->add_text( "something goes here" );
+		
 		$layout->do_layout();
 		$this->assertEquals( 1, $layout->get_num_components() );
-		$this->assertEquals( 33, $layout->get_max_height() );
-		$this->assertEquals( 110, $layout->get_max_width() );
+		$this->assertEquals( 26, $layout->get_max_height() );
+		$this->assertEquals( 162, $layout->get_max_width() );
 		
-		$this->assertEquals( 25, $mytext->get_x() );
-		$this->assertEquals( 48, $mytext->get_y() );
+// 		$this->assertEquals( 25, $mytext->get_x() );
+// 		$this->assertEquals( 48, $mytext->get_y() );
 	}
 
 	

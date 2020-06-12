@@ -2,7 +2,7 @@
 
 use scr\node;
 
-class tree_Test extends PHPUnit\Framework\TestCase {
+class node_Test extends PHPUnit\Framework\TestCase {
 	
 	function test_basic(){
 		$tree = new node( "node" );

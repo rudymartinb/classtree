@@ -37,7 +37,7 @@ require_once 'tests/src/namespace_finder_Test.php';
 require_once 'tests/src/trait_finder_Test.php';
 require_once 'tests/src/usetrait_finder_Test.php';
 
-require_once 'tests/src/tree_Test.php';
+require_once 'tests/src/node_Test.php';
 require_once 'tests/src/class_tree_builder_Test.php';
 require_once 'tests/src/interface_tree_builder_Test.php';
 
@@ -68,7 +68,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->addTestSuite('usetrait_finder_Test');
         $this->addTestSuite('function_finder_Test');
         
-        $this->addTestSuite('tree_Test');
+        $this->addTestSuite('node_Test');
         $this->addTestSuite('class_tree_builder_Test');
         $this->addTestSuite('interface_tree_builder_Test');
         
@@ -76,7 +76,7 @@ class testsSuite extends PHPUnit\Framework\TestSuite {
         $this->addTestSuite('draw_text_Test');
         
         // diagram
-//         $this->addTestSuite('vertical_layout_Test');
+        $this->addTestSuite( vertical_layout_Test::class );
 //         $this->addTestSuite('diagram_Test');
         
 //         $this->addTestSuite('draw_text_Test');
