@@ -40,7 +40,7 @@ class diagram {
 	function draw(){
 		
 		
-		$this->maxwidth = 1024;
+		$this->maxwidth = $this->get_width();
 		$this->maxheight = 768;
 		
 		$this->img = imagecreatetruecolor( $this->maxwidth, $this->maxheight);
