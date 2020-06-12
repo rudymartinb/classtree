@@ -36,6 +36,8 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		imagefilledrectangle( $this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
 		
 		imageantialias ( $this->img, true );
+		
+		$layout->do_layout();
 		$layout->draw( $this->img );
 		
 // 		$this->assertEquals( 25, $mytext->get_x() );
