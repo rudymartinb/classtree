@@ -24,7 +24,14 @@ class node {
 	function get_name(): string {
 		return $this->name;
 	}
+
 	
+	function set_height(int $height) {
+		$this->height = $height;
+	}
+	function get_height(): int {
+		return $this->height;
+	}
 	function set_width( int $width ) {
 		$this->width = $width;
 	}
@@ -52,12 +59,6 @@ class node {
 		return $this->children;
 	}
 
-	function set_height(int $height) {
-		$this->height = $height;
-	}
-	function get_height(): int {
-		return $this->height;
-	}
 
 	/*
 	 * these relative coordinates reffers to a virtual grid from X,Y 
