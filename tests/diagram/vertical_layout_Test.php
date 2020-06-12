@@ -9,18 +9,26 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	function test_1(){
+		
 		$layout = new vertical_layout();
 		$layout->set_margin(5);
-		$layout->set_xy( 20,20 );
+		
 		$layout->add_text( "something goes here" );
 		
 		$layout->do_layout();
 		$this->assertEquals( 1, $layout->get_num_components() );
 		$this->assertEquals( 26, $layout->get_max_height() );
 		$this->assertEquals( 162, $layout->get_max_width() );
+		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
+
+		$this->img = imagecreatetruecolor( $layout->get_max_width() *2, $layout->get_max_height() * 2 );
+		imageantialias ( $this->img, true );
+		$layout->draw($this->$img);
 		
 // 		$this->assertEquals( 25, $mytext->get_x() );
 // 		$this->assertEquals( 48, $mytext->get_y() );
+
+		\imagepng($this->img,"/var/www/htdocs/salida.png");
 	}
 
 	
