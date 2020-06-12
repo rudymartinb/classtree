@@ -65,7 +65,7 @@ class vertical_layout {
 			$this->do_layout();
 		}
 		$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
-		imagerectangle( $img, $this->x, $this->y, $this->maxwidth+$this->x, $this->maxheight+$this->y, $this->color["black"]);
+		imagerectangle( $img, $this->x, $this->y, $this->get_max_width()+$this->x, $this->get_max_height()+$this->y, $this->color["black"]);
 		
 		foreach( $this->components as $component ){
 			$component = force_component($component);
