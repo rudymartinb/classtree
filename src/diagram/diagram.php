@@ -31,14 +31,12 @@ class diagram {
 		$this->maxheight = $this->get_height() * 2;
 		
 		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
-		
+		$this->class_tree->draw( $img );
 		$layout = new vertical_layout();
 		$layout->set_margin(5);
-		
 		$layout->add_text( "something goes here" );
-		
 		$layout->do_layout();
-		$this->assertEquals( 1, $layout->get_num_components() );
+// 		$this->assertEquals( 1, $layout->get_num_components() );
 		// 		$this->assertEquals( 26, $layout->get_max_height() );
 		// 		$this->assertEquals( 162, $layout->get_max_width() );
 		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
