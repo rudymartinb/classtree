@@ -31,6 +31,8 @@ class diagram {
 		$this->maxheight = $this->get_height() * 2;
 		
 		
+		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
+		
 		/* background color
 		 */
 		$this->color["white"] = imagecolorallocate($this->img, 255,   255,  255);
@@ -39,7 +41,7 @@ class diagram {
 		
 		/* canvas
 		 */
-		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
+		
 		imagefilledrectangle( $this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
 		imageantialias ( $this->img, true );
 		

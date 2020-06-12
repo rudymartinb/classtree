@@ -19,21 +19,22 @@ class diagram_Test extends PHPUnit\Framework\TestCase {
 		$source = "class myclass {}";
 		$diagram = new diagram();
 		$diagram->add_source($source);
+		$diagram->resolve_hiearchy();
 		
-		$this->assertEquals(1, $diagram->get_width() );
-		$this->assertEquals(1, $diagram->get_height() );
+// 		$this->assertEquals(1, $diagram->get_width() );
+// 		$this->assertEquals(1, $diagram->get_height() );
 		
-		$this->assertEquals( 1, $diagram->get_tree_column_area() );
+// 		$this->assertEquals( 1, $diagram->get_tree_column_area() );
 		$diagram->draw();
 
 	}
 	
-	function test_build_element(){
-		$source = "class myclass {}";
-		$diagram = new diagram();
-		$diagram->add_source($source);
+// 	function test_build_element(){
+// 		$source = "class myclass {}";
+// 		$diagram = new diagram();
+// 		$diagram->add_source($source);
 		
-	}
+// 	}
 
 	
 // 	function test_class_getname(){
