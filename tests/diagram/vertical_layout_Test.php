@@ -21,7 +21,9 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 162, $layout->get_max_width() );
 		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
 
-		$this->img = imagecreatetruecolor( $layout->get_max_width() *2, $layout->get_max_height() * 2 );
+		$this->maxwidth = $layout->get_max_width() *2;
+		$this->maxheight = $layout->get_max_height() * 2; 
+		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
 		
 		/* background color
 		 */
@@ -31,7 +33,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 		
 		/* canvas
 		 */
-		imagefilledrectangle($this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
+		imagefilledrectangle( $this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
 		
 		imageantialias ( $this->img, true );
 		$layout->draw($this->img );
