@@ -24,24 +24,13 @@ class diagram {
 	function resolve_hiearchy(){
 		$this->class_tree->resolve_hierarchy();
 	}
-	
-// 	function get_element_by_name( string $name ) : element {
-// 		foreach( $this->elements as $element ){
-// 			if( $element->get_name() === $name ){
-// 				return $element;
-// 			}
-// 		}
-// 		// this should throw an exception
-// 		return null;
-// 	}
-// 	private $current_key = 0;
-// 	function place(){
-// 		$element = $this->elements[ $this->current_key ];
-// 		$element->set_position( 0, 0 );
-		
-// 	}
+
 	
 	function draw(){
+		$this->maxwidth = $this->get_width() *2;
+		$this->maxheight = $this->get_height() * 2;
+		
+		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
 		
 		$layout = new vertical_layout();
 		$layout->set_margin(5);
@@ -53,10 +42,8 @@ class diagram {
 		// 		$this->assertEquals( 26, $layout->get_max_height() );
 		// 		$this->assertEquals( 162, $layout->get_max_width() );
 		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
-		
-		$this->maxwidth = $layout->get_max_width() *2;
-		$this->maxheight = $layout->get_max_height() * 2;
-		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
+
+
 		
 		/* background color
 		 */
