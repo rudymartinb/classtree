@@ -11,7 +11,7 @@ class vertical_layout_Test extends PHPUnit\Framework\TestCase {
 	function test_1(){
 		
 		$layout = new vertical_layout();
-		$layout->set_margin(0);
+		$layout->set_margin(2);
 		
 		$layout->add_text( "something goes here" );
 		
