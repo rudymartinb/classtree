@@ -64,7 +64,7 @@ class vertical_layout {
 		if( !$this->layout_done ){
 			$this->do_layout();
 		}
-		imagerectangle( $img, $this->x, $this->y, $this->maxwidth+$this->x, $this->maxheight+$this->y, $this->color["white"]);
+		imagerectangle( $img, $this->x, $this->y, $this->maxwidth+$this->x, $this->maxheight+$this->y, $this->color["black"]);
 		
 		foreach( $this->components as $component ){
 			$component = force_component($component);
