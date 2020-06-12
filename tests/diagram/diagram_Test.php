@@ -24,6 +24,7 @@ class diagram_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals(1, $diagram->get_height() );
 		
 		$this->assertEquals( 1, $diagram->get_tree_column_area() );
+		$diagram->draw();
 
 	}
 	
