@@ -30,18 +30,6 @@ class diagram {
 		$this->maxwidth = $this->get_width() *2;
 		$this->maxheight = $this->get_height() * 2;
 		
-		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
-		$this->class_tree->draw( $img );
-		$layout = new vertical_layout();
-		$layout->set_margin(5);
-		$layout->add_text( "something goes here" );
-		$layout->do_layout();
-// 		$this->assertEquals( 1, $layout->get_num_components() );
-		// 		$this->assertEquals( 26, $layout->get_max_height() );
-		// 		$this->assertEquals( 162, $layout->get_max_width() );
-		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
-
-
 		
 		/* background color
 		 */
@@ -51,7 +39,17 @@ class diagram {
 		
 		/* canvas
 		 */
+		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
 		imagefilledrectangle( $this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
+		
+		$this->class_tree->draw( $img );
+		$layout = new vertical_layout();
+		$layout->set_margin(5);
+		$layout->add_text( "something goes here" );
+		$layout->do_layout();
+		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
+		
+		
 		
 		imageantialias ( $this->img, true );
 		
