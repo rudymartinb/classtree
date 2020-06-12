@@ -97,6 +97,7 @@ abstract class tree_builder {
 			$this->draw_tree( $tree->get_children() );
 		}
 	}
+	
 	private function draw_node( node $node ){
 		$layout = new vertical_layout();
 		$layout->set_margin(5);
