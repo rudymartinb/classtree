@@ -142,7 +142,7 @@ abstract class tree_builder {
 // 		var_dump( "MX" , $this->max_node_width_px, $this->max_node_height_px );
 // 		var_dump( "CX" , $this->get_max_width(), $this->get_max_height()  );
 
-		$area_x = $this->max_node_width_px  * $this->width_margin + ($this->max_node_width_px  * $this->width_margin   );
+		$area_x = $this->max_node_width_px  * $this->width_margin ;
 		$area_y = $this->max_node_height_px * $this->height_margin ;
 		
 		
