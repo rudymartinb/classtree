@@ -130,7 +130,7 @@ abstract class tree_builder {
 	}
 	
 	
-	private $width_margin = 1;
+	private $width_margin = 1.5;
 	private $height_margin = 2;
 	private $max_img_width;
 	private $max_img_height;
@@ -180,8 +180,8 @@ abstract class tree_builder {
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
-		$x = ( ( $node->get_relcol()  ) * $this->max_node_width_px* $this->width_margin ) + ($this->max_node_width_px / $this->width_margin );
-		$y = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) + ($this->max_node_height_px / $this->height_margin );
+		$x = ( ( $node->get_relcol()  ) * $this->max_node_width_px* $this->width_margin ) + ($this->max_node_width_px / 2 );
+		$y = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) + ($this->max_node_height_px / 2 );
 		
 		$layout->set_xy( $x, $y );
 		
