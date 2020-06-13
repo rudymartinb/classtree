@@ -46,7 +46,7 @@ class draw_text implements component {
 		$this->text = $text;
 		$font = self::$project_path.'fonts/courier.ttf';
 		
-		$font = realpath($font) ;
+		$font = trim( realpath($font) );
 		if( file_exists($font) ){
 			echo $font."\n";
 		}
