@@ -190,10 +190,7 @@ abstract class tree_builder {
 	}
 	
 	private function draw_node( node $node, $parent ){
-		$layout = new vertical_layout();
-		$layout->set_margin(5);
-		$layout->add_text( $node->get_name() );
-		$layout->do_layout();
+		$layout = $this->get_node_layout($node);
 		/* width refers to the total tree width site at this node
 		 * which means can be 1 at minimum (self)
 		 */
@@ -217,9 +214,20 @@ abstract class tree_builder {
 		
 		$layout->do_layout();
 		$layout->draw( $this->img );
+		
+		// arrows
+		if( $parent != null ){
+			$parent = force_tree($parent);
+			$layout_parent = $this->get_node_layout( $parent );
+// 			$parent_width = $parent->get_width() * $this->max_node_width_px
+		}
 	}
-	
-	
-	
+	function get_node_layout( node $node ) : vertical_layout {
+		$layout = new vertical_layout();
+		$layout->set_margin(5);
+		$layout->add_text( $node->get_name() );
+		$layout->do_layout();
+		return $layout;
+	}
 	
 }
