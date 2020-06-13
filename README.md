@@ -8,7 +8,7 @@ The final goal is to be able to create a class diagram (PNG or JPG) based on sou
 Under development.-
 
 ## Example Image:
-![sample](http://github.com/rudymartinb/classtree/documentation/sample.jpg)
+![sample](http://github.com/rudymartinb/classtree/documentation/example.jpg)
 
 ## Known bugs:
 * duplicated names (class, interfaces, etc) among different namespaces will produce underisable results.
