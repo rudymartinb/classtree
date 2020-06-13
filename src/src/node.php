@@ -100,6 +100,9 @@ class node {
 		
 		$this->layout = $layout;
 	}
+	function get_layout() : vertical_layout {
+		return $this->layout;
+	}
 	
 	
 }
