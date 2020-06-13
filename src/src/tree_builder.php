@@ -168,9 +168,9 @@ abstract class tree_builder {
 	}
 	
 	private function draw_tree( Array $trees ) {
-		foreach( $trees as $tree ){
-			$this->draw_node( $tree );
-			$this->draw_tree( $tree->get_children() );
+		foreach( $trees as $node ){
+			$this->draw_node( $node );
+			$this->draw_tree( $node->get_children() );
 		}
 	}
 	
