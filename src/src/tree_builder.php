@@ -158,7 +158,7 @@ abstract class tree_builder {
 		 */
 		
 		imagefilledrectangle( $img, 0,0,$this->max_img_width-1, $this->max_img_height-1, $this->color["white"]);
-// 		imagefilledrectangle( $img, 0,0,1000, 800, $this->color["white"]);
+		imagefilledrectangle( $img, 0,0,1000, 800, $this->color["white"]);
 		imageantialias ( $img, true );
 		
 		$this->img = $img;
@@ -180,8 +180,8 @@ abstract class tree_builder {
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
-		$x = ( ( $node->get_relcol()  ) * $this->max_img_width * $this->width_margin ) + ($this->max_img_width * $this->width_margin /2);
-		$y = ( ( $node->get_relrow()  ) * $this->max_img_height * $this->height_margin ) + ($this->max_img_height * $this->height_margin /2);
+		$x = ( ( $node->get_relcol()  ) * $this->max_img_width * $this->width_margin ) + ($this->max_node_width * $this->width_margin /2);
+		$y = ( ( $node->get_relrow()  ) * $this->max_img_height * $this->height_margin ) + ($this->max_node_height * $this->height_margin /2);
 		
 		$layout->set_xy( $x, $y );
 		var_dump( $x, $y );
