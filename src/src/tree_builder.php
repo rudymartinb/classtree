@@ -247,6 +247,8 @@ abstract class tree_builder {
 		$posy = ($area_height - $height) /2 + $y0;
 		return $posy;
 	}
+	
+	// TODO: place layout inside node?
 	function get_node_layout( node $node ) : vertical_layout {
 		$layout = new vertical_layout();
 		$layout->set_margin(5);
