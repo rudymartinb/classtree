@@ -179,8 +179,8 @@ abstract class tree_builder {
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
-		$x = ( ( $node->get_relcol() -1 ) * $this->max_img_width * $this->width_margin ) + ($this->max_img_width * $this->width_margin /2);
-		$y = ( ( $node->get_relrow() -1 ) * $this->max_img_height * $this->height_margin ) + ($this->max_img_height * $this->height_margin /2);
+		$x = ( ( $node->get_relcol()  ) * $this->max_img_width * $this->width_margin ) + ($this->max_img_width * $this->width_margin /2);
+		$y = ( ( $node->get_relrow()  ) * $this->max_img_height * $this->height_margin ) + ($this->max_img_height * $this->height_margin /2);
 		
 		$layout->set_xy( $x, $y );
 		var_dump( $x, $y );
