@@ -201,10 +201,10 @@ abstract class tree_builder {
 		 * plus 0.25
 		 * then multiply relative column and row by maximum node height and width and margin 
 		 */
-		$x = ( ( $node->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
+		$x0 = ( ( $node->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
 		$x1 =  ( $node->get_width() * $this->max_node_width_px * $this->width_margin  )  ;
 		$x2 =  ( $node->get_width()+1 ) * $this->max_node_width_px * $this->width_margin    ;
-		$posx = ($x2 - $x1 - $width) /2 + $x;
+		$posx = ($x2 - $x1 - $width) /2 + $x0;
 		$y = ( ( $node->get_relrow()+0.25  ) * $this->max_node_height_px * $this->height_margin ) ;
 		
 		$layout->set_xy( $posx, $y );
