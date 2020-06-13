@@ -89,7 +89,7 @@ abstract class tree_builder {
 	
 	private $max_width_px = 0;
 	private $max_height_px = 0;
-	private function get_max_width_px( Array $trees ){
+	function get_max_width_px( Array $trees ){
 		$max_width = 0;
 		foreach( $trees as $node ){
 			$node = force_tree( $node );
@@ -105,7 +105,7 @@ abstract class tree_builder {
 		}
 		return $max_width;
 	}
-	private function get_max_height_px( Array $trees ){
+	function get_max_height_px( Array $trees ){
 		$max_height = 0;
 		foreach( $trees as $node ){
 			$node = force_tree( $node );
