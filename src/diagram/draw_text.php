@@ -50,7 +50,7 @@ class draw_text implements component {
 		
 		$font = trim( realpath($font) );
 		if( file_exists($font) ){
-			echo $font."\n";
+			echo "'".$font."'\n";
 		}
 		$arr = imagettfbbox(10, 0.0, $font, $text);
 		$this->height_px = $arr[1] - $arr[5];
