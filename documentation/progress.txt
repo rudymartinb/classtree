@@ -157,3 +157,22 @@ From there I can take each head and place it on a virtual diagram as a new colum
 
 there's another idea, create a single image per tree  
 
+20200612
+some progress
+
+_finders get the code from the text files and place them on an array for the methods to extract
+tree_builder use the finders to build an array of node elements for each class. 
+it also calculate relative sizes and it must also calculate real diagram size, since it has all data
+so, for each node I must create a vertical_layout, place all elements on it and drop it on a lists
+once I have them all I can calculate real maximum height and width for all elements
+from there I can calculate diagram size, padding and margin
+
+at first it looks like I must do all of this inside tree
+
+so far what I have learned here is:
+if I had done a propper list of operations at first like Beck suggested I might have done this quickier.
+
+- class_finders
+- class_tree_builder
+- array of nested node objects
+
