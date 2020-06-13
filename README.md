@@ -4,7 +4,8 @@ Description: tool for php7 code scanning.
 The final goal is to be able to create a class diagram (PNG or JPG) based on source code statements and parameters and return values types from methods and functions. By doing that you get a map of how your project is built.
 
 ## STATUS:   
-**NOT WORKING YET.** Under development.-
+**Only classes and subclases and shown with the name of each one.** 
+Under development.-
 
 ## Known bugs:
 * duplicated names (class, interfaces, etc) among different namespaces will produce underisable results.
