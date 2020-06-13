@@ -1,6 +1,5 @@
 <?php
 namespace diagram;
-use src\interface_finder;
 use src\class_tree_builder;
 
 class diagram {
