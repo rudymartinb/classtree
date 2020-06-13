@@ -185,22 +185,22 @@ abstract class tree_builder {
 	private function draw_tree( Array $trees, node $parent = null ) {
 		foreach( $trees as $node ){
 			$this->draw_node( $node, $parent );
-			$this->draw_tree( $node->get_children(), $node );
+			$this->draw_tree( $node->get_children() );
+			$this->draw_arrows( $node );
 		}
 	}
 	
-	private function draw_node( node $node, $parent ){
+	private function draw_node( node $node ){
 		$layout = $this->get_node_layout($node);
 		/* width refers to the total tree width site at this node
 		 * which means can be 1 at minimum (self)
 		 */
 		$width = $layout->get_max_width();
 		$height= $layout->get_max_height();
-// 		var_dump( $height );
-		/* goal is to "center" vertically each element on its virtual cell
-		 * horizontal centering is done by calculating the columns width of each element minus 1 (since it has a minimum value of 1)
-		 * plus 0.25
-		 * then multiply relative column and row by maximum node height and width and margin 
+
+		/* x0 = starting X column
+		 * area_width = based on node's width, used by the entire tree from this node
+		 * posx = resulting centered position of the current node
 		 */
 		$x0 = ( ( $node->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
 		$area_width =  ( $node->get_width() * $this->max_node_width_px * $this->width_margin  )  ;
@@ -214,14 +214,26 @@ abstract class tree_builder {
 		
 		$layout->do_layout();
 		$layout->draw( $this->img );
+	}
+	
+	function draw_arrows( node $parent ){
+		$parent = force_tree($parent);
+		$layout_parent = $this->get_node_layout( $parent );
 		
-		// arrow
-		if( $parent != null ){
-			$parent = force_tree($parent);
-			$layout_parent = $this->get_node_layout( $parent );
-			$parent_width = $layout_parent->get_max_width();
-			
-		}
+		$parent_width = $layout_parent->get_max_width();
+		$num_children = count( $parent->get_children() );
+
+		$width = $layout_parent->get_max_width();
+		$height= $layout_parent->get_max_height();
+		
+		$x0 = ( ( $parent->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
+		$area_width =  ( $parent->get_width() * $this->max_node_width_px * $this->width_margin  )  ;
+		$posx = ($area_width - $width) /2 + $x0;
+		
+		$y0 = ( ( $parent->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
+		$area_height = $this->max_node_height_px * $this->height_margin  ;
+		$posy = ($area_height - $height) /2 + $y0 + $height;
+		
 	}
 	function get_node_layout( node $node ) : vertical_layout {
 		$layout = new vertical_layout();
@@ -244,7 +256,8 @@ abstract class tree_builder {
 		$alpha1 = $theta_radians + 0.261799;
 		$alpha2 = $theta_radians - 0.261799;
 		
-		$distance = 3; // arrow head's "size" 
+		// arrow head's "size"
+		$distance = 3;  
 		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha1 );
 		$x1 = $point1["x"];
 		$y1 = $point1["y"];
