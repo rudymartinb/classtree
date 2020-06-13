@@ -170,7 +170,7 @@ abstract class tree_builder {
 			for( $iy = 0; $iy < $this->get_max_height() ; $iy ++ ){
 				$ix_px = $ix * $area_x;
 				$iy_px = $iy * $area_y;
-				imagerectangle( $img, $ix_px, $iy_px, $ix_px+ $area_x, $iy_px+$area_y, $this->color["red"]);
+				imagerectangle( $img, $ix_px, $iy_px, $ix_px+ $area_x, $iy_px+$area_y, $this->color["gray"]);
 				
 			}
 		}
@@ -194,6 +194,9 @@ abstract class tree_builder {
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
+		/* width refers to the total tree width site at this node
+		 * which means can be 1 at minimum (self)
+		 */
 		$width = $layout->get_max_width();
 		$height= $layout->get_max_height();
 		var_dump( $height );
@@ -208,8 +211,6 @@ abstract class tree_builder {
 		
 		$y0 = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
 		$area_height = $this->max_node_height_px * $this->height_margin  ;
-		var_dump( $height );
-		var_dump( "AR ".$area_height );
 		$posy = ($area_height - $height) /2 + $y0;
 		
 		$layout->set_xy( $posx, $posy );
