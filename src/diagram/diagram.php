@@ -15,7 +15,7 @@ class diagram {
 		
 	}
 	function get_width() : int {
-		return $this->class_tree->get_max_width();
+		return $this->class_tree->get_max_columns();
 	}
 	function get_height() : int {
 		return $this->class_tree->get_max_height();

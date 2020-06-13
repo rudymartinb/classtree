@@ -18,7 +18,7 @@ class interface_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		
 		$tree->resolve_hierarchy();
 		
-		$this->assertEquals( 1, $tree->get_max_width() );
+		$this->assertEquals( 1, $tree->get_max_columns() );
 		$this->assertEquals( 1, $tree->get_max_height() );
 	}
 	
@@ -30,7 +30,7 @@ class interface_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		
 		$tree->resolve_hierarchy();
 		
-		$this->assertEquals( 2, $tree->get_max_width() );
+		$this->assertEquals( 2, $tree->get_max_columns() );
 		$this->assertEquals( 1, $tree->get_max_height() );
 	}
 	
@@ -41,7 +41,7 @@ class interface_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		
 		$tree->resolve_hierarchy();
 		
-		$this->assertEquals( 1, $tree->get_max_width() );
+		$this->assertEquals( 1, $tree->get_max_columns() );
 		$this->assertEquals( 2, $tree->get_max_height() );
 	}
 	
@@ -62,7 +62,7 @@ interface someinterface2 ' );
 		$collector->select( "someinterface2" );
 		$this->assertEquals( "src2", $collector->get_namespace() );
 
-		$this->assertEquals( 2, $tree->get_max_width() );
+		$this->assertEquals( 2, $tree->get_max_columns() );
 		$this->assertEquals( 1, $tree->get_max_height() );
 	}
 	

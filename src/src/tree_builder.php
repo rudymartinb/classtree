@@ -13,7 +13,7 @@ abstract class tree_builder {
 	
 	abstract function get_new_collector() : collector ;
 	
-	function get_max_width(): int{
+	function get_max_columns(): int{
 		return $this->max_width( $this->tree );
 	}
 	function get_max_height(): int{
@@ -142,7 +142,7 @@ abstract class tree_builder {
 // 		var_dump( "MX" , $this->max_node_width_px, $this->max_node_height_px );
 // 		var_dump( "CX" , $this->get_max_width(), $this->get_max_height()  );
 		
-		$this->max_img_width = ($this->get_max_width()+0)  * $this->max_node_width_px * $this->width_margin + ($this->max_node_width_px*$this->width_margin/2  ) ;
+		$this->max_img_width = ($this->get_max_columns()+0)  * $this->max_node_width_px * $this->width_margin + ($this->max_node_width_px*$this->width_margin/2  ) ;
 		$this->max_img_height = ($this->get_max_height()+0) * $this->max_node_height_px * $this->height_margin  + ($this->max_node_height_px * $this->height_margin /2) ;
 // 		var_dump( "IX" , $this->max_img_width, $this->max_img_height  );
 		
