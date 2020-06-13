@@ -207,7 +207,7 @@ abstract class tree_builder {
 		$posx = ($area_width - $width) /2 + $x0;
 		
 		$y0 = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
-		$area_height = $node->get_relrow() * $this->max_node_height_px * $this->height_margin  ;
+		$area_height = $node->get_height() * $this->max_node_height_px * $this->height_margin  ;
 		$posy = ($area_height - $height) /2 + $y0;
 		
 		$layout->set_xy( $posx, $posy );
