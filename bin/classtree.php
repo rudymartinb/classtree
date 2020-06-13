@@ -22,6 +22,7 @@ include_project_files( $project_dir."/" );
 /* real job starts here
 */
 $app = new App();
+// $app->resolve_project_dir($argv[0]);
 $app->set_parameters($argv);
 
 $error = $app->get_error();
