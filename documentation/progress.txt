@@ -176,3 +176,17 @@ if I had done a propper list of operations at first like Beck suggested I might 
 - class_tree_builder
 - array of nested node objects
 
+20200612
+how the diagram must be built
+
+data:
+relative column and row of each element
+maximum height and width of all elements.
+margin % of w/h
+
+1) calculate max image size:
+	image_width = number of columns * (max_width * margin)
+	image_height = number of rows * (max_height * margin )
+	 
+2) position of a given element:
+	element x = ( ( node_relative_column -1 ) * maxwidth * marginw ) + (maxwidth * marginw /2) 

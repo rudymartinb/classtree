@@ -6,7 +6,7 @@ use function scr\force_tree;
 use diagram\vertical_layout;
 
 abstract class tree_builder {
-	use tree_positions;
+	use node_positions;
 	
 	private $tree = [];
 	protected $collector;
@@ -87,8 +87,8 @@ abstract class tree_builder {
 		}
 	}
 	
-	private $max_width_px = 0;
-	private $max_height_px = 0;
+	private $max_node_width_px = 0;
+	private $max_node_height_px = 0;
 	function get_max_width_px(){
 		return $this->get_max_width_px_2( $this->tree );
 	}
@@ -130,13 +130,19 @@ abstract class tree_builder {
 	}
 	
 	
-	
+	private $width_margin = 2;
+	private $height_margin = 2;
+	private $maxwidth;
+	private $maxheight;
 	function draw() {
-		$this->max_width_px = $this->get_max_width_px();
-		$this->max_height_px = $this->get_max_height_px();
+		$this->calculate_relative_positions();
 		
-		$this->maxwidth = $this->max_width_px  *2;
-		$this->maxheight = $this->max_height_px  * 2;
+		$this->max_node_width_px = $this->get_max_width_px();
+		$this->max_node_height_px = $this->get_max_height_px();
+		
+		
+		$this->maxwidth = $this->max_node_width_px  * $this->width_margin;
+		$this->maxheight = $this->max_node_height_px  * $this->height_margin;
 		
 		
 		$img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
@@ -172,7 +178,10 @@ abstract class tree_builder {
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
-		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
+		$x = ( ( $node->get_relcol() -1 ) * $this->maxwidth * $this->width_margin ) + ($this->maxwidth * $this->width_margin /2);
+		$y = ( ( $node->get_relrow() -1 ) * $this->maxheight * $this->width_margin ) + ($this->maxwidth * $this->width_margin /2);
+		
+		$layout->set_xy( $layout->get_max_width() * ($node->get_relcol()) /2, $layout->get_max_height() /2 );
 		$layout->do_layout();
 		$layout->draw( $this->img );
 	}

@@ -4,7 +4,7 @@ namespace src;
 use scr\node;
 use function scr\force_tree;
 
-trait tree_positions {
+trait node_positions {
 	
 	private function max_width( Array $trees ) : int {
 		$actual = 0;
@@ -64,15 +64,17 @@ trait tree_positions {
 		
 	}
 	
-	
-	private function calculate_relative_positions( Array $trees, int $col_offset = 0, int $row_offset = 0 ){
+	function calculate_relative_positions( ){
+		$this->calculate_relative_positions_2( $this->tree );
+	}
+	private function calculate_relative_positions_2( Array $trees, int $col_offset = 0, int $row_offset = 0 ){
 		$actual_column = $col_offset;
-		foreach( $trees as $tree ){
-			$tree = force_tree( $tree );
-			$this->calculate_relative_positions( $tree->get_children(), $actual_column, $row_offset+1 );
-			$tree->set_relcol( $actual_column );
-			$tree->set_relrow( $row_offset );
-			$width = $tree->get_width();
+		foreach( $trees as $node ){
+			$node = force_tree( $node );
+			$this->calculate_relative_positions_2( $node->get_children(), $actual_column, $row_offset+1 );
+			$node->set_relcol( $actual_column );
+			$node->set_relrow( $row_offset );
+			$width = $node->get_width();
 			$actual_column += $width;
 		}
 	}

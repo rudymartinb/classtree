@@ -50,7 +50,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 1, $tree->get_relative_column( "someclass2" ) );
 		$this->assertEquals( 0, $tree->get_relative_row( "someclass" ) );
 		$this->assertEquals( 0, $tree->get_relative_row( "someclass2" ) );
-		
+// 		$tree->distribute();
 		$tree->draw();
 	}
 
