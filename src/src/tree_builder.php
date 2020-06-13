@@ -168,6 +168,8 @@ abstract class tree_builder {
 		imagefilledrectangle( $img, 0,0,$this->max_img_width-1, $this->max_img_height-1, $this->color["white"]);
 // 		imagefilledrectangle( $img, 0,0,1000, 800, $this->color["white"]);
 		imageantialias ( $img, true );
+		
+		// draw background grid
 		for( $ix = 0; $ix < $this->get_max_columns() ; $ix ++ ){
 			for( $iy = 0; $iy < $this->get_max_height() ; $iy ++ ){
 				$ix_px = $ix * $area_x;
