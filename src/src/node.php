@@ -2,6 +2,8 @@
 namespace scr;
 
 
+use diagram\vertical_layout;
+
 /* 
  * I need a class to hold the info of just one node of classes
  * I dont care if it just hold one class only
@@ -84,6 +86,17 @@ class node {
 	}
 	function get_relrow(): int {
 		return $this->relrow;
+	}
+	
+	function do_layout() {
+		
+		$layout = new vertical_layout();
+		$layout->set_margin(5);
+		$layout->add_text( $this->get_name() );
+		$layout->do_layout();
+		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
+		$layout->do_layout();
+		
 	}
 	
 	
