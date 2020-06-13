@@ -89,7 +89,10 @@ abstract class tree_builder {
 	
 	private $max_width_px = 0;
 	private $max_height_px = 0;
-	function get_max_width_px( Array $trees ){
+	function get_max_width_px(){
+		return $this->get_max_width_px_2( $this->tree );
+	}
+	function get_max_width_px_2( Array $trees ){
 		$max_width = 0;
 		foreach( $trees as $node ){
 			$node = force_tree( $node );
@@ -98,14 +101,18 @@ abstract class tree_builder {
 			if( $max_width < $width ){
 				$max_width = $width;
 			}
-			$width = $this->get_max_width_px( $node->get_children() );
+			$width = $this->get_max_width_px_2( $node->get_children() );
 			if( $max_width < $width ){
 				$max_width = $width;
 			}
 		}
 		return $max_width;
 	}
-	function get_max_height_px( Array $trees ){
+	function get_max_height_px() : int {
+		return $this->get_max_height_px_2( $this->tree );
+	}
+		
+	private	function get_max_height_px_2( Array $trees ) : int {
 		$max_height = 0;
 		foreach( $trees as $node ){
 			$node = force_tree( $node );
@@ -114,7 +121,7 @@ abstract class tree_builder {
 			if( $max_height < $height ){
 				$max_height = $height;
 			}
-			$height = $this->get_max_height_px( $node->get_children() );
+			$height = $this->get_max_height_px_2( $node->get_children() );
 			if( $max_height < $height ){
 				$max_height = $height;
 			}
@@ -125,8 +132,8 @@ abstract class tree_builder {
 	
 	
 	function draw( $img ) {
-		$this->max_width_px = $this->get_max_width_px( $this->tree );
-		$this->max_height_px = $this->get_max_height_px( $this->tree );
+		$this->max_width_px = $this->get_max_width_px();
+		$this->max_height_px = $this->get_max_height_px();
 		
 		$this->maxwidth = $this->max_width_px  *2;
 		$this->maxheight = $this->max_height_px  * 2;
