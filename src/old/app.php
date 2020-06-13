@@ -63,22 +63,11 @@ class App {
     private $classes;
     function generate_classes(){
         $classes = [];
+        
         foreach ($this->php_sources as $source ){
-            $finder = new interface_finder();
-            $finder->matches($source );
-            $tmp = $finder->separar_clases();
-            
-            $classes = array_merge( $classes , $tmp );
+        
         }
         $this->classes = $classes;
-    }
-    
-
-    private $trees ;
-    function create_trees(){
-        $trees = new Trees( $this->classes );
-        
-        $this->trees = $trees->get_trees();
     }
 
     function generate_file( ){
@@ -90,7 +79,6 @@ class App {
         $this->read_sources();
         $this->generate_classes();
         
-        $this->create_trees();
         
         $this->generate_file();
         
