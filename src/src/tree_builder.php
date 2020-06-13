@@ -194,6 +194,12 @@ abstract class tree_builder {
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
+		
+		/* goal is to "center" vertically each element on its virtual cell
+		 * horizontal centering is done by calculating the columns width of each element minus 1 (since it has a minimum value of 1)
+		 * plus 0.25
+		 * then multiply relative column and row by maximum node height and width and margin 
+		 */
 		$x = ( ( $node->get_relcol()+(($node->get_width()-1)/2)+0.25 ) * $this->max_node_width_px  * $this->width_margin  )  ;
 		$y = ( ( $node->get_relrow()+0.25  ) * $this->max_node_height_px * $this->height_margin ) ;
 		
