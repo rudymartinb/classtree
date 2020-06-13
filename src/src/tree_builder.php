@@ -158,7 +158,7 @@ abstract class tree_builder {
 		$this->color["red" ] = imagecolorallocate($img, 192,   0,  0);
 		
 
-		$this->grid( $img, $area_x , $area_y );
+		
 		
 		/* canvas
 		 */
@@ -166,6 +166,7 @@ abstract class tree_builder {
 		imagefilledrectangle( $img, 0,0,$this->max_img_width-1, $this->max_img_height-1, $this->color["white"]);
 
 		imageantialias ( $img, true );
+		$this->grid( $img, $area_x , $area_y );
 		
 		$this->img = $img;
 		$this->draw_tree( $this->tree );
