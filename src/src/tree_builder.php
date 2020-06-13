@@ -168,8 +168,14 @@ abstract class tree_builder {
 		imagefilledrectangle( $img, 0,0,$this->max_img_width-1, $this->max_img_height-1, $this->color["white"]);
 // 		imagefilledrectangle( $img, 0,0,1000, 800, $this->color["white"]);
 		imageantialias ( $img, true );
-		
-		imagerectangle( $img, 0,0,$area_x, $area_y, $this->color["red"]);
+		for( $ix = 0; $ix < $this->get_max_columns() ; $ix ++ ){
+			for( $iy = 0; $iy < $this->get_max_height() ; $iy ++ ){
+				$ix_px = $ix * $area_x;
+				$iy_px = $iy * $area_y;
+				imagerectangle( $img, $ix_px, $iy_px, $ix_px+ $area_x, $iy_px+$area_y, $this->color["red"]);
+				
+			}
+		}
 		
 		$this->img = $img;
 		$this->draw_tree( $this->tree );
