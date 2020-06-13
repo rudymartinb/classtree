@@ -6,7 +6,7 @@ use function scr\force_tree;
 
 trait node_positions {
 	
-	private function max_width( Array $trees ) : int {
+	private function max_columns( Array $trees ) : int {
 		$actual = 0;
 		foreach( $trees as $tree ){
 			$actual += $tree->get_width();

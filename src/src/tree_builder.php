@@ -14,7 +14,7 @@ abstract class tree_builder {
 	abstract function get_new_collector() : collector ;
 	
 	function get_max_columns(): int{
-		return $this->max_width( $this->tree );
+		return $this->max_columns( $this->tree );
 	}
 	function get_max_height(): int{
 		return $this->max_height( $this->tree );
@@ -68,7 +68,7 @@ abstract class tree_builder {
 			$node = new node( $node_name );
 			$node->set_extends($extends);
 			$node->set_children($children);
-			$node->set_width( max( $this->max_width( $children ), 1 ) );
+			$node->set_width( max( $this->max_columns( $children ), 1 ) );
 			$node->set_height( $this->max_height( $children )+1 );
 			$node->do_layout();
 			$tree[] = $node;
