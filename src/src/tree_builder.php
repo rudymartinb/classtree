@@ -205,6 +205,7 @@ abstract class tree_builder {
 		$x0 = ( ( $node->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
 		$area_width =  ( $node->get_width() * $this->max_node_width_px * $this->width_margin  )  ;
 		$posx = ($area_width - $width) /2 + $x0;
+		$posx = $this->get_x_from_node($node, $width);
 		
 		$y0 = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
 		$area_height = $this->max_node_height_px * $this->height_margin  ;
@@ -226,14 +227,18 @@ abstract class tree_builder {
 		$width = $layout_parent->get_max_width();
 		$height= $layout_parent->get_max_height();
 		
-		$x0 = ( ( $parent->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
-		$area_width =  ( $parent->get_width() * $this->max_node_width_px * $this->width_margin  )  ;
-		$posx = ($area_width - $width) /2 + $x0;
+		$posx = $this->get_x_from_node($parent, $width);
 		
 		$y0 = ( ( $parent->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
 		$area_height = $this->max_node_height_px * $this->height_margin  ;
 		$posy = ($area_height - $height) /2 + $y0 + $height;
 		
+	}
+	function get_x_from_node( node $node, int $width ) : int {
+		$x0 = ( ( $node->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
+		$area_width =  ( $node->get_width() * $this->max_node_width_px * $this->width_margin  )  ;
+		$posx = ($area_width - $width) /2 + $x0;
+		return $posx;
 	}
 	function get_node_layout( node $node ) : vertical_layout {
 		$layout = new vertical_layout();
