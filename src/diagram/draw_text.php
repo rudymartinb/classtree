@@ -26,8 +26,16 @@ class draw_text implements component {
 		}
 		
 		putenv('GDFONTPATH=' . realPath('fonts'));
-		$font = './fonts/courier.ttf';
+		$font = self::$project_path.'/fonts/courier.ttf';
+		
+		$font = trim( realpath($font) );
+// 		$font = './fonts/courier.ttf';
+		
 		$font = realpath($font) ;
+		if( !file_exists($font) ){
+			echo "'".$font."'\n";
+		}
+		
 		$function = $this->draw_function;
 		
 		$function( $img, $font );
@@ -49,9 +57,6 @@ class draw_text implements component {
 		$font = self::$project_path.'/fonts/courier.ttf';
 		
 		$font = trim( realpath($font) );
-		if( file_exists($font) ){
-			echo "'".$font."'\n";
-		}
 		$arr = imagettfbbox(10, 0.0, $font, $text);
 		$this->height_px = $arr[1] - $arr[5];
 		$this->width_px = $arr[4] - $arr[0];
