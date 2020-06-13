@@ -64,11 +64,13 @@ abstract class tree_builder {
 			}
 			$children = $this->resolve( $node_name );
 			
+			
 			$node = new node( $node_name );
 			$node->set_extends($extends);
 			$node->set_children($children);
 			$node->set_width( max( $this->max_width( $children ), 1 ) );
 			$node->set_height( $this->max_height( $children )+1 );
+			$node->do_layout();
 			$tree[] = $node;
 			$collector->next();
 		}
@@ -85,9 +87,69 @@ abstract class tree_builder {
 		}
 	}
 	
+	private $max_width_px = 0;
+	private $max_height_px = 0;
+	private function get_max_width_px( Array $trees ){
+		$max_width = 0;
+		foreach( $trees as $node ){
+			$node = force_tree( $node );
+			$layout = $node->get_layout();
+			$width = $layout->get_max_width();
+			if( $max_width < $width ){
+				$max_width = $width;
+			}
+			$width = $this->get_max_width_px( $node->get_children() );
+			if( $max_width < $width ){
+				$max_width = $width;
+			}
+		}
+		return $max_width;
+	}
+	private function get_max_height_px( Array $trees ){
+		$max_height = 0;
+		foreach( $trees as $node ){
+			$node = force_tree( $node );
+			$layout = $node->get_layout();
+			$height = $layout->get_max_height();
+			if( $max_height < $height ){
+				$max_height = $height;
+			}
+			$height = $this->get_max_height_px( $node->get_children() );
+			if( $max_height < $height ){
+				$max_height = $height;
+			}
+		}
+		return $max_height;
+	}
+	
+	
+	
 	function draw( $img ) {
+		$this->max_width_px = $this->get_max_width_px( $this->tree );
+		$this->max_height_px = $this->get_max_height_px( $this->tree );
+		
+		$this->maxwidth = $this->max_width_px  *2;
+		$this->maxheight = $this->max_height_px  * 2;
+		
+		
+		$img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
+		
+		/* background color
+		 */
+		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
+		$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
+		$this->color["gray" ] = imagecolorallocate($img, 240,   240,  240);
+		
+		/* canvas
+		 */
+		
+		imagefilledrectangle( $img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
+		imageantialias ( $img, true );
+		
 		$this->img = $img;
 		$this->draw_tree( $this->tree );
+		
+		\imagepng($this->img,"/var/www/htdocs/salida.png");
 
 	}
 	
