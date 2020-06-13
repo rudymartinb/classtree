@@ -139,8 +139,6 @@ abstract class tree_builder {
 		
 		$this->max_node_width_px = $this->get_max_width_px();
 		$this->max_node_height_px = $this->get_max_height_px();
-// 		var_dump( "MX" , $this->max_node_width_px, $this->max_node_height_px );
-// 		var_dump( "CX" , $this->get_max_width(), $this->get_max_height()  );
 
 		$area_x = $this->max_node_width_px  * $this->width_margin ;
 		$area_y = $this->max_node_height_px * $this->height_margin ;
@@ -149,10 +147,8 @@ abstract class tree_builder {
 		$this->max_img_width =  $this->get_max_columns() * $area_x ;
 		$this->max_img_height = $this->get_max_height()  * $area_y ;
 		
-// 		var_dump( "IX" , $this->max_img_width, $this->max_img_height  );
-		
 		$img = imagecreatetruecolor( $this->max_img_width  , $this->max_img_height );
-// 		$img = imagecreatetruecolor( 1000 , 800 );
+
 		/* background color
 		 */
 		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
@@ -198,7 +194,7 @@ abstract class tree_builder {
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
-		$x = ( ( $node->get_relcol()+(($node->get_width()-1)/2) ) * $this->max_node_width_px  * $this->width_margin  )  ;
+		$x = ( ( $node->get_relcol()+(($node->get_width()-1)/2)+0.5 ) * $this->max_node_width_px  * $this->width_margin  )  ;
 		$y = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
 		
 		$layout->set_xy( $x, $y );
