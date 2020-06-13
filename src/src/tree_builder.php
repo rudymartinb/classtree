@@ -132,8 +132,8 @@ abstract class tree_builder {
 	
 	private $width_margin = 2;
 	private $height_margin = 2;
-	private $maxwidth;
-	private $maxheight;
+	private $max_img_width;
+	private $max_img_height;
 	function draw() {
 		$this->calculate_relative_positions();
 		
@@ -141,12 +141,12 @@ abstract class tree_builder {
 		$this->max_node_height_px = $this->get_max_height_px();
 		
 		
-		$this->maxwidth = $this->max_node_width_px  * $this->width_margin;
-		$this->maxheight = $this->max_node_height_px  * $this->height_margin;
+		$this->max_img_width = $this->max_node_width_px  * $this->width_margin;
+		$this->max_img_height = $this->max_node_height_px  * $this->height_margin;
 		
 		
-		$img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
-		
+// 		$img = imagecreatetruecolor( $this->max_img_width  , $this->max_img_height );
+		$img = imagecreatetruecolor( 1000 , 800 );
 		/* background color
 		 */
 		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
@@ -156,7 +156,7 @@ abstract class tree_builder {
 		/* canvas
 		 */
 		
-		imagefilledrectangle( $img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
+		imagefilledrectangle( $img, 0,0,$this->max_img_width-1, $this->max_img_height-1, $this->color["white"]);
 		imageantialias ( $img, true );
 		
 		$this->img = $img;
@@ -178,8 +178,8 @@ abstract class tree_builder {
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
-		$x = ( ( $node->get_relcol() -1 ) * $this->maxwidth * $this->width_margin ) + ($this->maxwidth * $this->width_margin /2);
-		$y = ( ( $node->get_relrow() -1 ) * $this->maxheight * $this->width_margin ) + ($this->maxwidth * $this->width_margin /2);
+		$x = ( ( $node->get_relcol() -1 ) * $this->max_img_width * $this->width_margin ) + ($this->max_img_width * $this->width_margin /2);
+		$y = ( ( $node->get_relrow() -1 ) * $this->max_img_height * $this->width_margin ) + ($this->max_img_width * $this->width_margin /2);
 		
 		$layout->set_xy( $x, $y );
 		$layout->do_layout();
