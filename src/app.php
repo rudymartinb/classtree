@@ -35,6 +35,7 @@ class App {
             $this->error_msg = "ussage: ".$this->main_script." <source_dir> <output_file>";
             return ;
         }
+        $this->resolve_project_dir($arguments[0]);
         $this->set_directory( $arguments[1]);
         $this->set_output_file( $arguments[2]);
     }
