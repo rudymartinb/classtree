@@ -134,7 +134,7 @@ abstract class tree_builder {
 	private $height_margin = 3;
 	private $max_img_width;
 	private $max_img_height;
-	function draw() {
+	function draw( string $output_file = "" ) {
 		$this->calculate_relative_positions();
 		
 		$this->max_node_width_px = $this->get_max_width_px();
