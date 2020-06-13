@@ -182,28 +182,32 @@ abstract class tree_builder {
 
 	}
 	
-	private function draw_tree( Array $trees ) {
+	private function draw_tree( Array $trees, node $parent = null ) {
 		foreach( $trees as $node ){
-			$this->draw_node( $node );
-			$this->draw_tree( $node->get_children() );
+			$this->draw_node( $node, $parent );
+			$this->draw_tree( $node->get_children(), $node );
 		}
 	}
 	
-	private function draw_node( node $node ){
+	private function draw_node( node $node, $parent ){
 		$layout = new vertical_layout();
 		$layout->set_margin(5);
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
+		$width = $layout->get_max_width();
 		
 		/* goal is to "center" vertically each element on its virtual cell
 		 * horizontal centering is done by calculating the columns width of each element minus 1 (since it has a minimum value of 1)
 		 * plus 0.25
 		 * then multiply relative column and row by maximum node height and width and margin 
 		 */
-		$x = ( ( $node->get_relcol()+(($node->get_width()-1)/$this->width_margin)+($this->width_margin/8) ) * $this->max_node_width_px  * $this->width_margin  )  ;
+		$x = ( ( $node->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
+		$x1 = ( ( $node->get_relcol()+(($node->get_width()-1)/2) ) * $this->max_node_width_px * $this->width_margin  )  ;
+		$x2 = ( ( $node->get_relcol()+(($node->get_width()  )/2) ) * $this->max_node_width_px * $this->width_margin  )  ;
+		$posx = ($x2 - $x1 - $width) /2 + $x;
 		$y = ( ( $node->get_relrow()+0.25  ) * $this->max_node_height_px * $this->height_margin ) ;
 		
-		$layout->set_xy( $x, $y );
+		$layout->set_xy( $posx, $y );
 		
 		$layout->do_layout();
 		$layout->draw( $this->img );
