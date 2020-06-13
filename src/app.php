@@ -63,11 +63,15 @@ class App {
     private $classes;
     function generate_classes(){
         $classes = [];
-        
+ 
+        $tree = new class_tree_builder();
         foreach ($this->php_sources as $source ){
-        
+        	$tree->add_source($source);
         }
-        $this->classes = $classes;
+        $tree->resolve_hierarchy();
+        $tree->draw( $this->output_file );
+        
+//         $this->classes = $classes;
     }
 
     function generate_file( ){
