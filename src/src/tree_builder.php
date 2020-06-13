@@ -218,7 +218,7 @@ abstract class tree_builder {
 		$width = $layout_parent->get_max_width();
 		$height= $layout_parent->get_max_height();
 		
-		$posx = $this->get_x_from_node($parent, $width);
+		$posx = $this->get_x_from_node( $parent, $width );
 		$posy = $this->get_y_from_node( $parent, $height ) + $height;
 		
 		foreach ( $parent->get_children() as $index => $child_node ){
