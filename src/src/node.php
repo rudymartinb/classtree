@@ -87,7 +87,8 @@ class node {
 	function get_relrow(): int {
 		return $this->relrow;
 	}
-	
+
+	private $layout ;
 	function do_layout() {
 		
 		$layout = new vertical_layout();
@@ -97,6 +98,7 @@ class node {
 		$layout->set_xy( $layout->get_max_width() /2, $layout->get_max_height() /2 );
 		$layout->do_layout();
 		
+		$this->layout = $layout;
 	}
 	
 	
