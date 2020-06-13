@@ -131,7 +131,7 @@ abstract class tree_builder {
 	
 	
 	
-	function draw( $img ) {
+	function draw() {
 		$this->max_width_px = $this->get_max_width_px();
 		$this->max_height_px = $this->get_max_height_px();
 		
