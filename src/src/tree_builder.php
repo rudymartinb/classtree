@@ -202,7 +202,7 @@ abstract class tree_builder {
 		 * then multiply relative column and row by maximum node height and width and margin 
 		 */
 		$x0 = ( ( $node->get_relcol() ) * $this->max_node_width_px   * $this->width_margin  )  ;
-		$area_width =  ( $node->get_width()-1 * $this->max_node_width_px * $this->width_margin  )  ;
+		$area_width =  ( $node->get_width() * $this->max_node_width_px * $this->width_margin  )  ;
 
 		$posx = ($area_width - $width) /2 + $x0;
 		$y = ( ( $node->get_relrow()+0.25  ) * $this->max_node_height_px * $this->height_margin ) ;
