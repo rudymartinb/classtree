@@ -47,7 +47,7 @@ class draw_text implements component {
 		$font = self::$project_path.'fonts/courier.ttf';
 		
 		$font = realpath($font) ;
-		if( ! file_exists($font) ){
+		if( file_exists($font) ){
 			echo $font."\n";
 		}
 		$arr = imagettfbbox(10, 0.0, $font, $text);
