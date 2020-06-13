@@ -142,8 +142,8 @@ abstract class tree_builder {
 // 		var_dump( "MX" , $this->max_node_width_px, $this->max_node_height_px );
 // 		var_dump( "CX" , $this->get_max_width(), $this->get_max_height()  );
 		
-		$this->max_img_width = ($this->get_max_width()+0)  * $this->max_node_width_px * $this->width_margin + ($this->max_node_width_px * $this->width_margin) ;
-		$this->max_img_height = ($this->get_max_height()+0) * $this->max_node_height_px * $this->height_margin + ($this->max_node_height_px * $this->height_margin) ;
+		$this->max_img_width = ($this->get_max_width()+0)  * $this->max_node_width_px * $this->width_margin + ($this->max_node_width_px / 2) ;
+		$this->max_img_height = ($this->get_max_height()+0) * $this->max_node_height_px * $this->height_margin + ($this->max_node_height_px /2 ) ;
 // 		var_dump( "IX" , $this->max_img_width, $this->max_img_height  );
 		
 		$img = imagecreatetruecolor( $this->max_img_width  , $this->max_img_height );
