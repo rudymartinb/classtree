@@ -244,7 +244,7 @@ abstract class tree_builder {
 		$alpha1 = $theta_radians + 0.261799;
 		$alpha2 = $theta_radians - 0.261799;
 		
-		$distance = 3;
+		$distance = 3; // arrow head's "size" 
 		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha1 );
 		$x1 = $point1["x"];
 		$y1 = $point1["y"];
@@ -259,9 +259,6 @@ abstract class tree_builder {
 		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha2 );
 		$xx2 = $point1["x"];
 		$yy2 = $point1["y"];
-		
-		
-		
 		
 		// draw the line
 		imageline ( $this->img , $x1 , $y1+1 , $x2 , $y2 , $this->color["black"] );
