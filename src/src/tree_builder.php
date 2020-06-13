@@ -219,11 +219,15 @@ abstract class tree_builder {
 		$height= $layout_parent->get_max_height();
 		
 		$posx = $this->get_x_from_node($parent, $width);
+		$posy = $this->get_y_from_node( $parent, $height ) + $height;
 		
-		$y0 = ( ( $parent->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
-		$area_height = $this->max_node_height_px * $this->height_margin  ;
-		$posy = ($area_height - $height) /2 + $y0 + $height;
-		
+		foreach ( $parent->get_children() as $index => $child_node ){
+			$layout_child = $this->get_node_layout( $child_node );
+			$child_width = $layout_child->get_max_width();
+			$cposx = $this->get_x_from_node($child_node, $child_width)+($child_width/2);
+			$cposy = $this->get_y_from_node( $parent, $height );
+			$this->white_arrow($posx, $posy, $cposx, $cposy);
+		}
 	}
 	
 	/* x0 = starting X column
