@@ -199,7 +199,7 @@ abstract class tree_builder {
 		 */
 		$width = $layout->get_max_width();
 		$height= $layout->get_max_height();
-		var_dump( $height );
+// 		var_dump( $height );
 		/* goal is to "center" vertically each element on its virtual cell
 		 * horizontal centering is done by calculating the columns width of each element minus 1 (since it has a minimum value of 1)
 		 * plus 0.25
