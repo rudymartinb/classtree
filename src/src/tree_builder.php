@@ -215,11 +215,12 @@ abstract class tree_builder {
 		$layout->do_layout();
 		$layout->draw( $this->img );
 		
-		// arrows
+		// arrow
 		if( $parent != null ){
 			$parent = force_tree($parent);
 			$layout_parent = $this->get_node_layout( $parent );
-// 			$parent_width = $parent->get_width() * $this->max_node_width_px
+			$parent_width = $layout_parent->get_max_width();
+			
 		}
 	}
 	function get_node_layout( node $node ) : vertical_layout {
@@ -228,6 +229,54 @@ abstract class tree_builder {
 		$layout->add_text( $node->get_name() );
 		$layout->do_layout();
 		return $layout;
+	}
+	
+	
+	private function white_arrow( int $x1, int $y1, int $x2, int $y2 ) {
+		/* calculate angle of the line
+		 */
+		$delta_x = $x2 - $x1;
+		$delta_y = $y2 - $y1;
+		$theta_radians = atan2( $delta_y, $delta_x);
+		
+		/* create two new angles for the arrow head
+		 */
+		$alpha1 = $theta_radians + 0.261799;
+		$alpha2 = $theta_radians - 0.261799;
+		
+		$distance = 3;
+		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha1 );
+		$x1 = $point1["x"];
+		$y1 = $point1["y"];
+		
+		/* calculate new points for the arrow head
+		 */
+		$distance = 15;
+		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha1 );
+		$xx1 = $point1["x"];
+		$yy1 = $point1["y"];
+		
+		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha2 );
+		$xx2 = $point1["x"];
+		$yy2 = $point1["y"];
+		
+		
+		
+		
+		// draw the line
+		imageline ( $this->img , $x1 , $y1+1 , $x2 , $y2 , $this->color["black"] );
+		$points = array( $x1, $y1+1 , $xx1, $yy1 , $xx2, $yy2 );
+		
+		// draw the head, first filled, then border
+		imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
+		imagepolygon($this->img, $points, 3, $this->color["black"]);
+	}
+	
+	private function calculate_point( int $x1, int $y1, int $x2, int $y2, int $distance, float $radians ) : Array {
+		$point = [];
+		$point["x"] = $x1 + ( $distance * cos($radians) );
+		$point["y"] = $y1 + ( $distance * sin($radians) );
+		return $point;
 	}
 	
 }
