@@ -34,17 +34,19 @@ class draw_text implements component {
 
 	}
 	
+	// HACK: set the project path
 	static private $project_path = "./";
 	static function set_path( string $path ){
 		self::$project_path = $path.'/';
 	}
+	
 	function __construct( string $text  ){
 		$this->draw_function = function( $img, $font ){
 			\imagettftext($img, 10,0.0, $this->x, $this->y, $this->color["black"] , $font, $this->text);
 		};
 		
 		$this->text = $text;
-		$font = self::$project_path.'fonts/courier.ttf';
+		$font = self::$project_path.'/fonts/courier.ttf';
 		
 		$font = trim( realpath($font) );
 		if( file_exists($font) ){
