@@ -130,7 +130,7 @@ abstract class tree_builder {
 	}
 	
 	
-	private $width_margin = 1.2;
+	private $width_margin = 2;
 	private $height_margin = 3;
 	private $max_img_width;
 	private $max_img_height;
