@@ -36,7 +36,6 @@ class draw_text implements component {
 	
 	static private $project_path = "./";
 	static function set_path( string $path ){
-		echo $path;
 		self::$project_path = $path.'/';
 	}
 	function __construct( string $text  ){
@@ -46,7 +45,7 @@ class draw_text implements component {
 		
 		$this->text = $text;
 		$font = self::$project_path.'fonts/courier.ttf';
-		echo self::$project_path."\n";
+		echo file_exists($font)."\n";
 		$font = realpath($font) ;
 		$arr = imagettfbbox(10, 0.0, $font, $text);
 		$this->height_px = $arr[1] - $arr[5];
