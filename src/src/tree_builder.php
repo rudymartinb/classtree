@@ -146,8 +146,8 @@ abstract class tree_builder {
 		$area_y = $this->max_node_height_px * $this->height_margin ;
 		
 		
-		$this->max_img_width = ( $this->get_max_columns()  ) * $this->max_node_width_px  * $this->width_margin ;
-		$this->max_img_height = ( $this->get_max_height()) * $this->max_node_height_px * $this->height_margin ;
+		$this->max_img_width =  $this->get_max_columns() * $area_x ;
+		$this->max_img_height = $this->get_max_height()  * $area_y ;
 		
 // 		var_dump( "IX" , $this->max_img_width, $this->max_img_height  );
 		
