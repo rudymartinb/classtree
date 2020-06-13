@@ -158,7 +158,7 @@ abstract class tree_builder {
 		 */
 		
 		imagefilledrectangle( $img, 0,0,$this->max_img_width-1, $this->max_img_height-1, $this->color["white"]);
-		imagefilledrectangle( $img, 0,0,1000, 800, $this->color["white"]);
+// 		imagefilledrectangle( $img, 0,0,1000, 800, $this->color["white"]);
 		imageantialias ( $img, true );
 		
 		$this->img = $img;
