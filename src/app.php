@@ -6,6 +6,7 @@ use function files\get_php_files;
 use function files\get_sources;
 use function files\get_classes_from_sources;
 use function files\get_interfaces_from_sources;
+use diagram\draw_text;
 
 class App {
     
@@ -15,7 +16,9 @@ class App {
     function resolve_project_dir( string $main_script ){
         $bin_dir = realpath(dirname($main_script));
         $this->project_dir = realpath($bin_dir."/..");
+        draw_text::set_path( $this->project_dir );
     }
+    
     function get_project_dir() : string {
         return $this->project_dir;
         
