@@ -158,7 +158,7 @@ abstract class tree_builder {
 		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
 		$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
 		$this->color["gray" ] = imagecolorallocate($img, 240,   240,  240);
-		$this->color["red" ] = imagecolorallocate($img, 128,   0,  0);
+		$this->color["red" ] = imagecolorallocate($img, 64,   0,  0);
 		
 		
 		
