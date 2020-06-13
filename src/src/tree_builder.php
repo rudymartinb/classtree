@@ -184,7 +184,7 @@ abstract class tree_builder {
 		$y = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) + ($this->max_node_height_px / $this->height_margin );
 		
 		$layout->set_xy( $x, $y );
-		var_dump( $x, $y );
+		
 		$layout->do_layout();
 		$layout->draw( $this->img );
 	}
