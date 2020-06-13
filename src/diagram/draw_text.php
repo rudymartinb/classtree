@@ -44,7 +44,7 @@ class draw_text implements component {
 		};
 		
 		$this->text = $text;
-		$font = './fonts/courier.ttf';
+		$font = self::$project_path.'fonts/courier.ttf';
 		$font = realpath($font) ;
 		$arr = imagettfbbox(10, 0.0, $font, $text);
 		$this->height_px = $arr[1] - $arr[5];
