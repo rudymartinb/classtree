@@ -177,8 +177,10 @@ abstract class tree_builder {
 		
 		$this->img = $img;
 		$this->draw_tree( $this->tree );
-		
-		\imagepng($this->img,"/var/www/htdocs/salida.png");
+		if( $output_file == "" ){
+			$output_file = "/var/www/htdocs/salida.png";
+		}
+		\imagepng($this->img,$output_file);
 
 	}
 	
