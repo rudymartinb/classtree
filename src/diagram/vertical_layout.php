@@ -66,13 +66,14 @@ class vertical_layout {
 		}
 		$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
 		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
-		
+
+		imagefilledrectangle( $img, $this->x, $this->y, $this->get_max_width()+$this->x, $this->get_max_height()+$this->y, $this->color["white"]);
+		imagerectangle( $img, $this->x, $this->y, $this->get_max_width()+$this->x, $this->get_max_height()+$this->y, $this->color["black"]);
 		foreach( $this->components as $component ){
 			$component = force_component($component);
 			$component->draw($img);
 		}
-		imagefilledrectangle( $img, $this->x, $this->y, $this->get_max_width()+$this->x, $this->get_max_height()+$this->y, $this->color["white"]);
-		imagerectangle( $img, $this->x, $this->y, $this->get_max_width()+$this->x, $this->get_max_height()+$this->y, $this->color["black"]);
+
 	}
 	
 	
