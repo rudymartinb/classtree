@@ -27,27 +27,10 @@ class diagram {
 
 	
 	function draw(){
-		$this->maxwidth = $this->get_width() *2;
-		$this->maxheight = $this->get_height() * 2;
-		
-		
-		$this->img = imagecreatetruecolor( $this->maxwidth  , $this->maxheight );
-		
-		/* background color
-		 */
-		$this->color["white"] = imagecolorallocate($this->img, 255,   255,  255);
-		$this->color["black"] = imagecolorallocate($this->img, 0,   0,  0);
-		$this->color["gray" ] = imagecolorallocate($this->img, 240,   240,  240);
-		
-		/* canvas
-		 */
-		
-		imagefilledrectangle( $this->img, 0,0,$this->maxwidth-1, $this->maxheight-1, $this->color["white"]);
-		imageantialias ( $this->img, true );
-		
+			
 		$this->class_tree->draw( $this->img );
 		
-		\imagepng($this->img,"/var/www/htdocs/salida.png");
+		
 		
 	}
 	
