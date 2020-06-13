@@ -134,6 +134,7 @@ abstract class tree_builder {
 	private $height_margin = 3;
 	private $max_img_width;
 	private $max_img_height;
+	private $color = [];
 	function draw( string $output_file = "" ) {
 		$this->calculate_relative_positions();
 		
