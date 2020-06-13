@@ -141,9 +141,14 @@ abstract class tree_builder {
 		$this->max_node_height_px = $this->get_max_height_px();
 // 		var_dump( "MX" , $this->max_node_width_px, $this->max_node_height_px );
 // 		var_dump( "CX" , $this->get_max_width(), $this->get_max_height()  );
+
+		$area_x = $this->max_node_width_px  * $this->width_margin ;
+		$area_y = $this->max_node_height_px * $this->height_margin ;
+		
 		
 		$this->max_img_width = ( $this->get_max_columns() * $this->max_node_width_px  * $this->width_margin ) + ($this->max_node_width_px  * $this->width_margin   );
 		$this->max_img_height = $this->get_max_height() * $this->max_node_height_px * $this->height_margin + ($this->max_node_height_px * $this->height_margin /2 );
+		
 // 		var_dump( "IX" , $this->max_img_width, $this->max_img_height  );
 		
 		$img = imagecreatetruecolor( $this->max_img_width  , $this->max_img_height );
@@ -153,6 +158,8 @@ abstract class tree_builder {
 		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
 		$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
 		$this->color["gray" ] = imagecolorallocate($img, 240,   240,  240);
+		
+		imagefilledrectangle( $img, 0,0,$area_x, $area_y, $this->color["black"]);
 		
 		/* canvas
 		 */
