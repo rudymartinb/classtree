@@ -225,7 +225,7 @@ abstract class tree_builder {
 			$layout_child = $this->get_node_layout( $child_node );
 			$child_width = $layout_child->get_max_width();
 			$cposx = $this->get_x_from_node($child_node, $child_width)+($child_width/2);
-			$cposy = $this->get_y_from_node( $parent, $height );
+			$cposy = $this->get_y_from_node( $child_node, $height );
 			$this->white_arrow($posx, $posy, $cposx, $cposy);
 		}
 	}
