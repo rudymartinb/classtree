@@ -156,7 +156,8 @@ abstract class tree_builder {
 		$this->color["gray" ] = imagecolorallocate($img, 240,   240,  240);
 		$this->color["red" ] = imagecolorallocate($img, 192,   0,  0);
 		
-		
+
+		$this->grid( $img, $area_x , $area_y );
 		
 		/* canvas
 		 */
@@ -165,16 +166,6 @@ abstract class tree_builder {
 
 		imageantialias ( $img, true );
 		
-		// draw background grid
-		for( $ix = 0; $ix < $this->get_max_columns() ; $ix ++ ){
-			for( $iy = 0; $iy < $this->get_max_height() ; $iy ++ ){
-				$ix_px = $ix * $area_x;
-				$iy_px = $iy * $area_y;
-				imagerectangle( $img, $ix_px, $iy_px, $ix_px+ $area_x, $iy_px+$area_y, $this->color["gray"]);
-				
-			}
-		}
-		
 		$this->img = $img;
 		$this->draw_tree( $this->tree );
 		if( $output_file == "" ){
@@ -182,6 +173,18 @@ abstract class tree_builder {
 		}
 		\imagepng($this->img,$output_file);
 
+	}
+	private function grid( $img, $area_x, $area_y ){
+		// draw background grid
+		for( $ix = 0; $ix < $this->get_max_columns() ; $ix ++ ){
+			for( $iy = 0; $iy < $this->get_max_height() ; $iy ++ ){
+				$ix_px = $ix * $area_x;
+				$iy_px = $iy * $area_y;
+				imagerectangle( $img, $ix_px, $iy_px, $ix_px+ $area_x-1, $iy_px+$area_y-1, $this->color["gray"]);
+				
+			}
+		}
+		
 	}
 	
 	private function draw_tree( Array $trees, node $parent = null ) {
