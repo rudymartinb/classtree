@@ -204,7 +204,7 @@ abstract class tree_builder {
 	private function draw_tree( Array $trees, node $parent = null ) {
 		foreach( $trees as $node ){
 			$this->draw_node( $node, $parent );
-// 			$this->draw_arrows_implements( $node );
+			$this->draw_arrows_implements( $node );
 			$this->draw_tree( $node->get_children() );
 			$this->draw_arrows( $node );
 		}
@@ -248,6 +248,33 @@ abstract class tree_builder {
 			$cposx = $this->get_x_from_node($child_node, $child_width)+($child_width/2);
 			$cposy = $this->get_y_from_node( $child_node, $height );
 			$this->white_arrow($finalx, $posy, $cposx, $cposy);
+		}
+	}
+
+	
+	function draw_arrows_implements( node $parent ){
+		$parent = force_tree($parent);
+		$layout_parent = $this->get_node_layout( $parent );
+		
+		
+		$num_children = count( $parent->get_implements() );
+		
+		$width = $layout_parent->get_max_width();
+		$height= $layout_parent->get_max_height();
+		
+		$posx = $this->get_x_from_node( $parent, $width ) ;
+		$posy = $this->get_y_from_node( $parent, $height ) + $height;
+		
+		/*
+		 * ok, at this point I need to look for
+		 */
+		foreach ( $parent->get_implements() as $index => $child_node ){
+// 			$finalx = $posx + ($width/(($num_children+1))*($index+1));
+// 			$layout_child = $this->get_node_layout( $child_node["ifname"] );
+// 			$child_width = $layout_child->get_max_width();
+// 			$cposx = $this->get_x_from_node($child_node, $child_width)+($child_width/2);
+// 			$cposy = $this->get_y_from_node( $child_node, $height );
+// 			$this->white_arrow($finalx, $posy, $cposx, $cposy);
 		}
 	}
 	
