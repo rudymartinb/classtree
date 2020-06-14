@@ -42,7 +42,7 @@ abstract class tree_builder {
 	
 	
 	function resolve_hierarchy() {
-		$this->tree = $tree = $this->resolve_by_collector( "", $this->collector );
+		$this->tree = $this->resolve_by_collector( "", $this->collector );
 		$this->calculate_relative_positions( $this->tree );
 	}
 	
