@@ -219,7 +219,7 @@ abstract class tree_builder {
 		$parent = force_tree($parent);
 		$layout_parent = $this->get_node_layout( $parent );
 		
-		$parent_width = $layout_parent->get_max_width();
+		
 		$num_children = count( $parent->get_children() );
 
 		$width = $layout_parent->get_max_width();
