@@ -286,6 +286,11 @@ abstract class tree_builder {
 	}
 
 	
+	/*
+	 * in this case, 
+	 * parent will always be below interfaces
+	 * and arrow type must be different
+	 */
 	function draw_arrows_implements( node $parent ){
 		$parent = force_tree($parent);
 		$layout_parent = $this->get_node_layout( $parent );
@@ -307,9 +312,15 @@ abstract class tree_builder {
 			$layout_child = $this->get_node_layout( $child_node );
 			$child_width = $layout_child->get_max_width();
 			$cposx = $this->get_x_from_node($child_node, $child_width)+($child_width/2);
-			$cposy = $this->get_y_from_node( $child_node, $height );
+			$cposy = $this->get_y_from_implements( $child_node, $height );
 			$this->white_arrow($finalx, $posy, $cposx, $cposy);
 		}
+	}
+	function get_y_from_implements( node $node, int $height ) : int {
+		$y0 = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
+		$area_height = $this->max_node_height_px * $this->height_margin  ;
+		$posy = ($area_height - $height) /2 ;
+		return $posy;
 	}
 	
 	/* x0 = starting X column
