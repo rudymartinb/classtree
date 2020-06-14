@@ -18,7 +18,7 @@ trait finder {
 		return count( $this->matches[ 0 ] ) > $this->current_key;
 	}
 	
-	private function matches( string $source ) : Array {
+	function matches( string $source ) : Array {
 		$this->source = $source;
 		$matches = [];
 		preg_match_all($this->pattern, $source, $matches );

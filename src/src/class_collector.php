@@ -34,10 +34,11 @@ class class_collector extends collector {
 			$class["final"] = $final;
 			
 			// implements is a comma separated string
-			$implements = $finder->get_implements();
-			$array = explode( "," , $implements );
+
+			$imp = $finder->get_implements();
+			$array = explode( "," , $imp );
 			foreach( $array as $key => $implements ){
-				$array[ $key ] = trim( $implements );
+				$array[ $key ] = [ "ifname" => trim( $implements ) ];
 			}
 			$class["implements"] = $array;
 			
@@ -106,7 +107,7 @@ class class_collector extends collector {
 	}
 	
 	function get_implements(): Array {
-		return $this->data[ $this->class_index ]["implements"];
+		return $this->data[$this->current_key]["implements"];
 	}
 	
 

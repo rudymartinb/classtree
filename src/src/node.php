@@ -55,10 +55,10 @@ class node {
 	}
 
 	private $implements;
-	function set_implements(string $implements) {
+	function set_implements(Array $implements) {
 		$this->implements = $implements;
 	}
-	function get_implements(): string {
+	function get_implements(): Array {
 		return $this->implements;
 	}
 	

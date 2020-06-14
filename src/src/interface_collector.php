@@ -22,6 +22,7 @@ class interface_collector extends collector {
 			$interface["name"] = $finder->get_name();
 			$interface["extends"] = $finder->get_extends();
 			$interface["namespace"] = $namespace;
+			$interface["implements"] = ""; // HACK
 			
 			
 			$interface["functions"] = [];
@@ -48,6 +49,10 @@ class interface_collector extends collector {
 			$this->data[] = $interface;
 			$finder->next();
 		}
+	}
+	// dummy for now
+	function get_implements() : Array {
+		return [];
 	}
 	
 	/*
