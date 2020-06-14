@@ -21,7 +21,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$tree = $this->mysetup();
 		$tree->add_source( $source );
 
-		var_dump($tree->get_collector());
+// 		var_dump($tree->get_collector());
 		$tree->resolve_hierarchy();
 		
 		$this->assertEquals( 1, $tree->get_max_columns() );
