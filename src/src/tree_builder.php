@@ -63,6 +63,7 @@ abstract class tree_builder {
 			
 			$node_name = $collector->get_name();
 			$extends = $collector->get_extends();
+			$implements = $collector->get_implements();
 			
 			if( $parent !== "" ){
 				if( $extends != $parent ) {
@@ -81,6 +82,7 @@ abstract class tree_builder {
 			$node = new node( $node_name );
 			$node->set_extends($extends);
 			$node->set_children($children);
+			$node->set_implements($implements);
 			$node->set_width( max( $this->max_columns( $children ), 1 ) );
 			$node->set_height( $this->max_height( $children )+1 );
 			$node->do_layout();

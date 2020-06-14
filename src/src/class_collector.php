@@ -105,6 +105,9 @@ class class_collector extends collector {
 		return $this->data[ $this->class_index ]["abstract"] === "abstract";
 	}
 	
+	function get_implements(): Array {
+		return $this->data[ $this->class_index ]["implements"];
+	}
 	
 
 	// FUNCTIONS section
