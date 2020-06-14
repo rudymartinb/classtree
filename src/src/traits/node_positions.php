@@ -64,8 +64,8 @@ trait node_positions {
 		
 	}
 	
-	function calculate_relative_positions( Array $tree ){
-		$this->calculate_relative_positions_2( $tree );
+	function calculate_relative_positions( Array $tree, Array $iftree = [] ){
+		$this->calculate_relative_positions_2( $tree, 0, $this->max_height($iftree) );
 	}
 	private function calculate_relative_positions_2( Array $trees, int $col_offset = 0, int $row_offset = 0 ){
 		$actual_column = $col_offset;
