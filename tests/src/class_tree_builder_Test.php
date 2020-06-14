@@ -35,6 +35,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 	}
 
 	
+	
 	function test_size_2(){
 		$tree = $this->mysetup();
 		$tree->add_source( 'class SOMECLASS {}' );
@@ -123,7 +124,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 // 		$this->assertEquals( 3, $tree->get_relative_column( "someclassP12" ) );
 // 		$this->assertEquals( 3, $tree->get_relative_inner_column( "someclassP12" ) );
 		
-		$tree->draw();
+// 		$tree->draw();
 		
 	}
 	
@@ -285,6 +286,39 @@ final class someclass  {
 		$collector->select( "someclass" );
 		
 		$this->assertEquals( true, $collector->is_final() );
+	}
+	
+
+	function test_class_and_interface(){
+		$source = 'interface someinterface {
+}
+class someclass implements someinterface {
+}';
+		
+		
+		$tree = new interface_tree_builder_SPY();
+
+		$tree->add_source( 'namespace src1;
+interface someinterface {}' );
+		$tree->add_source( 'namespace src2;
+interface someinterface2 ' );
+		
+		$tree->resolve_hierarchy();
+		
+		
+		$tree = $this->mysetup();
+		$tree->add_source( $source );
+		
+		$tree->resolve_hierarchy();
+		
+		$this->assertEquals( 1, $tree->get_max_columns() );
+		$this->assertEquals( 1, $tree->get_max_height() );
+		
+		$this->assertEquals( 26, $tree->get_max_height_px() );
+		
+		$this->assertEquals( 0, $tree->get_relative_column( "someclass" ) );
+		$this->assertEquals( 0, $tree->get_relative_row( "someclass" ) );
+		
 	}
 	
 	
