@@ -291,10 +291,27 @@ class someclass implements interface1, interface2  {
 ' );
 		
 		$tree->resolve_hierarchy();
-		$tree->draw();
+// 		$tree->draw();
 // 		var_dump($tree->get_iftree());
 		$this->assertEquals( 2, $tree->get_max_height() );
+
+	}
+
+	function test_interfaces_3(){
+		$tree = $this->mysetup();
+		$tree->add_source( '
+interface interface1 {
+}
+interface interface2 extends interface1 {
+}
+class someclass implements interface1, interface2  {
+}
+' );
 		
+		$tree->resolve_hierarchy();
+		$tree->draw();
+		// 		var_dump($tree->get_iftree());
+		$this->assertEquals( 3, $tree->get_max_height() );
 		
 	}
 	
