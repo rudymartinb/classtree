@@ -302,7 +302,7 @@ abstract class tree_builder {
 		$height= $layout_parent->get_max_height();
 		
 		$posx = $this->get_x_from_node( $parent, $width ) ;
-		$posy = $this->get_y_from_node( $parent, $height ) + $height;
+		$posy = $this->get_y_from_node( $parent, $height ) ;
 		
 		/*
 		 * ok, at this point I need to look for
