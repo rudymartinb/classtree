@@ -53,6 +53,15 @@ class node {
 	function get_extends(): string {
 		return $this->extends;
 	}
+
+	private $implements;
+	function set_implements(string $implements) {
+		$this->implements = $implements;
+	}
+	function get_implements(): string {
+		return $this->implements;
+	}
+	
 	
 	function set_children( Array $tree ) {
 		$this->children = $tree;
