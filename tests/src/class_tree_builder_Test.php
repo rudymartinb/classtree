@@ -269,6 +269,7 @@ final class someclass  {
 class someclass implements interface1, interface2  {
 }
 ' );
+		$tree->resolve_hierarchy();
 		$collector = $tree->get_collector();
 		$collector->select( "someclass" );
 		
