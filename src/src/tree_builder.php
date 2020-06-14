@@ -19,7 +19,7 @@ abstract class tree_builder {
 		return $this->max_columns( $this->tree );
 	}
 	function get_max_height(): int{
-		return $this->max_height( $this->tree )+$this->max_height( $this->iftree );
+		return $this->max_height( $this->iftree ) + $this->max_height( $this->tree );
 	}
 
 	function get_relative_column( string $classname, Array $trees = null ) : int {
