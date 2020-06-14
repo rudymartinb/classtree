@@ -160,9 +160,12 @@ abstract class tree_builder {
 		
 		if( $this->img === null ){
 			$img = imagecreatetruecolor( $this->max_img_width  , $this->max_img_height );
+			if( $this->tree_interfaces != null ){
+				$this->tree_interfaces->set_img($img);
+				$this->tree_interfaces->draw();
+			}
 		} else {
-			$this->tree_interfaces->set_img($img);
-			$this->tree_interfaces->draw();
+			$img = $this->img;
 		}
 		
 		/* background color
