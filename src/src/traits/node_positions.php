@@ -65,6 +65,11 @@ trait node_positions {
 	}
 	
 	function calculate_relative_positions( ){
+		if( $this->tree_interfaces != null ){
+			$tree = $this->tree_interfaces;
+			$this->calculate_relative_positions_2( $this->tree, 0, $tree->get_max_height() );
+			return;
+		}
 		$this->calculate_relative_positions_2( $this->tree );
 	}
 	private function calculate_relative_positions_2( Array $trees, int $col_offset = 0, int $row_offset = 0 ){

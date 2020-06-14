@@ -296,28 +296,22 @@ class someclass implements someinterface {
 }';
 		
 		
-		$tree = new interface_tree_builder_SPY();
-
-		$tree->add_source( 'namespace src1;
-interface someinterface {}' );
-		$tree->add_source( 'namespace src2;
-interface someinterface2 ' );
-		
-		$tree->resolve_hierarchy();
+		$tree_if = new interface_tree_builder_SPY();
+		$tree_if->add_source( $source );
+		$tree_if->resolve_hierarchy();
 		
 		
 		$tree = $this->mysetup();
 		$tree->add_source( $source );
 		
+		$tree->merge_interfaces( $tree_if );
+		
 		$tree->resolve_hierarchy();
 		
-		$this->assertEquals( 1, $tree->get_max_columns() );
-		$this->assertEquals( 1, $tree->get_max_height() );
 		
-		$this->assertEquals( 26, $tree->get_max_height_px() );
 		
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass" ) );
-		$this->assertEquals( 0, $tree->get_relative_row( "someclass" ) );
+		$this->assertEquals( 1, $tree->get_relative_row( "someclass" ) );
 		
 	}
 	
