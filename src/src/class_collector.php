@@ -37,7 +37,7 @@ class class_collector extends collector {
 			$implements = $finder->get_implements();
 			$array = explode( "," , $implements );
 			foreach( $array as $key => $implements ){
-				$array[ $key ] = [ "ifname" => trim( $implements ) ];
+				$array[ $key ] = trim( $implements );
 			}
 			$class["implements"] = $array;
 			
