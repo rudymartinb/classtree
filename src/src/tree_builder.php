@@ -117,7 +117,7 @@ abstract class tree_builder {
 			if( $tree->get_name() == $classname ){
 				return $return( $tree );
 			}
-			$ret = $this->scan_tree( $classname, $tree->get_children(), $return );
+			$ret = $this->search_tree( $classname, $tree->get_children(), $return );
 			if( $ret != -1 ){
 				return $ret;
 			}
