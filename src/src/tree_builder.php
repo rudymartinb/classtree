@@ -173,6 +173,7 @@ abstract class tree_builder {
 		$this->grid( $img, $area_x , $area_y );
 		
 		$this->img = $img;
+		$this->draw_tree( $this->iftree );
 		$this->draw_tree( $this->tree );
 		if( $output_file == "" ){
 			$output_file = "/var/www/htdocs/salida.png";
