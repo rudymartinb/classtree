@@ -65,7 +65,7 @@ interface someinterface2 ' );
 		$this->assertEquals( 2, $tree->get_max_columns() );
 		$this->assertEquals( 1, $tree->get_max_height() );
 		
-		$tree->draw("/tmp/if.png");
+// 		$tree->draw("/tmp/if.png");
 	}
 	
 	
