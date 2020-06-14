@@ -16,7 +16,7 @@ abstract class tree_builder {
 	abstract function get_new_collector() : collector ;
 	
 	function get_max_columns(): int{
-		return $this->max_columns( $this->tree );
+		return max( $this->max_columns( $this->tree ), $this->max_columns( $this->iftree ) );
 	}
 	function get_max_height(): int{
 		return $this->max_height( $this->iftree ) + $this->max_height( $this->tree );
