@@ -154,7 +154,9 @@ abstract class tree_builder {
 		$this->max_img_width =  $this->get_max_columns() * $area_x ;
 		$this->max_img_height = $this->get_max_height()  * $area_y ;
 		
-		$img = imagecreatetruecolor( $this->max_img_width  , $this->max_img_height );
+		if( $this->img === null ){
+			$img = imagecreatetruecolor( $this->max_img_width  , $this->max_img_height );
+		}
 
 		/* background color
 		 */
@@ -162,13 +164,9 @@ abstract class tree_builder {
 		$this->color["black"] = imagecolorallocate($img, 0,   0,  0);
 		$this->color["gray" ] = imagecolorallocate($img, 240,   240,  240);
 		$this->color["red" ] = imagecolorallocate($img, 192,   0,  0);
-		
-
-		
-		
+				
 		/* canvas
 		 */
-		
 		imagefilledrectangle( $img, 0,0,$this->max_img_width-1, $this->max_img_height-1, $this->color["white"]);
 
 		imageantialias ( $img, true );
