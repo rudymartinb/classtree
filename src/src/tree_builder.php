@@ -19,7 +19,7 @@ abstract class tree_builder {
 		return $this->max_columns( $this->tree );
 	}
 	function get_max_height(): int{
-		return $this->max_height( $this->tree );
+		return $this->max_height( $this->tree )+$this->max_height( $this->iftree );
 	}
 
 	function get_relative_column( string $classname, Array $trees = null ) : int {
@@ -46,7 +46,7 @@ abstract class tree_builder {
 		$this->iftree = $this->resolve_by_collector( "", $this->ifcollector );
 		$this->tree = $this->resolve_by_collector( "", $this->collector );
 		$this->calculate_relative_positions( $this->iftree );
-		$this->calculate_relative_positions( $this->tree );
+		$this->calculate_relative_positions( $this->tree, $this->iftree );
 	}
 	
 	private function resolve_by_collector( string $parent, collector $collector ) : Array {
@@ -80,11 +80,17 @@ abstract class tree_builder {
 			$node->set_height( $this->max_height( $children )+1 );
 			$node->do_layout();
 			$tree[] = $node;
+			
 			$collector->next();
 		}
 		return $tree;
 	}
 	
+	/*
+	 * 
+	 * --------------------------------
+	 * drawing functions
+	 */
 	private $max_node_width_px = 0;
 	private $max_node_height_px = 0;
 	function get_max_width_px(){
@@ -134,7 +140,7 @@ abstract class tree_builder {
 	private $max_img_height;
 	private $color = [];
 	function draw( string $output_file = "" ) {
-		$this->calculate_relative_positions();
+// 		$this->calculate_relative_positions();
 		
 		$this->max_node_width_px = $this->get_max_width_px();
 		$this->max_node_height_px = $this->get_max_height_px();

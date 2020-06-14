@@ -112,7 +112,7 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 2, $tree->get_relative_column( "someclassP1" ) );
 		$this->assertEquals( 2, $tree->get_relative_column( "someclassP11" ) );
 		
-		$tree->draw();
+// 		$tree->draw();
 		
 	}
 	
@@ -234,36 +234,7 @@ class someclass {
 		
 	}
 
-	
-	function test_interfaces(){
-		$tree = $this->mysetup();
-		$tree->add_source( '
-class someclass implements interface1, interface2  {
-}
-' );
-		$collector = $tree->get_collector();
-		$collector->select( "someclass" );
-		
-		$this->assertEquals( true, $collector->more_interfaces() );
-		$collector->next_interface();
-		$this->assertEquals( "interface2", $collector->get_interface_name() );
-		$collector->next_interface();
-		$this->assertEquals( false, $collector->more_interfaces() );
-	}
-	
-// 	function test_interfaces_2(){
-// 		$tree = $this->mysetup();
-// 		$tree->add_source( '
-// interface interface1 {
-// }
-// interface interface2 {
-// }
-// class someclass implements interface1, interface2  {
-// }
-// ' );
-// 		$tree->resolve_hierarchy();
-// 		$this->assertEquals( 2, $tree->get_max_height() );
-// 	}
+
 
 	function test_abstract(){
 		$tree = $this->mysetup();
@@ -291,6 +262,40 @@ final class someclass  {
 	}
 
 
+	
+	function test_interfaces(){
+		$tree = $this->mysetup();
+		$tree->add_source( '
+class someclass implements interface1, interface2  {
+}
+' );
+		$collector = $tree->get_collector();
+		$collector->select( "someclass" );
+		
+		$this->assertEquals( true, $collector->more_interfaces() );
+		$collector->next_interface();
+		$this->assertEquals( "interface2", $collector->get_interface_name() );
+		$collector->next_interface();
+		$this->assertEquals( false, $collector->more_interfaces() );
+	}
+	
+	function test_interfaces_2(){
+		$tree = $this->mysetup();
+		$tree->add_source( '
+interface interface1 {
+}
+interface interface2 {
+}
+class someclass implements interface1, interface2  {
+}
+' );
+		
+		$tree->resolve_hierarchy();
+		$tree->draw();
+		$this->assertEquals( 2, $tree->get_max_height() );
+		
+		
+	}
 	
 	
 
