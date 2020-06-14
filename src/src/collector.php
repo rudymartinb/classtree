@@ -26,5 +26,6 @@ abstract class collector {
 	
 	abstract function add_source( string $source );
 	
+	abstract function clone() : collector;
 	
 }

@@ -3,6 +3,9 @@ namespace src;
 
 class class_collector extends collector {
 	
+	function clone() : collector {
+		return new class_collector( $this );
+	}
 	function get_name() : string {
 		return $this->data[$this->current_key]["name"];
 	}

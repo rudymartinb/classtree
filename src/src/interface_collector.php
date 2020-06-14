@@ -2,6 +2,10 @@
 namespace src;
 
 class interface_collector extends collector {
+	function clone() : collector {
+		return new interface_collector( $this );
+	}
+	
 	function get_name() : string {
 		return $this->data[$this->current_key]["name"];
 	}
