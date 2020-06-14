@@ -388,7 +388,7 @@ abstract class tree_builder {
 			imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
 			imagepolygon($this->img, $points, 3, $this->color["black"]);
 		} else {
-			imagepolygon($this->img, $points, 2, $this->color["black"]);
+			imagepolygon($this->img, $points, 3, $this->color["black"]);
 		}
 		
 	}
