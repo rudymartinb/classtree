@@ -72,7 +72,7 @@ abstract class tree_builder {
 					continue;
 				}
 			}
-			$children = $this->resolve( $node_name, $collector );
+			$children = $this->resolve( $node_name );
 			
 			
 			$node = new node( $node_name );
