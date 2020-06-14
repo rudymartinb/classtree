@@ -31,7 +31,6 @@ class class_finder {
         $this->pattern .= "(?<classname>[0-9a-zA-Z_]+)";
 
         // extends always goes before implements
-
         $this->pattern .= "(\s*extends\s*(?<extends>[0-9a-zA-Z_]*))*";
         $this->pattern .= "(\s*implements\s*(?<implements>(\s*[0-9a-zA-Z_,]+)+))*";
         
@@ -44,8 +43,7 @@ class class_finder {
         $this->pattern .= "(?<body>";
         $this->pattern .= "((?!(?R)).)*";
         $this->pattern .= ")";
-        
-        // body business
+       
         
         $this->pattern .= "/ms";
         

@@ -10,10 +10,7 @@ class interface_finder {
 		$this->pattern .= "(?:interface\s*)";
 		$this->pattern .= "(?<ifname>[0-9a-zA-Z_]+)";
 		
-		// extends always goes before implements
-		
 		$this->pattern .= "(\s*extends\s*(?<extends>[0-9a-zA-Z_]*))*\s*";
-		
 		
 		$this->pattern .= "(?<body>";
 		$this->pattern .= "((?!(?R)).)*";
@@ -27,7 +24,7 @@ class interface_finder {
 	function next(){
 		$this->current_key ++;
 		if( $this->more_elements() ){
-			$source = $this->matches["params"][$this->current_key];
+			$source = $this->matches["body"][$this->current_key];
 			$this->params_finder = new parameters_finder($source);
 		}
 	}
