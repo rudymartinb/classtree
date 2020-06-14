@@ -304,7 +304,7 @@ interface interface1 {
 }
 interface interface2 extends interface1 {
 }
-class someclass implements interface1, interface2  {
+class someclass implements interface2  {
 }
 ' );
 		
