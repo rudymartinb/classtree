@@ -48,14 +48,9 @@ abstract class tree_builder {
 		$this->calculate_relative_positions( $this->tree );
 	}
 	
-	private function resolve() : Array {
+	private function resolve_by_collector( string $parent, collector $collector ) : Array {
 		// by doing this we keep the internal pointer
 		// separated on each recursive call.
-		
-		return $tree;
-	}
-	
-	private function resolve_by_collector( string $parent, collector $collector ) : Array {
 		$collector = $collector->clone();
 		$tree = [];
 		while( $collector->more_elements() ){
