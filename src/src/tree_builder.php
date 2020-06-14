@@ -10,6 +10,11 @@ abstract class tree_builder {
 	
 	private $tree = [];
 	private $iftree = [];
+	
+	// for DEBUG
+	function get_iftree() : Array {
+		return $this->iftree;
+	}
 	protected $collector;
 	protected $ifcollector;
 	
