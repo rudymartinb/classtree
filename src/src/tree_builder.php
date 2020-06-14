@@ -29,11 +29,21 @@ abstract class tree_builder {
 		return $this->get_relative_row2($classname, $this->tree );
 	}
 
-	function get_relative_inner_column( string $classname, Array $trees = null ) : float {
-		return $this->get_relative_inner_column2($classname, $this->tree );
+// 	function get_relative_inner_column( string $classname, Array $trees = null ) : float {
+// 		return $this->get_relative_inner_column2($classname, $this->tree );
+// 	}
+	
+	function add_source( string $source ) {
+		$nsfinder = new namespace_finder($source);
+		while( $nsfinder->more() ){
+			$namespace = $nsfinder->get_name();
+			$body = $nsfinder->get_body();
+			$this->ifcollector->add_source( $body, $namespace );
+			$this->collector->add_source( $body, $namespace );
+			$nsfinder->next();
+		}
 	}
 	
-
 	
 	function resolve_hierarchy() {
 		$this->tree = $this->resolve();
@@ -41,18 +51,13 @@ abstract class tree_builder {
 	}
 	
 	private function resolve( string $parent = "" ) : Array {
-		
-		
 		// by doing this we keep the internal pointer
 		// separated on each recursive call.
 		$collector = $this->get_new_collector();
 		$tree = $this->resolve_by_collector($parent, $collector);
-// 		if( $this->ifcollector != null ){
-// 			$tree = array_merge( $this->resolve_by_collector( $parent,  new interface_collector( $this->ifcollector ), $tree ) );
-// 		}
-
 		return $tree;
 	}
+	
 	private function resolve_by_collector( string $parent, collector $collector ) : Array {
 		$tree = [];
 		while( $collector->more_elements() ){
@@ -84,17 +89,6 @@ abstract class tree_builder {
 			$collector->next();
 		}
 		return $tree;
-	}
-	
-	function add_source( string $source ) {
-		$nsfinder = new namespace_finder($source);
-		while( $nsfinder->more() ){
-			$namespace = $nsfinder->get_name();
-			$body = $nsfinder->get_body();
-			$this->ifcollector->add_source( $body, $namespace );
-			$this->collector->add_source( $body, $namespace );
-			$nsfinder->next();
-		}
 	}
 	
 	private $max_node_width_px = 0;
