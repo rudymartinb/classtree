@@ -313,7 +313,7 @@ abstract class tree_builder {
 			$child_width = $layout_child->get_max_width();
 			$cposx = $this->get_x_from_node($child_node, $child_width)+($child_width/2);
 			$cposy = $this->get_y_from_implements( $child_node, $height );
-			$this->white_arrow($cposx, $cposy, $finalx, $posy );
+			$this->white_arrow($cposx, $cposy, $finalx, $posy, 2 );
 		}
 	}
 	function get_y_from_implements( node $node, int $height ) : int {
@@ -350,7 +350,7 @@ abstract class tree_builder {
 	}
 	
 	
-	private function white_arrow( int $x1, int $y1, int $x2, int $y2 ) {
+	private function white_arrow( int $x1, int $y1, int $x2, int $y2, int $arrow_type = 1 ) {
 		/* calculate angle of the line
 		 */
 		$delta_x = $x2 - $x1;
@@ -384,7 +384,9 @@ abstract class tree_builder {
 		$points = array( $x1, $y1+1 , $xx1, $yy1 , $xx2, $yy2 );
 		
 		// draw the head, first filled, then border
-		imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
+		if( $arrow_type == 1 ){
+			imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
+		}
 		imagepolygon($this->img, $points, 3, $this->color["black"]);
 	}
 	
