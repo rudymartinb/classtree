@@ -322,7 +322,7 @@ abstract class tree_builder {
 	function get_y_from_implements( node $node, int $height ) : int {
 		$y0 = ( ( $node->get_relrow()  ) * $this->max_node_height_px * $this->height_margin ) ;
 		$area_height = $this->max_node_height_px * $this->height_margin  ;
-		$posy = ($area_height - $height) /2 + $height ;
+		$posy = ($area_height - $height) /2 + $height + $y0 ;
 		return $posy;
 	}
 	
