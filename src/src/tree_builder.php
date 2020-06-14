@@ -49,12 +49,12 @@ abstract class tree_builder {
 	private function resolve( string $parent = "" ) : Array {
 		// by doing this we keep the internal pointer
 		// separated on each recursive call.
-		$collector = new class_collector( $this->collector );
-		$tree = $this->resolve_by_collector($parent, $collector);
+		$tree = $this->resolve_by_collector($parent, $this->collector );
 		return $tree;
 	}
 	
 	private function resolve_by_collector( string $parent, collector $collector ) : Array {
+		$collector = $collector->clone();
 		$tree = [];
 		while( $collector->more_elements() ){
 			
