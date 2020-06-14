@@ -310,7 +310,7 @@ class someclass implements interface2  {
 		
 		$tree->resolve_hierarchy();
 		$tree->draw();
-		// 		var_dump($tree->get_iftree());
+		var_dump($tree->get_iftree());
 		$this->assertEquals( 3, $tree->get_max_height() );
 		
 	}
