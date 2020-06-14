@@ -1,5 +1,4 @@
 <?php
-use src\class_collector;
 use src\tree_builder;
 
 class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
