@@ -61,7 +61,6 @@ trait node_positions {
 		}
 		// classname not found
 		return -1;
-		
 	}
 	
 	function calculate_relative_positions( Array $tree, Array $iftree = [] ){
