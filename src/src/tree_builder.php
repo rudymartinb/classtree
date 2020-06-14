@@ -42,14 +42,14 @@ abstract class tree_builder {
 	
 	
 	function resolve_hierarchy() {
-		$this->tree = $this->resolve( );
+		$this->tree = $tree = $this->resolve_by_collector( "", $this->collector );
 		$this->calculate_relative_positions( $this->tree );
 	}
 	
 	private function resolve() : Array {
 		// by doing this we keep the internal pointer
 		// separated on each recursive call.
-		$tree = $this->resolve_by_collector( "", $this->collector );
+		
 		return $tree;
 	}
 	
