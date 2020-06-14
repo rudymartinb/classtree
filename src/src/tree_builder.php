@@ -202,6 +202,7 @@ abstract class tree_builder {
 	private function draw_tree( Array $trees, node $parent = null ) {
 		foreach( $trees as $node ){
 			$this->draw_node( $node, $parent );
+// 			$this->draw_arrows_implements( $node );
 			$this->draw_tree( $node->get_children() );
 			$this->draw_arrows( $node );
 		}
