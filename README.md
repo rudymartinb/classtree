@@ -29,6 +29,15 @@ It will create a ~/bin directory, a symlink to the classtree.sh located at the b
 
 to uninstall simply remove the line added to your .bash_profile, the project directory and the symlink.
 
+## Usage:
+
+Syntax:
+	classtree <sources_path> <image_file_path>
+	
+for simplicity it's recommended to run from your project source dir:
+
+	classtree ./ /tmp/output.png	
+ 
 ## Testing:  
 take a look at scripts/testphp.sh, modify if neccesary then run from the project's root directory:
 
