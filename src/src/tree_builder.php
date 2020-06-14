@@ -160,8 +160,11 @@ abstract class tree_builder {
 		
 		if( $this->img === null ){
 			$img = imagecreatetruecolor( $this->max_img_width  , $this->max_img_height );
+		} else {
+			$this->tree_interfaces->set_img($img);
+			$this->tree_interfaces->draw();
 		}
-
+		
 		/* background color
 		 */
 		$this->color["white"] = imagecolorallocate($img, 255,   255,  255);
@@ -327,6 +330,8 @@ abstract class tree_builder {
 	private $tree_interfaces = null;
 	function merge_interfaces( tree_builder $tree_interfaces ){
 		$this->tree_interfaces = $tree_interfaces;
+		$this->auxiliar = true;
+		
 	}
 	
 }
