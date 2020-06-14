@@ -367,7 +367,7 @@ abstract class tree_builder {
 		
 		// arrow head's "size"
 		$distance = 3;  
-		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $alpha1 );
+		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $theta_radians );
 		$x1 = $point1["x"];
 		$y1 = $point1["y"];
 		
