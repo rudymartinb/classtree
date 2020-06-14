@@ -63,7 +63,13 @@ abstract class tree_builder {
 			
 			$node_name = $collector->get_name();
 			$extends = $collector->get_extends();
-			$implements = $collector->get_implements();
+			
+			/* if implements is not empty
+			 * I want to search on the iftree to get the nodes by name
+			 * if they are not present, we will ignore it for now.
+			 */
+			$implements = $this->get_nodes_from_interfaces( $collector->get_implements() );
+
 			
 			if( $parent !== "" ){
 				if( $extends != $parent ) {
@@ -92,6 +98,35 @@ abstract class tree_builder {
 		}
 		return $tree;
 	}
+	
+	function get_nodes_from_interfaces( Array $interfaces ) : Array {
+		
+		$nodes = [];
+		foreach ($interfaces as $interfaces ){
+			$ifname = $interfaces["ifname"];
+			$nodes[] = $this->search_tree( $ifname, $this->iftree,
+					function( node $tree ){
+						return $tree;
+					} );
+		}
+		return $nodes;
+		
+	}
+	
+	private function search_tree( $classname, Array $trees, Callable $return ) {
+		foreach( $trees as $tree ){
+			if( $tree->get_name() == $classname ){
+				return $return( $tree );
+			}
+			$ret = $this->scan_tree( $classname, $tree->get_children(), $return );
+			if( $ret != -1 ){
+				return $ret;
+			}
+		}
+		// classname not found
+		return -1;
+	}
+	
 	
 	/*
 	 * 
