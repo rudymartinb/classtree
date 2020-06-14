@@ -82,11 +82,8 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		$this->assertEquals( 2, $tree->get_max_columns() );
 		$this->assertEquals( 2, $tree->get_max_height() );
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass" ) );
-// 		$this->assertEquals( 0.5, $tree->get_relative_inner_column( "someclass" ) );
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass2" ) );
-// 		$this->assertEquals( 0, $tree->get_relative_inner_column( "someclass2" ) );
 		$this->assertEquals( 1, $tree->get_relative_column( "someclass3" ) );
-// 		$this->assertEquals( 1, $tree->get_relative_inner_column( "someclass3" ) );
 		
 		$this->assertEquals( 0, $tree->get_relative_row( "someclass" ) );
 		$this->assertEquals( 1, $tree->get_relative_row( "someclass2" ) );
@@ -108,20 +105,12 @@ class class_tree_builder_Test extends PHPUnit\Framework\TestCase {
 		
 		$tree->resolve_hierarchy();
 		
-// 		$this->assertEquals( 4, $tree->get_max_columns() );
 		$this->assertEquals( 2, $tree->get_max_height() );
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass" ) );
-// 		$this->assertEquals( 0.5, $tree->get_relative_inner_column( "someclass" ) );
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass2" ) );
-// 		$this->assertEquals( 0, $tree->get_relative_inner_column( "someclass2" ) );
 		$this->assertEquals( 1, $tree->get_relative_column( "someclass3" ) );
-// 		$this->assertEquals( 1, $tree->get_relative_inner_column( "someclass3" ) );
 		$this->assertEquals( 2, $tree->get_relative_column( "someclassP1" ) );
-// 		$this->assertEquals( 2.5, $tree->get_relative_inner_column( "someclassP1" ) );
 		$this->assertEquals( 2, $tree->get_relative_column( "someclassP11" ) );
-// 		$this->assertEquals( 2, $tree->get_relative_inner_column( "someclassP11" ) );
-// 		$this->assertEquals( 3, $tree->get_relative_column( "someclassP12" ) );
-// 		$this->assertEquals( 3, $tree->get_relative_inner_column( "someclassP12" ) );
 		
 		$tree->draw();
 		
