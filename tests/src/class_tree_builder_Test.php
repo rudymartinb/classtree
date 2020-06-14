@@ -313,6 +313,8 @@ class someclass implements someinterface {
 		$this->assertEquals( 0, $tree->get_relative_column( "someclass" ) );
 		$this->assertEquals( 1, $tree->get_relative_row( "someclass" ) );
 		
+		$tree->draw();
+		
 	}
 	
 	
