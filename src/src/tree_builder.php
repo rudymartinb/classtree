@@ -17,10 +17,6 @@ abstract class tree_builder {
 		return $this->max_columns( $this->tree );
 	}
 	function get_max_height(): int{
-		$tree = $this->tree_interfaces;
-		if( $tree != null ){
-			return $this->max_height( $this->tree ) + $tree->get_max_height();
-		}
 		return $this->max_height( $this->tree );
 	}
 
