@@ -308,6 +308,8 @@ abstract class tree_builder {
 		 * ok, at this point I need to look for
 		 */
 		foreach ( $parent->get_implements() as $index => $child_node ){
+			if( $child_node === -1 )
+				continue;
 			$finalx = $posx + ($width/(($num_children+1))*($index+1));
 			$layout_child = $this->get_node_layout( $child_node );
 			$child_width = $layout_child->get_max_width();
