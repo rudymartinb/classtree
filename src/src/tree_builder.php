@@ -386,8 +386,11 @@ abstract class tree_builder {
 		// draw the head, first filled, then border
 		if( $arrow_type == 1 ){
 			imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
+			imagepolygon($this->img, $points, 3, $this->color["black"]);
+		} else {
+			imagepolygon($this->img, $points, 2, $this->color["black"]);
 		}
-		imagepolygon($this->img, $points, 3, $this->color["black"]);
+		
 	}
 	
 	private function calculate_point( int $x1, int $y1, int $x2, int $y2, int $distance, float $radians ) : Array {
