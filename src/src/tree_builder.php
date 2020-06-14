@@ -219,6 +219,7 @@ abstract class tree_builder {
 		$parent = force_tree($parent);
 		$layout_parent = $this->get_node_layout( $parent );
 		
+		$parent_width = $layout_parent->get_max_width();
 		$num_children = count( $parent->get_children() );
 
 		$width = $layout_parent->get_max_width();
@@ -307,11 +308,6 @@ abstract class tree_builder {
 		$point["x"] = $x1 + ( $distance * cos($radians) );
 		$point["y"] = $y1 + ( $distance * sin($radians) );
 		return $point;
-	}
-	
-	private $tree_interfaces = null;
-	function merge_interfaces( tree_builder $tree_interfaces ){
-		$this->tree_interfaces = $tree_interfaces;
 	}
 	
 }
