@@ -7,21 +7,23 @@ The final goal is to be able to create a class diagram (PNG or JPG) based on sou
 **classes and Interfaces are shown with the name of each one.** 
 Under development.-
 
-# next steps: 
-* heavy refactor of tree_build 
-* allow to separate each tree in several images with the implemented interfaces 
-
 ## Example Image:
 ![sample](https://raw.githubusercontent.com/rudymartinb/classtree/master/documentation/example.png)
+
+## Next steps: 
+* heavy refactor of tree_build 
+* allow to separate each tree in several images with the implemented interfaces  
 
 ## Known bugs:
 * duplicated names (class, interfaces, etc) among different namespaces will produce underisable results.
 * most likely won't work on files with mixed html and php code (btw html data should be separated into another file).
 * this project relies heavly on regular expressions, as such there might be some edge cases I may have overlooked. If you run into a such situation let me know, if possible with copies of the scanned source files that gave you problems.
-* ATM only Unix linefeed is used for lines break
+* ATM only Unix linefeed is used for lines break.
 * Anonymous classes, anonymous functions, macros and functions outside classes are not going to be considered while building the dependencies tree.
-* installing the project from the script more than once will create several repeated lines at the end of ~/.bash_profile
-* no error reporting yet 
+* installing the project from the script more than once will create several repeated lines at the end of ~/.bash_profile.
+* no error reporting yet.
+* just png at the moment.
+* arrow head calculation needs some tweak.-
 
 ## Intended enviroment:  
 bash under Linux.
@@ -36,7 +38,8 @@ to uninstall simply remove the line added to your .bash_profile, the project dir
 ## Usage:
 
 Syntax:
-	classtree <sources_path> <image_file_path>
+
+	classtree <sources_path> <output_image_file.png>
 	
 for simplicity it's recommended to run from your project source dir:
 
