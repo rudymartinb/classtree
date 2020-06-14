@@ -139,8 +139,6 @@ abstract class tree_builder {
 	private $max_img_width;
 	private $max_img_height;
 	private $color = [];
-	private $img;
-	
 	function draw( string $output_file = "" ) {
 		$this->calculate_relative_positions();
 		
@@ -176,15 +174,11 @@ abstract class tree_builder {
 		
 		$this->img = $img;
 		$this->draw_tree( $this->tree );
-		
-		$this->save_output($img, $output_file);
-		
-	}
-	private function save_output( $img, string $output_file ){
 		if( $output_file == "" ){
 			$output_file = "/var/www/htdocs/salida.png";
 		}
 		\imagepng($this->img,$output_file);
+
 	}
 	private function grid( $img, $area_x, $area_y ){
 		// draw background grid
