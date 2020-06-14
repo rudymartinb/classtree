@@ -291,7 +291,7 @@ class someclass implements interface1, interface2  {
 		
 		$tree->resolve_hierarchy();
 		$tree->draw();
-		var_dump($tree->get_iftree());
+// 		var_dump($tree->get_iftree());
 		$this->assertEquals( 2, $tree->get_max_height() );
 		
 		

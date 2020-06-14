@@ -86,6 +86,26 @@ function something2( int $ant, string $strong );
 		
 	}
 	
+	function test_class_also(){
+		
+		$source = '
+interface interface1 {
+}
+interface interface2 {
+}
+class someclass implements interface1, interface2  {
+}
+' ;
+		$finder = new interface_finder( $source );
+		$this->assertEquals( true, $finder->more_elements() );
+		$this->assertEquals( "interface1", $finder->get_name() );
+		$finder->next();
+		$this->assertEquals( "interface2", $finder->get_name() );
+		$finder->next();
+		$this->assertEquals( false, $finder->more_elements() );
+		
+	}
+	
 	
 }
 

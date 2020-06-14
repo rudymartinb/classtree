@@ -7,7 +7,7 @@ class interface_finder {
 	function __construct( string $source ){
 		$this->pattern = '/';
 		
-		$this->pattern .= "(?:interface\s*)";
+		$this->pattern .= "^(?:interface\s*)";
 		$this->pattern .= "(?<ifname>[0-9a-zA-Z_]+)";
 		
 		$this->pattern .= "(\s*extends\s*(?<extends>[0-9a-zA-Z_]*))*\s*";
