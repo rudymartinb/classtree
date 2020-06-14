@@ -313,7 +313,7 @@ abstract class tree_builder {
 			$child_width = $layout_child->get_max_width();
 			$cposx = $this->get_x_from_node($child_node, $child_width)+($child_width/2);
 			$cposy = $this->get_y_from_implements( $child_node, $height );
-			$this->white_arrow($finalx, $posy, $cposx, $cposy);
+			$this->white_arrow($cposx, $cposy, $finalx, $posy );
 		}
 	}
 	function get_y_from_implements( node $node, int $height ) : int {
