@@ -140,11 +140,7 @@ abstract class tree_builder {
 	private $max_img_height;
 	private $color = [];
 	private $img;
-	private $auxiliar = false;
-
-	function set_img( $img ){
-		$this->img = $img;
-	}
+	
 	function draw( string $output_file = "" ) {
 		$this->calculate_relative_positions();
 		
@@ -178,11 +174,8 @@ abstract class tree_builder {
 		
 		$this->img = $img;
 		$this->draw_tree( $this->tree );
-
-		// HACKS: hacks and more hacks.
-		if( ! $this->auxiliar  ){
-			$this->save_output($img, $output_file);
-		}
+		
+		$this->save_output($img, $output_file);
 		
 	}
 	private function save_output( $img, string $output_file ){
