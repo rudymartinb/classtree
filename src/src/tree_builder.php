@@ -100,7 +100,6 @@ abstract class tree_builder {
 	}
 	
 	function get_nodes_from_interfaces( Array $interfaces ) : Array {
-		
 		$nodes = [];
 		foreach ($interfaces as $interfaces ){
 			$ifname = $interfaces["ifname"];
