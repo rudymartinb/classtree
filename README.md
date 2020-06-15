@@ -42,6 +42,7 @@ for simplicity it's recommended to run from your project source dir:
 	classtree ./ /tmp/output.png	
 
 ## Known bugs:
+* may not work under software containers: project need access read-only access to the filesystem and it's own files to be able to load them, and read-write to the indicated outputfile.-
 * duplicated names (class, interfaces, etc) among different namespaces will produce underisable results.
 * most likely won't work on files with mixed html and php code (btw html data should be separated into another file).
 * this project relies heavly on regular expressions, as such there might be some edge cases I may have overlooked. If you run into a such situation let me know, if possible with copies of the scanned source files that gave you problems.
