@@ -48,10 +48,15 @@ abstract class tree_builder {
 	
 	
 	function resolve_hierarchy() {
+		$this->sort_interfaces_collector();
 		$this->iftree = $this->resolve_by_collector( "", $this->ifcollector );
 		$this->tree = $this->resolve_by_collector( "", $this->collector );
 		$this->calculate_relative_positions( $this->iftree );
 		$this->calculate_relative_positions( $this->tree, $this->iftree );
+	}
+	
+	private function sort_interfaces_collector(){
+		
 	}
 	
 	private function resolve_by_collector( string $parent, collector $collector ) : Array {
