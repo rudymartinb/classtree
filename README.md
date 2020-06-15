@@ -65,3 +65,4 @@ take a look at scripts/testphp.sh, modify if neccesary then run from the project
 
 it's recommended to use a terminal with color support like konsole.-
 
+

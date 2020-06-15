@@ -217,7 +217,7 @@ abstract class tree_builder {
 		$this->draw_tree( $this->iftree );
 		$this->draw_tree( $this->tree );
 		if( $output_file == "" ){
-			$output_file = "/var/www/htdocs/salida.png";
+			$output_file = "examples/output.png";
 		}
 		\imagepng($this->img,$output_file);
 
