@@ -391,14 +391,19 @@ abstract class tree_builder {
 		// draw the line
 		imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
 		
-		// draw the head, first filled, then border
-		if( $arrow_type == 1 ){
-			$points = array( $x1, $y1 , $xx1, $yy1 , $xx2, $yy2 );
-			imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
-			imagepolygon($this->img, $points, 3, $this->color["black"]);
-		} else {
-			imageline($this->img, $x1, $y1 , $xx1, $yy1, $this->color["black"]);
-			imageline($this->img, $x1, $y1 , $xx2, $yy2, $this->color["black"]);
+		switch( $arrow_type ){
+			case 1: {
+				// draw the head, first filled, then border
+				$points = array( $x1, $y1 , $xx1, $yy1 , $xx2, $yy2 );
+				imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
+				imagepolygon($this->img, $points, 3, $this->color["black"]);
+				break;
+			}
+			case 2: {
+				imageline($this->img, $x1, $y1 , $xx1, $yy1, $this->color["black"]);
+				imageline($this->img, $x1, $y1 , $xx2, $yy2, $this->color["black"]);
+				break;
+			}
 		}
 		
 	}
