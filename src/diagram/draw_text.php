@@ -7,7 +7,8 @@ class draw_text implements component {
 	protected $height_px;
 	protected $width_px;
 	
-	private $font_size = 8;
+	// WARNING: PHP properties varialbes are initilized AFTER the __construct() call !!
+	private $font_size; 
 	private $width = 0;
 	function set_width( int $width ){
 		$this->width = $width;
@@ -49,7 +50,8 @@ class draw_text implements component {
 	
 	function __construct( string $text  ){
 		$this->font_size = 10;
-		$size = 10;
+		
+		$size = $this->font_size;
 		$this->draw_function = function( $img, $font ) use( $size ){
 			\imagettftext($img, $size,0.0, $this->x, $this->y, $this->color["black"] , $font, $this->text);
 		};
