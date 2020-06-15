@@ -30,7 +30,14 @@ bash under Linux.
 
 ## Install instructions:  
 
-clone the git and execute install.sh on scritps directory. 
+	# I recommend to run this from any directory inside $HOME, like ~/usr or ~/var
+	cd
+	mkdir usr
+	cd usr
+	git clone git@github.com:rudymartinb/classtree.git 
+	cd classtree/scripts
+	./install.sh
+	
 It will create a ~/bin directory, a symlink to the classtree.sh located at the bin directory and then add a line to your .bash_profile which includes de ~/bin to your PATH enviroment.
 
 to uninstall simply remove the line added to your .bash_profile, the project directory and the symlink.
