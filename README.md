@@ -10,29 +10,16 @@ Under development.-
 ## Example Image:
 ![sample](https://raw.githubusercontent.com/rudymartinb/classtree/master/documentation/example.png)
 
-## Next steps: 
-* heavy refactor of tree_build.
-* adding access modifiers and functions for classes diagram nodes.
-* adding functions for interfaces diagram nodes.
-* allow to separate each tree in several images with the implemented interfaces togheter.  
-
-## Known bugs:
-* duplicated names (class, interfaces, etc) among different namespaces will produce underisable results.
-* most likely won't work on files with mixed html and php code (btw html data should be separated into another file).
-* this project relies heavly on regular expressions, as such there might be some edge cases I may have overlooked. If you run into a such situation let me know, if possible with copies of the scanned source files that gave you problems.
-* ATM only Unix linefeed is used for lines break.
-* Anonymous classes, anonymous functions, macros and functions outside classes are not going to be considered while building the dependencies tree.
-* installing the project from the script more than once will create several repeated lines at the end of ~/.bash_profile.
-* no error reporting yet.
-* just png at the moment.
-* arrow head calculation needs some tweak.-
-
 ## Intended enviroment:  
 bash under Linux.
 
+## Requieres:
+
+PHP7+
+
 ## Install instructions:  
 
-	# I recommend to run this from any directory inside $HOME, like ~/usr or ~/var
+	# I recommend to run this from any directory inside $HOME, like ~/usr or ~/var, to prevent polluting $HOME, but it's your call
 	cd
 	mkdir usr
 	cd usr
@@ -53,6 +40,23 @@ Syntax:
 for simplicity it's recommended to run from your project source dir:
 
 	classtree ./ /tmp/output.png	
+
+## Known bugs:
+* duplicated names (class, interfaces, etc) among different namespaces will produce underisable results.
+* most likely won't work on files with mixed html and php code (btw html data should be separated into another file).
+* this project relies heavly on regular expressions, as such there might be some edge cases I may have overlooked. If you run into a such situation let me know, if possible with copies of the scanned source files that gave you problems.
+* ATM only Unix linefeed is used for lines break.
+* Anonymous classes, anonymous functions, macros and functions outside classes are not going to be considered while building the dependencies tree.
+* installing the project from the script more than once will create several repeated lines at the end of ~/.bash_profile.
+* no error reporting yet.
+* just png at the moment.
+* arrow head calculation needs some tweak.-
+
+## Next steps: 
+* heavy refactor of tree_build.
+* adding access modifiers and functions for classes diagram nodes.
+* adding functions for interfaces diagram nodes.
+* allow to separate each tree in several images with the implemented interfaces togheter.  
  
 ## Testing:  
 take a look at scripts/testphp.sh, modify if neccesary then run from the project's root directory:
