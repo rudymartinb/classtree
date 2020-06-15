@@ -372,14 +372,14 @@ abstract class tree_builder {
 		$y1 = $point1["y"];
 		
 		// arrow head's "size"
-		$distance = 10;  
+		$distance = 12;  
 		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $theta_radians );
 		$x10 = $point1["x"];
 		$y10 = $point1["y"];
 		
 		/* calculate new points for the arrow head
 		 */
-		$distance = 5;
+		$distance = 4;
 		$point1 = $this->calculate_point($x10, $y10, $x2, $y2, $distance, $alpha1 );
 		$xx1 = $point1["x"];
 		$yy1 = $point1["y"];
