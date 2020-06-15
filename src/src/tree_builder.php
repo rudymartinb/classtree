@@ -362,9 +362,9 @@ abstract class tree_builder {
 		
 		/* create two new angles for the arrow head
 		 */
-		$rad = 90 * pi()/180;
-		$alpha1 = $theta_radians + $rad ;
-		$alpha2 = $theta_radians - $rad ;
+		$rad90 = 90 * pi()/180; 
+		$alpha1 = $theta_radians + $rad90 ;
+		$alpha2 = $theta_radians - $rad90 ;
 
 		// override ending point with a small margin
 		$distance = 2;
@@ -372,7 +372,7 @@ abstract class tree_builder {
 		$x1 = $point1["x"];
 		$y1 = $point1["y"];
 		
-		// arrow head's "size"
+		// arrow head's "size" (a point inside the line based on distance)
 		$distance = 12;  
 		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $theta_radians );
 		$x10 = $point1["x"];
