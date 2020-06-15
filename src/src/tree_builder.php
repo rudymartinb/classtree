@@ -366,7 +366,7 @@ abstract class tree_builder {
 		$alpha1 = $theta_radians + $rad ;
 		$alpha2 = $theta_radians - $rad ;
 
-		$distance = 3;
+		$distance = 2;
 		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $theta_radians );
 		$x1 = $point1["x"];
 		$y1 = $point1["y"];
