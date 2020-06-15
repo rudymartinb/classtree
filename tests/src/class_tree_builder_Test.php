@@ -302,9 +302,6 @@ class someclass implements interface1, interface2  {
 	function test_interfaces_3(){
 		$tree = $this->mysetup();
 		$tree->add_source( '
-interface interface0 {
-}
-
 interface interface1 {
 }
 interface interface2 extends interface1 {
@@ -330,6 +327,8 @@ class someclass implements interface2  {
 	function test_interfaces_complex(){
 		$tree = $this->mysetup();
 		$tree->add_source( '
+interface interface0 {
+}
 interface interface1 {
 }
 interface interface2 {
