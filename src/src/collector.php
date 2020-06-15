@@ -3,9 +3,11 @@ namespace src;
 
 abstract class collector {
 	protected $data = [];
+	
 	function __construct( collector $previous = null ){
 		if( $previous !== null ){
 			$this->data = $previous->data;
+			$this->current_key = 0;
 		}
 	}
 	

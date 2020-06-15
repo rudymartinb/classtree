@@ -48,7 +48,7 @@ abstract class tree_builder {
 	
 	
 	function resolve_hierarchy() {
-		$this->sort_interfaces_collector();
+// 		$this->sort_interfaces_collector();
 		$this->iftree = $this->resolve_by_collector( "", $this->ifcollector );
 		$this->tree = $this->resolve_by_collector( "", $this->collector );
 		$this->calculate_relative_positions( $this->iftree );
@@ -58,6 +58,8 @@ abstract class tree_builder {
 	private function sort_interfaces_collector(){
 
 		$ifcollector = new interface_collector();
+		
+		// by classes first
 		$collector = $this->collector->clone();
 		$placed = [];
 		
@@ -67,13 +69,26 @@ abstract class tree_builder {
 				$ifname = $interface["ifname"];
 				if( $placed[ $ifname  ] === null ){
 					$placed[ $ifname  ] = true;
+					$this->ifcollector->select($ifname);
+					$ifcollector->add_node( $this->ifcollector->get_node( $ifname ) );
 				}
+			}
+			$collector->next();
+		}
+
+		// remaining interfaces not mentioned by classes (if any)
+		$collector = $this->ifcollector->clone();
+		while( $collector->more_elements() ){
+			$ifname = $collector->get_name();
+			if( $placed[ $ifname  ] === null ){
+				$placed[ $ifname  ] = true;
 				$this->ifcollector->select($ifname);
 				$ifcollector->add_node( $this->ifcollector->get_node( $ifname ) );
 			}
 			$collector->next();
-			
 		}
+		$this->ifcollector = $ifcollector;
+		
 	}
 	
 	private function resolve_by_collector( string $parent, collector $collector ) : Array {
