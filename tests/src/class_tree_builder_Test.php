@@ -318,7 +318,11 @@ class someclass implements interface2  {
 	}
 
 	
-	
+	/*
+	 * as is, this test could draw and X of lines
+	 * what I want is to prevent that and "move" the interfaces tree 
+	 * where it could be closer to the classes implementing them
+	 */
 	function test_interfaces_complex(){
 		$tree = $this->mysetup();
 		$tree->add_source( '
