@@ -87,6 +87,10 @@ class class_collector extends collector {
 	function get_index() : Array {
 		return $this->index_array;
 	}
+	function add_node( Array $node ){
+		$this->data[] = $node;
+		$this->index_array[ $node["name"]] = count( $this->data )-1;
+	}
 	
 	/*
 	 * SPY section for testing

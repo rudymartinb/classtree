@@ -4,6 +4,7 @@ namespace src;
 use scr\node;
 use function scr\force_tree;
 use diagram\vertical_layout;
+use something\orphan;
 
 abstract class tree_builder {
 	use node_positions;
@@ -60,6 +61,7 @@ abstract class tree_builder {
 		$ifcollector = new interface_collector();
 		
 		$class_collector = new class_collector();
+		$orphan_collector = new class_collector();
 		// by classes first
 		$collector = $this->collector->clone();
 		$placed = [];
@@ -82,6 +84,8 @@ abstract class tree_builder {
 			}
 			if( $found ){
 				$class_collector->add_node( $collector->get_current_node() );
+			} else {
+				$orphan_collector->add_node( $collector->get_current_node() );
 			}
 			$collector->next();
 		}
@@ -99,6 +103,11 @@ abstract class tree_builder {
 		}
 		
 		$this->ifcollector = $ifcollector;
+		$this->collector = $class_collector;
+		while( $orphan_collector->more_elements() ){
+			$this->collector->add_node( $orphan_collector->get_current_node() );
+			$orphan_collector->next();
+		}
 		
 	}
 	

@@ -22,9 +22,7 @@ abstract class collector {
 	function get_current_node() : Array {
 		return $this->data[$this->current_key];
 	}
-	function add_node( Array $node ){
-		$this->data[] = $node;
-	}
+
 
 	function count() : int {
 		return count( $this->data );
