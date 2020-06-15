@@ -56,7 +56,22 @@ abstract class tree_builder {
 	}
 	
 	private function sort_interfaces_collector(){
+
+		$ifcollector = new interface_collector();
+		$collector = $this->collector->clone();
+		$placed = [];
 		
+		while( $collector->more_elements() ){
+			$implements = $collector->get_implements();
+			foreach( $implements as $interface ){
+				$ifname = $interface["ifname"];
+				if( $placed[ $ifname  ] === null ){
+					$placed[ $ifname  ] = true;
+				}
+			}
+			$collector->next();
+			
+		}
 	}
 	
 	private function resolve_by_collector( string $parent, collector $collector ) : Array {
