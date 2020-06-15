@@ -7,7 +7,7 @@ class draw_text implements component {
 	protected $height_px;
 	protected $width_px;
 	
-	
+	private $font_size = 8;
 	private $width = 0;
 	function set_width( int $width ){
 		$this->width = $width;
@@ -48,15 +48,17 @@ class draw_text implements component {
 	}
 	
 	function __construct( string $text  ){
-		$this->draw_function = function( $img, $font ){
-			\imagettftext($img, 10,0.0, $this->x, $this->y, $this->color["black"] , $font, $this->text);
+		$this->font_size = 10;
+		$size = 10;
+		$this->draw_function = function( $img, $font ) use( $size ){
+			\imagettftext($img, $size,0.0, $this->x, $this->y, $this->color["black"] , $font, $this->text);
 		};
 		
 		$this->text = $text;
 		$font = self::$project_path.'/fonts/courier.ttf';
 		
 		$font = trim( realpath($font) );
-		$arr = imagettfbbox(10, 0.0, $font, $text);
+		$arr = imagettfbbox( $this->font_size, 0.0, $font, $text);
 		$this->height_px = $arr[1] - $arr[5];
 		$this->width_px = $arr[4] - $arr[0];
 	}
