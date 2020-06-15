@@ -68,6 +68,8 @@ abstract class tree_builder {
 				if( $placed[ $ifname  ] === null ){
 					$placed[ $ifname  ] = true;
 				}
+				$this->ifcollector->select($ifname);
+				$ifcollector->add_node( $this->ifcollector->get_node( $ifname ) );
 			}
 			$collector->next();
 			

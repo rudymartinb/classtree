@@ -77,6 +77,19 @@ class interface_collector extends collector {
 		$this->class_index = null;
 	}
 	
+	function get_node( string $classname ) : Array {
+		foreach( $this->data as $class ){
+			if( $class["name"] == $classname ){
+				return $class;
+			}
+		}
+		return [];
+	}
+	
+	function add_node( Array $node ) {
+		$this->data[] = $node;
+	}
+	
 	
 	// FUNCTIONS section
 	private function thisfn( string $tag ){
