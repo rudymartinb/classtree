@@ -69,9 +69,7 @@ abstract class tree_builder {
 				$ifname = $interface["ifname"];
 				if( $placed[ $ifname  ] === null ){
 					$placed[ $ifname  ] = true;
-					if( $this->ifcollector->select( $ifname ) === -1 ){
-						var_dump( $implements );	
-					}
+					$this->ifcollector->select( $ifname );
 					$ifcollector->add_node( $this->ifcollector->get_node() );
 				}
 			}
@@ -79,16 +77,16 @@ abstract class tree_builder {
 		}
 
 		// remaining interfaces not mentioned by classes (if any)
-// 		$collector = $this->ifcollector->clone();
-// 		while( $collector->more_elements() ){
-// 			$ifname = $collector->get_name();
-// 			if( $placed[ $ifname  ] === null ){
-// 				$placed[ $ifname  ] = true;
-// 				$this->ifcollector->select($ifname);
-// 				$ifcollector->add_node( $this->ifcollector->get_node( $ifname ) );
-// 			}
-// 			$collector->next();
-// 		}
+		$collector = $this->ifcollector->clone();
+		while( $collector->more_elements() ){
+			$ifname = $collector->get_name();
+			if( $placed[ $ifname  ] === null ){
+				$placed[ $ifname  ] = true;
+				$this->ifcollector->select($ifname);
+				$ifcollector->add_node( $this->ifcollector->get_node( $ifname ) );
+			}
+			$collector->next();
+		}
 		
 		$this->ifcollector = $ifcollector;
 		
