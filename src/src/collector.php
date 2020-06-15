@@ -19,8 +19,11 @@ abstract class collector {
 	function more_elements() : bool {
 		return count( $this->data ) > $this->current_key;
 	}
-	function get() : Array {
+	function get_current_node() : Array {
 		return $this->data[$this->current_key];
+	}
+	function add_node( Array $node ){
+		$this->data[] = $node;
 	}
 
 	function count() : int {

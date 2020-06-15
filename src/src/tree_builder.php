@@ -59,12 +59,14 @@ abstract class tree_builder {
 
 		$ifcollector = new interface_collector();
 		
+		$class_collector = new class_collector();
 		// by classes first
 		$collector = $this->collector->clone();
 		$placed = [];
 		
 		while( $collector->more_elements() ){
 			$implements = $collector->get_implements();
+			$found = false;
 			foreach( $implements as $interface ){
 				$ifname = $interface["ifname"];
 				if( $placed[ $ifname  ] === null ){
@@ -73,9 +75,13 @@ abstract class tree_builder {
 					// in that case we don't bother anymore with it
 					if( $this->ifcollector->select( $ifname ) != -1 ){
 						$ifcollector->add_node( $this->ifcollector->get_node() );
+						$found = true;
 					}
 					
 				}
+			}
+			if( $found ){
+				$class_collector->add_node( $collector->get_current_node() );
 			}
 			$collector->next();
 		}
