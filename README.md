@@ -1,6 +1,6 @@
 # ClassTree
 
-Description: tool for php7 code scanning. 
+Description: tool for PHP7+ code scanning. 
 The final goal is to be able to create a class diagram (PNG or JPG) based on source code statements and parameters and return values types from methods and functions. By doing that you get a map of how your project is built.
 
 ## STATUS:   
@@ -8,7 +8,7 @@ The final goal is to be able to create a class diagram (PNG or JPG) based on sou
 Under development.-
 
 ## Example Image:
-![sample](https://raw.githubusercontent.com/rudymartinb/classtree/master/documentation/example.png)
+![sample](https://raw.githubusercontent.com/rudymartinb/classtree/master/examples/output.png)
 
 ## Intended enviroment:  
 bash under Linux.
@@ -42,7 +42,7 @@ for simplicity it's recommended to run from your project source dir:
 	classtree ./ /tmp/output.png	
 
 ## Known bugs:
-* may not work under software containers: project need read-only access to the filesystem and write access to the indicated outputfile.-
+* may not work under containers
 * duplicated names (class, interfaces, etc) among different namespaces will produce underisable results.
 * most likely won't work on files with mixed html and php code (btw html data should be separated into another file).
 * this project relies heavly on regular expressions, as such there might be some edge cases I may have overlooked. If you run into a such situation let me know, if possible with copies of the scanned source files that gave you problems.
