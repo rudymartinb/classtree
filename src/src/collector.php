@@ -22,6 +22,7 @@ abstract class collector {
 	function get() : Array {
 		return $this->data[$this->current_key];
 	}
+
 	function count() : int {
 		return count( $this->data );
 	}

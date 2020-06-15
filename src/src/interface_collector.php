@@ -7,6 +7,12 @@ class interface_collector extends collector {
 	}
 	
 	function get_name() : string {
+		if( $this->current_key === null ){
+			var_dump( $this->data );
+		}
+		if( $this->data[$this->current_key]["name"] === null ){
+			var_dump( $this->data[$this->current_key] );
+		}
 		return $this->data[$this->current_key]["name"];
 	}
 	function get_extends() : string  {
@@ -75,17 +81,11 @@ class interface_collector extends collector {
 			}
 		}
 		$this->class_index = null;
+		return -1;
 	}
-	
-	function get_node( string $classname ) : Array {
-		foreach( $this->data as $class ){
-			if( $class["name"] == $classname ){
-				return $class;
-			}
-		}
-		return [];
+	function get_node() : Array {
+		return $this->data[$this->class_index];
 	}
-	
 	function add_node( Array $node ) {
 		$this->data[] = $node;
 	}

@@ -16,6 +16,11 @@ class class_collector extends collector {
 		return $this->data;
 	}
 	
+	function get_implements(): Array {
+		return $this->data[$this->current_key]["implements"];
+	}
+	
+	
 	private $index_array = [];
 	function add_source( string $source, string $namespace = "" ){
 		$finder = new class_finder($source);
@@ -36,12 +41,14 @@ class class_collector extends collector {
 			// implements is a comma separated string
 
 			$imp = $finder->get_implements();
-			$array = explode( "," , $imp );
-			foreach( $array as $key => $implements ){
-				$array[ $key ] = [ "ifname" => trim( $implements ) ];
+			$class["implements"] = [];
+			if( trim( $imp ) !== "" ){
+				$array = explode( "," , $imp );
+				foreach( $array as $key => $implements ){
+					$array[ $key ] = [ "ifname" => trim( $implements ) ];
+				}
+				$class["implements"] = $array;
 			}
-			$class["implements"] = $array;
-			
 			
 			$class["functions"] = [];
 			while( $finder->more_functions() ){
@@ -99,15 +106,12 @@ class class_collector extends collector {
 		$this->param_index = 0;
 		return $this->class_index;
 	}
+	
 	function is_final(): bool{
 		return $this->data[ $this->class_index ]["final"] === "final";
 	}
 	function is_abstract(): bool{
 		return $this->data[ $this->class_index ]["abstract"] === "abstract";
-	}
-	
-	function get_implements(): Array {
-		return $this->data[$this->current_key]["implements"];
 	}
 	
 
