@@ -210,7 +210,7 @@ abstract class tree_builder {
 		
 		imagefilledrectangle( $img, 0,0,$this->max_img_width-1, $this->max_img_height-1, $this->color["white"]);
 
-		imageantialias ( $img, true );
+// 		imageantialias ( $img, true );
 		$this->grid( $img, $area_x , $area_y );
 		
 		$this->img = $img;
