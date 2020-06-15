@@ -393,7 +393,7 @@ abstract class tree_builder {
 		
 		// draw the head, first filled, then border
 		if( $arrow_type == 1 ){
-			$points = array( $x10, $y10 , $xx1, $yy1 , $xx2, $yy2 );
+			$points = array( $x1, $y1 , $xx1, $yy1 , $xx2, $yy2 );
 			imagefilledpolygon($this->img, $points, 3, $this->color["white"]);
 			imagepolygon($this->img, $points, 3, $this->color["black"]);
 		} else {
