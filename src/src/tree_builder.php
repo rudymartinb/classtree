@@ -385,7 +385,7 @@ abstract class tree_builder {
 		
 		// draw the line
 		imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
-		$points = array( $x1, $y1+1 , $xx1, $yy1 , $xx2, $yy2 );
+		$points = array( $x1, $y1 , $xx1, $yy1 , $xx2, $yy2 );
 		
 		// draw the head, first filled, then border
 		if( $arrow_type == 1 ){
