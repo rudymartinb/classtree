@@ -358,7 +358,7 @@ abstract class tree_builder {
 		 */
 		$delta_x = $x2 - $x1;
 		$delta_y = $y2 - $y1;
-		$theta_radians = atan2( $delta_y, $delta_x);
+		$theta_radians = (float) atan2( $delta_y, $delta_x);
 		
 		/* create two new angles for the arrow head
 		 */
