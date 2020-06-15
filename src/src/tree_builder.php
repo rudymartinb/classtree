@@ -364,7 +364,7 @@ abstract class tree_builder {
 		 */
 		$rad = 90 * pi()/180;
 		$alpha1 = $theta_radians + $rad ; // 0.261799;
-		$alpha2 = $theta_radians - 1.5708 ; // 0.261799;
+		$alpha2 = $theta_radians - $rad ; // 0.261799;
 		
 		// arrow head's "size"
 		$distance = 5;  
