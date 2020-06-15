@@ -47,9 +47,9 @@ class draw_text implements component {
 	static function set_path( string $path ){
 		self::$project_path = $path.'/';
 	}
+
 	
 	function __construct( string $text  ){
-
 		$this->draw_function = function( $img, $font ) {
 			\imagettftext($img, 10,0.0, $this->x, $this->y, $this->color["black"] , $font, $this->text);
 		};
