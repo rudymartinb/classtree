@@ -49,9 +49,8 @@ class draw_text implements component {
 	}
 	
 	function __construct( string $text  ){
-		$this->font_size = 10;
-		$size = $this->font_size;
-		$this->draw_function = function( $img, $font ) use( $size ){
+
+		$this->draw_function = function( $img, $font ) {
 			\imagettftext($img, 10,0.0, $this->x, $this->y, $this->color["black"] , $font, $this->text);
 		};
 		
