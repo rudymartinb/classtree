@@ -90,7 +90,6 @@ class interface_collector extends collector {
 		$this->data[] = $node;
 	}
 	
-	
 	// FUNCTIONS section
 	private function thisfn( string $tag ){
 		return $this->data[ $this->class_index ]["functions"][ $this->function_index ][ $tag ];
