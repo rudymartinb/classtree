@@ -25,7 +25,6 @@ class draw_text implements component {
 			return;
 		}
 		
-		putenv('GDFONTPATH=' . realPath('fonts'));
 		$font = self::$project_path.'/fonts/courier.ttf';
 		
 		$font = trim( realpath($font) );
