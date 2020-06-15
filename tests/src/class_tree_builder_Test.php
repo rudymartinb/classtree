@@ -310,10 +310,33 @@ class someclass implements interface2  {
 ' );
 		
 		$tree->resolve_hierarchy();
-		$tree->draw();
+// 		$tree->draw();
 // 		$tree->draw("documentation/example.png");
 // 		var_dump($tree->get_iftree());
 		$this->assertEquals( 3, $tree->get_max_height() );
+		
+	}
+
+	
+	
+	function test_interfaces_complex(){
+		$tree = $this->mysetup();
+		$tree->add_source( '
+interface interface1 {
+}
+interface interface2 {
+}
+class someclass implements interface2  {
+}
+class someclass2 implements interface1  {
+}
+' );
+		
+		$tree->resolve_hierarchy();
+		$tree->draw();
+		// 		$tree->draw("documentation/example.png");
+		// 		var_dump($tree->get_iftree());
+		$this->assertEquals( 2, $tree->get_max_height() );
 		
 	}
 	
