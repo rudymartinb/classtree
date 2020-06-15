@@ -69,6 +69,8 @@ abstract class tree_builder {
 				$ifname = $interface["ifname"];
 				if( $placed[ $ifname  ] === null ){
 					$placed[ $ifname  ] = true;
+					// interface may not exists
+					// in that case we don't bother anymore with it
 					if( $this->ifcollector->select( $ifname ) != -1 ){
 						$ifcollector->add_node( $this->ifcollector->get_node() );
 					}
