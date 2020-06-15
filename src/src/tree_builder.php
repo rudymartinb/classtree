@@ -383,7 +383,7 @@ abstract class tree_builder {
 		$yy2 = $point1["y"];
 		
 		// draw the line
-		imageline ( $this->img , $x1 , $y1+1 , $x2 , $y2 , $this->color["black"] );
+		imageline ( $this->img , $x1 , $y1 , $x2 , $y2 , $this->color["black"] );
 		$points = array( $x1, $y1+1 , $xx1, $yy1 , $xx2, $yy2 );
 		
 		// draw the head, first filled, then border
