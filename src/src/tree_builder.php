@@ -366,6 +366,7 @@ abstract class tree_builder {
 		$alpha1 = $theta_radians + $rad ;
 		$alpha2 = $theta_radians - $rad ;
 
+		// override ending point with a small margin
 		$distance = 2;
 		$point1 = $this->calculate_point($x1, $y1, $x2, $y2, $distance, $theta_radians );
 		$x1 = $point1["x"];
