@@ -284,6 +284,9 @@ class someclass implements interface1, interface2  {
 	function test_interfaces_2(){
 		$tree = $this->mysetup();
 		$tree->add_source( '
+interface interface0 {
+}
+
 interface interface1 {
 }
 interface interface2 {
