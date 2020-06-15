@@ -362,7 +362,8 @@ abstract class tree_builder {
 		
 		/* create two new angles for the arrow head
 		 */
-		$alpha1 = $theta_radians + 1.5708 ; // 0.261799;
+		$rad = 90 * pi()/180;
+		$alpha1 = $theta_radians + $rad ; // 0.261799;
 		$alpha2 = $theta_radians - 1.5708 ; // 0.261799;
 		
 		// arrow head's "size"
