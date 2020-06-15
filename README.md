@@ -11,8 +11,10 @@ Under development.-
 ![sample](https://raw.githubusercontent.com/rudymartinb/classtree/master/documentation/example.png)
 
 ## Next steps: 
-* heavy refactor of tree_build 
-* allow to separate each tree in several images with the implemented interfaces  
+* heavy refactor of tree_build.
+* adding access modifiers and functions for classes diagram nodes.
+* adding functions for interfaces diagram nodes.
+* allow to separate each tree in several images with the implemented interfaces togheter.  
 
 ## Known bugs:
 * duplicated names (class, interfaces, etc) among different namespaces will produce underisable results.
