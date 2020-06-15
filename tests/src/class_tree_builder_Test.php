@@ -271,7 +271,7 @@ class someclass implements interface1, interface2  {
 ' );
 		$tree->resolve_hierarchy();
 		$collector = $tree->get_collector();
-		var_dump( $collector );
+// 		var_dump( $collector );
 		$collector->select( "someclass" );
 		
 		$this->assertEquals( true, $collector->more_interfaces() );
