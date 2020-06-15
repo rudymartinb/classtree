@@ -395,7 +395,7 @@ abstract class tree_builder {
 			$points = array( $x1, $y1 , $xx1, $yy1 , $xx2, $yy2 );
 			imagepolygon($this->img, $points, 2, $this->color["black"]);
 			
-			imageline($this->img, $x1, $y1 , $xx2, $yy2, $this->color["black"]);
+			imageline($this->img, $x10, $y10 , $xx2, $yy2, $this->color["black"]);
 		}
 		
 	}
