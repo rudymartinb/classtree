@@ -374,7 +374,7 @@ abstract class tree_builder {
 		
 		/* calculate new points for the arrow head
 		 */
-		$distance = 15;
+		$distance = 5;
 		$point1 = $this->calculate_point($x10, $y10, $x2, $y2, $distance, $alpha1 );
 		$xx1 = $point1["x"];
 		$yy1 = $point1["y"];
