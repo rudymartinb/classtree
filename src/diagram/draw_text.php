@@ -33,7 +33,8 @@ class draw_text implements component {
 		
 		$font = realpath($font) ;
 		if( !file_exists($font) ){
-			echo "'".$font."'\n";
+			error_log( "MISSING FONT? : ".$font );
+			echo "MISSING FONT FILE: '".$font."'\n";
 		}
 		
 		$function = $this->draw_function;
@@ -56,6 +57,10 @@ class draw_text implements component {
 		
 		$this->text = $text;
 		$font = self::$project_path.'/fonts/courier.ttf';
+		if( !file_exists($font) ){
+			error_log( "MISSING FONT? : ".$font );
+			echo "MISSING FONT FILE: '".$font."'\n";
+		}
 		
 		$font = trim( realpath($font) );
 		$arr = imagettfbbox( 10, 0.0, $font, $text);
