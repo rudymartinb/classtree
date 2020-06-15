@@ -361,8 +361,9 @@ abstract class tree_builder {
 		$theta_radians = (float) atan2( $delta_y, $delta_x);
 		
 		/* create two new angles for the arrow head
+		 * we calculate 90 to radians which is pi/2
 		 */
-		$rad90 = 90 * pi()/180; 
+		$rad90 = pi()/2; 
 		$alpha1 = $theta_radians + $rad90 ;
 		$alpha2 = $theta_radians - $rad90 ;
 
